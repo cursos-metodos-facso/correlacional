@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Estadística Correlacional - Asociación, inferencia y reporte">
+
+<title>Estadística Correlacional - Inferencia 1: Fundamentos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//files/logo-correlacional-transp.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta property="og:title" content="Estadística Correlacional - Inferencia 1: Fundamentos">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://correlacional.netlify.app/files/logo-correlacional.png">
+<meta property="og:site-name" content="Estadística Correlacional">
+<meta property="og:locale" content="es">
+<meta property="og:image:height" content="500">
+<meta property="og:image:width" content="500">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Estadística Correlacional</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html" rel="" target="">
+ <span class="menu-text">Programa</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html" rel="" target="">
+ <span class="menu-text">Planificación</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../content/index.html" rel="" target="">
+ <span class="menu-text">Clases</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assignment/index.html" rel="" target="">
+ <span class="menu-text">Prácticos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resource/index.html" rel="" target="">
+ <span class="menu-text">Recursos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../news/index.html" rel="" target="">
+ <span class="menu-text">Noticias</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://rstudio.cloud" rel="" target=""><i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#objetivo-de-la-práctica" id="toc-objetivo-de-la-práctica" class="nav-link active" data-scroll-target="#objetivo-de-la-práctica">Objetivo de la práctica</a>
+  <ul class="collapse">
+  <li><a href="#recursos-de-la-práctica" id="toc-recursos-de-la-práctica" class="nav-link" data-scroll-target="#recursos-de-la-práctica">Recursos de la práctica</a></li>
+  </ul></li>
+  <li><a href="#conceptos-centrales" id="toc-conceptos-centrales" class="nav-link" data-scroll-target="#conceptos-centrales">Conceptos centrales</a></li>
+  <li><a href="#curva-normal" id="toc-curva-normal" class="nav-link" data-scroll-target="#curva-normal">Curva normal</a>
+  <ul class="collapse">
+  <li><a href="#preparación-datos" id="toc-preparación-datos" class="nav-link" data-scroll-target="#preparación-datos">Preparación datos</a></li>
+  <li><a href="#histograma-de-frecuencias" id="toc-histograma-de-frecuencias" class="nav-link" data-scroll-target="#histograma-de-frecuencias">Histograma de frecuencias</a></li>
+  <li><a href="#curvas-de-densidad" id="toc-curvas-de-densidad" class="nav-link" data-scroll-target="#curvas-de-densidad">Curvas de densidad</a></li>
+  <li><a href="#curva-de-distribución-normal" id="toc-curva-de-distribución-normal" class="nav-link" data-scroll-target="#curva-de-distribución-normal">Curva de distribución normal</a></li>
+  </ul></li>
+  <li><a href="#puntaje-z-y-estandarización" id="toc-puntaje-z-y-estandarización" class="nav-link" data-scroll-target="#puntaje-z-y-estandarización">Puntaje z y estandarización</a></li>
+  <li><a href="#practiquemos" id="toc-practiquemos" class="nav-link" data-scroll-target="#practiquemos">Practiquemos</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#reporte-de-progreso" id="toc-reporte-de-progreso" class="nav-link" data-scroll-target="#reporte-de-progreso">Reporte de progreso</a></li>
+  <li><a href="#video-de-práctica" id="toc-video-de-práctica" class="nav-link" data-scroll-target="#video-de-práctica">Video de práctica</a></li>
+  <li><a href="#foro" id="toc-foro" class="nav-link" data-scroll-target="#foro">Foro</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header">
+<h1 class="title display-7">Inferencia 1: Fundamentos</h1>
+
+<div class="date-block bg-assignment text-white p-2">
+  <p class="date">Completar hasta as 11:59 PM del martes, 5 de septiembre de 2023</p>
+</div>
+</header>
+
+<section id="objetivo-de-la-práctica" class="level1">
+<h1>Objetivo de la práctica</h1>
+<p>El objetivo de esta guía práctica es aproximarnos a los fundamentos de la inferencia estadística, reforzando los contenidos respecto a sus conceptos centrales. Además, graficaremos la curva normal y calcularemos el puntaje z.</p>
+<p>En detalle, aprenderemos:</p>
+<ol type="1">
+<li>Los conceptos centrales de la inferencia estadística</li>
+<li>Qué es la curva normal y como graficarla</li>
+<li>Qué es y cómo calcular el puntaje <span class="math inline">\(Z\)</span></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Acaso un <em>déjà vu</em>?</strong></p>
+<p>¿Algo de esto nos suena conocido?</p>
+<p>¿Recuerdan lo que vimos en <a href="https://descriptiva-facso.netlify.app/">Estadística Descriptiva</a> respecto a inferencia?</p>
+<p>En las sesiones 7 y 8 del laboratorio de análisis de datos pueden repasar.</p>
+</div>
+</div>
+<section id="recursos-de-la-práctica" class="level2">
+<h2 class="anchored" data-anchor-id="recursos-de-la-práctica">Recursos de la práctica</h2>
+<p>En esta práctica trabajaremos con un subconjunto de datos previamente procesados del Estudio Longitudinal Social de Chile (ELSOC) del año 2016, elaborado por <a href="https://coes.cl/encuesta-panel/">COES</a>. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: <a href="https://multivariada.netlify.app/assignment/data/proc/ELSOC_ess_merit2016.RData"><i class="fa-solid fa-table" aria-label="table"></i> <code>ELSOC 2016</code></a>. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos ELSOC 2016.</p>
+</section>
+</section>
+<section id="conceptos-centrales" class="level1">
+<h1>Conceptos centrales</h1>
+<p>Repasemos algunos de los conceptos fundamentales para la inferencia estadística vistos en la <a href="https://correlacional.netlify.app/content/05-content">sesión 5</a>, y algunos otros.</p>
+<p>Prestemos atención a la siguiente imagen ¿dónde se inserta lo que vimos en estadística descriptiva? ¿Pueden definir todos los conceptos que se mencionan?</p>
+<p><img src="../files/INFERENCIA.jpg" class="img-fluid"></p>
+<p>Vamos parte por parte.</p>
+<p><strong>1. Población</strong>: Corresponde al grupo entero de individuos sobre el que queremos información.</p>
+<p><strong>2. Muestra</strong>: Es un subconjunto de la población. Es la parte de la población que realmente examinamos con el objetivo de obtener información.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../files/pob_muestra.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>3. Parámetro</strong>: es un número que describe la población. En la práctica estadística el valor del parámetro no es conocido ya que no podemos examinar toda la población.</p>
+<p><strong>4. Estadístico</strong>: es un número que se puede calcular a partir de los datos de la muestra sin utilizar ningún parámetro desconocido. En la práctica, solemos utilizar un estadístico para estimar el parámetro desconocido.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Población (parámetro)</th>
+<th>Muestra (estadístico)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Promedio</td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td><span class="math inline">\(\bar{x}\)</span></td>
+</tr>
+<tr class="even">
+<td>Varianza</td>
+<td><span class="math inline">\(\sigma²\)</span></td>
+<td><span class="math inline">\(s²\)</span></td>
+</tr>
+<tr class="odd">
+<td>Desviación estándar</td>
+<td><span class="math inline">\(\sigma\)</span></td>
+<td><span class="math inline">\(s\)</span></td>
+</tr>
+<tr class="even">
+<td>Correlación</td>
+<td><span class="math inline">\(\rho\)</span></td>
+<td><span class="math inline">\(r\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>5. Inferencia</strong>: La inferencia estadística proporciona métodos que permiten sacar conclusiones de una población a partir de los datos de una muestra.</p>
+<p><strong>6. Error de muestreo</strong>: diferencia entre el valor calculado de un estadístico de la muestra y el valor real de un parámetro de la población.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../files/poblacion.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../files/muestra1.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../files/muestra2.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>7. Variabilidad muestral</strong>: el valor de un estadístico varía en un muestreo aleatorio repetido.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../files/dist_muestral.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>8. Aleatoriedad</strong>: Llamamos a un fenómeno aleatorio si los resultados individuales son inciertos y, sin embargo, existe una distribución regular de los resultados después de un gran número de repeticiones.</p>
+<p><strong>9. Probabilidad</strong>: es la proporción de veces que el resultado se da después de una larga serie de repeticiones.</p>
+<p><strong>10. Distribución</strong>: se refiere al conjunto de todos los valores posibles de una variable y las frecuencias (o probabilidades) con las que se producen.</p>
+<!-- **11. Distribución muestral**: La distribución muestral de un estadístico es la distribución de los valores tomados por él en todas las muestras posibles de igual tamaño de la misma población. -->
+</section>
+<section id="curva-normal" class="level1">
+<h1>Curva normal</h1>
+<p>La curva normal es un tipo de <strong>distribución</strong> en la que la frecuencia con la que ocurren los valores de la variable se asemeja a una campana. Esto quiere decir que se presenta una menor frecuencia de observaciones para los valores mayores y menores de la variable, y una mayor frecuencia de observaciones para aquellos valores que se encuentran hacia el centro de la distribución.</p>
+<p><img src="../files/norm1.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>¿Cuáles variables te imaginas que se pueden distribuir de manera normal?</p>
+</div>
+</div>
+<p>Esto tiene algunas implicancias cuando nos acompañamos de la probabilidad.</p>
+<p><img src="../files/reg_prob.png" class="img-fluid"></p>
+<p>En una distribución normal de media <span class="math inline">\(\mu\)</span> y desviación estándar <span class="math inline">\(\sigma\)</span>:</p>
+<ul>
+<li><p>El <strong>68%</strong> de todas las observaciones se encuentran dentro del intervalo µ ± σ.</p></li>
+<li><p>El <strong>95%</strong> de todas las observaciones se encuentran dentro del intervalo µ ± 2σ.</p></li>
+<li><p>El <strong>99,7%</strong> de todas las observaciones se encuentran dentro del in- tervalo µ ± 3σ.</p></li>
+</ul>
+<p><img src="../files/norm2.png" class="img-fluid"></p>
+<p>¡Veamos un ejemplo!</p>
+<section id="preparación-datos" class="level2">
+<h2 class="anchored" data-anchor-id="preparación-datos">Preparación datos</h2>
+<p>Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse,  <span class="co"># Manipulacion datos</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               sjmisc,     <span class="co"># Descriptivos</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               sjPlot,     <span class="co"># Tablas</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co"># Tablas</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               ggplot2)    <span class="co"># Graficos</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Cargamos los datos directamente desde internet (por esta vez).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://multivariada.netlify.app/assignment/data/proc/ELSOC_ess_merit2016.RData"</span>)) <span class="co">#Cargar base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A continuación, exploramos la base de datos <strong>proc_elsoc</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(proc_elsoc) <span class="co"># Nombre de columnas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "mesfuerzo" "mtalento"  "ess"       "edcine"    "sexo"      "edad"     
+[7] "pmerit"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(proc_elsoc) <span class="co"># Dimensiones</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2927    7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(proc_elsoc) <span class="co"># Estructura de los datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   2927 obs. of  7 variables:
+ $ mesfuerzo: num  4 4 2 4 5 3 1 2 3 3 ...
+  ..- attr(*, "label")= chr "Recompensa: esfuerzo"
+  ..- attr(*, "format.stata")= chr "%30.0g"
+  ..- attr(*, "labels")= Named num [1:7] -999 -888 1 2 3 4 5
+  .. ..- attr(*, "names")= chr [1:7] "No Responde (no leer)" "No Sabe (no leer)" "Totalmente en desacuerdo" "En desacuerdo" ...
+ $ mtalento : num  4 4 4 4 2 5 1 2 4 5 ...
+  ..- attr(*, "label")= chr "Recompensa: talento"
+  ..- attr(*, "format.stata")= chr "%30.0g"
+  ..- attr(*, "labels")= Named num [1:7] -999 -888 1 2 3 4 5
+  .. ..- attr(*, "names")= chr [1:7] "No Responde (no leer)" "No Sabe (no leer)" "Totalmente en desacuerdo" "En desacuerdo" ...
+ $ ess      : num  5 5 3 6 4 5 6 7 4 3 ...
+  ..- attr(*, "label")= chr "Estatus Social Subjetivo"
+  ..- attr(*, "format.stata")= chr "%21.0g"
+  ..- attr(*, "labels")= Named num [1:13] -999 -888 0 1 2 3 4 5 6 7 ...
+  .. ..- attr(*, "names")= chr [1:13] "No Responde (no leer)" "No Sabe (no leer)" "0 El nivel mas bajo" "1" ...
+ $ edcine   : num  1 3 3 5 3 3 3 4 3 3 ...
+  ..- attr(*, "label")= chr "Educación"
+  ..- attr(*, "format.stata")= chr "%43.0g"
+  ..- attr(*, "labels")= Named num [1:5] 1 2 3 4 5
+  .. ..- attr(*, "names")= chr [1:5] "Primaria incompleta menos" "Primaria y secundaria baja" "Secundaria alta" "Terciaria ciclo corto" ...
+ $ sexo     : num  1 1 1 0 0 0 1 1 0 0 ...
+  ..- attr(*, "label")= chr "Sexo"
+  ..- attr(*, "format.stata")= chr "%8.0g"
+  ..- attr(*, "labels")= Named num [1:2] 0 1
+  .. ..- attr(*, "names")= chr [1:2] "Hombre" "Mujer"
+ $ edad     : num  64 60 26 51 69 62 54 32 38 46 ...
+  ..- attr(*, "label")= chr "Edad"
+  ..- attr(*, "format.stata")= chr "%21.0g"
+  ..- attr(*, "labels")= Named num [1:2] -999 -888
+  .. ..- attr(*, "names")= chr [1:2] "No Responde (no leer)" "No Sabe (no leer)"
+ $ pmerit   : num  4 4 3 4 3.5 4 1 2 3.5 4 ...
+  ..- attr(*, "label")= chr "Meritocracia promedio"
+  ..- attr(*, "format.stata")= chr "%30.0g"
+  ..- attr(*, "labels")= Named num [1:7] -999 -888 1 2 3 4 5
+  .. ..- attr(*, "names")= chr [1:7] "No Responde (no leer)" "No Sabe (no leer)" "Totalmente en desacuerdo" "En desacuerdo" ...
+ - attr(*, "label")= chr "Estudio Longitudinal Social de Chile. Ola 2016. Version 3.10 (15/04/2019)"</code></pre>
+</div>
+</div>
+<p>Contamos con 7 variables (columnas) y 2927 observaciones (filas).</p>
+<p>En esta ocasión, trabajaremos con la variable ‘edad’, para ello, observemos algunos estadísticos descriptivos de resumen de nuestra para esta variable. Utilizaremos la función <code>descr</code> del paquete <code>sjmisc</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">descr</span>(proc_elsoc<span class="sc">$</span>edad,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"label"</span>,<span class="st">"range"</span>, <span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"NA.prc"</span>, <span class="st">"n"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">kable</span>(.,<span class="st">"markdown"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">var</th>
+<th style="text-align: left;">label</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">NA.prc</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: left;">range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">dd</td>
+<td style="text-align: left;">Edad</td>
+<td style="text-align: right;">2927</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">46.09088</td>
+<td style="text-align: right;">15.2868</td>
+<td style="text-align: left;">70 (18-88)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="histograma-de-frecuencias" class="level2">
+<h2 class="anchored" data-anchor-id="histograma-de-frecuencias">Histograma de frecuencias</h2>
+<p>Primero, realizaremos un histograma de frecuencias o de probabilidad de la variable edad, esto es, la frecuencia con la que se presenta cada uno de los valores posibles de la variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(proc_elsoc, <span class="fu">aes</span>(edad)) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> edad, <span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">50</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"grey"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="04-practico_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>A esto también lo llamamos <strong>distribución empírica</strong>, y quiere decir que es la distribución que toman los datos reales de nuestra muestra.</p>
+</section>
+<section id="curvas-de-densidad" class="level2">
+<h2 class="anchored" data-anchor-id="curvas-de-densidad">Curvas de densidad</h2>
+<p>Las curvas de densidad son un modelo matemático de la distribución. Lo importante de graficarlo es que nos permite estimar una probabilidad, ya que el área por debajo de la curva, y entre cualquier intervalo de valores, es la proporción de todas las observaciones que están situadas en dicho intervalo.</p>
+<p>¡Veamos cómo se ve!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(proc_elsoc, <span class="fu">aes</span>(edad)) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> edad, <span class="at">y =</span> ..density..), <span class="at">bins =</span> <span class="dv">50</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="04-practico_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="curva-de-distribución-normal" class="level2">
+<h2 class="anchored" data-anchor-id="curva-de-distribución-normal">Curva de distribución normal</h2>
+<p>Ahora, pondremos por encima la curva normal, que funciona como <strong>distribución teórica</strong> de los datos y nos permite realizar inferencia estadística.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(proc_elsoc, <span class="fu">aes</span>(edad)) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> edad, <span class="at">y =</span> ..density..), <span class="at">bins =</span> <span class="dv">50</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>edad), <span class="at">sd =</span> <span class="fu">sd</span>(proc_elsoc<span class="sc">$</span>edad)))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="04-practico_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="puntaje-z-y-estandarización" class="level1">
+<h1>Puntaje z y estandarización</h1>
+<p>Los valores <span class="math inline">\(z\)</span>, o puntuación estandarizada, permiten calcular la proporción de casos bajo la curva normal que están sobre y bajo el puntaje, al mismo tiempo que estandarizar valores.</p>
+<p>Un valor z nos dice a cuántas desviaciones típicas se encuentra la observación original de la media y en qué dirección.</p>
+<p><span class="math display">\[z=\frac{x-\mu}{\sigma}\]</span> ## Cálculo de puntaje z</p>
+<p>Calculemos el puntaje <span class="math inline">\(z\)</span> para la edad de cuarenta años, donde:</p>
+<ul>
+<li><span class="math inline">\(x\)</span>: valor de edad para el que realizaremos el cálculo, en este caso 40 años</li>
+<li><span class="math inline">\(\mu\)</span>: media de la edad</li>
+<li><span class="math inline">\(\sigma\)</span> : desviación estándar de la edad</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (<span class="dv">40</span><span class="sc">-</span><span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>edad))<span class="sc">/</span><span class="fu">sd</span>(proc_elsoc<span class="sc">$</span>edad)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.3984404</code></pre>
+</div>
+</div>
+<p>Ahora le pedimos que nos entregue el área bajo la curva:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="sc">-</span><span class="fl">0.398</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3453151</code></pre>
+</div>
+</div>
+<p>Esto quiere decir que el 34.5% de las observaciones es menor a 40 años, y que, por consiguiente, el 65.5% se encuentra sobre esa edad.</p>
+<p>Pero, qué pasa si quiero hacer la pregunta al revés: ¿Menor a qué edad es el 10% más joven?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p=</span><span class="fl">0.1</span>, <span class="at">mean =</span> <span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>edad), <span class="at">sd=</span><span class="fu">sd</span>(proc_elsoc<span class="sc">$</span>edad))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 26.50006</code></pre>
+</div>
+</div>
+<p>Esto quiere decir que el 10% más joven es menor a 26.5 años.</p>
+</section>
+<section id="practiquemos" class="level1">
+<h1>Practiquemos</h1>
+<p>Ahora, realizaremos un breve ejercicio utilizando nuestra base de datos.</p>
+<ul>
+<li>Identificaremos los na’s</li>
+<li>Eliminaremos todos los na’s</li>
+<li>Graficaremos un histograma para Estado social subjetivo (ess), con su curva de densidad, más la curva normal.</li>
+<li>Calcularemos el porcentaje se encuentra por sobre el valor 6</li>
+<li>¿Por sobre cuál valor se ubica el 30% más alto?</li>
+<li>¿Por bajo cuál valor se ubica el 30% más bajo?</li>
+</ul>
+</section>
+<section id="resumen" class="level1">
+<h1>Resumen</h1>
+<p>Hoy pudimos recordar y repasar los conceptos fundamentales de la inferencia estadística. Además, pudimos reforzar la idea de distribucón, donde específicamente repasamos el contenido referente a la curva de distribución normal y pudimos graficarla. Además, calculamos el puntaje z y aprendimos acerca de estandarización.</p>
+<p>En detalle, aprenderemos:</p>
+<ol type="1">
+<li>Los conceptos centrales de la inferencia estadística</li>
+<li>Qué es la curva normal y como graficarla</li>
+<li>Qué es y cómo calcular el puntaje <span class="math inline">\(Z\)</span></li>
+</ol>
+</section>
+<section id="reporte-de-progreso" class="level1">
+<h1>Reporte de progreso</h1>
+<p>Completar el reporte de progreso correspondiente a esta práctica <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj2Ubj-kHUePt4G0lOBm_wJO-op4s-WKoSiyaBs_bnrBJDiQ/viewform?usp=sf_link">aquí</a>. El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.</p>
+</section>
+<section id="video-de-práctica" class="level1">
+<h1>Video de práctica</h1>
+</section>
+<section id="foro" class="level1">
+<h1>Foro</h1>
+<script src="https://giscus.app/client.js" data-repo="cursos-metodos-facso/correlacional" data-repo-id="R_kgDOKCMXJQ" data-category="Q&amp;A" data-category-id="DIC_kwDOKCMXJc4CYd9S" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="es" crossorigin="anonymous" async="">
+</script>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2023 by <a href="https://www.jc-castillo.com">Juan Castillo</a> <br> All content licensed under a <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc" aria-label="creative-commons-nc"></i> <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/cursos-metodos-facso/correlacional">View the source at <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
