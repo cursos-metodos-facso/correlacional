@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,10 +18,9 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,13 +47,43 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -92,14 +121,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "resultados adicionales en este documento",
     "search-clear-button-title": "Borrar",
     "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
+    "search-submit-button-title": "Enviar"
   }
 }</script>
 
 
 <meta property="og:title" content="Estadística Correlacional - Reportes dinámicos con RMarkdown">
-<meta property="og:description" content="">
+<meta property="og:description" content="El objetivo de esta guía práctica es familiarizarnos con las herramientas fundamentales para crear documentos dinámicos que nos permitan combinar texto y análisis (código) en un único reporte…">
 <meta property="og:image" content="https://correlacional.netlify.app/files/logo-correlacional.png">
 <meta property="og:site-name" content="Estadística Correlacional">
 <meta property="og:locale" content="es">
@@ -118,106 +146,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">Estadística Correlacional</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Buscar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../syllabus.html" rel="" target="">
+    <a class="nav-link" href="../syllabus.html">
  <span class="menu-text">Programa</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html" rel="" target="">
+    <a class="nav-link" href="../schedule.html">
  <span class="menu-text">Planificación</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../content/index.html" rel="" target="">
+    <a class="nav-link" href="../content/index.html">
  <span class="menu-text">Clases</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../assignment/index.html" rel="" target="" aria-current="page">
+    <a class="nav-link active" href="../assignment/index.html" aria-current="page">
  <span class="menu-text">Prácticos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../resource/index.html" rel="" target="">
+    <a class="nav-link" href="../resource/index.html">
  <span class="menu-text">Recursos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../news/index.html" rel="" target="">
+    <a class="nav-link" href="../news/index.html">
  <span class="menu-text">Noticias</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://rstudio.cloud" rel="" target=""><i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
+    <a class="nav-link" href="https://rstudio.cloud"><i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Reportes dinámicos con RMarkdown</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment/01-practico.html">Guías</a></li><li class="breadcrumb-item"><a href="../assignment/01-practico.html">1: Reportes dinámicos 1</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Sobre prácticos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Sobre prácticos</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../assignment/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Instrucciones generales</span></a>
+  <a href="../assignment/index.html" class="sidebar-item-text sidebar-link">Instrucciones generales</a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Guías</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alternar sección">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Guías</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../assignment/01-practico.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">1: Reportes dinámicos 1</span></a>
+  <a href="../assignment/01-practico.html" class="sidebar-item-text sidebar-link active">1: Reportes dinámicos 1</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../assignment/02-practico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2: Cálculo y reporte de correlación</span></a>
+  <a href="../assignment/02-practico.html" class="sidebar-item-text sidebar-link">2: Cálculo y reporte de correlación</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../assignment/03-practico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3: Matrices de correlación y tamaños de efecto</span></a>
+  <a href="../assignment/03-practico.html" class="sidebar-item-text sidebar-link">3: Matrices de correlación y tamaños de efecto</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/05-practico.html" class="sidebar-item-text sidebar-link">5: Reportes dinámicos 2</a>
   </div>
 </li>
       </ul>
@@ -225,7 +248,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -235,16 +257,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#objetivo-de-la-práctica" id="toc-objetivo-de-la-práctica" class="nav-link active" data-scroll-target="#objetivo-de-la-práctica">Objetivo de la práctica</a></li>
   <li><a href="#reproducibilidad" id="toc-reproducibilidad" class="nav-link" data-scroll-target="#reproducibilidad">1. Reproducibilidad</a></li>
   <li><a href="#escritura-abierta-markdown" id="toc-escritura-abierta-markdown" class="nav-link" data-scroll-target="#escritura-abierta-markdown">2. Escritura abierta (Markdown)</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#formatos-básicos-de-markdown" id="toc-formatos-básicos-de-markdown" class="nav-link" data-scroll-target="#formatos-básicos-de-markdown">Formatos básicos de Markdown</a></li>
   </ul></li>
   <li><a href="#documentos-dinámicos-rmarkdown" id="toc-documentos-dinámicos-rmarkdown" class="nav-link" data-scroll-target="#documentos-dinámicos-rmarkdown">3. Documentos dinámicos (RMarkdown)</a></li>
   <li><a href="#generación-de-reporte" id="toc-generación-de-reporte" class="nav-link" data-scroll-target="#generación-de-reporte">4. Generación de reporte</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#paso-1-instalar-librerías" id="toc-paso-1-instalar-librerías" class="nav-link" data-scroll-target="#paso-1-instalar-librerías">Paso 1: Instalar librerías</a></li>
   <li><a href="#paso-2-crear-un-nuevo-archivo-en-rmarkdown" id="toc-paso-2-crear-un-nuevo-archivo-en-rmarkdown" class="nav-link" data-scroll-target="#paso-2-crear-un-nuevo-archivo-en-rmarkdown">Paso 2: Crear un nuevo archivo en Rmarkdown</a></li>
   <li><a href="#paso-3-crear-el-archivo-con-formato-desde-el-.rmd" id="toc-paso-3-crear-el-archivo-con-formato-desde-el-.rmd" class="nav-link" data-scroll-target="#paso-3-crear-el-archivo-con-formato-desde-el-.rmd">Paso 3: Crear el archivo con formato desde el .Rmd</a></li>
-  <li><a href="#paso-4-opciones-de-chunks" id="toc-paso-4-opciones-de-chunks" class="nav-link" data-scroll-target="#paso-4-opciones-de-chunks">Paso 4: Opciones de chunks</a></li>
+  <li><a href="#paso-4-opciones-de-chunks" id="toc-paso-4-opciones-de-chunks" class="nav-link" data-scroll-target="#paso-4-opciones-de-chunks">Paso 4: Opciones de chunks</a>
+  <ul class="collapse">
+  <li><a href="#añadir-chunks" id="toc-añadir-chunks" class="nav-link" data-scroll-target="#añadir-chunks">4.1 Añadir Chunks</a></li>
+  <li><a href="#nombrar-chunks" id="toc-nombrar-chunks" class="nav-link" data-scroll-target="#nombrar-chunks">4.2 Nombrar chunks</a></li>
+  <li><a href="#opciones-de-chunks" id="toc-opciones-de-chunks" class="nav-link" data-scroll-target="#opciones-de-chunks">4.3 Opciones de chunks</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
   <li><a href="#reporte-de-progreso" id="toc-reporte-de-progreso" class="nav-link" data-scroll-target="#reporte-de-progreso">Reporte de progreso</a></li>
@@ -257,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header">
-<h1 class="title display-7">Reportes dinámicos con RMarkdown</h1>
+<div class="quarto-title-block d-none d-lg-block"><div><h1 class="title d-none d-lg-block">Reportes dinámicos con RMarkdown</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar todo el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Ocultar todo el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código fuente</a></li></ul></div></div>
 
 <div class="date-block bg-assignment text-white p-2">
   <p class="date">Completar hasta as 11:59 PM del viernes, 11 de agosto de 2023</p>
@@ -311,12 +338,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Probablemente, el programa que más se ha utilizado para la escritura sea Microsoft Word, desde pregrado hasta el mundo profesional.</p>
 <p><img src="../files/word.png" class="img-fluid"></p>
 <p>Aunque útil, este procesador de texto <strong>tiene diversas barreas</strong>, ya sea de <em>pago/licencias</em>, problemas de <em>versionamiento</em> (difícil saber quién hizo qué) y no permiten <em>reproducibilidad</em> (tenemos que copiar y pegar). Aquí entra el <strong>texto plano</strong>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Nota
 </div>
 </div>
@@ -390,7 +417,7 @@ espacio entre lineas.</code></pre></td>
 <tr class="odd">
 <td><code>`![Image caption](/path/to/image.png)`</code></td>
 <td></td>
-<td><img src="../files/img-144.png" class="img-fluid" alt="Class logo"></td>
+<td><img src="../files/img-144.png" title="fig:" class="img-fluid" alt="Class logo"></td>
 </tr>
 <tr class="even">
 <td>` ```Inline code``` ` with backticks</td>
@@ -467,13 +494,19 @@ espacio entre lineas.</code></pre></td>
 <p>El primero paso para inciar un documento <code>R Markdown</code> en R Studio es instalar (o actualizar según sea el caso) la librería asociada. Al instalarla, también se descargan otras dependencias que permiten trabajar y publicar con <code>RMarkdown</code> (como knitr y también tinitex, que permite generación documentos pdf vía Latex).</p>
 <p>Pero primero, llamemos a un viejo conocido: el paquete <code>pacman</code>.</p>
 <div class="cell">
+<details open="">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pacman"</span>) <span class="co"># en caso de no tener pacman instalado</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Ahora, instalemos las librerías para generar nuestro archivo .Rmd</p>
 <div class="cell">
+<details open="">
+<summary>Código</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rmarkdown,</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>               knitr)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="paso-2-crear-un-nuevo-archivo-en-rmarkdown" class="level3">
@@ -580,13 +613,15 @@ espacio entre lineas.</code></pre></td>
 </section>
 <section id="video-de-práctica" class="level1">
 <h1>Video de práctica</h1>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/i8wkxc7049Q" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/i8wkxc7049Q" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="foro" class="level1">
 <h1>Foro</h1>
 <script src="https://giscus.app/client.js" data-repo="cursos-metodos-facso/correlacional" data-repo-id="R_kgDOKCMXJQ" data-category="Q&amp;A" data-category-id="DIC_kwDOKCMXJc4CYd9S" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="es" crossorigin="anonymous" async="">
 </script>
 
+
+<!-- -->
 
 </section>
 
@@ -618,23 +653,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -670,6 +691,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -699,92 +771,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -823,14 +809,295 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb13" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Reportes dinámicos con RMarkdown"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2023-08-11"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="an">website:</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">  comments:</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">    giscus:</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">      repo: cursos-metodos-facso/correlacional</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Objetivo de la práctica</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>El objetivo de esta guía práctica es familiarizarnos con las herramientas fundamentales para crear documentos dinámicos que nos permitan combinar texto y análisis (código) en un único reporte utilizando RMarkdown.</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>En detalle, aprenderemos:</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Qué es la reproducibilidad y un flujo de trabajo reproducible</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Qué es escritura abierta con Markdown</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Qué es RMarkdown y cómo generar reportes dinámicos</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># 1. Reproducibilidad</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>La **reproducibilidad** en ciencias sociales es esencial para garantizar resultados confiables y evitar casualidades. Imagina presentar hallazgos emocionantes en una conferencia y que te pidan que demuestres cómo llegaste a esos resultados. ¡La reproducibilidad se convierte en tu mejor amiga o peor enemiga en ese momento!</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="al">![](../files/flujo-herramientas.png)</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>Cuando un estudio es reproducible, **significa que has detallado claramente tu proceso de investigación para que cualquiera pueda seguirlo y obtener los *mismos resultados***. Esto no solo genera confianza en tu trabajo, sino que permite a otros construir sobre tus hallazgos y contribuir al conocimiento colectivo.</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="al">![](../files/reproducibility.jpg)</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>¿Cómo organizamos **un proyecto reproducible**? lo primero es definir una estructura de proyecto autocontenido:</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>En este curso trabajaremos con un flujo de trabajo reproducible, basado en el sistema <span class="co">[</span><span class="ot">IPO</span><span class="co">](https://lisa-coes.com/ipo-repro/)</span>. **IPO** es un protocolo de estructura digital de carpetas que permite organizar, procesar y documentar los datos de un proyecto de investigación para que cualquier persona pueda ejecutarlo y compartirlo.</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE, warning=FALSE, out.width="75%", fig.align='center'}</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"../files/ipo.png"</span>, <span class="at">error =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>¿Y cómo lo hacemos? Mediante los **Rproject**. Estos <span class="co">[</span><span class="ot">ya los conocemos</span><span class="co">](https://descriptiva-facso.netlify.app/content/01-content)</span>, y son la raíz de nuestro proyecto que articula o abraza (como un pulpo) los demás componentes.</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE, warning=FALSE, out.width="75%", fig.align='center'}</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"../files/ipo-rproj.png"</span>, <span class="at">error =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a><span class="fu"># 2. Escritura abierta (Markdown)</span></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>Probablemente, el programa que más se ha utilizado para la escritura sea Microsoft Word, desde pregrado hasta el mundo profesional.</span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="al">![](../files/word.png)</span></span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>Aunque útil, este procesador de texto **tiene diversas barreas**, ya sea de *pago/licencias*, problemas de *versionamiento* (difícil saber quién hizo qué) y no permiten *reproducibilidad* (tenemos que copiar y pegar). Aquí entra el **texto plano**.</span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>El texto plano:</span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>es un tipo de texto que se puede leer independiente del lector que use</span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>es abierto y gratuito</span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>permite combinar texto y análisis en un solo documento *(reproducibilidad)*</span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>foco en el contenido, luego el formato</span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>distintas opciones de salida (pdf, html, word, etc.)</span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Markdown</span><span class="co">](https://daringfireball.net/projects/markdown/)</span> es una clase especial de lenguaje que permite darle formato a texto simple con pocas marcas. Por ejemplo, poder hacer cursivas, negritas, incorporar links, etc.</span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Formatos básicos de Markdown</span></span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a>| Escribe...                                        | ...o...              | ...para obtener                                                                |</span>
+<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a>+===================================================+======================+================================================================================+</span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>|     Algo de texto en el párrafo.                  |                      | Algo de texto.                                                                 |</span>
+<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>|                                                   |                      |                                                                                |</span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a>|     Más texto                                     |                      | Algo de texto en el párrafo. Siempre utilizando espacios para dividir párrafos |</span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a>|     espacio entre lineas.                         |                      |                                                                                |</span>
+<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a>| `<span class="in">` `</span>*Cursivas*` ``                                | `` `_Cursivas_` ``   | *Cursivas*                                                                     |</span>
+<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>| `<span class="in">` `</span>**Negrita**` ``                               | `` `__Negrita__` ``  | **Negrita**                                                                    |</span>
+<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>| <span class="in">`# Título 1`</span>                                      |                      | # Título 1                                                                     |</span>
+<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>| <span class="in">`## Título 2`</span>                                     |                      | ## Título 2                                                                    |</span>
+<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a>| <span class="in">`### Título 3`</span>                                    |                      | ### Título 3                                                                   |</span>
+<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a>| (puedes llegar hasta un título N° 6 con <span class="in">`######`</span>) |                      |                                                                                |</span>
+<span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a>| `<span class="in">` `</span><span class="co">[</span><span class="ot">Link text</span><span class="co">](http://www.example.com)</span>` ``       |                      | <span class="co">[</span><span class="ot">Link text</span><span class="co">](http://www.example.com)</span>                                            |</span>
+<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a>| `<span class="in">` `</span><span class="al">![Image caption](/path/to/image.png)</span>` ``      |                      | <span class="al">![Class logo](/files/img-144.png)</span>{alt="Class logo"}                            |</span>
+<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a>| <span class="sc">\`</span> <span class="sc">\`\`\`</span>Inline code<span class="sc">\`\`\`</span> <span class="sc">\`</span> with backticks      |                      | <span class="in">`Inline code`</span> with backticks                                                   |</span>
+<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a>| <span class="in">`&gt; Citas`</span>                                         |                      | &gt; Citas                                                                        |</span>
+<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a>|     - Cosas en                                    |     * Cosas en       | -   Cosas en                                                                   |</span>
+<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a>|     - listas                                      |     * listas         |                                                                                |</span>
+<span id="cb13-99"><a href="#cb13-99" aria-hidden="true" tabindex="-1"></a>|     - desordenadas                                |     * desordenadas   | -   listas                                                                     |</span>
+<span id="cb13-100"><a href="#cb13-100" aria-hidden="true" tabindex="-1"></a>|                                                   |                      |                                                                                |</span>
+<span id="cb13-101"><a href="#cb13-101" aria-hidden="true" tabindex="-1"></a>|                                                   |                      | -   desordenadas                                                               |</span>
+<span id="cb13-102"><a href="#cb13-102" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-103"><a href="#cb13-103" aria-hidden="true" tabindex="-1"></a>|     1. Cosas en                                   |     1) Cosas en      | 1.  Cosas en                                                                   |</span>
+<span id="cb13-104"><a href="#cb13-104" aria-hidden="true" tabindex="-1"></a>|     2. listas                                     |     2) listas        |                                                                                |</span>
+<span id="cb13-105"><a href="#cb13-105" aria-hidden="true" tabindex="-1"></a>|     3. ordenadas                                  |     3) ordenadas     | 2.  listas                                                                     |</span>
+<span id="cb13-106"><a href="#cb13-106" aria-hidden="true" tabindex="-1"></a>|                                                   |                      |                                                                                |</span>
+<span id="cb13-107"><a href="#cb13-107" aria-hidden="true" tabindex="-1"></a>|                                                   |                      | 3.  ordenadas                                                                  |</span>
+<span id="cb13-108"><a href="#cb13-108" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-109"><a href="#cb13-109" aria-hidden="true" tabindex="-1"></a>|     Línea horizontal                              |     Línea horizontal | Línea horizontal                                                               |</span>
+<span id="cb13-110"><a href="#cb13-110" aria-hidden="true" tabindex="-1"></a>|                                                   |                      |                                                                                |</span>
+<span id="cb13-111"><a href="#cb13-111" aria-hidden="true" tabindex="-1"></a>|     ---                                           |     ***              | ------------------------------------------------------------------------       |</span>
+<span id="cb13-112"><a href="#cb13-112" aria-hidden="true" tabindex="-1"></a>+---------------------------------------------------+----------------------+--------------------------------------------------------------------------------+</span>
+<span id="cb13-113"><a href="#cb13-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-114"><a href="#cb13-114" aria-hidden="true" tabindex="-1"></a><span class="fu"># 3. Documentos dinámicos (RMarkdown)</span></span>
+<span id="cb13-115"><a href="#cb13-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-116"><a href="#cb13-116" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">R Markdown</span><span class="co">](https://rmarkdown.rstudio.com/)</span> es un lenguaje que combina texto plano (Markdown) y código (R). Al mezclar ambos mundos en un solo documento *.Rmd*, permite la integración simúltanea de texto y análisis (código) a nuestros reportes. Esto es lo que se conoce como **documentos dinámicos**.</span>
+<span id="cb13-117"><a href="#cb13-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-118"><a href="#cb13-118" aria-hidden="true" tabindex="-1"></a>Por ejemplo, este sitio web está escrito con <span class="in">`R Markdown`</span>, lo que nos permite demostrar cómo combinar código de <span class="in">`R`</span> (gráficos, tablas y otros resultados) con <span class="in">`texto plano`</span>, *generando documentos reproducibles.*</span>
+<span id="cb13-119"><a href="#cb13-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-120"><a href="#cb13-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r echo=FALSE, warning=FALSE, out.width="20%", fig.align='center'}</span></span>
+<span id="cb13-121"><a href="#cb13-121" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"../files/rm-logo.png"</span>, <span class="at">error =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-122"><a href="#cb13-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-123"><a href="#cb13-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-124"><a href="#cb13-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-125"><a href="#cb13-125" aria-hidden="true" tabindex="-1"></a>En el ambiente de RStudio, <span class="in">`R Markdown`</span> es una librería de R que provee de una serie de herramientas para generar documentos dinámicos y publicarlos.</span>
+<span id="cb13-126"><a href="#cb13-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-127"><a href="#cb13-127" aria-hidden="true" tabindex="-1"></a>¡Veamos cómo se hace!</span>
+<span id="cb13-128"><a href="#cb13-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-129"><a href="#cb13-129" aria-hidden="true" tabindex="-1"></a><span class="fu"># 4. Generación de reporte</span></span>
+<span id="cb13-130"><a href="#cb13-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-131"><a href="#cb13-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### Paso 1: Instalar librerías</span></span>
+<span id="cb13-132"><a href="#cb13-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-133"><a href="#cb13-133" aria-hidden="true" tabindex="-1"></a>El primero paso para inciar un documento <span class="in">`R Markdown`</span> en R Studio es instalar (o actualizar según sea el caso) la librería asociada. Al instalarla, también se descargan otras dependencias que permiten trabajar y publicar con <span class="in">`RMarkdown`</span> (como knitr y también tinitex, que permite generación documentos pdf vía Latex).</span>
+<span id="cb13-134"><a href="#cb13-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-135"><a href="#cb13-135" aria-hidden="true" tabindex="-1"></a>Pero primero, llamemos a un viejo conocido: el paquete <span class="in">`pacman`</span>.</span>
+<span id="cb13-136"><a href="#cb13-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-137"><a href="#cb13-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE, include=TRUE}</span></span>
+<span id="cb13-138"><a href="#cb13-138" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pacman"</span>) <span class="co"># en caso de no tener pacman instalado</span></span>
+<span id="cb13-139"><a href="#cb13-139" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb13-140"><a href="#cb13-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-141"><a href="#cb13-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-142"><a href="#cb13-142" aria-hidden="true" tabindex="-1"></a>Ahora, instalemos las librerías para generar nuestro archivo .Rmd</span>
+<span id="cb13-143"><a href="#cb13-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-144"><a href="#cb13-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=FALSE, include=TRUE}</span></span>
+<span id="cb13-145"><a href="#cb13-145" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rmarkdown,</span>
+<span id="cb13-146"><a href="#cb13-146" aria-hidden="true" tabindex="-1"></a>               knitr)</span>
+<span id="cb13-147"><a href="#cb13-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-148"><a href="#cb13-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-149"><a href="#cb13-149" aria-hidden="true" tabindex="-1"></a><span class="fu">### Paso 2: Crear un nuevo archivo en Rmarkdown</span></span>
+<span id="cb13-150"><a href="#cb13-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-151"><a href="#cb13-151" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Una vez cargados los paquetes deben dirigirse a <span class="in">`File &gt; New File &gt; R Markdown`</span>.</span>
+<span id="cb13-152"><a href="#cb13-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-153"><a href="#cb13-153" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Luego deben darle un título, poner su nombre y especificar un formato de salida, ya sea en **HTML**, **PDF** o **Word**.</span>
+<span id="cb13-154"><a href="#cb13-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-155"><a href="#cb13-155" aria-hidden="true" tabindex="-1"></a><span class="al">![](../files/rm-jc.gif)</span></span>
+<span id="cb13-156"><a href="#cb13-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-157"><a href="#cb13-157" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Se creará un archivo con un *YAML* , donde se especifican opciones generales del documento entre tres guiones (---); y un chunk, o trozo de código.</span>
+<span id="cb13-158"><a href="#cb13-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-159"><a href="#cb13-159" aria-hidden="true" tabindex="-1"></a><span class="al">![](../files/YAML.png)</span></span>
+<span id="cb13-160"><a href="#cb13-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-161"><a href="#cb13-161" aria-hidden="true" tabindex="-1"></a>El *YAML* es muy importante, y consta de tres partes mínimas: título, autor y opción de formato de salida. <span class="co">[</span><span class="ot">Hay más opciones</span><span class="co">](https://bookdown.org/yihui/rmarkdown/)</span> que iremos viendo durante el curso.</span>
+<span id="cb13-162"><a href="#cb13-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-163"><a href="#cb13-163" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Ahora, ya pueden comenzar a escribir sus informes en <span class="in">`RMarkdown`</span>. Veamos otras configuraciones.</span>
+<span id="cb13-164"><a href="#cb13-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-165"><a href="#cb13-165" aria-hidden="true" tabindex="-1"></a><span class="fu">### Paso 3: Crear el archivo con formato desde el .Rmd</span></span>
+<span id="cb13-166"><a href="#cb13-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-167"><a href="#cb13-167" aria-hidden="true" tabindex="-1"></a>Para generar el documento, en la salida que especifiquemos, presionamos el botón de <span class="in">`Knitr`</span>. El <span class="in">`Knitear`</span> permite *compilar* el documento *tejiendo o uniendo* el contenido de manera **secuencial**. Combinará el texto plano y el código de R (en chunks) a partir de las instrucciones que le dimos en el *YAML*.</span>
+<span id="cb13-168"><a href="#cb13-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-169"><a href="#cb13-169" aria-hidden="true" tabindex="-1"></a><span class="al">![](../files/knit-button.png)</span></span>
+<span id="cb13-170"><a href="#cb13-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-171"><a href="#cb13-171" aria-hidden="true" tabindex="-1"></a>Al <span class="in">`knitear`</span> el documento, le estamos dando la instrucción a R de que pase este archivo Markdown (.md) por un convertidor universal llamado <span class="co">[</span><span class="ot">pandoc</span><span class="co">](https://pandoc.org/)</span>. En la práctica, este proceso se le conoce como *renderizar*.</span>
+<span id="cb13-172"><a href="#cb13-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-173"><a href="#cb13-173" aria-hidden="true" tabindex="-1"></a><span class="al">![](../files/pandoc.png)</span></span>
+<span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-175"><a href="#cb13-175" aria-hidden="true" tabindex="-1"></a>El resultado aparece en el visor (Viewer) de R, o se puede seleccionar otra opción de visualización desde la rueda de configuración al lado del botón <span class="in">`knitr`</span>.</span>
+<span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a><span class="al">![](../files/render.png)</span></span>
+<span id="cb13-178"><a href="#cb13-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-179"><a href="#cb13-179" aria-hidden="true" tabindex="-1"></a>El documento queda grabado como archivo (ej: probando.html) en el mismo directorio del archivo .Rmd</span>
+<span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-181"><a href="#cb13-181" aria-hidden="true" tabindex="-1"></a><span class="fu">### Paso 4: Opciones de chunks</span></span>
+<span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a>La manera en que integramos código de R en un archivo <span class="in">`RMarkdown`</span> es mediante <span class="in">`chunks`</span>, que son *trozos* de código dentro de nuestra hoja. Estos permiten hacer análisis estadísticos dentro del documento visualizando los resultados en el documento final.</span>
+<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a>Los chunks se ven así dentro del .Rmd:</span>
+<span id="cb13-186"><a href="#cb13-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a><span class="in">    `r ''````{r}</span></span>
+<span id="cb13-188"><a href="#cb13-188" aria-hidden="true" tabindex="-1"></a><span class="in">    # El codigo va aquí</span></span>
+<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a><span class="in">    ````</span></span>
+<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 4.1 Añadir Chunks</span></span>
+<span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a>Hay tres formas de insertar chunks:</span>
+<span id="cb13-195"><a href="#cb13-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-196"><a href="#cb13-196" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Pulsar <span class="in">`⌘⌥I`</span> en macOS o <span class="in">`Control + Alt + I`</span> en Windows</span>
+<span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-198"><a href="#cb13-198" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Pulsa el botón "Insert" en la parte superior de la ventana del editor</span>
+<span id="cb13-199"><a href="#cb13-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-200"><a href="#cb13-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r insert, echo=FALSE, out.width="40%"}</span></span>
+<span id="cb13-201"><a href="#cb13-201" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"../files/insertchunk.png"</span>, <span class="at">error =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-203"><a href="#cb13-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-204"><a href="#cb13-204" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Escribirlo manualmente (no recomendado)</span>
+<span id="cb13-205"><a href="#cb13-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 4.2 Nombrar chunks</span></span>
+<span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-208"><a href="#cb13-208" aria-hidden="true" tabindex="-1"></a>Se puede añadir nombres a los chunks para hacer más fácil la navegación por el documento. Si no incluyes un nombre, el chunk seguirá apareciendo, pero no sabrás lo que hace.</span>
+<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a><span class="in">```{r chunk-toc, echo=FALSE, out.width="40%"}</span></span>
+<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"../files/chunk-toc.png"</span>, <span class="at">error =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a>Para añadir un nombre, inclúyelo inmediatamente después de la <span class="in">`{r`</span> en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones.</span>
+<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-216"><a href="#cb13-216" aria-hidden="true" tabindex="-1"></a>Importante: **Todos los nombres de chunk de tu documento deben ser únicos.**</span>
+<span id="cb13-217"><a href="#cb13-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-218"><a href="#cb13-218" aria-hidden="true" tabindex="-1"></a><span class="in">    `r ''````{r nombre-chunk}</span></span>
+<span id="cb13-219"><a href="#cb13-219" aria-hidden="true" tabindex="-1"></a><span class="in">    # El codigo va aquí</span></span>
+<span id="cb13-220"><a href="#cb13-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-221"><a href="#cb13-221" aria-hidden="true" tabindex="-1"></a><span class="in">    ````</span></span>
+<span id="cb13-222"><a href="#cb13-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-223"><a href="#cb13-223" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 4.3 Opciones de chunks</span></span>
+<span id="cb13-224"><a href="#cb13-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-225"><a href="#cb13-225" aria-hidden="true" tabindex="-1"></a>Hay distintas opciones diferentes que puedes establecer para cada chunk. Puedes ver una lista completa en la <span class="co">[</span><span class="ot">Guía de referencia de RMarkdown</span><span class="co">](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)</span> o en el <span class="co">[</span><span class="ot">sitio web de **knitr**</span><span class="co">](https://yihui.org/knitr/options/)</span>.</span>
+<span id="cb13-226"><a href="#cb13-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-227"><a href="#cb13-227" aria-hidden="true" tabindex="-1"></a>Las opciones van dentro de la sección <span class="in">`{r}`</span> del chunk:</span>
+<span id="cb13-228"><a href="#cb13-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-229"><a href="#cb13-229" aria-hidden="true" tabindex="-1"></a><span class="in">    `r ''````{r nombre-chunk, message = F, echo = F}</span></span>
+<span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a><span class="in">    # El codigo va aquí</span></span>
+<span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a><span class="in">    ````</span></span>
+<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a>Las opciones de chunk más comunes son estas:</span>
+<span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`echo=FALSE`</span>: El código no se muestra en el documento final, pero los resultados si</span>
+<span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`message=FALSE`</span>: Se omiten los mensajes que genera R (como todas las notas que aparecen después de cargar un paquete)</span>
+<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`warning=FALSE`</span>: Se omiten las advertencias que genera R</span>
+<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`include=FALSE`</span>: El chunk se sigue ejecutando, pero el código y los resultados no se incluyen en el documento final</span>
+<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a>Atajos de configuración de chunk: dar clic en el pequeño icono de engranaje en la esquina superior derecha de cualquier chunk:</span>
+<span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-246"><a href="#cb13-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r chunk-options, echo=FALSE, out.width="70%"}</span></span>
+<span id="cb13-247"><a href="#cb13-247" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"../files/chunk-options.png"</span>, <span class="at">error =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-248"><a href="#cb13-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-249"><a href="#cb13-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-250"><a href="#cb13-250" aria-hidden="true" tabindex="-1"></a><span class="fu"># Resumen</span></span>
+<span id="cb13-251"><a href="#cb13-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-252"><a href="#cb13-252" aria-hidden="true" tabindex="-1"></a>Hoy aprendimos a generar documentos dinámicos con RMarkdown. En detalle, aprendímos:</span>
+<span id="cb13-253"><a href="#cb13-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-254"><a href="#cb13-254" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Qué es la reproducibilidad y un flujo de trabajo reproducible</span>
+<span id="cb13-255"><a href="#cb13-255" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Qué es escritura abierta con Markdown</span>
+<span id="cb13-256"><a href="#cb13-256" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Qué es RMarkdown y cómo generar reportes dinámicos</span>
+<span id="cb13-257"><a href="#cb13-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-258"><a href="#cb13-258" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reporte de progreso</span></span>
+<span id="cb13-259"><a href="#cb13-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-260"><a href="#cb13-260" aria-hidden="true" tabindex="-1"></a>Completar el reporte de progreso correspondiente a esta práctica <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://forms.gle/fnoKAgHHtgAkfFiN6)</span>. El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.</span>
+<span id="cb13-261"><a href="#cb13-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-262"><a href="#cb13-262" aria-hidden="true" tabindex="-1"></a><span class="fu"># Video de práctica</span></span>
+<span id="cb13-263"><a href="#cb13-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-264"><a href="#cb13-264" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://youtu.be/i8wkxc7049Q &gt;}}</span>
+<span id="cb13-265"><a href="#cb13-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-266"><a href="#cb13-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-267"><a href="#cb13-267" aria-hidden="true" tabindex="-1"></a><span class="fu"># Foro</span></span>
+<span id="cb13-268"><a href="#cb13-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-269"><a href="#cb13-269" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;script</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://giscus.app/client.js"</span></span>
+<span id="cb13-270"><a href="#cb13-270" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-repo=</span><span class="st">"cursos-metodos-facso/correlacional"</span></span>
+<span id="cb13-271"><a href="#cb13-271" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-repo-id=</span><span class="st">"R_kgDOKCMXJQ"</span></span>
+<span id="cb13-272"><a href="#cb13-272" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-category=</span><span class="st">"Q</span><span class="er">&amp;</span><span class="st">A"</span></span>
+<span id="cb13-273"><a href="#cb13-273" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-category-id=</span><span class="st">"DIC_kwDOKCMXJc4CYd9S"</span></span>
+<span id="cb13-274"><a href="#cb13-274" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-mapping=</span><span class="st">"title"</span></span>
+<span id="cb13-275"><a href="#cb13-275" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-strict=</span><span class="st">"0"</span></span>
+<span id="cb13-276"><a href="#cb13-276" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-reactions-enabled=</span><span class="st">"1"</span></span>
+<span id="cb13-277"><a href="#cb13-277" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-emit-metadata=</span><span class="st">"0"</span></span>
+<span id="cb13-278"><a href="#cb13-278" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-input-position=</span><span class="st">"bottom"</span></span>
+<span id="cb13-279"><a href="#cb13-279" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-theme=</span><span class="st">"light"</span></span>
+<span id="cb13-280"><a href="#cb13-280" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-lang=</span><span class="st">"es"</span></span>
+<span id="cb13-281"><a href="#cb13-281" aria-hidden="true" tabindex="-1"></a><span class="ot">        crossorigin=</span><span class="st">"anonymous"</span></span>
+<span id="cb13-282"><a href="#cb13-282" aria-hidden="true" tabindex="-1"></a><span class="ot">        async</span><span class="kw">&gt;</span></span>
+<span id="cb13-283"><a href="#cb13-283" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/script&gt;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2023 by <a href="https://www.jc-castillo.com">Juan Castillo</a> <br> All content licensed under a <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc" aria-label="creative-commons-nc"></i> <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
     <div class="nav-footer-right">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/cursos-metodos-facso/correlacional">View the source at <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></div>
   </div>
 </footer>

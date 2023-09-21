@@ -5,5 +5,8 @@ date-format: "full"
 
 format:
   html:
+    code-fold: show
+    code-tools: true
+    toc-depth: 4
     template-partials:
       - ../html/title-block.html

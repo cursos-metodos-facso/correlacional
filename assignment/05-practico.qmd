@@ -21,25 +21,77 @@ En detalle, aprenderemos:
 
 ## Recursos de la práctica
 
-En esta práctica trabajaremos con un subconjunto de datos previamente procesados derivados de las encuestas socioeconómicas realizadas en diferentes países por el [Latin American Public Opinion Proyect (LAPOP)](https://www.vanderbilt.edu/lapop/) en su ola del 2018. Esta base la pueden encontrar en el canal de U-Cursos sección Material Docente, o bien, en el siguiente enlace [{{< fa table >}} `LAPOP 2018`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData) podrán descargar el archivo que contiene el subconjunto procesado de la base de datos LAPOP 2018.
+En esta práctica trabajaremos con un subconjunto de datos previamente procesados derivados de las encuestas realizadas en diferentes países por el [Latin American Public Opinion Proyect (LAPOP)](https://www.vanderbilt.edu/lapop/) en su ola del 2018. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `LAPOP 2018`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos LAPOP 2018.
 
 
-### Flujo de trabajo
+# Crear un documento R Markdown
 
-Pasos a seguir: 
+Recordemos que, [para generar un archivo en Rmarkdown](https://correlacional.netlify.app/assignment/01-practico#paso-2-crear-un-nuevo-archivo-en-rmarkdown), hacemos lo siguiente: 
 
-- Descargar la base de datos vía U-Cursos o mediante el enlace [{{< fa table >}} `LAPOP 2018`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData)
-- Crear un proyecto de R (.Rproj) que se llame “practico-05”
-- Crear carpetas de **Input, Procesamiento y Output**
-- Ubicar la base de datos en una subcarpeta llamada **datos** dentro de la carpeta Input
-- Crear un documento R Markdown en la carpeta Procesamiento 
- 
+![](../files/crear-rmd.gif)
 
-# Repaso: R Markdown
 
 ## Chunks
 
-## Preparación de datos
+Para integrar código de R en un archivo `RMarkdown` usamos los `chunks`, que son *trozos* de código dentro de nuestra hoja. Estos permiten hacer análisis dentro del documento visualizando los resultados en el documento final.
+
+Los chunks se ven así dentro del .Rmd:
+
+    `r ''````{r}
+    # El codigo va aquí
+
+    ````
+
+#### Insertar chunks
+
+Hay tres formas de insertar chunks:
+
+1.  Pulsar `⌘⌥I` en macOS o `Control + Alt + I` en Windows
+
+2.  Pulsa el botón "Insert" en la parte superior de la ventana del editor
+
+```{r insert, echo=FALSE, out.width="40%"}
+knitr::include_graphics("../files/insertchunk.png", error = FALSE)
+```
+
+3.  Escribirlo manualmente (no recomendado)
+
+#### Nombre de chunk
+
+Para añadir un nombre, inclúyelo inmediatamente después de la `{r` en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones.
+
+Importante: **Todos los nombres de chunk de tu documento deben ser únicos.**
+
+    `r ''````{r nombre-chunk}
+    # El codigo va aquí
+
+    ````
+    
+#### Opciones de chunk
+
+Hay distintas opciones diferentes que puedes establecer para cada chunk. Puedes ver una lista completa en la [Guía de referencia de RMarkdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) o en el [sitio web de **knitr**](https://yihui.org/knitr/options/).
+
+Las opciones van dentro de la sección `{r}` del chunk:
+
+    `r ''````{r nombre-chunk, message = FALSE, echo = TRUE}
+    # El codigo va aquí
+
+    ````
+
+Otra forma de hacerlo es **configurar** las opciones generales de todos los chunks que hagamos **al inicio del documento**:
+
+
+    `r ''````{r setup, include = FALSE}
+    knitr::opts_chunk$set(echo = TRUE, 
+                          message = FALSE, 
+                          warning = FALSE)
+
+    ````
+
+De esta manera ya no es necesario indicar en _cada_ chunk las opciones, y se aplicaran las configuraciones generales que indicamos al comienzo. 
+
+
+# Preparación de datos
 
 Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.
 
@@ -53,17 +105,13 @@ options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
 ```
 
-Cargamos los datos alojados en la carpeta Input > datos
+Cargamos los datos desde internet.
 
-```{r, include=FALSE}
-load(file = "data/lapop_proc_2018.RData")
+```{r datos, echo=TRUE, message=FALSE, warning=FALSE}
+
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData")) #Cargar base de datos
+
 ```
-
-
-```{r datos, eval=FALSE, include=TRUE}
-load(file = "Input/datos/lapop_proc_2018.RData") #Cargar base de datos
-```
-
 
 A continuación, exploramos la base de datos **lapop**.
 
@@ -79,14 +127,7 @@ Contamos con 39 variables (columnas) y 23.386 observaciones (filas).
 
 Para generar tablas en R Markdown usaremos la función `kable()` del paquete `kableExtra` (hay otras maneras, pero esta es de las más útiles).
 
-Primero, veamos como se distribuye la variable `it1`
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-
-sjmisc::frq(lapop$it1)
-```
-
-Generaremos un objeto llamado `tab1` que usaremos como contenido. Esta tabla tendrá la distribución de `it1` por país.
+Primero, generaremos un objeto llamado `tab1` que usaremos como contenido de la tabla. Este objeto tendrá la distribución de `it1` por país.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 
@@ -100,7 +141,7 @@ tab1 <- lapop %>%
 tab1
 ```
 
-Usamos la función `kable()` directamente:
+**Creemos nuestra tabla**. Usemos primero la función `kable()` directamente:
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 tab1 %>% 
@@ -140,7 +181,7 @@ tab1 %>%
 ¿Muy grande? También podemos ajustar el ancho que ocupa la tabla, el tamaño de la letra y la posición:
 
 - `full_width`: para indicar si la tabla cubre todo el ancho o no (TRUE/FALSE) 
-- `position`: para indicar posicion de la tabla en el documento
+- `position`: para indicar posición de la tabla en el documento
 - `font_size`: para indicar tamaño de la letra
 
 
@@ -151,7 +192,7 @@ tabla1 <- tab1 %>%
                     align = "c",
                     col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"),
                     caption = "Tabla 1. Confianza interpersonal según país") %>% 
-  kableExtra::kable_classic(full_width = F, position = "left", font_size = 12) %>% 
+  kableExtra::kable_classic(full_width = FALSE, position = "center", font_size = 14) %>% 
   kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a LAPOP 2018.")
 
 tabla1
@@ -159,9 +200,9 @@ tabla1
 
 # Gráficos en R Markdown
 
-Para hacer gráficos usaremos el paquete `ggplot2` [que ya conocemos](https://descriptiva-facso.netlify.app/content/06-content). 
+Para hacer gráficos usaremos el paquete `ggplot2`. Para conocer cómo usar este paquete revisar  [aquí](https://descriptiva-facso.netlify.app/content/06-content). 
 
-Primero, creamos un objeto llamado `g1` en donde almacenaremos la información que queremos graficar. Este objeto tendrá, para cada país, el promedio de satisfacción con la democracia y del índice de gini.
+Primero, creamos un objeto llamado `g1` en donde almacenaremos la información que queremos graficar. Este objeto tendrá, para cada país, el promedio de satisfacción con la democracia (`pn4`) y del índice de Gini (`gini`).
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE}
 g1 <- lapop %>% 
@@ -195,8 +236,7 @@ Para especificar elementos de presentación de gráficos en un documento Rmd. us
 - `fig.cap`: para espeficiar el título del gráfico que se muestra en el documento
 
 
-Llamemos a nuestro `grafico1` pero ahora especificando `fig.align='center'`, `out.width='80%'` y `fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia'`en las opciones de chunk. 
-
+Llamemos a nuestro `grafico1`, pero ahora especificando en el chunk:  `{r, fig.align='center', fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia', out.width='80%'}` 
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE, fig.align='center', fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia', out.width='80%'}
 grafico1
@@ -207,20 +247,65 @@ Ahora tenemos un gráfico centrado, más grande y con un título en nuestro docu
 
 # Autoreferenciar elementos dentro un R Markdown
 
+Una de las ventajas de usar documentos dinámicos con R Markdown es que podemos **autoreferenciar los elementos que creamos dentro del mismo documento**.
+
+::: {.callout-tip}
+#### ¿Autoreferenciar?
+
+Esto se refiere que, si en un documento creamos un gráfico por ejemplo, podemos citarlo o referenciarlo en el texto que escribamos, generando un enlace que al pincharlo llevará a dicha figura (en el orden establecido en el documento).
+:::
+
+Para hacer esto **debemos darle un nombre o _label_ al chunk** en donde producimos la tabla o gráfico en nuestro documento. Tomemos por ejemplo la misma `tabla1` y `grafico1` que generamos anteriormente, pero ahora les daremos un nombre al chunk en donde ejecutaremos dichos elementos. 
+
+¿Qué nombre le ponemos? hay que considerar lo siguiente:
+
+- Cuando es una **tabla** debemos nombrar al chunk con el prefijo **`tbl-`** antes del nombre respectivo. 
+- Cuando es una **figura** debemos nombrar al chunk con el prefijo **`fig-`** antes del nombre respectivo.
+
+¿Cómo las referenciamos? para referenciar tablas o figuras debemos usar el prefijo `@` antes del nombre que le dimos al elemento. 
+
+
+#### a) Tablas 
+
+Por ejemplo, si queremos referenciar a nuestra `tabla1`, en el chunk en donde la ejecutemos debemos indicar:
+
+    `r ''````{r tbl-confianza}
+    
+    tabla1
+
+    ````
+
 ```{r}
-#| label: tbl-confi
+#| label: tbl-confianza
 #| tbl-cap: "Confianza interpersonal según país"
 #| tbl-cap-location: top
 #| warning: false
 tabla1
 ```
 
+En este caso, a nuestra tabla le daremos el nombre de _confianza_ más el prefijo `tbl-`. Y para referenciar dentro de un texto a la tabla usamos: `@tbl-confianza`.
 
+Texto de ejemplo:
+
+> En la @tbl-confianza se muestra la distribución porcentual del grado de confianza interpersonal por país. 
+
+
+#### b) Figuras 
+
+
+Por ejemplo, si queremos referenciar a nuestro `grafico1`, en el chunk en donde lo ejecutemos debemos indicar:
+
+    `r ''````{r fig-asociacion}
+    
+    grafico1
+
+    ````
 
 ```{r}
 #| label: fig-asociacion
 #| fig-cap: "Asociación entre Índice de Gini y Satisfacción con la democracia"
 #| warning: false
+#| message: false
 #| fig-align: center
 #| out-width: 80%
 
@@ -228,18 +313,51 @@ tabla1
 grafico1
 ```
 
-Se pueden referenciar tablas, graficos y resultados 
+En este caso, a nuestro gráfico le daremos el nombre de _asociacion_ más el prefijo `fig-`. Y para referenciar dentro de un texto a la figura usamos: `@fig-asociacion`.
+
+Texto de ejemplo:
+
+> En la @fig-asociacion se muestra la asociación entre el promedio de satisfacción con la democracía y el nivel de desigualdad ecónomica de los países. 
+
+#### c) Resultados
+
+También podemos referenciar a resultados estadísticos que hayamos realizado con anterioridad en nuestro documento. 
+
+Como ejemplo, obtengamos la correlación entre la satisfacción con la democracia y el índice de Gini de los países y lo guardamos en un objeto `M`.
+
+```{r cor, echo=TRUE, message=FALSE, warning=FALSE}
+M <- cor(g1$satis_m, g1$gini_m)
+
+M
+```
 
 
-@fig-asociacion
+Para referenciar este resultado, usamos en el texto:
 
-hola
+    `r ''
+    
+    ` `r `
+    
+Dentro de las comillas ' ' y después de la letra _r_, indicamos el nombre del objeto que contiene un resultado. En este caso, para referenciar el resultado indicamos: 
 
-@tbl-confi
+![](../files/resul-m.png)
 
+Texto de ejemplo:
+
+> El coeficiente de correlación de Pearson entre satisfacción con la democracia y el índice de Gini es negativo y pequeño = `r M`.
 
 
 # Actividad en salas
+
+Genera un nuevo documento R Markdown en el cual:
+
+1) Especifica opciones generales de chunk con `echo=TRUE`, `warning=FALSE` y `message=FALSE`. 
+2) Carga las mismas librerías y datos que usamos en esta guía.
+3) Genera una tabla con el promedio de la variable `ros4` para cada `pais`. Luego, presenta esta tabla con `kable()` y dale opciones de formato. Llama a esta tabla como `tbl-redis` en el chunk.
+4) Genera un gráfico de barras para la variable `prot3` con `ggplot2`. Llama a esta figura como `fig-protesta` en el chunk.
+5) Escribe un breve texto reportando los resultados del punto 3) y 4), referenciando la tabla y figura creadas.
+
+
 
 # Resumen
 

@@ -258,20 +258,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#objetivo-de-la-práctica" id="toc-objetivo-de-la-práctica" class="nav-link active" data-scroll-target="#objetivo-de-la-práctica">Objetivo de la práctica</a>
+  <ul>
+  <li><a href="#recursos-de-la-práctica" id="toc-recursos-de-la-práctica" class="nav-link" data-scroll-target="#recursos-de-la-práctica">Recursos de la práctica</a></li>
+  </ul></li>
+  <li><a href="#crear-un-documento-r-markdown" id="toc-crear-un-documento-r-markdown" class="nav-link" data-scroll-target="#crear-un-documento-r-markdown">Crear un documento R Markdown</a>
+  <ul>
+  <li><a href="#chunks" id="toc-chunks" class="nav-link" data-scroll-target="#chunks">Chunks</a>
   <ul class="collapse">
-  <li><a href="#recursos-de-la-práctica" id="toc-recursos-de-la-práctica" class="nav-link" data-scroll-target="#recursos-de-la-práctica">Recursos de la práctica</a>
-  <ul class="collapse">
-  <li><a href="#flujo-de-trabajo" id="toc-flujo-de-trabajo" class="nav-link" data-scroll-target="#flujo-de-trabajo">Flujo de trabajo</a></li>
+  <li><a href="#insertar-chunks" id="toc-insertar-chunks" class="nav-link" data-scroll-target="#insertar-chunks">Insertar chunks</a></li>
+  <li><a href="#nombre-de-chunk" id="toc-nombre-de-chunk" class="nav-link" data-scroll-target="#nombre-de-chunk">Nombre de chunk</a></li>
+  <li><a href="#opciones-de-chunk" id="toc-opciones-de-chunk" class="nav-link" data-scroll-target="#opciones-de-chunk">Opciones de chunk</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#repaso-r-markdown" id="toc-repaso-r-markdown" class="nav-link" data-scroll-target="#repaso-r-markdown">Repaso: R Markdown</a>
-  <ul class="collapse">
-  <li><a href="#chunks" id="toc-chunks" class="nav-link" data-scroll-target="#chunks">Chunks</a></li>
   <li><a href="#preparación-de-datos" id="toc-preparación-de-datos" class="nav-link" data-scroll-target="#preparación-de-datos">Preparación de datos</a></li>
-  </ul></li>
   <li><a href="#tablas-en-r-markdown" id="toc-tablas-en-r-markdown" class="nav-link" data-scroll-target="#tablas-en-r-markdown">Tablas en R Markdown</a></li>
   <li><a href="#gráficos-en-r-markdown" id="toc-gráficos-en-r-markdown" class="nav-link" data-scroll-target="#gráficos-en-r-markdown">Gráficos en R Markdown</a></li>
-  <li><a href="#autoreferenciar-elementos-dentro-un-r-markdown" id="toc-autoreferenciar-elementos-dentro-un-r-markdown" class="nav-link" data-scroll-target="#autoreferenciar-elementos-dentro-un-r-markdown">Autoreferenciar elementos dentro un R Markdown</a></li>
+  <li><a href="#autoreferenciar-elementos-dentro-un-r-markdown" id="toc-autoreferenciar-elementos-dentro-un-r-markdown" class="nav-link" data-scroll-target="#autoreferenciar-elementos-dentro-un-r-markdown">Autoreferenciar elementos dentro un R Markdown</a>
+  <ul>
+  <li><a href="#a-tablas" id="toc-a-tablas" class="nav-link" data-scroll-target="#a-tablas">a) Tablas</a></li>
+  <li><a href="#b-figuras" id="toc-b-figuras" class="nav-link" data-scroll-target="#b-figuras">b) Figuras</a></li>
+  <li><a href="#c-resultados" id="toc-c-resultados" class="nav-link" data-scroll-target="#c-resultados">c) Resultados</a></li>
+  </ul></li>
   <li><a href="#actividad-en-salas" id="toc-actividad-en-salas" class="nav-link" data-scroll-target="#actividad-en-salas">Actividad en salas</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
   <li><a href="#reporte-de-progreso" id="toc-reporte-de-progreso" class="nav-link" data-scroll-target="#reporte-de-progreso">Reporte de progreso</a></li>
@@ -284,7 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header">
-<h1 class="title d-none d-lg-block display-7">Reportes dinámicos 2</h1>
+<div class="quarto-title-block d-none d-lg-block"><div><h1 class="title d-none d-lg-block">Reportes dinámicos 2</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar todo el código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Ocultar todo el código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver el código fuente</a></li></ul></div></div>
 
 <div class="date-block bg-assignment text-white p-2">
   <p class="date">Completar hasta as 11:59 PM del viernes, 29 de septiembre de 2023</p>
@@ -302,44 +309,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <section id="recursos-de-la-práctica" class="level2">
 <h2 class="anchored" data-anchor-id="recursos-de-la-práctica">Recursos de la práctica</h2>
-<p>En esta práctica trabajaremos con un subconjunto de datos previamente procesados derivados de las encuestas socioeconómicas realizadas en diferentes países por el <a href="https://www.vanderbilt.edu/lapop/">Latin American Public Opinion Proyect (LAPOP)</a> en su ola del 2018. Esta base la pueden encontrar en el canal de U-Cursos sección Material Docente, o bien, en el siguiente enlace <a href="https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData"><i class="fa-solid fa-table" aria-label="table"></i> <code>LAPOP 2018</code></a> podrán descargar el archivo que contiene el subconjunto procesado de la base de datos LAPOP 2018.</p>
-<section id="flujo-de-trabajo" class="level3">
-<h3 class="anchored" data-anchor-id="flujo-de-trabajo">Flujo de trabajo</h3>
-<p>Pasos a seguir:</p>
-<ul>
-<li>Descargar la base de datos vía U-Cursos o mediante el enlace <a href="https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData"><i class="fa-solid fa-table" aria-label="table"></i> <code>LAPOP 2018</code></a></li>
-<li>Crear un proyecto de R (.Rproj) que se llame “practico-05”</li>
-<li>Crear carpetas de <strong>Input, Procesamiento y Output</strong></li>
-<li>Ubicar la base de datos en una subcarpeta llamada <strong>datos</strong> dentro de la carpeta Input</li>
-<li>Crear un documento R Markdown en la carpeta Procesamiento</li>
-</ul>
+<p>En esta práctica trabajaremos con un subconjunto de datos previamente procesados derivados de las encuestas realizadas en diferentes países por el <a href="https://www.vanderbilt.edu/lapop/">Latin American Public Opinion Proyect (LAPOP)</a> en su ola del 2018. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: <a href="https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData"><i class="fa-solid fa-table" aria-label="table"></i> <code>LAPOP 2018</code></a>. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos LAPOP 2018.</p>
 </section>
 </section>
-</section>
-<section id="repaso-r-markdown" class="level1">
-<h1>Repaso: R Markdown</h1>
+<section id="crear-un-documento-r-markdown" class="level1">
+<h1>Crear un documento R Markdown</h1>
+<p>Recordemos que, <a href="https://correlacional.netlify.app/assignment/01-practico#paso-2-crear-un-nuevo-archivo-en-rmarkdown">para generar un archivo en Rmarkdown</a>, hacemos lo siguiente:</p>
+<p><img src="../files/crear-rmd.gif" class="img-fluid"></p>
 <section id="chunks" class="level2">
 <h2 class="anchored" data-anchor-id="chunks">Chunks</h2>
+<p>Para integrar código de R en un archivo <code>RMarkdown</code> usamos los <code>chunks</code>, que son <em>trozos</em> de código dentro de nuestra hoja. Estos permiten hacer análisis dentro del documento visualizando los resultados en el documento final.</p>
+<p>Los chunks se ven así dentro del .Rmd:</p>
+<pre><code>```{r}
+# El codigo va aquí
+
+````</code></pre>
+<section id="insertar-chunks" class="level4">
+<h4 class="anchored" data-anchor-id="insertar-chunks">Insertar chunks</h4>
+<p>Hay tres formas de insertar chunks:</p>
+<ol type="1">
+<li><p>Pulsar <code>⌘⌥I</code> en macOS o <code>Control + Alt + I</code> en Windows</p></li>
+<li><p>Pulsa el botón “Insert” en la parte superior de la ventana del editor</p></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../files/insertchunk.png" class="img-fluid" style="width:40.0%"></p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Escribirlo manualmente (no recomendado)</li>
+</ol>
 </section>
-<section id="preparación-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="preparación-de-datos">Preparación de datos</h2>
+<section id="nombre-de-chunk" class="level4">
+<h4 class="anchored" data-anchor-id="nombre-de-chunk">Nombre de chunk</h4>
+<p>Para añadir un nombre, inclúyelo inmediatamente después de la <code>{r</code> en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones.</p>
+<p>Importante: <strong>Todos los nombres de chunk de tu documento deben ser únicos.</strong></p>
+<pre><code>```{r nombre-chunk}
+# El codigo va aquí
+
+````</code></pre>
+</section>
+<section id="opciones-de-chunk" class="level4">
+<h4 class="anchored" data-anchor-id="opciones-de-chunk">Opciones de chunk</h4>
+<p>Hay distintas opciones diferentes que puedes establecer para cada chunk. Puedes ver una lista completa en la <a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Guía de referencia de RMarkdown</a> o en el <a href="https://yihui.org/knitr/options/">sitio web de <strong>knitr</strong></a>.</p>
+<p>Las opciones van dentro de la sección <code>{r}</code> del chunk:</p>
+<pre><code>```{r nombre-chunk, message = FALSE, echo = TRUE}
+# El codigo va aquí
+
+````</code></pre>
+<p>Otra forma de hacerlo es <strong>configurar</strong> las opciones generales de todos los chunks que hagamos <strong>al inicio del documento</strong>:</p>
+<pre><code>```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE, 
+                      warning = FALSE)
+
+````</code></pre>
+<p>De esta manera ya no es necesario indicar en <em>cada</em> chunk las opciones, y se aplicaran las configuraciones generales que indicamos al comienzo.</p>
+</section>
+</section>
+</section>
+<section id="preparación-de-datos" class="level1">
+<h1>Preparación de datos</h1>
 <p>Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># Manipulacion datos</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               sjmisc, <span class="co"># Descriptivos</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co">#Tablas</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               ggrepel) <span class="co"># Graficos</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># Manipulacion datos</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>               sjmisc, <span class="co"># Descriptivos</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co">#Tablas</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               ggrepel) <span class="co"># Graficos</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<p>Cargamos los datos alojados en la carpeta Input &gt; datos</p>
+<p>Cargamos los datos desde internet.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"Input/datos/lapop_proc_2018.RData"</span>) <span class="co">#Cargar base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData"</span>)) <span class="co">#Cargar base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>A continuación, exploramos la base de datos <strong>lapop</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lapop) <span class="co"># Nombre de columnas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lapop) <span class="co"># Nombre de columnas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "year"        "pais"        "pais_name"   "idnum"       "upm"        
  [6] "strata"      "wt"          "weight1500"  "sexo"        "edad"       
@@ -350,43 +406,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [31] "ros4"        "ing4"        "eff1"        "pn4"         "exc7"       
 [36] "pol1"        "vb2"         "gini"        "gdp"        </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(lapop) <span class="co"># Dimensiones</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(lapop) <span class="co"># Dimensiones</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 23386    39</code></pre>
 </div>
 </div>
 <p>Contamos con 39 variables (columnas) y 23.386 observaciones (filas).</p>
 </section>
-</section>
 <section id="tablas-en-r-markdown" class="level1">
 <h1>Tablas en R Markdown</h1>
 <p>Para generar tablas en R Markdown usaremos la función <code>kable()</code> del paquete <code>kableExtra</code> (hay otras maneras, pero esta es de las más útiles).</p>
-<p>Primero, veamos como se distribuye la variable <code>it1</code></p>
+<p>Primero, generaremos un objeto llamado <code>tab1</code> que usaremos como contenido de la tabla. Este objeto tendrá la distribución de <code>it1</code> por país.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(lapop<span class="sc">$</span>it1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Confianza Interpersonal (x) &lt;numeric&gt; 
-# total N=23386 valid N=22783 mean=2.69 sd=0.95
-
-Value |          Label |    N | Raw % | Valid % | Cum. %
---------------------------------------------------------
-    1 | Nada confiable | 2580 | 11.03 |   11.32 |  11.32
-    2 | Poco confiable | 7157 | 30.60 |   31.41 |  42.74
-    3 | Algo confiable | 7693 | 32.90 |   33.77 |  76.50
-    4 |  Muy confiable | 5353 | 22.89 |   23.50 | 100.00
- &lt;NA&gt; |           &lt;NA&gt; |  603 |  2.58 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
-</div>
-</div>
-<p>Generaremos un objeto llamado <code>tab1</code> que usaremos como contenido. Esta tabla tendrá la distribución de <code>it1</code> por país.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais, it1) <span class="sc">%&gt;%</span> <span class="co"># agrupamos por pais y variable</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co"># contamos por categ de respuesta</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> <span class="co"># porcentaje</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> <span class="co"># borramos NA</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> pais, <span class="at">names_from =</span> it1, <span class="at">values_from =</span> prop) <span class="co"># convertimos a formato ancho</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>tab1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais, it1) <span class="sc">%&gt;%</span> <span class="co"># agrupamos por pais y variable</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co"># contamos por categ de respuesta</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> <span class="co"># porcentaje</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> <span class="co"># borramos NA</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> pais, <span class="at">names_from =</span> it1, <span class="at">values_from =</span> prop) <span class="co"># convertimos a formato ancho</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>tab1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 5
 # Groups:   pais [15]
@@ -409,10 +454,13 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 15 URY    7.08  18.7  43.8  27.1</code></pre>
 </div>
 </div>
-<p>Usamos la función <code>kable()</code> directamente:</p>
+<p><strong>Creemos nuestra tabla</strong>. Usemos primero la función <code>kable()</code> directamente:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 
 <table>
@@ -543,10 +591,13 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 <li><code>col.names</code>: para nombres de columnas visibles en la tabla, se ingresan como un vector <code>c()</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 
 <table>
@@ -677,13 +728,16 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 <li><code>add_footnote()</code>: para agregar fuente o pie a la tabla</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>),</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">caption =</span> <span class="st">"Tabla 1. Confianza interpersonal según país"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_classic</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">add_footnote</span>(<span class="at">label =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">caption =</span> <span class="st">"Tabla 1. Confianza interpersonal según país"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_classic</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">add_footnote</span>(<span class="at">label =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 
 <table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
@@ -816,22 +870,25 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 <p>¿Muy grande? También podemos ajustar el ancho que ocupa la tabla, el tamaño de la letra y la posición:</p>
 <ul>
 <li><code>full_width</code>: para indicar si la tabla cubre todo el ancho o no (TRUE/FALSE)</li>
-<li><code>position</code>: para indicar posicion de la tabla en el documento</li>
+<li><code>position</code>: para indicar posición de la tabla en el documento</li>
 <li><code>font_size</code>: para indicar tamaño de la letra</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tabla1 <span class="ot">&lt;-</span> tab1 <span class="sc">%&gt;%</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>),</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">caption =</span> <span class="st">"Tabla 1. Confianza interpersonal según país"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_classic</span>(<span class="at">full_width =</span> F, <span class="at">position =</span> <span class="st">"left"</span>, <span class="at">font_size =</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">add_footnote</span>(<span class="at">label =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>tabla1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>tabla1 <span class="ot">&lt;-</span> tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">caption =</span> <span class="st">"Tabla 1. Confianza interpersonal según país"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>, <span class="at">font_size =</span> <span class="dv">14</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">add_footnote</span>(<span class="at">label =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>tabla1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 
-<table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; ">
+<table class=" lightable-classic" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">Tabla 1. Confianza interpersonal según país</caption>
  <thead>
   <tr>
@@ -961,14 +1018,17 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 </section>
 <section id="gráficos-en-r-markdown" class="level1">
 <h1>Gráficos en R Markdown</h1>
-<p>Para hacer gráficos usaremos el paquete <code>ggplot2</code> <a href="https://descriptiva-facso.netlify.app/content/06-content">que ya conocemos</a>.</p>
-<p>Primero, creamos un objeto llamado <code>g1</code> en donde almacenaremos la información que queremos graficar. Este objeto tendrá, para cada país, el promedio de satisfacción con la democracia y del índice de gini.</p>
+<p>Para hacer gráficos usaremos el paquete <code>ggplot2</code>. Para conocer cómo usar este paquete revisar <a href="https://descriptiva-facso.netlify.app/content/06-content">aquí</a>.</p>
+<p>Primero, creamos un objeto llamado <code>g1</code> en donde almacenaremos la información que queremos graficar. Este objeto tendrá, para cada país, el promedio de satisfacción con la democracia (<code>pn4</code>) y del índice de Gini (<code>gini</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">satis_m =</span> <span class="fu">mean</span>(pn4, <span class="at">na.rm =</span> T),</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">gini_m =</span> <span class="fu">mean</span>(gini, <span class="at">na.rm =</span> T))</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>g1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">satis_m =</span> <span class="fu">mean</span>(pn4, <span class="at">na.rm =</span> T),</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">gini_m =</span> <span class="fu">mean</span>(gini, <span class="at">na.rm =</span> T))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>g1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 3
    pais  satis_m gini_m
@@ -992,19 +1052,22 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 </div>
 <p>Ahora, graficamos esta asociación en un objeto llamado <code>grafico1</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>grafico1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> g1,</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gini_m, <span class="at">y =</span> satis_m, <span class="at">label =</span> pais)) <span class="sc">+</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,<span class="at">colour =</span> <span class="st">"black"</span>,<span class="at">fill=</span><span class="st">"lightblue"</span>,<span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">size=</span><span class="dv">3</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Índice de Gini"</span>,</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Satisfacción con la democracia"</span>,</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018"</span>) <span class="sc">+</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>grafico1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> g1,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gini_m, <span class="at">y =</span> satis_m, <span class="at">label =</span> pais)) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,<span class="at">colour =</span> <span class="st">"black"</span>,<span class="at">fill=</span><span class="st">"lightblue"</span>,<span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">size=</span><span class="dv">3</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Índice de Gini"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Satisfacción con la democracia"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018"</span>) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-<p><img src="05-practico_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="05-practico_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Para especificar elementos de presentación de gráficos en un documento Rmd. usaremos las opciones de <strong>chunks</strong>. Algunas de las más comunes son:</p>
@@ -1013,13 +1076,16 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 <li><code>out.width</code>: para especificar el tamaño del gráfico en el documento</li>
 <li><code>fig.cap</code>: para espeficiar el título del gráfico que se muestra en el documento</li>
 </ul>
-<p>Llamemos a nuestro <code>grafico1</code> pero ahora especificando <code>fig.align='center'</code>, <code>out.width='80%'</code> y <code>fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia'</code>en las opciones de chunk.</p>
+<p>Llamemos a nuestro <code>grafico1</code>, pero ahora especificando en el chunk: <code>{r, fig.align='center', fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia', out.width='80%'}</code></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="05-practico_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><img src="05-practico_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
 <p></p><figcaption class="figure-caption">Asociación entre Índice de Gini y Satisfacción con la democracia</figcaption><p></p>
 </figure>
 </div>
@@ -1029,12 +1095,44 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 </section>
 <section id="autoreferenciar-elementos-dentro-un-r-markdown" class="level1">
 <h1>Autoreferenciar elementos dentro un R Markdown</h1>
-<div class="cell tbl-cap-location-top">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tabla1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="tbl-confi" class="anchored">
+<p>Una de las ventajas de usar documentos dinámicos con R Markdown es que podemos <strong>autoreferenciar los elementos que creamos dentro del mismo documento</strong>.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+¿Autoreferenciar?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esto se refiere que, si en un documento creamos un gráfico por ejemplo, podemos citarlo o referenciarlo en el texto que escribamos, generando un enlace que al pincharlo llevará a dicha figura (en el orden establecido en el documento).</p>
+</div>
+</div>
+<p>Para hacer esto <strong>debemos darle un nombre o <em>label</em> al chunk</strong> en donde producimos la tabla o gráfico en nuestro documento. Tomemos por ejemplo la misma <code>tabla1</code> y <code>grafico1</code> que generamos anteriormente, pero ahora les daremos un nombre al chunk en donde ejecutaremos dichos elementos.</p>
+<p>¿Qué nombre le ponemos? hay que considerar lo siguiente:</p>
+<ul>
+<li>Cuando es una <strong>tabla</strong> debemos nombrar al chunk con el prefijo <strong><code>tbl-</code></strong> antes del nombre respectivo.</li>
+<li>Cuando es una <strong>figura</strong> debemos nombrar al chunk con el prefijo <strong><code>fig-</code></strong> antes del nombre respectivo.</li>
+</ul>
+<p>¿Cómo las referenciamos? para referenciar tablas o figuras debemos usar el prefijo <code>@</code> antes del nombre que le dimos al elemento.</p>
+<section id="a-tablas" class="level4">
+<h4 class="anchored" data-anchor-id="a-tablas">a) Tablas</h4>
+<p>Por ejemplo, si queremos referenciar a nuestra <code>tabla1</code>, en el chunk en donde la ejecutemos debemos indicar:</p>
+<pre><code>```{r tbl-confianza}
 
-<table class=" lightable-classic" style="font-size: 12px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; ">
+tabla1
+
+````</code></pre>
+<div class="cell tbl-cap-location-top">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>tabla1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="tbl-confianza" class="anchored">
+
+<table class=" lightable-classic" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">Tabla&nbsp;1:  Confianza interpersonal según país </caption>
  <thead>
   <tr>
@@ -1162,8 +1260,25 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 </div>
 </div>
 </div>
+<p>En este caso, a nuestra tabla le daremos el nombre de <em>confianza</em> más el prefijo <code>tbl-</code>. Y para referenciar dentro de un texto a la tabla usamos: <code>@tbl-confianza</code>.</p>
+<p>Texto de ejemplo:</p>
+<blockquote class="blockquote">
+<p>En la <a href="#tbl-confianza">Tabla&nbsp;1</a> se muestra la distribución porcentual del grado de confianza interpersonal por país.</p>
+</blockquote>
+</section>
+<section id="b-figuras" class="level4">
+<h4 class="anchored" data-anchor-id="b-figuras">b) Figuras</h4>
+<p>Por ejemplo, si queremos referenciar a nuestro <code>grafico1</code>, en el chunk en donde lo ejecutemos debemos indicar:</p>
+<pre><code>```{r fig-asociacion}
+
+grafico1
+
+````</code></pre>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div id="fig-asociacion" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -1173,13 +1288,47 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 </div>
 </div>
 </div>
-<p>Se pueden referenciar tablas, graficos y resultados</p>
-<p><a href="#fig-asociacion">Figura&nbsp;1</a></p>
-<p>hola</p>
-<p><a href="#tbl-confi">Tabla&nbsp;1</a></p>
+<p>En este caso, a nuestro gráfico le daremos el nombre de <em>asociacion</em> más el prefijo <code>fig-</code>. Y para referenciar dentro de un texto a la figura usamos: <code>@fig-asociacion</code>.</p>
+<p>Texto de ejemplo:</p>
+<blockquote class="blockquote">
+<p>En la <a href="#fig-asociacion">Figura&nbsp;1</a> se muestra la asociación entre el promedio de satisfacción con la democracía y el nivel de desigualdad ecónomica de los países.</p>
+</blockquote>
+</section>
+<section id="c-resultados" class="level4">
+<h4 class="anchored" data-anchor-id="c-resultados">c) Resultados</h4>
+<p>También podemos referenciar a resultados estadísticos que hayamos realizado con anterioridad en nuestro documento.</p>
+<p>Como ejemplo, obtengamos la correlación entre la satisfacción con la democracia y el índice de Gini de los países y lo guardamos en un objeto <code>M</code>.</p>
+<div class="cell">
+<details open="">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(g1<span class="sc">$</span>satis_m, g1<span class="sc">$</span>gini_m)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>M</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.2186253</code></pre>
+</div>
+</div>
+<p>Para referenciar este resultado, usamos en el texto:</p>
+<pre><code> `r `</code></pre>
+<p>Dentro de las comillas ’ ’ y después de la letra <em>r</em>, indicamos el nombre del objeto que contiene un resultado. En este caso, para referenciar el resultado indicamos:</p>
+<p><img src="../files/resul-m.png" class="img-fluid"></p>
+<p>Texto de ejemplo:</p>
+<blockquote class="blockquote">
+<p>El coeficiente de correlación de Pearson entre satisfacción con la democracia y el índice de Gini es negativo y pequeño = -0.2186253.</p>
+</blockquote>
+</section>
 </section>
 <section id="actividad-en-salas" class="level1">
 <h1>Actividad en salas</h1>
+<p>Genera un nuevo documento R Markdown en el cual:</p>
+<ol type="1">
+<li>Especifica opciones generales de chunk con <code>echo=TRUE</code>, <code>warning=FALSE</code> y <code>message=FALSE</code>.</li>
+<li>Carga las mismas librerías y datos que usamos en esta guía.</li>
+<li>Genera una tabla con el promedio de la variable <code>ros4</code> para cada <code>pais</code>. Luego, presenta esta tabla con <code>kable()</code> y dale opciones de formato. Llama a esta tabla como <code>tbl-redis</code> en el chunk.</li>
+<li>Genera un gráfico de barras para la variable <code>prot3</code> con <code>ggplot2</code>. Llama a esta figura como <code>fig-protesta</code> en el chunk.</li>
+<li>Escribe un breve texto reportando los resultados del punto 3) y 4), referenciando la tabla y figura creadas.</li>
+</ol>
 </section>
 <section id="resumen" class="level1">
 <h1>Resumen</h1>
@@ -1202,6 +1351,8 @@ Value |          Label |    N | Raw % | Valid % | Cum. %
 <script src="https://giscus.app/client.js" data-repo="cursos-metodos-facso/correlacional" data-repo-id="R_kgDOKCMXJQ" data-category="Q&amp;A" data-category-id="DIC_kwDOKCMXJc4CYd9S" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="es" crossorigin="anonymous" async="">
 </script>
 
+
+<!-- -->
 
 </section>
 
@@ -1271,6 +1422,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -1338,7 +1540,403 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Ejecutar el código</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb28" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Reportes dinámicos 2"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2023-09-29"</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> es</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="an">website:</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">  comments:</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">    giscus:</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co">      repo: cursos-metodos-facso/correlacional</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Objetivo de la práctica</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>El objetivo de esta guía práctica es aprender cómo crear y mostrar tablas y gráficos en documentos dinámicos mediante R Markdown. Además, aprenderemos cómo autoreferenciar elementos dentro de nuestro documento Rmd.</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>En detalle, aprenderemos:</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Generación y presentación de tablas en R Markdown.</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Generación y presentación de gráficos en R Markdown.</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Cómo autoreferenciar elementos dentro un documento R Markdown.</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Recursos de la práctica</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>En esta práctica trabajaremos con un subconjunto de datos previamente procesados derivados de las encuestas realizadas en diferentes países por el <span class="co">[</span><span class="ot">Latin American Public Opinion Proyect (LAPOP)</span><span class="co">](https://www.vanderbilt.edu/lapop/)</span> en su ola del 2018. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: <span class="co">[</span><span class="ot">{{&lt; fa table &gt;}} `LAPOP 2018`</span><span class="co">](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData)</span>. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos LAPOP 2018.</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># Crear un documento R Markdown</span></span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>Recordemos que, <span class="co">[</span><span class="ot">para generar un archivo en Rmarkdown</span><span class="co">](https://correlacional.netlify.app/assignment/01-practico#paso-2-crear-un-nuevo-archivo-en-rmarkdown)</span>, hacemos lo siguiente: </span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a><span class="al">![](../files/crear-rmd.gif)</span></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Chunks</span></span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>Para integrar código de R en un archivo <span class="in">`RMarkdown`</span> usamos los <span class="in">`chunks`</span>, que son *trozos* de código dentro de nuestra hoja. Estos permiten hacer análisis dentro del documento visualizando los resultados en el documento final.</span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>Los chunks se ven así dentro del .Rmd:</span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a><span class="in">    `r ''````{r}</span></span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a><span class="in">    # El codigo va aquí</span></span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a><span class="in">    ````</span></span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Insertar chunks</span></span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a>Hay tres formas de insertar chunks:</span>
+<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Pulsar <span class="in">`⌘⌥I`</span> en macOS o <span class="in">`Control + Alt + I`</span> en Windows</span>
+<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Pulsa el botón "Insert" en la parte superior de la ventana del editor</span>
+<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r insert, echo=FALSE, out.width="40%"}</span></span>
+<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"../files/insertchunk.png"</span>, <span class="at">error =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Escribirlo manualmente (no recomendado)</span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Nombre de chunk</span></span>
+<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a>Para añadir un nombre, inclúyelo inmediatamente después de la <span class="in">`{r`</span> en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones.</span>
+<span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-63"><a href="#cb28-63" aria-hidden="true" tabindex="-1"></a>Importante: **Todos los nombres de chunk de tu documento deben ser únicos.**</span>
+<span id="cb28-64"><a href="#cb28-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a><span class="in">    `r ''````{r nombre-chunk}</span></span>
+<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a><span class="in">    # El codigo va aquí</span></span>
+<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a><span class="in">    ````</span></span>
+<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Opciones de chunk</span></span>
+<span id="cb28-71"><a href="#cb28-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-72"><a href="#cb28-72" aria-hidden="true" tabindex="-1"></a>Hay distintas opciones diferentes que puedes establecer para cada chunk. Puedes ver una lista completa en la <span class="co">[</span><span class="ot">Guía de referencia de RMarkdown</span><span class="co">](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)</span> o en el <span class="co">[</span><span class="ot">sitio web de **knitr**</span><span class="co">](https://yihui.org/knitr/options/)</span>.</span>
+<span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a>Las opciones van dentro de la sección <span class="in">`{r}`</span> del chunk:</span>
+<span id="cb28-75"><a href="#cb28-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-76"><a href="#cb28-76" aria-hidden="true" tabindex="-1"></a><span class="in">    `r ''````{r nombre-chunk, message = FALSE, echo = TRUE}</span></span>
+<span id="cb28-77"><a href="#cb28-77" aria-hidden="true" tabindex="-1"></a><span class="in">    # El codigo va aquí</span></span>
+<span id="cb28-78"><a href="#cb28-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-79"><a href="#cb28-79" aria-hidden="true" tabindex="-1"></a><span class="in">    ````</span></span>
+<span id="cb28-80"><a href="#cb28-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a>Otra forma de hacerlo es **configurar** las opciones generales de todos los chunks que hagamos **al inicio del documento**:</span>
+<span id="cb28-82"><a href="#cb28-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-83"><a href="#cb28-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-84"><a href="#cb28-84" aria-hidden="true" tabindex="-1"></a><span class="in">    `r ''````{r setup, include = FALSE}</span></span>
+<span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a><span class="in">    knitr::opts_chunk$set(echo = TRUE, </span></span>
+<span id="cb28-86"><a href="#cb28-86" aria-hidden="true" tabindex="-1"></a><span class="in">                          message = FALSE, </span></span>
+<span id="cb28-87"><a href="#cb28-87" aria-hidden="true" tabindex="-1"></a><span class="in">                          warning = FALSE)</span></span>
+<span id="cb28-88"><a href="#cb28-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-89"><a href="#cb28-89" aria-hidden="true" tabindex="-1"></a><span class="in">    ````</span></span>
+<span id="cb28-90"><a href="#cb28-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-91"><a href="#cb28-91" aria-hidden="true" tabindex="-1"></a>De esta manera ya no es necesario indicar en _cada_ chunk las opciones, y se aplicaran las configuraciones generales que indicamos al comienzo. </span>
+<span id="cb28-92"><a href="#cb28-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-93"><a href="#cb28-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-94"><a href="#cb28-94" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preparación de datos</span></span>
+<span id="cb28-95"><a href="#cb28-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-96"><a href="#cb28-96" aria-hidden="true" tabindex="-1"></a>Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.</span>
+<span id="cb28-97"><a href="#cb28-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r librerias, echo=TRUE, message=FALSE, warning=FALSE, collapse=TRUE}</span></span>
+<span id="cb28-99"><a href="#cb28-99" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># Manipulacion datos</span></span>
+<span id="cb28-100"><a href="#cb28-100" aria-hidden="true" tabindex="-1"></a>               sjmisc, <span class="co"># Descriptivos</span></span>
+<span id="cb28-101"><a href="#cb28-101" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co">#Tablas</span></span>
+<span id="cb28-102"><a href="#cb28-102" aria-hidden="true" tabindex="-1"></a>               ggrepel) <span class="co"># Graficos</span></span>
+<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-104"><a href="#cb28-104" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
+<span id="cb28-105"><a href="#cb28-105" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span>
+<span id="cb28-106"><a href="#cb28-106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-107"><a href="#cb28-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-108"><a href="#cb28-108" aria-hidden="true" tabindex="-1"></a>Cargamos los datos desde internet.</span>
+<span id="cb28-109"><a href="#cb28-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-110"><a href="#cb28-110" aria-hidden="true" tabindex="-1"></a><span class="in">```{r datos, echo=TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb28-111"><a href="#cb28-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-112"><a href="#cb28-112" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData"</span>)) <span class="co">#Cargar base de datos</span></span>
+<span id="cb28-113"><a href="#cb28-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-114"><a href="#cb28-114" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-115"><a href="#cb28-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-116"><a href="#cb28-116" aria-hidden="true" tabindex="-1"></a>A continuación, exploramos la base de datos **lapop**.</span>
+<span id="cb28-117"><a href="#cb28-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-118"><a href="#cb28-118" aria-hidden="true" tabindex="-1"></a><span class="in">```{r exploracion, echo=TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb28-119"><a href="#cb28-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-120"><a href="#cb28-120" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lapop) <span class="co"># Nombre de columnas</span></span>
+<span id="cb28-121"><a href="#cb28-121" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(lapop) <span class="co"># Dimensiones</span></span>
+<span id="cb28-122"><a href="#cb28-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-123"><a href="#cb28-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-124"><a href="#cb28-124" aria-hidden="true" tabindex="-1"></a>Contamos con 39 variables (columnas) y 23.386 observaciones (filas).</span>
+<span id="cb28-125"><a href="#cb28-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-126"><a href="#cb28-126" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tablas en R Markdown</span></span>
+<span id="cb28-127"><a href="#cb28-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-128"><a href="#cb28-128" aria-hidden="true" tabindex="-1"></a>Para generar tablas en R Markdown usaremos la función <span class="in">`kable()`</span> del paquete <span class="in">`kableExtra`</span> (hay otras maneras, pero esta es de las más útiles).</span>
+<span id="cb28-129"><a href="#cb28-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-130"><a href="#cb28-130" aria-hidden="true" tabindex="-1"></a>Primero, generaremos un objeto llamado <span class="in">`tab1`</span> que usaremos como contenido de la tabla. Este objeto tendrá la distribución de <span class="in">`it1`</span> por país.</span>
+<span id="cb28-131"><a href="#cb28-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-132"><a href="#cb28-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb28-133"><a href="#cb28-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-134"><a href="#cb28-134" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb28-135"><a href="#cb28-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais, it1) <span class="sc">%&gt;%</span> <span class="co"># agrupamos por pais y variable</span></span>
+<span id="cb28-136"><a href="#cb28-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co"># contamos por categ de respuesta</span></span>
+<span id="cb28-137"><a href="#cb28-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> <span class="co"># porcentaje</span></span>
+<span id="cb28-138"><a href="#cb28-138" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> <span class="co"># borramos NA</span></span>
+<span id="cb28-139"><a href="#cb28-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> pais, <span class="at">names_from =</span> it1, <span class="at">values_from =</span> prop) <span class="co"># convertimos a formato ancho</span></span>
+<span id="cb28-140"><a href="#cb28-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-141"><a href="#cb28-141" aria-hidden="true" tabindex="-1"></a>tab1</span>
+<span id="cb28-142"><a href="#cb28-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-143"><a href="#cb28-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-144"><a href="#cb28-144" aria-hidden="true" tabindex="-1"></a>**Creemos nuestra tabla**. Usemos primero la función <span class="in">`kable()`</span> directamente:</span>
+<span id="cb28-145"><a href="#cb28-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-146"><a href="#cb28-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=TRUE, warning=FALSE, message=FALSE}</span></span>
+<span id="cb28-147"><a href="#cb28-147" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb28-148"><a href="#cb28-148" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>()</span>
+<span id="cb28-149"><a href="#cb28-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-150"><a href="#cb28-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-151"><a href="#cb28-151" aria-hidden="true" tabindex="-1"></a>Ahora tenemos una tabla, pero es muy simple y poco presentable. Especifiquemos opciones de formato:</span>
+<span id="cb28-152"><a href="#cb28-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-153"><a href="#cb28-153" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`format`</span>: para especificar formato de la tabla (html, markdown, latex)</span>
+<span id="cb28-154"><a href="#cb28-154" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`aling`</span>: para especificar alineacion de las celdas ('r'=derecha, 'c'=centro, 'l'=izquierda),</span>
+<span id="cb28-155"><a href="#cb28-155" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`col.names`</span>: para nombres de columnas visibles en la tabla, se ingresan como un vector <span class="in">`c()`</span></span>
+<span id="cb28-156"><a href="#cb28-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-157"><a href="#cb28-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-158"><a href="#cb28-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=TRUE, warning=FALSE, message=FALSE}</span></span>
+<span id="cb28-159"><a href="#cb28-159" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb28-160"><a href="#cb28-160" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb28-161"><a href="#cb28-161" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb28-162"><a href="#cb28-162" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>))</span>
+<span id="cb28-163"><a href="#cb28-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-164"><a href="#cb28-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-165"><a href="#cb28-165" aria-hidden="true" tabindex="-1"></a>Ahora agregemos otros elementos importantes, como el título, estilo y fuente a la tabla:</span>
+<span id="cb28-166"><a href="#cb28-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-167"><a href="#cb28-167" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`caption`</span>: para dar titulo de la tabla</span>
+<span id="cb28-168"><a href="#cb28-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`kable_classic()`</span>: para dar estilo (revisar otros <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#Getting_Started)</span>)</span>
+<span id="cb28-169"><a href="#cb28-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`add_footnote()`</span>: para agregar fuente o pie a la tabla</span>
+<span id="cb28-170"><a href="#cb28-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-171"><a href="#cb28-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=TRUE, warning=FALSE, message=FALSE}</span></span>
+<span id="cb28-172"><a href="#cb28-172" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb28-173"><a href="#cb28-173" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb28-174"><a href="#cb28-174" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb28-175"><a href="#cb28-175" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>),</span>
+<span id="cb28-176"><a href="#cb28-176" aria-hidden="true" tabindex="-1"></a>                    <span class="at">caption =</span> <span class="st">"Tabla 1. Confianza interpersonal según país"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-177"><a href="#cb28-177" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_classic</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb28-178"><a href="#cb28-178" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">add_footnote</span>(<span class="at">label =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>)</span>
+<span id="cb28-179"><a href="#cb28-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-180"><a href="#cb28-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-181"><a href="#cb28-181" aria-hidden="true" tabindex="-1"></a>¿Muy grande? También podemos ajustar el ancho que ocupa la tabla, el tamaño de la letra y la posición:</span>
+<span id="cb28-182"><a href="#cb28-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-183"><a href="#cb28-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`full_width`</span>: para indicar si la tabla cubre todo el ancho o no (TRUE/FALSE) </span>
+<span id="cb28-184"><a href="#cb28-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`position`</span>: para indicar posición de la tabla en el documento</span>
+<span id="cb28-185"><a href="#cb28-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`font_size`</span>: para indicar tamaño de la letra</span>
+<span id="cb28-186"><a href="#cb28-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-187"><a href="#cb28-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-188"><a href="#cb28-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-189"><a href="#cb28-189" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=TRUE, warning=FALSE, message=FALSE}</span></span>
+<span id="cb28-190"><a href="#cb28-190" aria-hidden="true" tabindex="-1"></a>tabla1 <span class="ot">&lt;-</span> tab1 <span class="sc">%&gt;%</span> </span>
+<span id="cb28-191"><a href="#cb28-191" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb28-192"><a href="#cb28-192" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb28-193"><a href="#cb28-193" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"País"</span>, <span class="st">"Nada confiable"</span>, <span class="st">"Poco confiable"</span>, <span class="st">"Algo confiable"</span>, <span class="st">"Muy confiable"</span>),</span>
+<span id="cb28-194"><a href="#cb28-194" aria-hidden="true" tabindex="-1"></a>                    <span class="at">caption =</span> <span class="st">"Tabla 1. Confianza interpersonal según país"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-195"><a href="#cb28-195" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>, <span class="at">font_size =</span> <span class="dv">14</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-196"><a href="#cb28-196" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">add_footnote</span>(<span class="at">label =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>)</span>
+<span id="cb28-197"><a href="#cb28-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-198"><a href="#cb28-198" aria-hidden="true" tabindex="-1"></a>tabla1</span>
+<span id="cb28-199"><a href="#cb28-199" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-200"><a href="#cb28-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-201"><a href="#cb28-201" aria-hidden="true" tabindex="-1"></a><span class="fu"># Gráficos en R Markdown</span></span>
+<span id="cb28-202"><a href="#cb28-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-203"><a href="#cb28-203" aria-hidden="true" tabindex="-1"></a>Para hacer gráficos usaremos el paquete <span class="in">`ggplot2`</span>. Para conocer cómo usar este paquete revisar  <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://descriptiva-facso.netlify.app/content/06-content)</span>. </span>
+<span id="cb28-204"><a href="#cb28-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-205"><a href="#cb28-205" aria-hidden="true" tabindex="-1"></a>Primero, creamos un objeto llamado <span class="in">`g1`</span> en donde almacenaremos la información que queremos graficar. Este objeto tendrá, para cada país, el promedio de satisfacción con la democracia (<span class="in">`pn4`</span>) y del índice de Gini (<span class="in">`gini`</span>).</span>
+<span id="cb28-206"><a href="#cb28-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-207"><a href="#cb28-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb28-208"><a href="#cb28-208" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span> </span>
+<span id="cb28-209"><a href="#cb28-209" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-210"><a href="#cb28-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">satis_m =</span> <span class="fu">mean</span>(pn4, <span class="at">na.rm =</span> T),</span>
+<span id="cb28-211"><a href="#cb28-211" aria-hidden="true" tabindex="-1"></a>            <span class="at">gini_m =</span> <span class="fu">mean</span>(gini, <span class="at">na.rm =</span> T))</span>
+<span id="cb28-212"><a href="#cb28-212" aria-hidden="true" tabindex="-1"></a>g1</span>
+<span id="cb28-213"><a href="#cb28-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-214"><a href="#cb28-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-215"><a href="#cb28-215" aria-hidden="true" tabindex="-1"></a>Ahora, graficamos esta asociación en un objeto llamado <span class="in">`grafico1`</span>.</span>
+<span id="cb28-216"><a href="#cb28-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-217"><a href="#cb28-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=TRUE, warning=FALSE, message=FALSE}</span></span>
+<span id="cb28-218"><a href="#cb28-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-219"><a href="#cb28-219" aria-hidden="true" tabindex="-1"></a>grafico1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> g1,</span>
+<span id="cb28-220"><a href="#cb28-220" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gini_m, <span class="at">y =</span> satis_m, <span class="at">label =</span> pais)) <span class="sc">+</span></span>
+<span id="cb28-221"><a href="#cb28-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb28-222"><a href="#cb28-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,<span class="at">colour =</span> <span class="st">"black"</span>,<span class="at">fill=</span><span class="st">"lightblue"</span>,<span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb28-223"><a href="#cb28-223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">size=</span><span class="dv">3</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb28-224"><a href="#cb28-224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Índice de Gini"</span>,</span>
+<span id="cb28-225"><a href="#cb28-225" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Satisfacción con la democracia"</span>,</span>
+<span id="cb28-226"><a href="#cb28-226" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018"</span>) <span class="sc">+</span></span>
+<span id="cb28-227"><a href="#cb28-227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb28-228"><a href="#cb28-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-229"><a href="#cb28-229" aria-hidden="true" tabindex="-1"></a>grafico1</span>
+<span id="cb28-230"><a href="#cb28-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-231"><a href="#cb28-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-232"><a href="#cb28-232" aria-hidden="true" tabindex="-1"></a>Para especificar elementos de presentación de gráficos en un documento Rmd. usaremos las opciones de **chunks**. Algunas de las más comunes son:</span>
+<span id="cb28-233"><a href="#cb28-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-234"><a href="#cb28-234" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fig.align`</span>: para espeficiar alineación del gráfico en el documento (left, right, center)</span>
+<span id="cb28-235"><a href="#cb28-235" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`out.width`</span>: para especificar el tamaño del gráfico en el documento</span>
+<span id="cb28-236"><a href="#cb28-236" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fig.cap`</span>: para espeficiar el título del gráfico que se muestra en el documento</span>
+<span id="cb28-237"><a href="#cb28-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-238"><a href="#cb28-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-239"><a href="#cb28-239" aria-hidden="true" tabindex="-1"></a>Llamemos a nuestro <span class="in">`grafico1`</span>, pero ahora especificando en el chunk:  <span class="in">`{r, fig.align='center', fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia', out.width='80%'}`</span> </span>
+<span id="cb28-240"><a href="#cb28-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-241"><a href="#cb28-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=TRUE, warning=FALSE, message=FALSE, fig.align='center', fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia', out.width='80%'}</span></span>
+<span id="cb28-242"><a href="#cb28-242" aria-hidden="true" tabindex="-1"></a>grafico1</span>
+<span id="cb28-243"><a href="#cb28-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-244"><a href="#cb28-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-245"><a href="#cb28-245" aria-hidden="true" tabindex="-1"></a>Ahora tenemos un gráfico centrado, más grande y con un título en nuestro documento.</span>
+<span id="cb28-246"><a href="#cb28-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-247"><a href="#cb28-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-248"><a href="#cb28-248" aria-hidden="true" tabindex="-1"></a><span class="fu"># Autoreferenciar elementos dentro un R Markdown</span></span>
+<span id="cb28-249"><a href="#cb28-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-250"><a href="#cb28-250" aria-hidden="true" tabindex="-1"></a>Una de las ventajas de usar documentos dinámicos con R Markdown es que podemos **autoreferenciar los elementos que creamos dentro del mismo documento**.</span>
+<span id="cb28-251"><a href="#cb28-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-252"><a href="#cb28-252" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb28-253"><a href="#cb28-253" aria-hidden="true" tabindex="-1"></a><span class="fu">#### ¿Autoreferenciar?</span></span>
+<span id="cb28-254"><a href="#cb28-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-255"><a href="#cb28-255" aria-hidden="true" tabindex="-1"></a>Esto se refiere que, si en un documento creamos un gráfico por ejemplo, podemos citarlo o referenciarlo en el texto que escribamos, generando un enlace que al pincharlo llevará a dicha figura (en el orden establecido en el documento).</span>
+<span id="cb28-256"><a href="#cb28-256" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb28-257"><a href="#cb28-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-258"><a href="#cb28-258" aria-hidden="true" tabindex="-1"></a>Para hacer esto **debemos darle un nombre o _label_ al chunk** en donde producimos la tabla o gráfico en nuestro documento. Tomemos por ejemplo la misma <span class="in">`tabla1`</span> y <span class="in">`grafico1`</span> que generamos anteriormente, pero ahora les daremos un nombre al chunk en donde ejecutaremos dichos elementos. </span>
+<span id="cb28-259"><a href="#cb28-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-260"><a href="#cb28-260" aria-hidden="true" tabindex="-1"></a>¿Qué nombre le ponemos? hay que considerar lo siguiente:</span>
+<span id="cb28-261"><a href="#cb28-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-262"><a href="#cb28-262" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cuando es una **tabla** debemos nombrar al chunk con el prefijo **`tbl-`** antes del nombre respectivo. </span>
+<span id="cb28-263"><a href="#cb28-263" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cuando es una **figura** debemos nombrar al chunk con el prefijo **`fig-`** antes del nombre respectivo.</span>
+<span id="cb28-264"><a href="#cb28-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-265"><a href="#cb28-265" aria-hidden="true" tabindex="-1"></a>¿Cómo las referenciamos? para referenciar tablas o figuras debemos usar el prefijo <span class="in">`@`</span> antes del nombre que le dimos al elemento. </span>
+<span id="cb28-266"><a href="#cb28-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-267"><a href="#cb28-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-268"><a href="#cb28-268" aria-hidden="true" tabindex="-1"></a><span class="fu">#### a) Tablas </span></span>
+<span id="cb28-269"><a href="#cb28-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-270"><a href="#cb28-270" aria-hidden="true" tabindex="-1"></a>Por ejemplo, si queremos referenciar a nuestra <span class="in">`tabla1`</span>, en el chunk en donde la ejecutemos debemos indicar:</span>
+<span id="cb28-271"><a href="#cb28-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-272"><a href="#cb28-272" aria-hidden="true" tabindex="-1"></a><span class="in">    `r ''````{r tbl-confianza}</span></span>
+<span id="cb28-273"><a href="#cb28-273" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb28-274"><a href="#cb28-274" aria-hidden="true" tabindex="-1"></a><span class="in">    tabla1</span></span>
+<span id="cb28-275"><a href="#cb28-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-276"><a href="#cb28-276" aria-hidden="true" tabindex="-1"></a><span class="in">    ````</span></span>
+<span id="cb28-277"><a href="#cb28-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-280"><a href="#cb28-280" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-281"><a href="#cb28-281" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-confianza</span></span>
+<span id="cb28-282"><a href="#cb28-282" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Confianza interpersonal según país"</span></span>
+<span id="cb28-283"><a href="#cb28-283" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap-location: top</span></span>
+<span id="cb28-284"><a href="#cb28-284" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb28-285"><a href="#cb28-285" aria-hidden="true" tabindex="-1"></a>tabla1</span>
+<span id="cb28-286"><a href="#cb28-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-287"><a href="#cb28-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-288"><a href="#cb28-288" aria-hidden="true" tabindex="-1"></a>En este caso, a nuestra tabla le daremos el nombre de _confianza_ más el prefijo <span class="in">`tbl-`</span>. Y para referenciar dentro de un texto a la tabla usamos: <span class="in">`@tbl-confianza`</span>.</span>
+<span id="cb28-289"><a href="#cb28-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-290"><a href="#cb28-290" aria-hidden="true" tabindex="-1"></a>Texto de ejemplo:</span>
+<span id="cb28-291"><a href="#cb28-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-292"><a href="#cb28-292" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; En la @tbl-confianza se muestra la distribución porcentual del grado de confianza interpersonal por país. </span></span>
+<span id="cb28-293"><a href="#cb28-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-294"><a href="#cb28-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-295"><a href="#cb28-295" aria-hidden="true" tabindex="-1"></a><span class="fu">#### b) Figuras </span></span>
+<span id="cb28-296"><a href="#cb28-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-297"><a href="#cb28-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-298"><a href="#cb28-298" aria-hidden="true" tabindex="-1"></a>Por ejemplo, si queremos referenciar a nuestro <span class="in">`grafico1`</span>, en el chunk en donde lo ejecutemos debemos indicar:</span>
+<span id="cb28-299"><a href="#cb28-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-300"><a href="#cb28-300" aria-hidden="true" tabindex="-1"></a><span class="in">    `r ''````{r fig-asociacion}</span></span>
+<span id="cb28-301"><a href="#cb28-301" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb28-302"><a href="#cb28-302" aria-hidden="true" tabindex="-1"></a><span class="in">    grafico1</span></span>
+<span id="cb28-303"><a href="#cb28-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-304"><a href="#cb28-304" aria-hidden="true" tabindex="-1"></a><span class="in">    ````</span></span>
+<span id="cb28-305"><a href="#cb28-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-308"><a href="#cb28-308" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-309"><a href="#cb28-309" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-asociacion</span></span>
+<span id="cb28-310"><a href="#cb28-310" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Asociación entre Índice de Gini y Satisfacción con la democracia"</span></span>
+<span id="cb28-311"><a href="#cb28-311" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb28-312"><a href="#cb28-312" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb28-313"><a href="#cb28-313" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb28-314"><a href="#cb28-314" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-width: 80%</span></span>
+<span id="cb28-315"><a href="#cb28-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-316"><a href="#cb28-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-317"><a href="#cb28-317" aria-hidden="true" tabindex="-1"></a>grafico1</span>
+<span id="cb28-318"><a href="#cb28-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-319"><a href="#cb28-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-320"><a href="#cb28-320" aria-hidden="true" tabindex="-1"></a>En este caso, a nuestro gráfico le daremos el nombre de _asociacion_ más el prefijo <span class="in">`fig-`</span>. Y para referenciar dentro de un texto a la figura usamos: <span class="in">`@fig-asociacion`</span>.</span>
+<span id="cb28-321"><a href="#cb28-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-322"><a href="#cb28-322" aria-hidden="true" tabindex="-1"></a>Texto de ejemplo:</span>
+<span id="cb28-323"><a href="#cb28-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-324"><a href="#cb28-324" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; En la @fig-asociacion se muestra la asociación entre el promedio de satisfacción con la democracía y el nivel de desigualdad ecónomica de los países. </span></span>
+<span id="cb28-325"><a href="#cb28-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-326"><a href="#cb28-326" aria-hidden="true" tabindex="-1"></a><span class="fu">#### c) Resultados</span></span>
+<span id="cb28-327"><a href="#cb28-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-328"><a href="#cb28-328" aria-hidden="true" tabindex="-1"></a>También podemos referenciar a resultados estadísticos que hayamos realizado con anterioridad en nuestro documento. </span>
+<span id="cb28-329"><a href="#cb28-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-330"><a href="#cb28-330" aria-hidden="true" tabindex="-1"></a>Como ejemplo, obtengamos la correlación entre la satisfacción con la democracia y el índice de Gini de los países y lo guardamos en un objeto <span class="in">`M`</span>.</span>
+<span id="cb28-331"><a href="#cb28-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-332"><a href="#cb28-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r cor, echo=TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb28-333"><a href="#cb28-333" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(g1<span class="sc">$</span>satis_m, g1<span class="sc">$</span>gini_m)</span>
+<span id="cb28-334"><a href="#cb28-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-335"><a href="#cb28-335" aria-hidden="true" tabindex="-1"></a>M</span>
+<span id="cb28-336"><a href="#cb28-336" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb28-337"><a href="#cb28-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-338"><a href="#cb28-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-339"><a href="#cb28-339" aria-hidden="true" tabindex="-1"></a>Para referenciar este resultado, usamos en el texto:</span>
+<span id="cb28-340"><a href="#cb28-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-341"><a href="#cb28-341" aria-hidden="true" tabindex="-1"></a><span class="in">    `r ''</span></span>
+<span id="cb28-342"><a href="#cb28-342" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb28-343"><a href="#cb28-343" aria-hidden="true" tabindex="-1"></a><span class="in">    ` `r `</span></span>
+<span id="cb28-344"><a href="#cb28-344" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
+<span id="cb28-345"><a href="#cb28-345" aria-hidden="true" tabindex="-1"></a>Dentro de las comillas ' ' y después de la letra _r_, indicamos el nombre del objeto que contiene un resultado. En este caso, para referenciar el resultado indicamos: </span>
+<span id="cb28-346"><a href="#cb28-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-347"><a href="#cb28-347" aria-hidden="true" tabindex="-1"></a><span class="al">![](../files/resul-m.png)</span></span>
+<span id="cb28-348"><a href="#cb28-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-349"><a href="#cb28-349" aria-hidden="true" tabindex="-1"></a>Texto de ejemplo:</span>
+<span id="cb28-350"><a href="#cb28-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-351"><a href="#cb28-351" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; El coeficiente de correlación de Pearson entre satisfacción con la democracia y el índice de Gini es negativo y pequeño = </span><span class="in">`r M`</span><span class="at">.</span></span>
+<span id="cb28-352"><a href="#cb28-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-353"><a href="#cb28-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-354"><a href="#cb28-354" aria-hidden="true" tabindex="-1"></a><span class="fu"># Actividad en salas</span></span>
+<span id="cb28-355"><a href="#cb28-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-356"><a href="#cb28-356" aria-hidden="true" tabindex="-1"></a>Genera un nuevo documento R Markdown en el cual:</span>
+<span id="cb28-357"><a href="#cb28-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-358"><a href="#cb28-358" aria-hidden="true" tabindex="-1"></a>1) Especifica opciones generales de chunk con <span class="in">`echo=TRUE`</span>, <span class="in">`warning=FALSE`</span> y <span class="in">`message=FALSE`</span>. </span>
+<span id="cb28-359"><a href="#cb28-359" aria-hidden="true" tabindex="-1"></a>2) Carga las mismas librerías y datos que usamos en esta guía.</span>
+<span id="cb28-360"><a href="#cb28-360" aria-hidden="true" tabindex="-1"></a>3) Genera una tabla con el promedio de la variable <span class="in">`ros4`</span> para cada <span class="in">`pais`</span>. Luego, presenta esta tabla con <span class="in">`kable()`</span> y dale opciones de formato. Llama a esta tabla como <span class="in">`tbl-redis`</span> en el chunk.</span>
+<span id="cb28-361"><a href="#cb28-361" aria-hidden="true" tabindex="-1"></a>4) Genera un gráfico de barras para la variable <span class="in">`prot3`</span> con <span class="in">`ggplot2`</span>. Llama a esta figura como <span class="in">`fig-protesta`</span> en el chunk.</span>
+<span id="cb28-362"><a href="#cb28-362" aria-hidden="true" tabindex="-1"></a>5) Escribe un breve texto reportando los resultados del punto 3) y 4), referenciando la tabla y figura creadas.</span>
+<span id="cb28-363"><a href="#cb28-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-364"><a href="#cb28-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-365"><a href="#cb28-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-366"><a href="#cb28-366" aria-hidden="true" tabindex="-1"></a><span class="fu"># Resumen</span></span>
+<span id="cb28-367"><a href="#cb28-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-368"><a href="#cb28-368" aria-hidden="true" tabindex="-1"></a>Hoy aprendímos a generar y presentar tablas y grafícos en documentos dinámicos con R Markdown, así como también a autoreferenciar elementos dentro de un documento Rmd. En detalle, aprendímos:</span>
+<span id="cb28-369"><a href="#cb28-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-370"><a href="#cb28-370" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Generación y presentación de tablas en R Markdown.</span>
+<span id="cb28-371"><a href="#cb28-371" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Generación y presentación de gráficos en R Markdown.</span>
+<span id="cb28-372"><a href="#cb28-372" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Cómo autoreferenciar elementos dentro un documento R Markdown.</span>
+<span id="cb28-373"><a href="#cb28-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-374"><a href="#cb28-374" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reporte de progreso</span></span>
+<span id="cb28-375"><a href="#cb28-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-376"><a href="#cb28-376" aria-hidden="true" tabindex="-1"></a>Completar el reporte de progreso correspondiente a esta práctica <span class="co">[</span><span class="ot">aquí</span><span class="co">](https://forms.gle/XC4DH49Dn2TzUgkB6)</span>. El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.</span>
+<span id="cb28-377"><a href="#cb28-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-378"><a href="#cb28-378" aria-hidden="true" tabindex="-1"></a><span class="fu"># Video de práctica</span></span>
+<span id="cb28-379"><a href="#cb28-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-380"><a href="#cb28-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-381"><a href="#cb28-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-382"><a href="#cb28-382" aria-hidden="true" tabindex="-1"></a><span class="fu"># Foro</span></span>
+<span id="cb28-383"><a href="#cb28-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-384"><a href="#cb28-384" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;script</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://giscus.app/client.js"</span></span>
+<span id="cb28-385"><a href="#cb28-385" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-repo=</span><span class="st">"cursos-metodos-facso/correlacional"</span></span>
+<span id="cb28-386"><a href="#cb28-386" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-repo-id=</span><span class="st">"R_kgDOKCMXJQ"</span></span>
+<span id="cb28-387"><a href="#cb28-387" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-category=</span><span class="st">"Q</span><span class="er">&amp;</span><span class="st">A"</span></span>
+<span id="cb28-388"><a href="#cb28-388" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-category-id=</span><span class="st">"DIC_kwDOKCMXJc4CYd9S"</span></span>
+<span id="cb28-389"><a href="#cb28-389" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-mapping=</span><span class="st">"title"</span></span>
+<span id="cb28-390"><a href="#cb28-390" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-strict=</span><span class="st">"0"</span></span>
+<span id="cb28-391"><a href="#cb28-391" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-reactions-enabled=</span><span class="st">"1"</span></span>
+<span id="cb28-392"><a href="#cb28-392" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-emit-metadata=</span><span class="st">"0"</span></span>
+<span id="cb28-393"><a href="#cb28-393" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-input-position=</span><span class="st">"bottom"</span></span>
+<span id="cb28-394"><a href="#cb28-394" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-theme=</span><span class="st">"light"</span></span>
+<span id="cb28-395"><a href="#cb28-395" aria-hidden="true" tabindex="-1"></a><span class="ot">        data-lang=</span><span class="st">"es"</span></span>
+<span id="cb28-396"><a href="#cb28-396" aria-hidden="true" tabindex="-1"></a><span class="ot">        crossorigin=</span><span class="st">"anonymous"</span></span>
+<span id="cb28-397"><a href="#cb28-397" aria-hidden="true" tabindex="-1"></a><span class="ot">        async</span><span class="kw">&gt;</span></span>
+<span id="cb28-398"><a href="#cb28-398" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/script&gt;</span></span>
+</code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
