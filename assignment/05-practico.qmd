@@ -1,0 +1,277 @@
+---
+title: "Reportes dinámicos 2"
+date: "2023-09-29"
+lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
+---
+
+# Objetivo de la práctica
+
+El objetivo de esta guía práctica es aprender cómo crear y mostrar tablas y gráficos en documentos dinámicos mediante R Markdown. Además, aprenderemos cómo autoreferenciar elementos dentro de nuestro documento Rmd.
+
+En detalle, aprenderemos:
+
+1.  Generación y presentación de tablas en R Markdown.
+2.  Generación y presentación de gráficos en R Markdown.
+3.  Cómo autoreferenciar elementos dentro un documento R Markdown.
+
+
+## Recursos de la práctica
+
+En esta práctica trabajaremos con un subconjunto de datos previamente procesados derivados de las encuestas socioeconómicas realizadas en diferentes países por el [Latin American Public Opinion Proyect (LAPOP)](https://www.vanderbilt.edu/lapop/) en su ola del 2018. Esta base la pueden encontrar en el canal de U-Cursos sección Material Docente, o bien, en el siguiente enlace [{{< fa table >}} `LAPOP 2018`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData) podrán descargar el archivo que contiene el subconjunto procesado de la base de datos LAPOP 2018.
+
+
+### Flujo de trabajo
+
+Pasos a seguir: 
+
+- Descargar la base de datos vía U-Cursos o mediante el enlace [{{< fa table >}} `LAPOP 2018`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData)
+- Crear un proyecto de R (.Rproj) que se llame “practico-05”
+- Crear carpetas de **Input, Procesamiento y Output**
+- Ubicar la base de datos en una subcarpeta llamada **datos** dentro de la carpeta Input
+- Crear un documento R Markdown en la carpeta Procesamiento 
+ 
+
+# Repaso: R Markdown
+
+## Chunks
+
+## Preparación de datos
+
+Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.
+
+```{r librerias, echo=TRUE, message=FALSE, warning=FALSE, collapse=TRUE}
+pacman::p_load(tidyverse, # Manipulacion datos
+               sjmisc, # Descriptivos
+               kableExtra, #Tablas
+               ggrepel) # Graficos
+
+options(scipen = 999) # para desactivar notacion cientifica
+rm(list = ls()) # para limpiar el entorno de trabajo
+```
+
+Cargamos los datos alojados en la carpeta Input > datos
+
+```{r, include=FALSE}
+load(file = "data/lapop_proc_2018.RData")
+```
+
+
+```{r datos, eval=FALSE, include=TRUE}
+load(file = "Input/datos/lapop_proc_2018.RData") #Cargar base de datos
+```
+
+
+A continuación, exploramos la base de datos **lapop**.
+
+```{r exploracion, echo=TRUE, message=FALSE, warning=FALSE}
+
+names(lapop) # Nombre de columnas
+dim(lapop) # Dimensiones
+
+```
+Contamos con 39 variables (columnas) y 23.386 observaciones (filas).
+
+# Tablas en R Markdown
+
+Para generar tablas en R Markdown usaremos la función `kable()` del paquete `kableExtra` (hay otras maneras, pero esta es de las más útiles).
+
+Primero, veamos como se distribuye la variable `it1`
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+
+sjmisc::frq(lapop$it1)
+```
+
+Generaremos un objeto llamado `tab1` que usaremos como contenido. Esta tabla tendrá la distribución de `it1` por país.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+
+tab1 <- lapop %>%
+  group_by(pais, it1) %>% # agrupamos por pais y variable
+  summarise(n = n()) %>% # contamos por categ de respuesta
+  mutate(prop = round((n / sum(n)) * 100, 2)) %>% # porcentaje
+  na.omit() %>% # borramos NA
+  pivot_wider(id_cols = pais, names_from = it1, values_from = prop) # convertimos a formato ancho
+
+tab1
+```
+
+Usamos la función `kable()` directamente:
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+tab1 %>% 
+  kableExtra::kable()
+```
+
+Ahora tenemos una tabla, pero es muy simple y poco presentable. Especifiquemos opciones de formato:
+
+- `format`: para especificar formato de la tabla (html, markdown, latex)
+- `aling`: para especificar alineacion de las celdas ('r'=derecha, 'c'=centro, 'l'=izquierda),
+- `col.names`: para nombres de columnas visibles en la tabla, se ingresan como un vector `c()`
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+tab1 %>% 
+  kableExtra::kable(format = "html",
+                    align = "c",
+                    col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"))
+```
+
+Ahora agregemos otros elementos importantes, como el título, estilo y fuente a la tabla:
+
+- `caption`: para dar titulo de la tabla
+- `kable_classic()`: para dar estilo (revisar otros [aquí](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#Getting_Started))
+- `add_footnote()`: para agregar fuente o pie a la tabla
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+tab1 %>% 
+  kableExtra::kable(format = "html",
+                    align = "c",
+                    col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"),
+                    caption = "Tabla 1. Confianza interpersonal según país") %>% 
+  kableExtra::kable_classic() %>% 
+  kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a LAPOP 2018.")
+```
+
+¿Muy grande? También podemos ajustar el ancho que ocupa la tabla, el tamaño de la letra y la posición:
+
+- `full_width`: para indicar si la tabla cubre todo el ancho o no (TRUE/FALSE) 
+- `position`: para indicar posicion de la tabla en el documento
+- `font_size`: para indicar tamaño de la letra
+
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+tabla1 <- tab1 %>% 
+  kableExtra::kable(format = "html",
+                    align = "c",
+                    col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"),
+                    caption = "Tabla 1. Confianza interpersonal según país") %>% 
+  kableExtra::kable_classic(full_width = F, position = "left", font_size = 12) %>% 
+  kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a LAPOP 2018.")
+
+tabla1
+```
+
+# Gráficos en R Markdown
+
+Para hacer gráficos usaremos el paquete `ggplot2` [que ya conocemos](https://descriptiva-facso.netlify.app/content/06-content). 
+
+Primero, creamos un objeto llamado `g1` en donde almacenaremos la información que queremos graficar. Este objeto tendrá, para cada país, el promedio de satisfacción con la democracia y del índice de gini.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+g1 <- lapop %>% 
+  group_by(pais) %>% 
+  summarise(satis_m = mean(pn4, na.rm = T),
+            gini_m = mean(gini, na.rm = T))
+g1
+```
+
+Ahora, graficamos esta asociación en un objeto llamado `grafico1`.
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+
+grafico1 <- ggplot(data = g1,
+       mapping = aes(x = gini_m, y = satis_m, label = pais)) +
+  geom_point() +
+  geom_smooth(method = "lm",colour = "black",fill="lightblue",size=0.5) + 
+  geom_text_repel(size=3, show.legend = FALSE) +
+  labs(x = "Índice de Gini",
+       y = "Satisfacción con la democracia",
+       caption = "Fuente: Elaboración propia en base a LAPOP 2018") +
+  theme_bw()
+
+grafico1
+```
+
+Para especificar elementos de presentación de gráficos en un documento Rmd. usaremos las opciones de **chunks**. Algunas de las más comunes son:
+
+- `fig.align`: para espeficiar alineación del gráfico en el documento (left, right, center)
+- `out.width`: para especificar el tamaño del gráfico en el documento
+- `fig.cap`: para espeficiar el título del gráfico que se muestra en el documento
+
+
+Llamemos a nuestro `grafico1` pero ahora especificando `fig.align='center'`, `out.width='80%'` y `fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia'`en las opciones de chunk. 
+
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE, fig.align='center', fig.cap='Asociación entre Índice de Gini y Satisfacción con la democracia', out.width='80%'}
+grafico1
+```
+
+Ahora tenemos un gráfico centrado, más grande y con un título en nuestro documento.
+
+
+# Autoreferenciar elementos dentro un R Markdown
+
+```{r}
+#| label: tbl-confi
+#| tbl-cap: "Confianza interpersonal según país"
+#| tbl-cap-location: top
+#| warning: false
+tabla1
+```
+
+
+
+```{r}
+#| label: fig-asociacion
+#| fig-cap: "Asociación entre Índice de Gini y Satisfacción con la democracia"
+#| warning: false
+#| fig-align: center
+#| out-width: 80%
+
+
+grafico1
+```
+
+Se pueden referenciar tablas, graficos y resultados 
+
+
+@fig-asociacion
+
+hola
+
+@tbl-confi
+
+
+
+# Actividad en salas
+
+# Resumen
+
+Hoy aprendímos a generar y presentar tablas y grafícos en documentos dinámicos con R Markdown, así como también a autoreferenciar elementos dentro de un documento Rmd. En detalle, aprendímos:
+
+1.  Generación y presentación de tablas en R Markdown.
+2.  Generación y presentación de gráficos en R Markdown.
+3.  Cómo autoreferenciar elementos dentro un documento R Markdown.
+
+# Reporte de progreso
+
+Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/XC4DH49Dn2TzUgkB6). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
+
+# Video de práctica
+
+
+
+# Foro
+
+<script src="https://giscus.app/client.js"
+        data-repo="cursos-metodos-facso/correlacional"
+        data-repo-id="R_kgDOKCMXJQ"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOKCMXJc4CYd9S"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+</script>
+

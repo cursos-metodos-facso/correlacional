@@ -1,0 +1,86 @@
+---
+title: "Untitled"
+author: "Andreas Laffert"
+date: "2023-09-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.
+
+```{r librerias, echo=TRUE, message=FALSE, warning=FALSE, collapse=TRUE}
+pacman::p_load(tidyverse, # Manipulacion datos
+               sjmisc, # Descriptivos
+               kableExtra, #Tablas
+               ggrepel) # Graficos
+
+options(scipen = 999) # para desactivar notacion cientifica
+rm(list = ls()) # para limpiar el entorno de trabajo
+```
+
+Cargamos los datos alojados en la carpeta Input > datos
+
+```{r, include=FALSE}
+load(file = "data/lapop_proc_2018.RData")
+```
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+g1 <- lapop %>% 
+  group_by(pais) %>% 
+  summarise(satis_m = mean(pn4, na.rm = T),
+            gini_m = mean(gini, na.rm = T))
+g1
+```
+
+Ahora, graficamos esta asociación en un objeto llamado `grafico1`.
+
+```{r grafico1, echo=TRUE, warning=FALSE, message=FALSE}
+
+grafico1 <- ggplot(data = g1,
+       mapping = aes(x = gini_m, y = satis_m, label = pais)) +
+  geom_point() +
+  geom_smooth(method = "lm",colour = "black",fill="lightblue",size=0.5) + 
+  geom_text_repel(size=3, show.legend = FALSE) +
+  labs(x = "Índice de Gini",
+       y = "Satisfacción con la democracia",
+       caption = "Fuente: Elaboración propia en base a LAPOP 2018") +
+  theme_bw()
+
+grafico1
+```
+
+```{r fig-asociacion, fig.cap="hola", warning=FALSE, message=FALSE}
+grafico1
+```
+
+En este codifo bla bla @fig-asociacion
+
+
+```{r, warning=FALSE, message=FALSE}
+tabla1 <- lapop %>%
+  group_by(pais, it1) %>% # agrupamos por pais y variable
+  summarise(n = n()) %>% # contamos por categ de respuesta
+  mutate(prop = round((n / sum(n)) * 100, 2)) %>% # porcentaje
+  na.omit() %>% # borramos NA
+  pivot_wider(id_cols = pais, names_from = it1, values_from = prop) # convertimos a formato ancho
+
+```
+
+
+```{r tbl-confi, echo=TRUE, warning=FALSE, message=FALSE}
+
+tabla1 %>% 
+  kableExtra::kable(format = "html",
+                    align = "c",
+                    col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable")) %>% 
+  kableExtra::kable_classic(full_width = F, position = "left", font_size = 12) %>% 
+  kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a LAPOP 2018.")
+
+```
+
+: My Caption {#tbl-confi}
+
+En la @tbl-confi vemos que
