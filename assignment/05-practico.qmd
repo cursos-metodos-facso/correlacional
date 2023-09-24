@@ -361,7 +361,7 @@ Genera un nuevo documento R Markdown en el cual:
 
 # Resumen
 
-Hoy aprendímos a generar y presentar tablas y grafícos en documentos dinámicos con R Markdown, así como también a autoreferenciar elementos dentro de un documento Rmd. En detalle, aprendímos:
+Hoy aprendimos a generar y presentar tablas y gráficos en documentos dinámicos con R Markdown, así como también a autoreferenciar elementos dentro de un documento Rmd. En detalle, aprendímos:
 
 1.  Generación y presentación de tablas en R Markdown.
 2.  Generación y presentación de gráficos en R Markdown.
@@ -369,7 +369,7 @@ Hoy aprendímos a generar y presentar tablas y grafícos en documentos dinámico
 
 # Reporte de progreso
 
-Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/XC4DH49Dn2TzUgkB6). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
+Completar el reporte de progreso correspondiente a esta práctica [aquí](https://forms.gle/NjDcuqqbetSVXqcf9). El plazo para contestarlo es hasta el día viernes de la semana en la que se publica la práctica correspondiente.
 
 # Video de práctica
 
