@@ -37,10 +37,10 @@ Para integrar código de R en un archivo `RMarkdown` usamos los `chunks`, que so
 
 Los chunks se ven así dentro del .Rmd:
 
-    `r ''````{r}
+    `r ''```{r}
     # El codigo va aquí
 
-    ````
+    ```
 
 #### Insertar chunks
 
@@ -62,10 +62,10 @@ Para añadir un nombre, inclúyelo inmediatamente después de la `{r` en la prim
 
 Importante: **Todos los nombres de chunk de tu documento deben ser únicos.**
 
-    `r ''````{r nombre-chunk}
+    `r ''```{r nombre-chunk}
     # El codigo va aquí
 
-    ````
+    ```
     
 #### Opciones de chunk
 
@@ -73,20 +73,20 @@ Hay distintas opciones diferentes que puedes establecer para cada chunk. Puedes 
 
 Las opciones van dentro de la sección `{r}` del chunk:
 
-    `r ''````{r nombre-chunk, message = FALSE, echo = TRUE}
+    `r ''```{r nombre-chunk, message = FALSE, echo = TRUE}
     # El codigo va aquí
 
-    ````
+    ```
 
 Otra forma de hacerlo es **configurar** las opciones generales de todos los chunks que hagamos **al inicio del documento**:
 
 
-    `r ''````{r setup, include = FALSE}
+    `r ''```{r setup, include = FALSE}
     knitr::opts_chunk$set(echo = TRUE, 
                           message = FALSE, 
                           warning = FALSE)
 
-    ````
+    ```
 
 De esta manera ya no es necesario indicar en _cada_ chunk las opciones, y se aplicaran las configuraciones generales que indicamos al comienzo. 
 
