@@ -132,12 +132,12 @@ Realizamos la prueba t para diferencia de medias:
 t.test(edad ~ sexo, data=muestra_1)
 ```
 
-En este caso, no podemos rechazar la hipótesis nula ya que su valor p es mayor al nivel de significancia ($p-value = 0.7065 > \alpha = 0.05$). Por lo tanto, no hay suficiente evidencia estadística para sostener que los promedios de edad de hombres y mujeres sean diferentes.
+En este caso, no podemos rechazar la hipótesis nula ya que su valor p es mayor al nivel de significancia ($p-value = 0.743 > \alpha = 0.05$). Por lo tanto, no hay suficiente evidencia estadística para sostener que los promedios de edad de hombres y mujeres sean diferentes.
 
 Ahora, realizaremos el mismo ejercicio con la muestra 2, con las variables `edad_2` y `sexo_2`. Mantendremos las mismas hipótesis.
 
 ```{r}
-muestra_2 <- data.frame(edad=c(31,35,25,30,24,25,33,31,32,31),
+muestra_2 <- data.frame(edad=c(31,35,26,30,24,27,30,31,32,31),
                         sexo=c(1,1,2,1,2,2,2,1,1,1))
 
 mean(muestra_2$edad)
@@ -165,7 +165,7 @@ muestra_2 %>%
 t.test(edad ~ sexo, data=muestra_2)
 ```
 
-Para la muestra 2, en cambio, rechazamos la hipótesis nula de igualdad de medias, dado que el valor p es menor al nivel de significancia ($p-value = 0.03108 < \alpha = 0.05$). Por tanto, con un 95\% de confianza podemos sostener que hay suficiente evidencia estadíatica para decir que las medias de edad para hombres y mujeres son distintas. No obstante, si nuestro nivel de confianza fuera 99\% tampoco podríamos hacer esta afirmación.
+Para la muestra 2, en cambio, rechazamos la hipótesis nula de igualdad de medias, dado que el valor p es menor al nivel de significancia ($p-value = 0.01917 < \alpha = 0.05$). Por tanto, con un 95\% de confianza podemos sostener que hay suficiente evidencia estadíatica para decir que las medias de edad para hombres y mujeres son distintas. No obstante, si nuestro nivel de confianza fuera 99\% tampoco podríamos hacer esta afirmación.
 
 En un mejor caso, podríamos tener la muestra 3:
 

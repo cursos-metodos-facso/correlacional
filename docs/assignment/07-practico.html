@@ -329,10 +329,10 @@ mean in group 1 mean in group 2
            29.5            30.0 </code></pre>
 </div>
 </div>
-<p>En este caso, no podemos rechazar la hipótesis nula ya que su valor p es mayor al nivel de significancia (<span class="math inline">\(p-value = 0.7065 &gt; \alpha = 0.05\)</span>). Por lo tanto, no hay suficiente evidencia estadística para sostener que los promedios de edad de hombres y mujeres sean diferentes.</p>
+<p>En este caso, no podemos rechazar la hipótesis nula ya que su valor p es mayor al nivel de significancia (<span class="math inline">\(p-value = 0.743 &gt; \alpha = 0.05\)</span>). Por lo tanto, no hay suficiente evidencia estadística para sostener que los promedios de edad de hombres y mujeres sean diferentes.</p>
 <p>Ahora, realizaremos el mismo ejercicio con la muestra 2, con las variables <code>edad_2</code> y <code>sexo_2</code>. Mantendremos las mismas hipótesis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>muestra_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">edad=</span><span class="fu">c</span>(<span class="dv">31</span>,<span class="dv">35</span>,<span class="dv">25</span>,<span class="dv">30</span>,<span class="dv">24</span>,<span class="dv">25</span>,<span class="dv">33</span>,<span class="dv">31</span>,<span class="dv">32</span>,<span class="dv">31</span>),</span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>muestra_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">edad=</span><span class="fu">c</span>(<span class="dv">31</span>,<span class="dv">35</span>,<span class="dv">26</span>,<span class="dv">30</span>,<span class="dv">24</span>,<span class="dv">27</span>,<span class="dv">30</span>,<span class="dv">31</span>,<span class="dv">32</span>,<span class="dv">31</span>),</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sexo=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(muestra_2<span class="sc">$</span>edad)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -373,16 +373,16 @@ mean in group 1 mean in group 2
     Welch Two Sample t-test
 
 data:  edad by sexo
-t = 2.2196, df = 3.7081, p-value = 0.09597
+t = 3.4143, df = 4.9649, p-value = 0.01917
 alternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0
 95 percent confidence interval:
- -1.429328 11.262662
+ 1.207138 8.626195
 sample estimates:
 mean in group 1 mean in group 2 
        31.66667        26.75000 </code></pre>
 </div>
 </div>
-<p>Para la muestra 2, en cambio, rechazamos la hipótesis nula de igualdad de medias, dado que el valor p es menor al nivel de significancia (<span class="math inline">\(p-value = 0.03108 &lt; \alpha = 0.05\)</span>). Por tanto, con un 95% de confianza podemos sostener que hay suficiente evidencia estadíatica para decir que las medias de edad para hombres y mujeres son distintas. No obstante, si nuestro nivel de confianza fuera 99% tampoco podríamos hacer esta afirmación.</p>
+<p>Para la muestra 2, en cambio, rechazamos la hipótesis nula de igualdad de medias, dado que el valor p es menor al nivel de significancia (<span class="math inline">\(p-value = 0.01917 &lt; \alpha = 0.05\)</span>). Por tanto, con un 95% de confianza podemos sostener que hay suficiente evidencia estadíatica para decir que las medias de edad para hombres y mujeres son distintas. No obstante, si nuestro nivel de confianza fuera 99% tampoco podríamos hacer esta afirmación.</p>
 <p>En un mejor caso, podríamos tener la muestra 3:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>muestra_3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">edad=</span><span class="fu">c</span>(<span class="dv">33</span>,<span class="dv">35</span>,<span class="dv">23</span>,<span class="dv">32</span>,<span class="dv">24</span>,<span class="dv">25</span>,<span class="dv">29</span>,<span class="dv">31</span>,<span class="dv">32</span>,<span class="dv">31</span>),</span>
