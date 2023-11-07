@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Generación y presentación de tablas y gráficos en Quarto.</li>
 <li>Cómo autoreferenciar elementos dentro un documento Quarto.</li>
 </ol>
-<p>Además de la plantilla para el informe, dejamos a disposición una <a href="">carpeta</a> con un proyecto de R y la estructura de carpetas recomendada para la elaboración del trabajo:</p>
+<p>Además de la plantilla para el informe, dejamos a disposición una <a href="https://github.com/cursos-metodos-facso/plantilla_informe">carpeta</a> con un proyecto de R y la estructura de carpetas recomendada para la elaboración del trabajo:</p>
 <ul>
 <li><em>input</em>: insumos, libro de códigos</li>
 <li><em>input/img</em>: imágenes</li>
@@ -324,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="carga-de-datos" class="level2">
 <h2 class="anchored" data-anchor-id="carga-de-datos">Carga de datos</h2>
 <p>Como señalamos antes, cargaremos los datos del Estudio Longitudinal Social de Chile (ELSOC) para ejemplificar. En esta guía práctica llamaremos los datos desde la web, pero en la carpeta del proyecto se encuentran alojados en la carpeta <code>input/data</code>, y se llama de la siguiente forma:</p>
-<p><code>load("../input/data/ELSOC_Long.RData")</code></p>
+<p><code>load("input/data/ELSOC_Long.RData")</code></p>
 <p>Pero, para llamar la base de datos desde la web:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://dataverse.harvard.edu/api/access/datafile/7245118"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -355,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="guardar-base-de-datos-resultante" class="level2">
 <h2 class="anchored" data-anchor-id="guardar-base-de-datos-resultante">Guardar base de datos resultante</h2>
 <p>Guardamos la base de datos procesada en la carpeta de <em>output</em>, con</p>
-<p><code>saveRDS(data, "../output/data.Rdata")</code></p>
+<p><code>saveRDS(data, "output/data.Rdata")</code></p>
 </section>
 </section>
 <section id="informe" class="level1">
@@ -395,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Frecuencia: Pensamiento de muerte o dañarse</li>
 </ul>
 <blockquote class="blockquote">
-<p>Podemos caargar los datos en nuestro informe sin que se vea poniendo la option <code>echo=FALSE</code>: <code>load("../output/data.RData")</code>.</p>
+<p>Podemos caargar los datos en nuestro informe sin que se vea poniendo la option <code>echo=FALSE</code>: <code>data &lt;-readRDS("output/data.RData")</code>.</p>
 </blockquote>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
@@ -525,7 +525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="video-de-práctica" class="level1">
 <h1>Video de práctica</h1>
-<!--  -->
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/FvcfVg-ONiM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="foro" class="level1">
 <h1>Foro</h1>
