@@ -34,7 +34,7 @@ En detalle, aprenderemos los siguientes contenidos:
 2.  Generación y presentación de tablas y gráficos en Quarto.
 3.  Cómo autoreferenciar elementos dentro un documento Quarto.
 
-Además de la plantilla para el informe, dejamos a disposición una [carpeta]() con un proyecto de R y la estructura de carpetas recomendada para la elaboración del trabajo:
+Además de la plantilla para el informe, dejamos a disposición una [carpeta](https://github.com/cursos-metodos-facso/plantilla_informe) con un proyecto de R y la estructura de carpetas recomendada para la elaboración del trabajo:
 
 -   *input*: insumos, libro de códigos
 -   *input/img*: imágenes
@@ -345,7 +345,7 @@ Completar el reporte de progreso correspondiente a esta práctica [aquí](https:
 
 # Video de práctica
 
-<!-- {{< video https://youtu.be/-nvtdhKOD9E >}} -->
+{{< video https://youtu.be/FvcfVg-ONiM >}}
 
 
 # Foro
