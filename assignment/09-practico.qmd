@@ -343,6 +343,11 @@ Ponemos un `-` para generar un listado.
 Completar el reporte de progreso correspondiente a esta práctica [aquí](https://docs.google.com/forms/d/1cJbjoBBweNANbBaEb4PGIg9wGJdA_bDRap-gMc3Ma3c/edit). El plazo para contestarlo es hasta el día martes de la semana siguiente a la que se publica la práctica correspondiente.
 
 
+# Visualización informe
+
+Finalmente, el informe que hemos generado se ve de la siguiente forma: [informe]().
+
+
 # Video de práctica
 
 {{< video https://youtu.be/FvcfVg-ONiM >}}
