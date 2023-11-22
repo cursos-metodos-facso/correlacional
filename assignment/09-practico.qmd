@@ -345,7 +345,7 @@ Completar el reporte de progreso correspondiente a esta práctica [aquí](https:
 
 # Visualización informe
 
-Finalmente, el informe que hemos generado se ve de la siguiente forma: [informe]().
+Finalmente, el informe que hemos generado se ve de la siguiente forma: [informe](https://rpubs.com/DaniOlivaresCollio/1118647).
 
 
 # Video de práctica
