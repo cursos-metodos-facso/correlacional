@@ -197,10 +197,10 @@ data <- data %>%
 
 Guardamos la base de datos procesada en la carpeta de _output_, con 
 
-`saveRDS(data, "output/data.Rdata")`
+`save(data,file="output/data.RData")`
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
-saveRDS(data, "../assignment/data/data.RData")
+save(data, file="../assignment/data/data.RData")
 ```
 
 
@@ -240,7 +240,7 @@ Y las variables del módulo de Salud y Bienestar, referentes a *Estado de ánimo
 -   Frecuencia: Enlentecimiento físico
 -   Frecuencia: Pensamiento de muerte o dañarse
 
-> Podemos caargar los datos en nuestro informe sin que se vea poniendo la option `echo=FALSE`: `data <-readRDS("output/data.RData")`.
+> Podemos caargar los datos en nuestro informe sin que se vea poniendo la option `echo=FALSE`: `data <-load(file="output/data.RData")`.
 
 ```{r, warning=FALSE, message=FALSE}
 tab1 <- data %>%
