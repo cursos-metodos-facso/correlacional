@@ -32,7 +32,7 @@ En esta práctica trabajaremos con un subconjunto de datos previamente procesado
 
 En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error de muestreo. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística:
 
-En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error de muestreo. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística: 
+En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística: 
 
 <style>
   table {
@@ -95,6 +95,12 @@ options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
 ```
 
+::: callout-tip
+**Los \# en el código**
+
+En este código y siguientes aparecen varios #, que son una función de comentarios en R. No son necesarios para que el código funcione, pero son útiles en este caso para poder explicar que función cumple cada sección del código. Todo lo que aparece a la derecha de un \# no es leído por el programa.
+:::
+
 Cargamos los datos directamente desde internet.
 
 ```{r datos}
@@ -156,11 +162,7 @@ casen_subset <- proc_casen %>%
 casen_subset <- na.omit(casen_subset) # eliminamos casos perdidos (listwise)
 ```
 
-::: callout-tip
-**Los \# en el código**
 
-En este código y siguientes aparecen varios #, que son una función de comentarios en R. No son necesarios para que el código funcione, pero son útiles en este caso para poder explicar que función cumple cada sección del código. Todo lo que aparece a la derecha de un \# no es leído por el programa.
-:::
 
 Generamos tabla para visualizar la distribución de los datos.
 
@@ -199,7 +201,7 @@ En clases vimos que los pasos 2, 3 y 4 corresponden a:
 
 4.  Cálculo de intervalo de confianza / contraste valores empírico/crítico
 
-Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al código que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.
+Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al softwaer que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.
 
 ```{r}
 test_ej1 <- t.test(casen_subset$ytrabajocor ~ casen_subset$sexo, 
@@ -224,9 +226,7 @@ gginference::ggttest(test_ej1)
 
 **5. Interpretación**
 
-La prueba T que evalúa la diferencia de medias entre el salario y el sexo sugiere que el efecto es positivo y estadísticamente signficativo (diferencia = 32567.11, t(566.69) = 2.05, p < .05). Por tanto, con un 95% de confianza, rechazamos la $H_{0}$ ya que existe evidencia a favor de nuestra $H_{A}$ respecto a que el salario de los hombres es mayor al salario de las mujeres.
-
-Además, podemos calcular un intervalo de confianza que acompaña nuestra estimación. En este caso, el IC del 95% es (59.670, Inf), donde “Inf” representa infinito. Esto significa que podemos estar 95% seguros de que _la diferencia real entre las medias está por encima de 59.670_. En otras palabras, con alta confianza, podemos afirmar que la media del “grupo 1” es significativamente mayor que la del “grupo 2”.
+La prueba T que evalúa la diferencia de medias entre el salario y el sexo sugiere que el efecto es positivo y estadísticamente signficativo (diferencia = 32567.11, t(566.69) = 2.05, p < .05). El valor $p$ indica que la probabilidad de observar una diferencia de esta magnitud, o mayor, bajo la suposición de $H_{0}$ es menor al 5%. Por tanto, con un 95% de confianza, rechazamos la $H_{0}$ ya que existe evidencia a favor de nuestra $H_{A}$ respecto a que el salario de los hombres es mayor al salario de las mujeres.
 
 # Ejercicio 2
 
@@ -264,7 +264,6 @@ Resuelve con trabajo en software.
 
 La prueba T que evalúa la diferencia de medias...
 
-Además, el IC...
 
 # Ejercicio 3
 

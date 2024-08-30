@@ -249,7 +249,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="cinco-pasos-para-la-inferencia-estadística">Cinco pasos para la inferencia estadística</h2>
 <p><img src="https://correlacional.netlify.app/slides/img/rechazar_meme.png" class="img-fluid"></p>
 <p>En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error de muestreo. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística:</p>
-<p>En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error de muestreo. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística:</p>
+<p>En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística:</p>
 <style>
   table {
     margin-left: auto; /* Ajustamos el margen izquierdo a automático */
@@ -332,6 +332,20 @@ Intrepreta los resultados
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Los # en el código</strong></p>
+<p>En este código y siguientes aparecen varios #, que son una función de comentarios en R. No son necesarios para que el código funcione, pero son útiles en este caso para poder explicar que función cumple cada sección del código. Todo lo que aparece a la derecha de un # no es leído por el programa.</p>
+</div>
+</div>
 <p>Cargamos los datos directamente desde internet.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/proc_casen.RData"</span>)) <span class="co">#Cargar base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -403,20 +417,6 @@ Prueba de una cola
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>casen_subset <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(casen_subset) <span class="co"># eliminamos casos perdidos (listwise)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Los # en el código</strong></p>
-<p>En este código y siguientes aparecen varios #, que son una función de comentarios en R. No son necesarios para que el código funcione, pero son útiles en este caso para poder explicar que función cumple cada sección del código. Todo lo que aparece a la derecha de un # no es leído por el programa.</p>
-</div>
-</div>
 <p>Generamos tabla para visualizar la distribución de los datos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>casen_subset <span class="sc">%&gt;%</span> </span>
@@ -438,15 +438,15 @@ Tip
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">366</td>
-<td style="text-align: right;">763431.0</td>
-<td style="text-align: right;">904740.0</td>
+<td style="text-align: right;">348</td>
+<td style="text-align: right;">782026.2</td>
+<td style="text-align: right;">828650.1</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">271</td>
-<td style="text-align: right;">582777.1</td>
-<td style="text-align: right;">510153.1</td>
+<td style="text-align: right;">279</td>
+<td style="text-align: right;">518039.5</td>
+<td style="text-align: right;">476502.6</td>
 </tr>
 </tbody>
 </table>
@@ -471,7 +471,7 @@ Tip
 <li><p>Establecer la probabilidad de error <span class="math inline">\(\alpha\)</span> (usualmente 0.05) y obtener valor crítico (teórico) de la prueba correspondiente</p></li>
 <li><p>Cálculo de intervalo de confianza / contraste valores empírico/crítico</p></li>
 </ol>
-<p>Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al código que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.</p>
+<p>Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al softwaer que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>test_ej1 <span class="ot">&lt;-</span> <span class="fu">t.test</span>(casen_subset<span class="sc">$</span>ytrabajocor <span class="sc">~</span> casen_subset<span class="sc">$</span>sexo, </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
@@ -483,13 +483,13 @@ Tip
     Welch Two Sample t-test
 
 data:  casen_subset$ytrabajocor by casen_subset$sexo
-t = 3.1951, df = 596.96, p-value = 0.0007357
+t = 5.0005, df = 571.02, p-value = 0.000000381
 alternative hypothesis: true difference in means between group 1 and group 2 is greater than 0
 95 percent confidence interval:
- 87508.29      Inf
+ 177010.8      Inf
 sample estimates:
 mean in group 1 mean in group 2 
-       763431.0        582777.1 </code></pre>
+       782026.2        518039.5 </code></pre>
 </div>
 </div>
 <p>También podemos visualizarlo en una tabla más amable.</p>
@@ -497,7 +497,7 @@ mean in group 1 mean in group 2
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(test_ej1, <span class="at">conf_int =</span> T)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nice_table</span>(stats.table, <span class="at">broom =</span> <span class="st">"t.test"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-0344020c{table-layout:auto;}.cl-03401d5e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-03401d72{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-03401d73{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-03419d46{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-03419d50{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-0341a6f6{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0341a700{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0341a701{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-0344020c"><thead><tr style="overflow-wrap:break-word;"><th class="cl-0341a6f6"><p class="cl-03419d46"><span class="cl-03401d5e">Method</span></p></th><th class="cl-0341a6f6"><p class="cl-03419d46"><span class="cl-03401d5e">Alternative</span></p></th><th class="cl-0341a6f6"><p class="cl-03419d46"><span class="cl-03401d5e">Mean 1</span></p></th><th class="cl-0341a6f6"><p class="cl-03419d46"><span class="cl-03401d5e">Mean 2</span></p></th><th class="cl-0341a6f6"><p class="cl-03419d46"><span class="cl-03401d72">M</span><span class="cl-03401d73">1</span><span class="cl-03401d5e"> - </span><span class="cl-03401d72">M</span><span class="cl-03401d73">2</span></p></th><th class="cl-0341a6f6"><p class="cl-03419d46"><span class="cl-03401d72">t</span></p></th><th class="cl-0341a6f6"><p class="cl-03419d46"><span class="cl-03401d72">df</span></p></th><th class="cl-0341a6f6"><p class="cl-03419d46"><span class="cl-03401d72">p</span></p></th><th class="cl-0341a6f6"><p class="cl-03419d46"><span class="cl-03401d5e">95% CI</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-0341a700"><p class="cl-03419d50"><span class="cl-03401d5e">Welch Two Sample t-test</span></p></td><td class="cl-0341a701"><p class="cl-03419d46"><span class="cl-03401d5e">greater</span></p></td><td class="cl-0341a701"><p class="cl-03419d46"><span class="cl-03401d5e">763,431.04</span></p></td><td class="cl-0341a701"><p class="cl-03419d46"><span class="cl-03401d5e">582,777.15</span></p></td><td class="cl-0341a701"><p class="cl-03419d46"><span class="cl-03401d5e">180,653.89</span></p></td><td class="cl-0341a701"><p class="cl-03419d46"><span class="cl-03401d5e">3.20</span></p></td><td class="cl-0341a701"><p class="cl-03419d46"><span class="cl-03401d5e">596.96</span></p></td><td class="cl-0341a701"><p class="cl-03419d46"><span class="cl-03401d5e">.001***</span></p></td><td class="cl-0341a701"><p class="cl-03419d46"><span class="cl-03401d5e">[87508.29, Inf]</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-c7e25e5a{table-layout:auto;}.cl-c7dd9b5e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c7dd9b72{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c7dd9b73{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-c7df4418{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-c7df4422{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-c7df4e40{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7df4e41{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7df4e42{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-c7e25e5a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">Method</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">Alternative</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">Mean 1</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">Mean 2</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b72">M</span><span class="cl-c7dd9b73">1</span><span class="cl-c7dd9b5e"> - </span><span class="cl-c7dd9b72">M</span><span class="cl-c7dd9b73">2</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b72">t</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b72">df</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b72">p</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">95% CI</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c7df4e41"><p class="cl-c7df4422"><span class="cl-c7dd9b5e">Welch Two Sample t-test</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">greater</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">782,026.23</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">518,039.47</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">263,986.76</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">5.00</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">571.02</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">&lt; .001***</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">[177010.78, Inf]</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <p>Visualicemos la distribución de esta prueba y su zona de rechazo.</p>
@@ -512,8 +512,7 @@ mean in group 1 mean in group 2
 </div>
 </div>
 <p><strong>5. Interpretación</strong></p>
-<p>La prueba T que evalúa la diferencia de medias entre el salario y el sexo sugiere que el efecto es positivo y estadísticamente signficativo (diferencia = 32567.11, t(566.69) = 2.05, p &lt; .05). Por tanto, con un 95% de confianza, rechazamos la <span class="math inline">\(H_{0}\)</span> ya que existe evidencia a favor de nuestra <span class="math inline">\(H_{A}\)</span> respecto a que el salario de los hombres es mayor al salario de las mujeres.</p>
-<p>Además, podemos calcular un intervalo de confianza que acompaña nuestra estimación. En este caso, el IC del 95% es (59.670, Inf), donde “Inf” representa infinito. Esto significa que podemos estar 95% seguros de que <em>la diferencia real entre las medias está por encima de 59.670</em>. En otras palabras, con alta confianza, podemos afirmar que la media del “grupo 1” es significativamente mayor que la del “grupo 2”.</p>
+<p>La prueba T que evalúa la diferencia de medias entre el salario y el sexo sugiere que el efecto es positivo y estadísticamente signficativo (diferencia = 32567.11, t(566.69) = 2.05, p &lt; .05). El valor <span class="math inline">\(p\)</span> indica que la probabilidad de observar una diferencia de esta magnitud, o mayor, bajo la suposición de <span class="math inline">\(H_{0}\)</span> es menor al 5%. Por tanto, con un 95% de confianza, rechazamos la <span class="math inline">\(H_{0}\)</span> ya que existe evidencia a favor de nuestra <span class="math inline">\(H_{A}\)</span> respecto a que el salario de los hombres es mayor al salario de las mujeres.</p>
 </section>
 <section id="ejercicio-2" class="level1">
 <h1>Ejercicio 2</h1>
@@ -545,15 +544,15 @@ mean in group 1 mean in group 2
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">357</td>
-<td style="text-align: right;">711933.2</td>
-<td style="text-align: right;">723931.6</td>
+<td style="text-align: right;">344</td>
+<td style="text-align: right;">712056.3</td>
+<td style="text-align: right;">663608.6</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1102</td>
-<td style="text-align: right;">595194.5</td>
-<td style="text-align: right;">781724.9</td>
+<td style="text-align: right;">1105</td>
+<td style="text-align: right;">575471.2</td>
+<td style="text-align: right;">586987.6</td>
 </tr>
 </tbody>
 </table>
@@ -566,7 +565,6 @@ mean in group 1 mean in group 2
 <p>Resuelve con trabajo en software.</p>
 <p><strong>5. Interpretación</strong></p>
 <p>La prueba T que evalúa la diferencia de medias…</p>
-<p>Además, el IC…</p>
 </section>
 <section id="ejercicio-3" class="level1">
 <h1>Ejercicio 3</h1>
