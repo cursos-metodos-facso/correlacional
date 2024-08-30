@@ -30,8 +30,6 @@ En esta práctica trabajaremos con un subconjunto de datos previamente procesado
 
 ![](https://correlacional.netlify.app/slides/img/rechazar_meme.png)
 
-En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error de muestreo. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística:
-
 En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística: 
 
 <style>

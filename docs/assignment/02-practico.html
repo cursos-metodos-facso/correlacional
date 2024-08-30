@@ -248,7 +248,6 @@ window.Quarto = {
 <section id="cinco-pasos-para-la-inferencia-estadística" class="level2">
 <h2 class="anchored" data-anchor-id="cinco-pasos-para-la-inferencia-estadística">Cinco pasos para la inferencia estadística</h2>
 <p><img src="https://correlacional.netlify.app/slides/img/rechazar_meme.png" class="img-fluid"></p>
-<p>En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error de muestreo. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística:</p>
 <p>En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística:</p>
 <style>
   table {
@@ -438,15 +437,15 @@ Prueba de una cola
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">348</td>
-<td style="text-align: right;">782026.2</td>
-<td style="text-align: right;">828650.1</td>
+<td style="text-align: right;">383</td>
+<td style="text-align: right;">753526.9</td>
+<td style="text-align: right;">890807.8</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">279</td>
-<td style="text-align: right;">518039.5</td>
-<td style="text-align: right;">476502.6</td>
+<td style="text-align: right;">288</td>
+<td style="text-align: right;">572139.2</td>
+<td style="text-align: right;">540020.5</td>
 </tr>
 </tbody>
 </table>
@@ -483,13 +482,13 @@ Prueba de una cola
     Welch Two Sample t-test
 
 data:  casen_subset$ytrabajocor by casen_subset$sexo
-t = 5.0005, df = 571.02, p-value = 0.000000381
+t = 3.266, df = 642.4, p-value = 0.0005744
 alternative hypothesis: true difference in means between group 1 and group 2 is greater than 0
 95 percent confidence interval:
- 177010.8      Inf
+ 89903.7     Inf
 sample estimates:
 mean in group 1 mean in group 2 
-       782026.2        518039.5 </code></pre>
+       753526.9        572139.2 </code></pre>
 </div>
 </div>
 <p>También podemos visualizarlo en una tabla más amable.</p>
@@ -497,7 +496,7 @@ mean in group 1 mean in group 2
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(test_ej1, <span class="at">conf_int =</span> T)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nice_table</span>(stats.table, <span class="at">broom =</span> <span class="st">"t.test"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-c7e25e5a{table-layout:auto;}.cl-c7dd9b5e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c7dd9b72{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-c7dd9b73{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-c7df4418{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-c7df4422{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-c7df4e40{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7df4e41{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c7df4e42{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-c7e25e5a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">Method</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">Alternative</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">Mean 1</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">Mean 2</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b72">M</span><span class="cl-c7dd9b73">1</span><span class="cl-c7dd9b5e"> - </span><span class="cl-c7dd9b72">M</span><span class="cl-c7dd9b73">2</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b72">t</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b72">df</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b72">p</span></p></th><th class="cl-c7df4e40"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">95% CI</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-c7df4e41"><p class="cl-c7df4422"><span class="cl-c7dd9b5e">Welch Two Sample t-test</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">greater</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">782,026.23</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">518,039.47</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">263,986.76</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">5.00</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">571.02</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">&lt; .001***</span></p></td><td class="cl-c7df4e42"><p class="cl-c7df4418"><span class="cl-c7dd9b5e">[177010.78, Inf]</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-a97d7228{table-layout:auto;}.cl-a9799054{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a979905e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a9799068{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-a97b0f56{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-a97b0f57{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-a97b18f2{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a97b18fc{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a97b18fd{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-a97d7228"><thead><tr style="overflow-wrap:break-word;"><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a9799054">Method</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a9799054">Alternative</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a9799054">Mean 1</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a9799054">Mean 2</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a979905e">M</span><span class="cl-a9799068">1</span><span class="cl-a9799054"> - </span><span class="cl-a979905e">M</span><span class="cl-a9799068">2</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a979905e">t</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a979905e">df</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a979905e">p</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a9799054">95% CI</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a97b18fc"><p class="cl-a97b0f57"><span class="cl-a9799054">Welch Two Sample t-test</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">greater</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">753,526.87</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">572,139.22</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">181,387.66</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">3.27</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">642.40</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">.001***</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">[89903.70, Inf]</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <p>Visualicemos la distribución de esta prueba y su zona de rechazo.</p>
@@ -544,15 +543,15 @@ mean in group 1 mean in group 2
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">344</td>
-<td style="text-align: right;">712056.3</td>
-<td style="text-align: right;">663608.6</td>
+<td style="text-align: right;">350</td>
+<td style="text-align: right;">667772.3</td>
+<td style="text-align: right;">540659.0</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1105</td>
-<td style="text-align: right;">575471.2</td>
-<td style="text-align: right;">586987.6</td>
+<td style="text-align: right;">1082</td>
+<td style="text-align: right;">561357.1</td>
+<td style="text-align: right;">600422.7</td>
 </tr>
 </tbody>
 </table>
