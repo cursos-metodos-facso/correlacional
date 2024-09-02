@@ -82,8 +82,7 @@ Además de estos 5 pasos también existe la posibilidad de calcular un intervalo
 Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.
 
 ```{r librerias, collapse=TRUE}
-pacman::p_load(tidyverse, # Manipulacion datos
-               confintr, # IC
+pacman::p_load(dplyr, # Manipulacion datos
                gginference, # Visualizacion 
                rempsyc, # Reporte
                kableExtra, # Tablas
@@ -150,7 +149,7 @@ Este ejercicio está basado en un ejemplo de clases y está desarrollado para qu
 
 La pregunta de investigación es: *¿Es el salario de los hombres mayor que el de las mujeres?*
 
-Para contrastar esta hipótesis, vamos a hacer un subset de datos de la CASEN 2022 de 1.500 casos.
+Para contrastar esta hipótesis, vamos utilizar la bbdd `proc_casen`, seleccionaremos las variables `sexo` e `ytrabajocor` y haremos un subset de datos de 1.500 casos.
 
 ```{r warning=FALSE }
 casen_subset <- proc_casen %>% 
@@ -159,8 +158,6 @@ casen_subset <- proc_casen %>%
 
 casen_subset <- na.omit(casen_subset) # eliminamos casos perdidos (listwise)
 ```
-
-
 
 Generamos tabla para visualizar la distribución de los datos.
 
@@ -177,7 +174,7 @@ Ahora vamos con los [5 pasos de la inferencia](https://correlacional.netlify.app
 
 **1. Formulación de hipótesis**
 
-El primer aspecto a establecer es el tipo de hipótesis a formular: ¿Direccional o no direccional? En este caso, la pregunta indica una direccionalidad ("mayor que"), por lo tanto corresponde a una hipótesis direccional. Si hubiera sido una pregunta que hiciera referencia simplemente a diferencias ("¿Es el salario de los hombres distinto al de las mujeres?) correspondería a una hipótesis no direccional.
+El primer aspecto a establecer es el tipo de hipótesis a formular: ¿Direccional o no direccional? En este caso, la pregunta indica una direccionalidad ("mayor que"), por lo tanto corresponde a una hipótesis direccional. Si hubiera sido una pregunta que hiciera referencia simplemente a diferencias ("¿Es el salario de los hombres distinto al de las mujeres?") correspondería a una hipótesis no direccional.
 
 La hipótesis general es que el salario de los hombres es mayor que el de las mujeres. Pasando a lenguaje de hipótesis, esto se plantea como:
 
@@ -193,13 +190,13 @@ Hipótesis nula:
 
 En clases vimos que los pasos 2, 3 y 4 corresponden a:
 
-2.  Obtener error estándar y estadístico de prueba empírico correspondiente (ej: Z o t)
+1.  Obtener error estándar y estadístico de prueba empírico correspondiente (ej: Z o t)
 
-3.  Establecer la probabilidad de error $\alpha$ (usualmente 0.05) y obtener valor crítico (teórico) de la prueba correspondiente
+2.  Establecer la probabilidad de error $\alpha$ (usualmente 0.05) y obtener valor crítico (teórico) de la prueba correspondiente
 
-4.  Cálculo de intervalo de confianza / contraste valores empírico/crítico
+3.  Cálculo de intervalo de confianza / contraste valores empírico/crítico
 
-Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al softwaer que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.
+Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al softwear que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.
 
 ```{r}
 test_ej1 <- t.test(casen_subset$ytrabajocor ~ casen_subset$sexo, 
@@ -230,37 +227,43 @@ La prueba T que evalúa la diferencia de medias entre el salario y el sexo sugie
 
 Tomando como ejemplo el trabajo de la ganadora del Premio Nobel de Economía 2023 Claudia Goldin, en este ejercicio evaluaremos la siguiente pregunta: _¿Es el salario de las mujeres sin hijos menor al salario de las mujeres con hijos?_ Por ende, usaremos **prueba $t$** para diferencia de medias.
 
+Utilice la bbdd `proc_casen` y seleccione las variables `ocupado`, `sexo`, `ytrabajocor` e `hijo`. Luego, filtra por `ocupado == 1` y `sexo == 2` para quedarse solo con mujeres ocupadas y genera una muestra aleatoria de 1.500 casos con la función `sample_n()`. Luego, elimina los casos pérdidos con `na.omit()`. 
+
+Genere una tabla de descriptivos de los ingresos (`ytrabajocor`) según si las observaciones tienen hijos o no (`hijo`). Presente cantidad de observaciones por categoría, media y desviación estándar.
+
 Una ayuda con el procesamiento (solo esta vez)...
 
 ```{r, collapse=FALSE}
 
 goldin_data <- proc_casen %>% 
-  select(ocupado, sexo, ytrabajocor, hijo) %>% 
-  filter(ocupado == 1 & sexo == 2) %>% 
+  dplyr::select(ocupado, sexo, ytrabajocor, hijo) %>% 
+  dplyr::filter(ocupado == 1 & sexo == 2) %>% 
   sample_n(1500) %>% 
   na.omit()# creamos subset con solo mujeres ocupadas
 
 goldin_data %>% 
-  group_by(hijo) %>% 
-  summarise(Obs. = n(),
-            Media = mean(ytrabajocor, na.rm = T),
-            DS = sd(ytrabajocor, na.rm = T)) %>% 
-  kable(format = "markdown")
+  dplyr::group_by(hijo) %>% 
+  dplyr::summarise(Obs. = n(),
+                   Media = mean(ytrabajocor, na.rm = T),
+                   DS = sd(ytrabajocor, na.rm = T)) %>% 
+  kable(format = "markdown") # hacemos la tabla
 ```
 
 Ahora vamos con los [5 pasos de la inferencia](https://correlacional.netlify.app/slides/05-inferencia4.html#33)
 
 **1. Formulación de hipótesis**
 
-El primer paso es establecer el tipo de hipótesis a formular. ¿Direccional o no direccional? Si es direccional, ¿cuál es el sentido? 
+El primer paso es traducir nuestra pregunta a una hipótesis estadística contrastable. Para ello: a) elija el tipo de hipótesis a plantear ¿direccional o no direccional? y b) especifique la hipótesis nula ($H_0$) e hipótesis alternativa ($H_A$).
 
 **Pasos 2, 3 y 4 de una vez con R**
 
-Resuelve con trabajo en software.
+Siguiendo el ejemplo del Ejercicio 1, utilice el software para generar los estadísticos correspondientes. Contraste sus hipótesis considerando un 95% de confianza.
 
 **5. Interpretación**
 
-La prueba T que evalúa la diferencia de medias...
+Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis planteada? ¿cambia la interpretación al utilizar distintos niveles de confianza?
+
+> La prueba T que evalúa la diferencia de medias...
 
 
 # Ejercicio 3

@@ -321,15 +321,14 @@ Intrepreta los resultados
 <h1>Preparación datos</h1>
 <p>Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># Manipulacion datos</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               confintr, <span class="co"># IC</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               gginference, <span class="co"># Visualizacion </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               rempsyc, <span class="co"># Reporte</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co"># Tablas</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               broom) <span class="co"># Varios</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(dplyr, <span class="co"># Manipulacion datos</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               gginference, <span class="co"># Visualizacion </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               rempsyc, <span class="co"># Reporte</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co"># Tablas</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               broom) <span class="co"># Varios</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -408,7 +407,7 @@ Prueba de una cola
 <h1>Ejercicio 1</h1>
 <p>Este ejercicio está basado en un ejemplo de clases y está desarrollado para que sirva de ejemplo a los siguientes ejercicios que deben ser desarrollados de manera autónoma.</p>
 <p>La pregunta de investigación es: <em>¿Es el salario de los hombres mayor que el de las mujeres?</em></p>
-<p>Para contrastar esta hipótesis, vamos a hacer un subset de datos de la CASEN 2022 de 1.500 casos.</p>
+<p>Para contrastar esta hipótesis, vamos utilizar la bbdd <code>proc_casen</code>, seleccionaremos las variables <code>sexo</code> e <code>ytrabajocor</code> y haremos un subset de datos de 1.500 casos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>casen_subset <span class="ot">&lt;-</span> proc_casen <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sexo, ytrabajocor) <span class="sc">%&gt;%</span> <span class="co"># seleccionamos</span></span>
@@ -437,15 +436,15 @@ Prueba de una cola
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">383</td>
-<td style="text-align: right;">753526.9</td>
-<td style="text-align: right;">890807.8</td>
+<td style="text-align: right;">331</td>
+<td style="text-align: right;">713293.6</td>
+<td style="text-align: right;">700206.9</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">288</td>
-<td style="text-align: right;">572139.2</td>
-<td style="text-align: right;">540020.5</td>
+<td style="text-align: right;">309</td>
+<td style="text-align: right;">560854.8</td>
+<td style="text-align: right;">591117.1</td>
 </tr>
 </tbody>
 </table>
@@ -453,7 +452,7 @@ Prueba de una cola
 </div>
 <p>Ahora vamos con los <a href="https://correlacional.netlify.app/slides/05-inferencia4.html#33">5 pasos de la inferencia</a></p>
 <p><strong>1. Formulación de hipótesis</strong></p>
-<p>El primer aspecto a establecer es el tipo de hipótesis a formular: ¿Direccional o no direccional? En este caso, la pregunta indica una direccionalidad (“mayor que”), por lo tanto corresponde a una hipótesis direccional. Si hubiera sido una pregunta que hiciera referencia simplemente a diferencias (“¿Es el salario de los hombres distinto al de las mujeres?) correspondería a una hipótesis no direccional.</p>
+<p>El primer aspecto a establecer es el tipo de hipótesis a formular: ¿Direccional o no direccional? En este caso, la pregunta indica una direccionalidad (“mayor que”), por lo tanto corresponde a una hipótesis direccional. Si hubiera sido una pregunta que hiciera referencia simplemente a diferencias (“¿Es el salario de los hombres distinto al de las mujeres?”) correspondería a una hipótesis no direccional.</p>
 <p>La hipótesis general es que el salario de los hombres es mayor que el de las mujeres. Pasando a lenguaje de hipótesis, esto se plantea como:</p>
 <p>Hipótesis alternativa:</p>
 <ul>
@@ -465,12 +464,12 @@ Prueba de una cola
 </ul>
 <p><strong>Pasos 2, 3 y 4 de una vez con R</strong></p>
 <p>En clases vimos que los pasos 2, 3 y 4 corresponden a:</p>
-<ol start="2" type="1">
+<ol type="1">
 <li><p>Obtener error estándar y estadístico de prueba empírico correspondiente (ej: Z o t)</p></li>
 <li><p>Establecer la probabilidad de error <span class="math inline">\(\alpha\)</span> (usualmente 0.05) y obtener valor crítico (teórico) de la prueba correspondiente</p></li>
 <li><p>Cálculo de intervalo de confianza / contraste valores empírico/crítico</p></li>
 </ol>
-<p>Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al softwaer que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.</p>
+<p>Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al softwear que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>test_ej1 <span class="ot">&lt;-</span> <span class="fu">t.test</span>(casen_subset<span class="sc">$</span>ytrabajocor <span class="sc">~</span> casen_subset<span class="sc">$</span>sexo, </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
@@ -482,13 +481,13 @@ Prueba de una cola
     Welch Two Sample t-test
 
 data:  casen_subset$ytrabajocor by casen_subset$sexo
-t = 3.266, df = 642.4, p-value = 0.0005744
+t = 2.9827, df = 631.72, p-value = 0.001484
 alternative hypothesis: true difference in means between group 1 and group 2 is greater than 0
 95 percent confidence interval:
- 89903.7     Inf
+ 68249.85      Inf
 sample estimates:
 mean in group 1 mean in group 2 
-       753526.9        572139.2 </code></pre>
+       713293.6        560854.8 </code></pre>
 </div>
 </div>
 <p>También podemos visualizarlo en una tabla más amable.</p>
@@ -496,7 +495,7 @@ mean in group 1 mean in group 2
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(test_ej1, <span class="at">conf_int =</span> T)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nice_table</span>(stats.table, <span class="at">broom =</span> <span class="st">"t.test"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-a97d7228{table-layout:auto;}.cl-a9799054{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a979905e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a9799068{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-a97b0f56{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-a97b0f57{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-a97b18f2{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a97b18fc{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a97b18fd{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-a97d7228"><thead><tr style="overflow-wrap:break-word;"><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a9799054">Method</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a9799054">Alternative</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a9799054">Mean 1</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a9799054">Mean 2</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a979905e">M</span><span class="cl-a9799068">1</span><span class="cl-a9799054"> - </span><span class="cl-a979905e">M</span><span class="cl-a9799068">2</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a979905e">t</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a979905e">df</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a979905e">p</span></p></th><th class="cl-a97b18f2"><p class="cl-a97b0f56"><span class="cl-a9799054">95% CI</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a97b18fc"><p class="cl-a97b0f57"><span class="cl-a9799054">Welch Two Sample t-test</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">greater</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">753,526.87</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">572,139.22</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">181,387.66</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">3.27</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">642.40</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">.001***</span></p></td><td class="cl-a97b18fd"><p class="cl-a97b0f56"><span class="cl-a9799054">[89903.70, Inf]</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-2bf3acb6{table-layout:auto;}.cl-2bef50f8{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2bef5102{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-2bef510c{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-2bf11118{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-2bf11119{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-2bf11b72{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2bf11b7c{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-2bf11b7d{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-2bf3acb6"><thead><tr style="overflow-wrap:break-word;"><th class="cl-2bf11b72"><p class="cl-2bf11118"><span class="cl-2bef50f8">Method</span></p></th><th class="cl-2bf11b72"><p class="cl-2bf11118"><span class="cl-2bef50f8">Alternative</span></p></th><th class="cl-2bf11b72"><p class="cl-2bf11118"><span class="cl-2bef50f8">Mean 1</span></p></th><th class="cl-2bf11b72"><p class="cl-2bf11118"><span class="cl-2bef50f8">Mean 2</span></p></th><th class="cl-2bf11b72"><p class="cl-2bf11118"><span class="cl-2bef5102">M</span><span class="cl-2bef510c">1</span><span class="cl-2bef50f8"> - </span><span class="cl-2bef5102">M</span><span class="cl-2bef510c">2</span></p></th><th class="cl-2bf11b72"><p class="cl-2bf11118"><span class="cl-2bef5102">t</span></p></th><th class="cl-2bf11b72"><p class="cl-2bf11118"><span class="cl-2bef5102">df</span></p></th><th class="cl-2bf11b72"><p class="cl-2bf11118"><span class="cl-2bef5102">p</span></p></th><th class="cl-2bf11b72"><p class="cl-2bf11118"><span class="cl-2bef50f8">95% CI</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-2bf11b7c"><p class="cl-2bf11119"><span class="cl-2bef50f8">Welch Two Sample t-test</span></p></td><td class="cl-2bf11b7d"><p class="cl-2bf11118"><span class="cl-2bef50f8">greater</span></p></td><td class="cl-2bf11b7d"><p class="cl-2bf11118"><span class="cl-2bef50f8">713,293.61</span></p></td><td class="cl-2bf11b7d"><p class="cl-2bf11118"><span class="cl-2bef50f8">560,854.84</span></p></td><td class="cl-2bf11b7d"><p class="cl-2bf11118"><span class="cl-2bef50f8">152,438.77</span></p></td><td class="cl-2bf11b7d"><p class="cl-2bf11118"><span class="cl-2bef50f8">2.98</span></p></td><td class="cl-2bf11b7d"><p class="cl-2bf11118"><span class="cl-2bef50f8">631.72</span></p></td><td class="cl-2bf11b7d"><p class="cl-2bf11118"><span class="cl-2bef50f8">.001**</span></p></td><td class="cl-2bf11b7d"><p class="cl-2bf11118"><span class="cl-2bef50f8">[68249.85, Inf]</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <p>Visualicemos la distribución de esta prueba y su zona de rechazo.</p>
@@ -516,20 +515,22 @@ mean in group 1 mean in group 2
 <section id="ejercicio-2" class="level1">
 <h1>Ejercicio 2</h1>
 <p>Tomando como ejemplo el trabajo de la ganadora del Premio Nobel de Economía 2023 Claudia Goldin, en este ejercicio evaluaremos la siguiente pregunta: <em>¿Es el salario de las mujeres sin hijos menor al salario de las mujeres con hijos?</em> Por ende, usaremos <strong>prueba <span class="math inline">\(t\)</span></strong> para diferencia de medias.</p>
+<p>Utilice la bbdd <code>proc_casen</code> y seleccione las variables <code>ocupado</code>, <code>sexo</code>, <code>ytrabajocor</code> e <code>hijo</code>. Luego, filtra por <code>ocupado == 1</code> y <code>sexo == 2</code> para quedarse solo con mujeres ocupadas y genera una muestra aleatoria de 1.500 casos con la función <code>sample_n()</code>. Luego, elimina los casos pérdidos con <code>na.omit()</code>.</p>
+<p>Genere una tabla de descriptivos de los ingresos (<code>ytrabajocor</code>) según si las observaciones tienen hijos o no (<code>hijo</code>). Presente cantidad de observaciones por categoría, media y desviación estándar.</p>
 <p>Una ayuda con el procesamiento (solo esta vez)…</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>goldin_data <span class="ot">&lt;-</span> proc_casen <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ocupado, sexo, ytrabajocor, hijo) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ocupado <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> sexo <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ocupado, sexo, ytrabajocor, hijo) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(ocupado <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> sexo <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">1500</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()<span class="co"># creamos subset con solo mujeres ocupadas</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>goldin_data <span class="sc">%&gt;%</span> </span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(hijo) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Obs. =</span> <span class="fu">n</span>(),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(hijo) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Obs. =</span> <span class="fu">n</span>(),</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">Media =</span> <span class="fu">mean</span>(ytrabajocor, <span class="at">na.rm =</span> T),</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">DS =</span> <span class="fu">sd</span>(ytrabajocor, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"markdown"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"markdown"</span>) <span class="co"># hacemos la tabla</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <thead>
@@ -543,15 +544,15 @@ mean in group 1 mean in group 2
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">350</td>
-<td style="text-align: right;">667772.3</td>
-<td style="text-align: right;">540659.0</td>
+<td style="text-align: right;">349</td>
+<td style="text-align: right;">694854.2</td>
+<td style="text-align: right;">708044.3</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1082</td>
-<td style="text-align: right;">561357.1</td>
-<td style="text-align: right;">600422.7</td>
+<td style="text-align: right;">1100</td>
+<td style="text-align: right;">585974.7</td>
+<td style="text-align: right;">590710.9</td>
 </tr>
 </tbody>
 </table>
@@ -559,11 +560,14 @@ mean in group 1 mean in group 2
 </div>
 <p>Ahora vamos con los <a href="https://correlacional.netlify.app/slides/05-inferencia4.html#33">5 pasos de la inferencia</a></p>
 <p><strong>1. Formulación de hipótesis</strong></p>
-<p>El primer paso es establecer el tipo de hipótesis a formular. ¿Direccional o no direccional? Si es direccional, ¿cuál es el sentido?</p>
+<p>El primer paso es traducir nuestra pregunta a una hipótesis estadística contrastable. Para ello: a) elija el tipo de hipótesis a plantear ¿direccional o no direccional? y b) especifique la hipótesis nula (<span class="math inline">\(H_0\)</span>) e hipótesis alternativa (<span class="math inline">\(H_A\)</span>).</p>
 <p><strong>Pasos 2, 3 y 4 de una vez con R</strong></p>
-<p>Resuelve con trabajo en software.</p>
+<p>Siguiendo el ejemplo del Ejercicio 1, utilice el software para generar los estadísticos correspondientes. Contraste sus hipótesis considerando un 95% de confianza.</p>
 <p><strong>5. Interpretación</strong></p>
+<p>Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis planteada? ¿cambia la interpretación al utilizar distintos niveles de confianza?</p>
+<blockquote class="blockquote">
 <p>La prueba T que evalúa la diferencia de medias…</p>
+</blockquote>
 </section>
 <section id="ejercicio-3" class="level1">
 <h1>Ejercicio 3</h1>
