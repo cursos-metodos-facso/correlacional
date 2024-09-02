@@ -167,7 +167,7 @@ casen_subset %>%
   dplyr::summarise(Obs. = n(),
                    Promedio = mean(ytrabajocor, na.rm=TRUE),
                    SD = sd(ytrabajocor, na.rm=TRUE)) %>% # se agregan las operaciones a presentar en la tabla
-  kable(format = "markdown") # se genera la tabla
+  kableExtra::kable(format = "markdown") # se genera la tabla
 ```
 
 Ahora vamos con los [5 pasos de la inferencia](https://correlacional.netlify.app/slides/05-inferencia4.html#33)
@@ -196,7 +196,7 @@ En clases vimos que los pasos 2, 3 y 4 corresponden a:
 
 3.  Cálculo de intervalo de confianza / contraste valores empírico/crítico
 
-Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al softwear que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.
+Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al software que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.
 
 ```{r}
 test_ej1 <- t.test(casen_subset$ytrabajocor ~ casen_subset$sexo, 
@@ -210,7 +210,7 @@ También podemos visualizarlo en una tabla más amable.
 
 ```{r}
 stats.table <- tidy(test_ej1, conf_int = T)
-nice_table(stats.table, broom = "t.test")
+rempsyc::nice_table(stats.table, broom = "t.test")
 ```
 
 Visualicemos la distribución de esta prueba y su zona de rechazo.
@@ -246,7 +246,7 @@ goldin_data %>%
   dplyr::summarise(Obs. = n(),
                    Media = mean(ytrabajocor, na.rm = T),
                    DS = sd(ytrabajocor, na.rm = T)) %>% 
-  kable(format = "markdown") # hacemos la tabla
+  kableExtra::kable(format = "markdown") # hacemos la tabla
 ```
 
 Ahora vamos con los [5 pasos de la inferencia](https://correlacional.netlify.app/slides/05-inferencia4.html#33)
@@ -261,11 +261,24 @@ Siguiendo el ejemplo del Ejercicio 1, utilice el software para generar los estad
 
 **5. Interpretación**
 
-Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis planteada? ¿cambia la interpretación al utilizar distintos niveles de confianza?
+Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis planteada?
 
 > La prueba T que evalúa la diferencia de medias...
 
-
 # Ejercicio 3
 
-Prodia ser algo con nivel eduacional (var educ en proc_casen)
+En este ejercicio tomamos de ejemplo una pregunta clásica en ciencias sociales: _¿el ingreso de las personas está relacionado a su nivel educacional?_. Para responder esta pregunta vamos a usar una prueba $t$ de contraste de medias para dos muestras independientes.
+
+Esta vez les dejaremos el procesamiento a ustedes. Utilice la bbdd `proc_casen` y seleccione las variables `ytrabajocor` y `universitaria`. Luego genere una muestra aleatoria 1500 casos con la función `sample_n()` y elimine los datos perdidos de la variable `ytrabajocor`. Luego, genere una tabla de descriptivos de los ingresos (`ytrabajocor`) según si las personas cuentan con educación universitaria o no (`universitaria`). Presente cantidad de observaciones por categoría, media y desviación estándar.
+
+## 1. Formulación de hipótesis
+
+El primer paso es traducir nuestra pregunta a una hipótesis estadística contrastable. Para ello: a) elija el tipo de hipótesis a plantear ¿direccional o no direccional? y b) especifique la hipótesis nula ($H_0$) e hipótesis alternativa ($H_A$).
+
+## Pasos 2, 3 y 4 de una vez con R
+
+Siguiendo el ejemplo del Ejercicio 1, utilice el _software_ para generar los estadísticos correspondientes. Contraste sus hipótesis considerando un 95% de confianza y un 99% de confianza. Comente las diferencias en el paso 5.
+
+# 5. Interpretación
+
+Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis nula? ¿a raíz de qué información llega a la conclusión? ¿qué diferencia observa al aplicar la prueba con ambos niveles de confianza (95% y 99%)?

@@ -101,8 +101,8 @@ website:
           contents:
             - text: "1: Curva Normal e Intervalos de Confianza"
               file: assignment/01-practico.qmd
-            # - text: "2: Cálculo y reporte de correlación"
-            #   file: assignment/02-practico.qmd
+            - text: "2: Intentando Rechazar"
+              file: assignment/02-practico.qmd
             # - text: "3: Matrices de correlación y tamaños de efecto"
             #   file: assignment/03-practico.qmd
             # - text: "4: Inferencia 1"
