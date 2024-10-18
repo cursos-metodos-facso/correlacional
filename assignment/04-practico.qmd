@@ -417,6 +417,63 @@ A partir de la base de datos de `proc_issp` responda la siguiente pregunta _¿en
 4. Calcule el coeficiente de correlación de Pearson ($r$) entre las variables `psci` y `ses`. Reporte e interprete sus resultados.
 
 
+# Resolución ejercicio autónomo
+
+1. Para estimar y reportar una matriz de correlación con las variables `income` y `educyrs`, primero crearemos un objeto `M_ej` en donde almacenaremos solo estas dos variables.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+M_ej <- proc_issp %>% 
+  dplyr::select(income, educyrs)
+
+head(M_ej) # verificamos mirando los primeros 6 casos
+```
+
+Luego, calculamos la matriz de correlación sobre el objeto `M_ej`. En este caso, lo haremos con `tab_corr` para que nos entregue una tabla de calidad. Además, debemos tener claro el método de tratamiento de casos pérdidos. Una opción es utilizar listwise y trabajar solo con casos completos, considerando que tenemos un **N** lo suficientemente grande incluso eliminando dichos casos.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+sjPlot::tab_corr(M_ej,
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+A partir de esta matriz, podemos afirmar que la correlación de Pearson entre el ingreso y el nivel educativo es positiva, moderada y estadísticamente significativa ($r$ = 0.4, $p$ < 0.05).
+
+2. Para calcular el alpha de Cronbach de esta matriz, usaremos la función `alpha` del paquete `psych`.
+
+```{r  echo=TRUE, message=FALSE, warning=FALSE}
+psych::alpha(M_ej)$total$raw_alpha
+```
+
+El alpha de Cronbach entre el ingreso y el nivel educativo es de 0.6 (aproximado), estando justo dentro del estándar minímo en ciencias sociales. Por tanto, ambas variables son consistentes y podemos utilizarlas para generar un índice de estatus socioeconómico.
+
+3. Para crear este índice, haremos un promedio entre `income` y `educyrs` con el comando `rowMeans`.
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+proc_issp <- cbind(proc_issp, "ses" = rowMeans(proc_issp %>% select(income, educyrs), na.rm=TRUE))
+
+head(proc_issp) # verificamos
+```
+
+4. Finalmente, estimamos una prueba de correlación entre la percepción de conflictos (`psci`) y el estatus socioeconómico (`ses`).
+
+Las hipótesis formales serían: 
+
+- $H_{0}$: $cor(psci, ses)$ $=$ $0$
+- $H_{A}$: $cor(psci, ses)$ $\neq$ $0$
+
+Y la estimación en R:
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+cor.test(proc_issp$psci, proc_issp$ses, method = "pearson", 
+         use = "complete.obs")
+```
+
+Con este output podemos sostener lo siguiente:
+
+> El coeficiente de correlación de Pearson entre el conflicto social percibido y el estatus socioeconómico es negativo, muy pequeño y estadísticamente significativo  ($r$ = -0.08, $p$ < 0.05). Por tanto, con un 95% de confianza se puede rechazar la $H_{0}$ de no asociación entre variables, existiendo evidencia a favor de la $H_{A}$ sobre una asociación significativa entre la percepción de conflictos y el estatus socioeconómico de las personas. Sustantivamente, esto sugiere que a mayor estatus socioeconómico, menor tiende a ser el conflicto percibido. 
+
+
+
 #### Referencias
 
 ::: {#refs}
