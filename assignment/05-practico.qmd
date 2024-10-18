@@ -1,6 +1,6 @@
 ---
 title: "Práctico 5: Asociación entre categóricas"
-date: "2024-10-08"
+date: "2024-10-15"
 lang: es
 bibliography: "bib/correlacional.bib"
 csl: "bib/apa.csl"
@@ -196,7 +196,7 @@ cor.test(proc_elsoc$jv_cambio_rec, proc_elsoc$ingreso)
 rpb <- round(cor.test(proc_elsoc$jv_cambio_rec, proc_elsoc$ingreso)$estimate, 2)
 ```
 
-Vemos que la correlación entre el sentido de injusticia distributiva (`ingreso`) y la justificación de la violencia por el cambio social (`jv_cambio_rec`) es negativa, muy pequeña y no es estadísticamente significativa ($r$ = `r rpb`; _p > 0.05_)
+Vemos que la correlación entre el ingreso (`ingreso`) y la justificación de la violencia por el cambio social (`jv_cambio_rec`) es negativa, muy pequeña y no es estadísticamente significativa ($r$ = `r rpb`; _p > 0.05_).
 
 ### 3.1.2 Correlación tetracorica
 
@@ -228,7 +228,7 @@ psych::tetrachoric(matriz, na.rm = T)
 rt <- round(psych::tetrachoric(matriz, na.rm = T)$rho[2, 1], 2)
 ```
 
-Vemos que la correlación entre los ingresos recodificados (`ingreso_rec`) y la justificación de la violencia por el cambio social (`jv_cambio_rec`) es positiva y muy pequeña ($r$ = `r rt`; _p < 0.05_).
+Vemos que la correlación entre los ingresos recodificados (`ingreso_rec`) y la justificación de la violencia por el cambio social (`jv_cambio_rec`) es positiva y muy pequeña ($r$ = `r rt`).
 
 ## 3.2 Tablas de contingencia
 
@@ -255,7 +255,7 @@ En esta tabla vemos que los porcentajes coloreados en azul corresponde a las fil
 
 Ahora, ¿cómo sabemos si hay asociación? Repliquemos el ejemplo que vimos en clases, utilizando nuestras variables. Imaginemos que tenemos una base de datos con _N = 100_.
 
-```{r, warning=FALSE, include=FALSE}
+```{r, warning=FALSE}
 # Ejemplo de asociación perfecta
 tab1 <- data.frame(
     "." = c("Menor a 800k", "Mayor a 800k", "Total"),
@@ -286,7 +286,7 @@ En contraste, una distribución que representaría un caso perfecto de no asocia
 
 ```{r, warning=FALSE}
 tab2 %>%
-    kable(format = "html", align = "r", col.names = c("Sentido (in)justicia", "No justifica violencia", "Justifica violencia", "Total")) %>%
+    kable(format = "html", align = "r", col.names = c("Ingreso", "No justifica violencia", "Justifica violencia", "Total")) %>%
     kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T) %>%
     kableExtra::kable_styling(latex_options = "hold_position", position = "center")
 ```
@@ -447,6 +447,47 @@ Esto significa que, según los datos analizados, los ingresos no parecen ser un 
 A partir de la base de datos de `proc_elsoc` responda la pregunta 2 planteada al inicio de este ejercicio. Es decir: _¿En qué medida se relacionan el nivel educacional y la justificación de la violencia por el **control social** en Chile al año 2019?_
 
 1. Estime la correlación adecuada para `educ` y `jv_control_rec`.
+
+Para determinar cuál es la correlación adecuada entre `educ` y `jv_control_rec` tenemos que tener en consideración el nivel de medición de estas variables. Vemos que `educ` es continua y `jv_control_rec` es una variable categorica nominal binaria. Para estos casos, una buena alternativa es la _correlación punto biserial_. Estimemosla en R:
+
+```{r}
+cor.test(proc_elsoc$educ, proc_elsoc$jv_control_rec)
+```
+
+```{r, warning=FALSE, include=FALSE}
+rpb2 <- round(cor.test(proc_elsoc$educ, proc_elsoc$jv_control_rec)$estimate, 2)
+```
+
+Vemos que la correlación entre el nivel educacional (`educ`) y la justificación de la violencia por el control social (`jv_control_rec`) es negativa, muy pequeña y es estadísticamente significativa ($r$ = `r rpb2`; _p < 0.05_).
+
 2. Presente en una tabla de contingencia entre las variables `educ_rec` y `jv_control_rec`.
+
+Seguimos trabajando con `jv_control_rec`, pero ahora con `educ_rec` que corresponde al nivel educacional recodificado en dos categorías: 1 = Universitario o más y 0 = No universitario. Una tabla de contingencia la podemos realizar con la función `sjtab()` del paquete `sjPlot`.
+
+```{r}
+sjPlot::sjtab(proc_elsoc, educ_rec, jv_control_rec, show.row.prc = TRUE, show.col.prc = TRUE)
+```
+
 3. Calcule el estadístico de Chi cuadrado ($X^2$) entre las variables `educ_rec` y `jv_control_rec`.
+
+El Chi cuadrado ($X^2$) entre las variables `educ_rec` y `jv_control_rec` los podemos obtener a partir de la función `chisq.test()`:
+
+```{r}
+chisq.test(proc_elsoc$educ_rec, proc_elsoc$jv_control_rec)
+```
+
+```{r include = FALSE}
+xi2 <- round(chisq.test(proc_elsoc$educ_rec, proc_elsoc$jv_control_rec)$statistic[[1]], 3)
+```
+
+A partir de estos resultados, podemos reportar lo siguiente:
+
+> A raíz de la prueba de $X^2$, vemos que no existe evidencia para rechazar la hipótesis nula sobre no asociación. Por ende, la asociación entre el nivel educacional y la justificación de la violencia por el control social no es estadísticamente significativa ($X^2$ = `r xi2`, _p > 0.05_)
+
 4. Interprete los resultados obtenidos. Responda la pregunta de investigación a raíz de los calculos desarrollados.
+
+En el presente ejercicio indagamos en la _relación entre el nivel educacional de las personas y las justificaciones de la violencia por el control social en Chile al año 2019_. Considerando que las variables de estudio tenían un nivel de medición categórico nominal, utilizamos la técnica de Chi-cuadrado $X^2$ para el contraste de hipótesis.
+
+La hipótesis planteada inicialmente sugería que el nivel educacional podría estar asociado con las actitudes hacia la justificación de la violencia como una forma de control social. Sin embargo, los resultados de la prueba $X^2$, indican que **no** existe una asociación estadísticamente significativa entre estas variables ($X^2$ = `r xi2`, _p > 0.05_).
+
+Esto significa que, según los datos analizados, el nivel educacional no parecen ser un factor que influya en la justificación de la violencia para el control social, por lo tanto, no podemos concluir que el nivel educacional estén relacionados con la justificación de la violencia en el contexto del cambio social en Chile en 2019.

@@ -104,7 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -315,7 +317,7 @@ window.Quarto = {
 <h1 class="title display-7">Práctico 5: Asociación entre categóricas</h1>
 
 <div class="date-block bg-assignment text-white p-2">
-  <p class="date">Sesión del martes, 8 de octubre de 2024</p>
+  <p class="date">Sesión del martes, 15 de octubre de 2024</p>
 </div>
 </header>
 
@@ -638,7 +640,7 @@ sample estimates:
 -0.01148698 </code></pre>
 </div>
 </div>
-<p>Vemos que la correlación entre el sentido de injusticia distributiva (<code>ingreso</code>) y la justificación de la violencia por el cambio social (<code>jv_cambio_rec</code>) es negativa, muy pequeña y no es estadísticamente significativa (<span class="math inline">\(r\)</span> = -0.01; <em>p &gt; 0.05</em>)</p>
+<p>Vemos que la correlación entre el ingreso (<code>ingreso</code>) y la justificación de la violencia por el cambio social (<code>jv_cambio_rec</code>) es negativa, muy pequeña y no es estadísticamente significativa (<span class="math inline">\(r\)</span> = -0.01; <em>p &gt; 0.05</em>).</p>
 </section>
 <section id="correlación-tetracorica" class="level3">
 <h3 class="anchored" data-anchor-id="correlación-tetracorica">3.1.2 Correlación tetracorica</h3>
@@ -688,7 +690,7 @@ jv_cambio_rec   ingreso_rec
          0.67          1.09 </code></pre>
 </div>
 </div>
-<p>Vemos que la correlación entre los ingresos recodificados (<code>ingreso_rec</code>) y la justificación de la violencia por el cambio social (<code>jv_cambio_rec</code>) es positiva y muy pequeña (<span class="math inline">\(r\)</span> = 0.02; <em>p &lt; 0.05</em>).</p>
+<p>Vemos que la correlación entre los ingresos recodificados (<code>ingreso_rec</code>) y la justificación de la violencia por el cambio social (<code>jv_cambio_rec</code>) es positiva y muy pequeña (<span class="math inline">\(r\)</span> = 0.02).</p>
 </section>
 </section>
 <section id="tablas-de-contingencia" class="level2">
@@ -736,7 +738,7 @@ jv_cambio_rec   ingreso_rec
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">540</span><br><span style="color:#333399;">26.8&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">2012</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td> 
 </tr>
-<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4">χ<sup>2</sup>=0.126 · df=1 · &amp;phi=0.010 · p=0.723</td> 
+<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4">χ<sup>2</sup>=0.126 · df=1 · φ=0.010 · p=0.723</td> 
 </tr>
  
 </tbody></table>
@@ -748,12 +750,29 @@ jv_cambio_rec   ingreso_rec
 <li><p><span style="color: #4CAF50;"> El 13.5% de quienes no justifican la violencia por el cambio social ganan más de 800k </span></p></li>
 </ul>
 <p>Ahora, ¿cómo sabemos si hay asociación? Repliquemos el ejemplo que vimos en clases, utilizando nuestras variables. Imaginemos que tenemos una base de datos con <em>N = 100</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de asociación perfecta</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"."</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Menor a 800k"</span>, <span class="st">"Mayor a 800k"</span>, <span class="st">"Total"</span>),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">No justifica</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">50</span>),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Justifica"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">0</span>, <span class="dv">50</span>),</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>, <span class="dv">100</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de no asociación</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"."</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Menor a 800k"</span>, <span class="st">"Mayor a 800k"</span>, <span class="st">"Total"</span>),</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">No justifica</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">50</span>),</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Justifica"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">50</span>),</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>, <span class="dv">100</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Una distribución con evidencia “perfecta” para nuestra hipótesis alternativa se puede ver en la siguiente tabla:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>, <span class="at">align =</span> <span class="st">"r"</span>, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Ingreso"</span>, <span class="st">"No justifica violencia"</span>, <span class="st">"Justifica violencia"</span>, <span class="st">"Total"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> T) <span class="sc">%&gt;%</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">"hold_position"</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>, <span class="at">align =</span> <span class="st">"r"</span>, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Ingreso"</span>, <span class="st">"No justifica violencia"</span>, <span class="st">"Justifica violencia"</span>, <span class="st">"Total"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">"hold_position"</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="table-responsive">
 <table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
@@ -793,16 +812,16 @@ jv_cambio_rec   ingreso_rec
 </div>
 <p>En contraste, una distribución que representaría un caso perfecto de no asociación, se puede ver en la siguiente tabla:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tab2 <span class="sc">%&gt;%</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>, <span class="at">align =</span> <span class="st">"r"</span>, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Sentido (in)justicia"</span>, <span class="st">"No justifica violencia"</span>, <span class="st">"Justifica violencia"</span>, <span class="st">"Total"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> T) <span class="sc">%&gt;%</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">"hold_position"</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tab2 <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>, <span class="at">align =</span> <span class="st">"r"</span>, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Ingreso"</span>, <span class="st">"No justifica violencia"</span>, <span class="st">"Justifica violencia"</span>, <span class="st">"Total"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">"hold_position"</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="table-responsive">
 <table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">Sentido (in)justicia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Ingreso</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">No justifica violencia</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Justifica violencia</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Total</th>
@@ -854,9 +873,9 @@ Prueba de Chi-cuadrado
 </div>
 <p>En R, utilizamos la función <code>chisq.test()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>chi_results <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(proc_elsoc<span class="sc">$</span>ingreso_rec, proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>chi_results</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>chi_results <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(proc_elsoc<span class="sc">$</span>ingreso_rec, proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>chi_results</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test with Yates' continuity correction
@@ -867,32 +886,32 @@ X-squared = 0.1257, df = 1, p-value = 0.7229</code></pre>
 </div>
 <p>Obtuvimos nuestro resultado, pero no es muy amigable a la vista. Generemos una tabla de calidad para que sea reportable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(chi_results)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>stats.table <span class="sc">%&gt;%</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">statistic =</span> <span class="fu">round</span>(statistic, <span class="dv">2</span>),</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">case_when</span>(</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> p.value <span class="sc">&gt;</span> <span class="fl">0.01</span> <span class="sc">~</span> <span class="st">"&lt; 0.05*"</span>,</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.01</span> <span class="sc">&amp;</span> p.value <span class="sc">&gt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"&lt; 0.01**"</span>,</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"&lt; 0.001***"</span>,</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>            <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">""</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(statistic, p_value, parameter, method) <span class="sc">%&gt;%</span></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">format =</span> <span class="st">"html"</span>,</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"X2"</span>, <span class="st">"p-value"</span>, <span class="st">"df"</span>, <span class="st">"Método"</span>),</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">booktabs =</span> T,</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">"Prueba de Chi-cuadrado entre justificación de la violencia por cambio social e injusticia distributiva"</span></span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>),</span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">full_width =</span> T,</span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">latex_options =</span> <span class="st">"hold_position"</span>,</span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">position =</span> <span class="st">"center"</span></span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">width =</span> <span class="st">"8cm"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(chi_results)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>stats.table <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">statistic =</span> <span class="fu">round</span>(statistic, <span class="dv">2</span>),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">case_when</span>(</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> p.value <span class="sc">&gt;</span> <span class="fl">0.01</span> <span class="sc">~</span> <span class="st">"&lt; 0.05*"</span>,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.01</span> <span class="sc">&amp;</span> p.value <span class="sc">&gt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"&lt; 0.01**"</span>,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"&lt; 0.001***"</span>,</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>            <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">""</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(statistic, p_value, parameter, method) <span class="sc">%&gt;%</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">format =</span> <span class="st">"html"</span>,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"X2"</span>, <span class="st">"p-value"</span>, <span class="st">"df"</span>, <span class="st">"Método"</span>),</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">booktabs =</span> T,</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">"Prueba de Chi-cuadrado entre justificación de la violencia por cambio social e injusticia distributiva"</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>),</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">full_width =</span> T,</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">latex_options =</span> <span class="st">"hold_position"</span>,</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">position =</span> <span class="st">"center"</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">width =</span> <span class="st">"8cm"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-chi" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-chi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -963,13 +982,13 @@ V = \sqrt{\frac{\chi^2}{n(k-1)}}
 <p>Los valores de <span class="math inline">\(V\)</span> también varían entre 0 y 1, donde 0 indica ausencia de asociación, y valores cercanos a 1 indican una asociación más fuerte.</p>
 <p>En nuestro ejemplo, nuestra tabla de contingencia es de 2x2, por ende, debemos usar el estadístico Phi. En R lo podemos calcular directamente siguiendo la formula:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el test de chi cuadrado</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>chi_result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(proc_elsoc<span class="sc">$</span>ingreso_rec, proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(proc_elsoc <span class="sc">%&gt;%</span> <span class="fu">select</span>(ingreso_rec, jv_cambio_rec)) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo de Phi</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>phi <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(chi_result<span class="sc">$</span>statistic <span class="sc">/</span> n)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>phi</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el test de chi cuadrado</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>chi_result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(proc_elsoc<span class="sc">$</span>ingreso_rec, proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(proc_elsoc <span class="sc">%&gt;%</span> <span class="fu">select</span>(ingreso_rec, jv_cambio_rec)) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo de Phi</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>phi <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(chi_result<span class="sc">$</span>statistic <span class="sc">/</span> n)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>phi</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  X-squared 
 0.007904267 </code></pre>
@@ -985,19 +1004,19 @@ V = \sqrt{\frac{\chi^2}{n(k-1)}}
 <p>En este caso, nos puede ser de utilidad si queremos conocer si la proporción de personas que justifican la violencia por el cambio social es estadísticamente diferente entre quienes tienen ingresos mayores a 800k y quienes tienen ingresos menores a 800k.</p>
 <p>Esto se prueba en R de la siguiente manera:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veamos el conteo por categorías</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(proc_elsoc<span class="sc">$</span>ingreso_rec, proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veamos el conteo por categorías</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(proc_elsoc<span class="sc">$</span>ingreso_rec, proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   
        0    1
   0 1273  463
   1  199   77</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertemos los datos a mano</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">463</span>, <span class="dv">77</span>), <span class="co"># Conteo de exitos por grupo (Justifica x Menor a 800k y Justifica x Mayor a 800k)</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>((<span class="dv">1273</span> <span class="sc">+</span> <span class="dv">463</span>), (<span class="dv">199</span> <span class="sc">+</span> <span class="dv">77</span>)) <span class="co"># Suma por grupo (Menor a 800k y Mayor a 800k)</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertemos los datos a mano</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">463</span>, <span class="dv">77</span>), <span class="co"># Conteo de exitos por grupo (Justifica x Menor a 800k y Justifica x Mayor a 800k)</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>((<span class="dv">1273</span> <span class="sc">+</span> <span class="dv">463</span>), (<span class="dv">199</span> <span class="sc">+</span> <span class="dv">77</span>)) <span class="co"># Suma por grupo (Menor a 800k y Mayor a 800k)</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     2-sample test for equality of proportions with continuity correction
@@ -1028,10 +1047,94 @@ sample estimates:
 <p>A partir de la base de datos de <code>proc_elsoc</code> responda la pregunta 2 planteada al inicio de este ejercicio. Es decir: <em>¿En qué medida se relacionan el nivel educacional y la justificación de la violencia por el <strong>control social</strong> en Chile al año 2019?</em></p>
 <ol type="1">
 <li>Estime la correlación adecuada para <code>educ</code> y <code>jv_control_rec</code>.</li>
+</ol>
+<p>Para determinar cuál es la correlación adecuada entre <code>educ</code> y <code>jv_control_rec</code> tenemos que tener en consideración el nivel de medición de estas variables. Vemos que <code>educ</code> es continua y <code>jv_control_rec</code> es una variable categorica nominal binaria. Para estos casos, una buena alternativa es la <em>correlación punto biserial</em>. Estimemosla en R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(proc_elsoc<span class="sc">$</span>educ, proc_elsoc<span class="sc">$</span>jv_control_rec)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  proc_elsoc$educ and proc_elsoc$jv_control_rec
+t = -3.3769, df = 3401, p-value = 0.0007414
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.09123086 -0.02425427
+sample estimates:
+        cor 
+-0.05780761 </code></pre>
+</div>
+</div>
+<p>Vemos que la correlación entre el nivel educacional (<code>educ</code>) y la justificación de la violencia por el control social (<code>jv_control_rec</code>) es negativa, muy pequeña y es estadísticamente significativa (<span class="math inline">\(r\)</span> = -0.06; <em>p &lt; 0.05</em>).</p>
+<ol start="2" type="1">
 <li>Presente en una tabla de contingencia entre las variables <code>educ_rec</code> y <code>jv_control_rec</code>.</li>
+</ol>
+<p>Seguimos trabajando con <code>jv_control_rec</code>, pero ahora con <code>educ_rec</code> que corresponde al nivel educacional recodificado en dos categorías: 1 = Universitario o más y 0 = No universitario. Una tabla de contingencia la podemos realizar con la función <code>sjtab()</code> del paquete <code>sjPlot</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">sjtab</span>(proc_elsoc, educ_rec, jv_control_rec, <span class="at">show.row.prc =</span> <span class="cn">TRUE</span>, <span class="at">show.col.prc =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table style="border-collapse:collapse; border:none;">
+ <tbody><tr>
+ <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; border-bottom:1px solid;" rowspan="2">Educación<br>universitaria o más<br>(binario)</th>
+ <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal;" colspan="2">Justificación de la<br>violencia por el<br>control social<br>(binario)</th>
+ <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; font-weight:bolder; font-style:italic; border-bottom:1px solid; " rowspan="2">Total</th>
+ </tr>
+ 
+<tr>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">No justifica</td>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">Justifica</td>
+ </tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">No universitaria</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">2315</span><br><span style="color:#333399;">77.8&nbsp;%</span><br><span style="color:#339933;">87&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">661</span><br><span style="color:#333399;">22.2&nbsp;%</span><br><span style="color:#339933;">89.2&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">2976</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">87.5&nbsp;%</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">Universitaria o más</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">347</span><br><span style="color:#333399;">81.3&nbsp;%</span><br><span style="color:#339933;">13&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">80</span><br><span style="color:#333399;">18.7&nbsp;%</span><br><span style="color:#339933;">10.8&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">427</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">12.5&nbsp;%</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  border-bottom:double; font-weight:bolder; font-style:italic; text-align:left; vertical-align:middle;">Total</td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">2662</span><br><span style="color:#333399;">78.2&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">741</span><br><span style="color:#333399;">21.8&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">3403</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td> 
+</tr>
+<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4">χ<sup>2</sup>=2.448 · df=1 · φ=0.028 · p=0.118</td> 
+</tr>
+ 
+</tbody></table>
+</div>
+</div>
+<ol start="3" type="1">
 <li>Calcule el estadístico de Chi cuadrado (<span class="math inline">\(X^2\)</span>) entre las variables <code>educ_rec</code> y <code>jv_control_rec</code>.</li>
+</ol>
+<p>El Chi cuadrado (<span class="math inline">\(X^2\)</span>) entre las variables <code>educ_rec</code> y <code>jv_control_rec</code> los podemos obtener a partir de la función <code>chisq.test()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(proc_elsoc<span class="sc">$</span>educ_rec, proc_elsoc<span class="sc">$</span>jv_control_rec)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test with Yates' continuity correction
+
+data:  proc_elsoc$educ_rec and proc_elsoc$jv_control_rec
+X-squared = 2.4482, df = 1, p-value = 0.1177</code></pre>
+</div>
+</div>
+<p>A partir de estos resultados, podemos reportar lo siguiente:</p>
+<blockquote class="blockquote">
+<p>A raíz de la prueba de <span class="math inline">\(X^2\)</span>, vemos que no existe evidencia para rechazar la hipótesis nula sobre no asociación. Por ende, la asociación entre el nivel educacional y la justificación de la violencia por el control social no es estadísticamente significativa (<span class="math inline">\(X^2\)</span> = 2.448, <em>p &gt; 0.05</em>)</p>
+</blockquote>
+<ol start="4" type="1">
 <li>Interprete los resultados obtenidos. Responda la pregunta de investigación a raíz de los calculos desarrollados.</li>
 </ol>
+<p>En el presente ejercicio indagamos en la <em>relación entre el nivel educacional de las personas y las justificaciones de la violencia por el control social en Chile al año 2019</em>. Considerando que las variables de estudio tenían un nivel de medición categórico nominal, utilizamos la técnica de Chi-cuadrado <span class="math inline">\(X^2\)</span> para el contraste de hipótesis.</p>
+<p>La hipótesis planteada inicialmente sugería que el nivel educacional podría estar asociado con las actitudes hacia la justificación de la violencia como una forma de control social. Sin embargo, los resultados de la prueba <span class="math inline">\(X^2\)</span>, indican que <strong>no</strong> existe una asociación estadísticamente significativa entre estas variables (<span class="math inline">\(X^2\)</span> = 2.448, <em>p &gt; 0.05</em>).</p>
+<p>Esto significa que, según los datos analizados, el nivel educacional no parecen ser un factor que influya en la justificación de la violencia para el control social, por lo tanto, no podemos concluir que el nivel educacional estén relacionados con la justificación de la violencia en el contexto del cambio social en Chile en 2019.</p>
 
 
 </section>
