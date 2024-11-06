@@ -459,7 +459,7 @@
     "href": "resource/index.html",
     "title": "Recursos",
     "section": "",
-    "text": "En esta sección se irán subiendo una serie de recursos relacionados con el curso.\nSelecciona alguno en el menú de la izquierda &lt;-",
+    "text": "En esta sección se irán subiendo una serie de recursos relacionados con el curso.",
     "crumbs": [
       "Recursos",
       "Descripción"
@@ -1217,5 +1217,110 @@
     "title": "Nuevo sistema de asesorías grupales",
     "section": "",
     "text": "← News\n\n\n\n\n\nCon el objetivo de dar asesoría y acompañamiento en la preparación para la segunda evaluación del curso (Martes 22 de Octubre), hemos implementado una nueva modalidad que reemplaza la asignación previa de ayudantes realizada durante la Unidad 1. Ahora,se podrá postular a asesorías por grupos conformados según su preferencia.\nPasos:\n\nConformación de grupo: entre 3 a 8 integrantes\nUn integrante del grupo (coordinador) se inscribe en el siguiente formulario, hasta el día lunes 14 a las 12:00 PM\nEl día martes 15 se les comunicará el horario y ayudante asignado para esta tutoría\n\nPor cualquier duda respecto a la inscripción, escribir Andreas Laffert (apoyo docente) vía UCursos.\n(Nota: estos grupos no son - necesariamente - los mismos que luego se inscribirán para realizar el trabajo grupal de la Unidad 3)."
+  },
+  {
+    "objectID": "evaluations/pauta-prueba2.html",
+    "href": "evaluations/pauta-prueba2.html",
+    "title": "Pauta Prueba 2",
+    "section": "",
+    "text": "Librerías y datos\n\n# librerías\npacman::p_load(dplyr, sjPlot, sjmisc)\n\n\n\nPregunta 1 ¿En qué medida se relacionan los ingresos (en pesos) de las personas con sus niveles de autoritarismo?\n1.1 Estime la correlación entre ambas variables utilizando R y genere un diagrama de dispersión (nube de puntos/scatterplot). Corte y pegue el código en el recuadro de abajo. (1p)\nForma A\n\ncor.test(dataset1$ingresos, dataset1$autoritarismo, complete.obs = TRUE, method = \"pearson\")\n\n\n    Pearson's product-moment correlation\n\ndata:  dataset1$ingresos and dataset1$autoritarismo\nt = 39.93, df = 839, p-value &lt; 2.2e-16\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n 0.7847979 0.8315542\nsample estimates:\n      cor \n0.8094554 \n\nsjPlot::plot_scatter(data = dataset1, x = ingresos, y = autoritarismo)\n\n\n\n\n\n\n\n\nForma B\n\ncor.test(dataset2$ingresos, dataset2$autoritarismo, complete.obs = TRUE, method = \"pearson\")\n\n\n    Pearson's product-moment correlation\n\ndata:  dataset2$ingresos and dataset2$autoritarismo\nt = 1.215, df = 838, p-value = 0.2247\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n -0.02578178  0.10926704\nsample estimates:\n       cor \n0.04193417 \n\nsjPlot::plot_scatter(data = dataset2, x = ingresos, y = autoritarismo)\n\n\n\n\n\n\n\n\nForma C\n\ncor.test(dataset3$ingresos, dataset3$autoritarismo, complete.obs = TRUE, method = \"pearson\")\n\n\n    Pearson's product-moment correlation\n\ndata:  dataset3$ingresos and dataset3$autoritarismo\nt = -0.88933, df = 842, p-value = 0.3741\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n -0.09791381  0.03692461\nsample estimates:\n        cor \n-0.03063398 \n\nsjPlot::plot_scatter(data = dataset3, x = ingresos, y = autoritarismo)\n\n\n\n\n\n\n\n\nForma D\n\ncor.test(dataset4$ingresos, dataset4$autoritarismo, complete.obs = TRUE, method = \"pearson\")\n\n\n    Pearson's product-moment correlation\n\ndata:  dataset4$ingresos and dataset4$autoritarismo\nt = 37.907, df = 838, p-value &lt; 2.2e-16\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n 0.7684251 0.8184034\nsample estimates:\n      cor \n0.7947577 \n\nsjPlot::plot_scatter(data = dataset4, x = ingresos, y = autoritarismo)\n\n\n\n\n\n\n\n\n1.2 Justifique la elección del coeficiente de correlación seleccionado e interprete el resultado considerando inferencia estadística, magnitud y sentido del efecto. (3p)\n\nForma A:\nForma B:\nForma C:\nForma D:\n\n\n\nPregunta 2: ¿Cómo se relacionan el nivel educacional, autoritarismo y los ingresos?\n2.1 Estime y reporte la matriz de correlaciones de las variables de nivel educacional, autoritarismo y los ingresos. Corte y pegue el código de R correspondiente (1p)\n\nForma A:\n\n\ncormat &lt;- dataset1 %&gt;% \n  dplyr::select(educ_rec, autoritarismo, ingresos)\nsjPlot::tab_corr(cormat, \n                 na.deletion = \"pairwise\", # espeficicamos tratamiento NA\n                 triangle = \"lower\")\n\n\n\n\n\n\n\n\n\n\n \nNivel educacinal recodificado\n(universitario o no)\nAutoritarismo\nIngresos\n\n\nNivel educacinal recodificado\n(universitario o no)\n \n \n \n\n\nAutoritarismo\n-0.037\n \n \n\n\nIngresos\n-0.030\n0.809***\n \n\n\nComputed correlation used pearson-method with pairwise-deletion.\n\n\n\n\n\n\nForma B:\n\n\ncormat &lt;- dataset2 %&gt;% \n  dplyr::select(educ_rec, autoritarismo, ingresos)\nsjPlot::tab_corr(cormat, \n                 na.deletion = \"pairwise\", # espeficicamos tratamiento NA\n                 triangle = \"lower\")\n\n\n\n\n\n\n\n\n\n\n \nNivel educacinal recodificado\n(universitario o no)\nAutoritarismo\nIngresos\n\n\nNivel educacinal recodificado\n(universitario o no)\n \n \n \n\n\nAutoritarismo\n0.059\n \n \n\n\nIngresos\n0.837***\n0.042\n \n\n\nComputed correlation used pearson-method with pairwise-deletion.\n\n\n\n\n\n\nForma C:\n\n\ncormat &lt;- dataset3 %&gt;% \n  dplyr::select(educ_rec, autoritarismo, ingresos)\nsjPlot::tab_corr(cormat, \n                 na.deletion = \"pairwise\", # espeficicamos tratamiento NA\n                 triangle = \"lower\")\n\n\n\n\n\n\n\n\n\n\n \nNivel educacinal recodificado\n(universitario o no)\nAutoritarismo\nIngresos\n\n\nNivel educacinal recodificado\n(universitario o no)\n \n \n \n\n\nAutoritarismo\n-0.029\n \n \n\n\nIngresos\n0.041\n-0.031\n \n\n\nComputed correlation used pearson-method with pairwise-deletion.\n\n\n\n\n\n\nForma D:\n\n\ncormat &lt;- dataset4 %&gt;% \n  dplyr::select(educ_rec, autoritarismo, ingresos)\nsjPlot::tab_corr(cormat, \n                 na.deletion = \"pairwise\", # espeficicamos tratamiento NA\n                 triangle = \"lower\")\n\n\n\n\n\n\n\n\n\n\n \nNivel educacinal recodificado\n(universitario o no)\nAutoritarismo\nIngresos\n\n\nNivel educacinal recodificado\n(universitario o no)\n \n \n \n\n\nAutoritarismo\n0.523***\n \n \n\n\nIngresos\n0.831***\n0.795***\n \n\n\nComputed correlation used pearson-method with pairwise-deletion.\n\n\n\n\n\n2.2a ¿Qué correlaciones de la matriz son estadísticamente significativas? (1p)\n\nForma A:\nForma B:\nForma C:\nForma D:\n\n2.2b ¿Qué decisión tomó sobre los casos perdidos en el cálculo de la matriz? (1p)\n\nForma A:\nForma B:\nForma C:\nForma D:\n\n2.2c ¿Cómo se denomina el tipo de correlación que se calcula entre nivel educacional e ingreso? (1p)\n\nForma A:\nForma B:\nForma C:\nForma D:\n\n\n\nPregunta 3: ¿Cómo se relaciona el nivel educacional con los ingresos?\n3.1 Reporte tabla de contigencia y el cálculo de Chi2. Corte y pegue el código abajo. (1p)\n\nForma A:\n\n\npacman::p_load(sjPlot)\ndataset1 %&gt;%\n  sjtab(educ_rec,\n        ingresos_rec)\n\n\n \n Nivel educacinalrecodificado(universitario o no)\n Ingresosrecodificado\n Total\n \n \n\n Bajos ingresos\n Medios ingresos\n Altos ingresos\n \n \n \nNo universitaria\n162\n262\n103\n527 \n\n \n \nUniversitaria o más\n92\n180\n51\n323 \n\n \n \nTotal\n254\n442\n154\n850 \n\nχ2=3.292 · df=2 · Cramer's V=0.062 · p=0.193 \n\n \n\n\nchisq.test(dataset1$educ_rec, dataset1$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab\n\n\n    Pearson's Chi-squared test\n\ndata:  dataset1$educ_rec and dataset1$ingresos_rec\nX-squared = 3.2921, df = 2, p-value = 0.1928\n\n\n\nForma B:\n\n\npacman::p_load(sjPlot)\ndataset2 %&gt;%\n  sjtab(educ_rec,\n        ingresos_rec)\n\n\n \n Nivel educacinalrecodificado(universitario o no)\n Ingresosrecodificado\n Total\n \n \n\n Bajos ingresos\n Medios ingresos\n Altos ingresos\n \n \n \nNo universitaria\n268\n428\n75\n771 \n\n \n \nUniversitaria o más\n0\n0\n79\n79 \n\n \n \nTotal\n268\n428\n154\n850 \n\nχ2=393.623 · df=2 · Cramer's V=0.681 · p=0.000 \n\n \n\n\nchisq.test(dataset2$educ_rec, dataset2$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab\n\n\n    Pearson's Chi-squared test\n\ndata:  dataset2$educ_rec and dataset2$ingresos_rec\nX-squared = 393.62, df = 2, p-value &lt; 2.2e-16\n\n\n\nForma C:\n\n\npacman::p_load(sjPlot)\ndataset3 %&gt;%\n  sjtab(educ_rec,\n        ingresos_rec)\n\n\n \n Nivel educacinalrecodificado(universitario o no)\n Ingresosrecodificado\n Total\n \n \n\n Bajos ingresos\n Medios ingresos\n Altos ingresos\n \n \n \nNo universitaria\n157\n290\n88\n535 \n\n \n \nUniversitaria o más\n83\n172\n60\n315 \n\n \n \nTotal\n240\n462\n148\n850 \n\nχ2=1.405 · df=2 · Cramer's V=0.041 · p=0.495 \n\n \n\n\nchisq.test(dataset3$educ_rec, dataset3$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab\n\n\n    Pearson's Chi-squared test\n\ndata:  dataset3$educ_rec and dataset3$ingresos_rec\nX-squared = 1.4055, df = 2, p-value = 0.4952\n\n\n\nForma D:\n\n\npacman::p_load(sjPlot)\ndataset4 %&gt;%\n  sjtab(educ_rec,\n        ingresos_rec)\n\n\n \n Nivel educacinalrecodificado(universitario o no)\n Ingresosrecodificado\n Total\n \n \n\n Bajos ingresos\n Medios ingresos\n Altos ingresos\n \n \n \nNo universitaria\n269\n437\n73\n779 \n\n \n \nUniversitaria o más\n0\n0\n71\n71 \n\n \n \nTotal\n269\n437\n144\n850 \n\nχ2=379.824 · df=2 · Cramer's V=0.668 · p=0.000 \n\n \n\n\nchisq.test(dataset4$educ_rec, dataset4$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab\n\n\n    Pearson's Chi-squared test\n\ndata:  dataset4$educ_rec and dataset4$ingresos_rec\nX-squared = 379.82, df = 2, p-value &lt; 2.2e-16\n\n\n3.2 Interprete el Chi2 en términos de inferencia y magnitud del efecto. (3p)\n\nForma A: χ2=3.292 · df=2 · Cramer’s V=0.062 · p=0.193 Chi cuadrado no es estadísticamente significativo (p&gt;0.05), tamaño de efecto pequeño/débil según la V de Cramer\nForma B: χ2=393.623 · df=2 · Cramer’s V=0.681 · p=0.000 Chi cuadrado estadísticamente significativo (p&lt;0.001), tamaño de efecto grande/fuerte según la V de Cramer\nForma C: χ2=1.405 · df=2 · Cramer’s V=0.041 · p=0.495 Chi cuadrado estadísticamente significativo (p&lt;0.05), tamaño de efecto pequeño/débil según la V de Cramer\nForma D: χ2=379.824 · df=2 · Cramer’s V=0.668 · p=0.000 Chi cuadrado estadísticamente significativo (p&lt;0.001), tamaño de efecto grande/fuerte según la V de Cramer"
+  },
+  {
+    "objectID": "resource/index.html#glosario-de-conceptos",
+    "href": "resource/index.html#glosario-de-conceptos",
+    "title": "Recursos",
+    "section": "Glosario de conceptos",
+    "text": "Glosario de conceptos\n\n\n\nConcepto\nDefinición\n\n\n\n\nEstadística \nConjunto de métodos y herramientas que involucra la recopilación, análisis, interpretación y presentación de datos numéricos con el objetivo de describir patrones, relaciones y tendencias en fenómenos naturales o sociales.\n\n\nReproducibilidad \nLa capacidad de regenerar un experimento, análisis o estudio utilizando los mismos datos y métodos para llegar a los mismos resultados originales, verificando y asegurando la validez de los hallazgos.\n\n\nCiencia Social Abierta \nUn enfoque en la investigación social que promueve la transparencia, el acceso abierto a datos, métodos y resultados, y la colaboración entre investigadores para mejorar la calidad y confiabilidad de la investigación.\n\n\nProtocolo IPO (Input-Process-Output) \nSistema digital de carpetas interconectadas: entrada, proceso y salida. Se utiliza para organizar, procesar y documentar los datos y código de un proyecto de investigación para que cualquier persona pueda ejecutarlo y compartirlo.\n\n\nR project \nCarpeta raíz organizada donde trabajas en un proyecto concreto en el lenguaje de programación R, permitiéndote gestionar archivos, paquetes y configuraciones de manera específica para ese proyecto.\n\n\nTexto plano \nTipo de texto sin formato especial que se puede leer independiente del lector que se utilice.\n\n\nMarkdown \nClase especial de lenguaje que permite darle formato a texto simple con pocas marcas. Se utiliza comúnmente para escribir documentos simples con formato, como páginas web, documentación y presentaciones.\n\n\nDocumentos dinámicos \nArchivos que combinan texto plano y código de análisis (gráficos, tablas y resultados), de manera simultánea en un solo documento, permitiendo la generación automática y reproducible de resultados actualizados a medida que cambian los datos o parámetros.\n\n\nRMarkdown \nUna extensión de Markdown en el entorno R que permite la integración simultánea de texto plano y código R y su ejecución en el documento, lo que facilita la creación de documentos dinámicos con análisis estadísticos y visualizaciones.\n\n\nLibrerías \nConjuntos de funciones y herramientas predefinidas que se pueden utilizar en lenguajes de programación, como R, para realizar tareas específicas sin tener que escribir todo el código desde cero.\n\n\nKnitear \nProceso de compilación secuencial de código y resultados de ejecución en un documento RMarkdown, generando un documento final con texto formateado, código y gráficos integrados.\n\n\nRenderizar \nEn el contexto de RMarkdown se refiere al proceso de convertir el código y contenido en un documento legible y presentable. En otras palabras, cuando renderizas un documento RMarkdown, estás transformando el código, texto y elementos visuales en un formato final, como un informe, una presentación o un documento HTML, que pueda ser compartido o presentado a otros de manera comprensible.\n\n\nYAML \nAcrónimo de “YAML Ain’t Markup Language”, es un formato de serialización de datos legible por humanos que se utiliza para configurar y definir la estructura de datos en muchos programas y aplicaciones. En RMarkdown corresponden al encabezado de instrucciones generales del documento.\n\n\nChunk \nUn bloque de código, que puede ser en R, en un documento RMarkdown, rodeado por marcas especiales que indican al sistema cómo manejar y ejecutar ese fragmento de código, y luego mostrar sus resultados en el documento final.",
+    "crumbs": [
+      "Recursos",
+      "Descripción"
+    ]
+  },
+  {
+    "objectID": "resource/index.html#reporte",
+    "href": "resource/index.html#reporte",
+    "title": "Recursos",
+    "section": "Reporte",
+    "text": "Reporte\n\nTablas con R, con ejemplo de canciones de Spotify\nIntroduction to Quarto",
+    "crumbs": [
+      "Recursos",
+      "Descripción"
+    ]
+  },
+  {
+    "objectID": "resource/index.html#estadística-descriptiva",
+    "href": "resource/index.html#estadística-descriptiva",
+    "title": "Recursos",
+    "section": "Estadística descriptiva",
+    "text": "Estadística descriptiva\n\nCurso Estadística Descriptiva Sociología UChile, 1er Sem 2023",
+    "crumbs": [
+      "Recursos",
+      "Descripción"
+    ]
+  },
+  {
+    "objectID": "resource/index.html#uso-de-r",
+    "href": "resource/index.html#uso-de-r",
+    "title": "Recursos",
+    "section": "Uso de R",
+    "text": "Uso de R\n\nConocimientos básicos de programación en R\nImportar datos en R\nProcesamiento y análisis de datos en R (tidyverse)\nProcesamiento y análisis de datos en R (base)\nMás para aprender R",
+    "crumbs": [
+      "Recursos",
+      "Descripción"
+    ]
+  },
+  {
+    "objectID": "resource/index.html#inferencia",
+    "href": "resource/index.html#inferencia",
+    "title": "Recursos",
+    "section": "Inferencia",
+    "text": "Inferencia\n-Infer: Inferencia estadística en R, acá video tutorial en español\n\nPor qué se divide la varianza por N-1?\nStatistical Inference via Data Science A ModernDive into R and the Tidyverse\nIntroduction to modern statistics (Mine Çetinkaya-Rundel and Johanna Hardin)\nInferencia univariada",
+    "crumbs": [
+      "Recursos",
+      "Descripción"
+    ]
+  },
+  {
+    "objectID": "resource/index.html#visualización",
+    "href": "resource/index.html#visualización",
+    "title": "Recursos",
+    "section": "Visualización",
+    "text": "Visualización\n\nVisualización descriptiva de datos en R\nR Graph Gallery",
+    "crumbs": [
+      "Recursos",
+      "Descripción"
+    ]
+  },
+  {
+    "objectID": "resource/index.html#bases-de-datos",
+    "href": "resource/index.html#bases-de-datos",
+    "title": "Recursos",
+    "section": "Bases de datos",
+    "text": "Bases de datos\n\nBases de datos para trabajos o investigación",
+    "crumbs": [
+      "Recursos",
+      "Descripción"
+    ]
+  },
+  {
+    "objectID": "trabajos.html",
+    "href": "trabajos.html",
+    "title": "Trabajos",
+    "section": "",
+    "text": "El curso de Estadística Correlacional considera la elaboración de un trabajo grupal como instancia final de evaluación. El trabajo a realizar es la elaboración de un reporte de análisis bivariado. La nota de este trabajo equivale a un 40% de la nota final del curso."
+  },
+  {
+    "objectID": "trabajos.html#escritura-académica",
+    "href": "trabajos.html#escritura-académica",
+    "title": "Trabajos",
+    "section": "Escritura académica",
+    "text": "Escritura académica\n\nUna idea por párrafo\nUso de “oración principal” (topic sentence): usualmente es la oración al principio del párrafo, que resume el sentido del párrafo completo y que conecta con el párrafo anterior.\nRecursos de apoyo a la escritura académica de la Universidad de Chile"
+  },
+  {
+    "objectID": "trabajos.html#a-tener-en-cuenta",
+    "href": "trabajos.html#a-tener-en-cuenta",
+    "title": "Trabajos",
+    "section": "A tener en cuenta:",
+    "text": "A tener en cuenta:\n\nlos conceptos centrales deben estar en las hipótesis y también luego operacionalizarse en variables. No presentar variables que no se relacionen con los conceptos centrales de la sección inicial .\nsi hay muchos casos perdidos (mas de un tercio de datos originales), explicar claramente a qué se debe esta pérdida. Existe la posiblidad de recuperar casos perdidos de predictores categóricos (o recodificados a categóricos) agregando una categoría adicional de perdidos. Esto se explica en la guía de índices y transformación de variables.\ninterpretación de hipótesis e inferencia: las hipótesis nunca se comprueban o se descartan, solo se puede hablar de que existe o no existe evidencia a favor de la hipótesis planteada. Recordar que la ausencia de evidencia no es evidencia de ausencia.\nevitar términos técnicos estadísticos (ej: correlación ) antes de la sección de metodología\nmantener coherencia entre conceptos, hipótesis, descripción de variables, análisis, discusión, ojalá siempre en el mismo orden."
   }
 ]
