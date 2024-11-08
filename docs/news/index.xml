@@ -10,7 +10,177 @@
 <atom:link href="https://correlacional.netlify.app/news/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Mon, 30 Sep 2024 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 20 Oct 2024 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Videos Tutoriales</title>
+  <link>https://correlacional.netlify.app/news/2024-10-20_tutoriales.html</link>
+  <description><![CDATA[ 
+
+<div class="back-nav"><a href="../news/">← News</a></div>
+
+
+
+
+<ol type="1">
+<li>Elementos básicos</li>
+</ol>
+<iframe src="https://drive.google.com/file/d/1evVjJSmMdseI07b3o0c1nb-B1uY8_3tc/preview" width="360" height="640" allow="autoplay">
+</iframe>
+<ol start="2" type="1">
+<li>Lenguaje y trabajo en R</li>
+</ol>
+<iframe src="https://drive.google.com/file/d/1z_E_uYKJ7BwTq2CfCG51mdzoTXWqHZR-/preview" width="360" height="640" allow="autoplay">
+</iframe>
+<ol start="3" type="1">
+<li>Trabajo en R Studio</li>
+</ol>
+<iframe src="https://drive.google.com/file/d/1dKQJbSCcnqTzB7p5Jn93AM28dL0zCghl/preview" width="360" height="640" allow="autoplay">
+</iframe>
+<ol start="4" type="1">
+<li>Recodificación</li>
+</ol>
+<iframe src="https://drive.google.com/file/d/11Uvzm1NhUF10UA--okImGu4segO1root/preview" width="360" height="640" allow="autoplay">
+</iframe>
+<ol start="5" type="1">
+<li>Herramientas de ayuda</li>
+</ol>
+<iframe src="https://drive.google.com/file/d/1uXSXMik-Y4h7YUgCtK7HnZg1WgKoGyYy/preview" width="360" height="640" allow="autoplay">
+</iframe>
+
+
+
+ ]]></description>
+  <category>info</category>
+  <category>mail-UCursos</category>
+  <guid>https://correlacional.netlify.app/news/2024-10-20_tutoriales.html</guid>
+  <pubDate>Sun, 20 Oct 2024 03:00:00 GMT</pubDate>
+  <media:content url="https://correlacional.netlify.app/news/images/tutorial.png" medium="image" type="image/png" height="101" width="144"/>
+</item>
+<item>
+  <title>Informaciones evaluación 2</title>
+  <link>https://correlacional.netlify.app/news/2024-10-14_evaluacion2.html</link>
+  <description><![CDATA[ 
+
+<div class="back-nav"><a href="../news/">← News</a></div>
+
+
+
+
+<p><img src="https://correlacional.netlify.app/news/images/evaluacion.png" class="img-fluid"></p>
+<p>Como se puede ver en la <a href="../syllabus.html">página del programa del curso</a>, la Evaluación de la Unidad 2 vale un 40% de la nota del curso: un 10% es práctico (análisis de datos basado en R) y 30% conceptual. Inicialmente la idea era separar en dos días la evaluación - un día teórico y otro práctico -, pero para no sobrecargar con instancias evaluativas finalemente la prueba será el día Martes 22 (8:30) y combinará preguntas de análisis y preguntas conceptuales.</p>
+<section id="consideraciones" class="level2">
+<h2 class="anchored" data-anchor-id="consideraciones">Consideraciones:</h2>
+<ul>
+<li>La prueba será frente al computador, para así poder realizar las preguntas de análisis de datos.</li>
+<li>Las preguntas conceptuales también se responderán en el computador</li>
+<li>Las respuestas tanto de análisis como conceptuales se responderán en un formulario habilitado en UCursos</li>
+</ul>
+</section>
+<section id="cómo-será-la-evaluación" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-será-la-evaluación">¿Cómo será la evaluación?</h2>
+<ul>
+<li>Habrá preguntas en tres temas:
+<ul>
+<li>correlación</li>
+<li>matrices de correlación y casos perdidos</li>
+<li>asociación en tablas de contingencia</li>
+</ul></li>
+<li>Serán preguntas puntuales de análisis e interpretación, y se calcula que cada pregunta requiere una dedicación de no más de 20 min, por lo que la prueba se puede contestar en aproximadamente una hora. De todas maneras, quienes requieran tiempo adicional, la prueba se podrá entregar hasta las 10:00</li>
+<li>Cada tema tiene 4 puntos, 1 punto será por análisis de datos, y 3 por temas conceptuales/interpretación</li>
+<li>Se permitirá acceso a apuntes y a la página del curso online, no se permite el uso de otras plataformas como whatsapp o IA.</li>
+</ul>
+</section>
+<section id="cómo-prepararse" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-prepararse">¿Cómo prepararse?</h2>
+<ul>
+<li>En los últimos prácticos hay una sección de ejercicio autónomo, el realizar estos ejercicios y luego corregirlos (aparecen también desarrollados en la misma página) es la mejor forma de prepararse, tanto en términos de análisis como de interpretación</li>
+<li>Revisar el material de las presentaciones y lecturas sugeridas</li>
+<li>Anotarse en las <a href="../news/2024-10-10_tutorias_grupales.html">asesorías grupales</a> y también en el <a href="../news/2024-10-14_taller_centro_idea2.html">taller del Centro Idea</a></li>
+<li>Software: revisar que los ejercicios de los prácticos los puedan desarrollar bien en el computador que traerán a la evaluación. Quienes no pueden traer computador podrán realizar la evaluación en la sala de computación.</li>
+<li>Se realizará un ensayo de la evaluación el día lunes 21 (tal como en el caso de la evaluación anterior)</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>info</category>
+  <category>mail-UCursos</category>
+  <guid>https://correlacional.netlify.app/news/2024-10-14_evaluacion2.html</guid>
+  <pubDate>Mon, 14 Oct 2024 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Taller Centro Idea 2</title>
+  <link>https://correlacional.netlify.app/news/2024-10-14_taller_centro_idea2.html</link>
+  <description><![CDATA[ 
+
+<div class="back-nav"><a href="../news/">← News</a></div>
+
+
+
+
+<p>El centro IDEA está ofreciendo nuevamente un taller para preparar la evaluación del curso, esta vez de la Unidad II. Será este miércoles 16 de Octubre a las 14:30</p>
+<p><img src="https://correlacional.netlify.app/news/images/taller_idea2.jpg" class="img-fluid"></p>
+
+
+
+ ]]></description>
+  <category>info</category>
+  <category>mail-UCursos</category>
+  <guid>https://correlacional.netlify.app/news/2024-10-14_taller_centro_idea2.html</guid>
+  <pubDate>Mon, 14 Oct 2024 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Nuevo sistema de asesorías grupales</title>
+  <link>https://correlacional.netlify.app/news/2024-10-10_tutorias_grupales.html</link>
+  <description><![CDATA[ 
+
+<div class="back-nav"><a href="../news/">← News</a></div>
+
+
+
+
+<p><img src="https://coworkingfy.com/wp-content/uploads/2019/12/ilustracion-grupo-de-trabajo.jpg" class="img-fluid"></p>
+<p>Con el objetivo de dar asesoría y acompañamiento en la preparación para la segunda evaluación del curso (Martes 22 de Octubre), hemos implementado una nueva modalidad que reemplaza la asignación previa de ayudantes realizada durante la Unidad 1. Ahora,se podrá postular a asesorías por grupos conformados según su preferencia.</p>
+<p><strong>Pasos:</strong></p>
+<ol type="1">
+<li>Conformación de grupo: entre 3 a 8 integrantes</li>
+<li>Un integrante del grupo (coordinador) se inscribe en el <a href="https://docs.google.com/forms/d/e/1FAIpQLSca3UeSUbhg46ibm2fPh2CaXxVs18ffVMNRhh9_Z008XPVdxA/viewform">siguiente formulario</a>, hasta el día lunes 14 a las 12:00 PM</li>
+<li>El día martes 15 se les comunicará el horario y ayudante asignado para esta tutoría</li>
+</ol>
+<p>Por cualquier duda respecto a la inscripción, escribir Andreas Laffert (apoyo docente) vía UCursos.</p>
+<p>(Nota: estos grupos no son - necesariamente - los mismos que luego se inscribirán para realizar el trabajo grupal de la Unidad 3).</p>
+
+
+
+ ]]></description>
+  <category>info</category>
+  <category>mail-UCursos</category>
+  <guid>https://correlacional.netlify.app/news/2024-10-10_tutorias_grupales.html</guid>
+  <pubDate>Thu, 10 Oct 2024 03:00:00 GMT</pubDate>
+  <media:content url="https://coworkingfy.com/wp-content/uploads/2019/12/ilustracion-grupo-de-trabajo.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Desarrollo Ejercicio autónomo Práctico 3</title>
+  <link>https://correlacional.netlify.app/news/2024-10-07_Desarrollo ejercicio autonomo.html</link>
+  <description><![CDATA[ 
+
+<div class="back-nav"><a href="../news/">← News</a></div>
+
+
+
+
+<p>El ejericio autónomo del práctico 3 se encuentra desarrollado en la página correspondiente, link directo <a href="../assignment/03-practico.html">aquí</a></p>
+
+
+
+ ]]></description>
+  <category>info</category>
+  <category>mail-UCursos</category>
+  <guid>https://correlacional.netlify.app/news/2024-10-07_Desarrollo ejercicio autonomo.html</guid>
+  <pubDate>Mon, 07 Oct 2024 03:00:00 GMT</pubDate>
+  <media:content url="https://correlacional.netlify.app/files/logo-correlacional.png" medium="image" type="image/png" height="165" width="144"/>
+</item>
 <item>
   <title>Reporte Evaluación 1</title>
   <link>https://correlacional.netlify.app/news/2024-09-30_reporte-notas1.html</link>

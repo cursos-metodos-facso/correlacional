@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
@@ -8,7 +8,7 @@
 
 <meta name="description" content="Estadística Correlacional - Inferencia, asociación y reporte">
 
-<title>Instalar R, RStudio y tidyverse – Estadística Correlacional</title>
+<title>R, librerías y versiones – Estadística Correlacional</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -56,22 +90,23 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 
 
-<meta property="og:title" content="Instalar R, RStudio y tidyverse – Estadística Correlacional">
+<meta property="og:title" content="R, librerías y versiones – Estadística Correlacional">
+<meta property="og:description" content="">
 <meta property="og:image" content="https://correlacional.netlify.app/files/logo-correlacional.png">
 <meta property="og:site_name" content="Estadística Correlacional">
 <meta property="og:locale" content="es">
@@ -79,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:image:width" content="466">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -90,8 +125,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Estadística Correlacional</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -113,16 +148,12 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Prácticos</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../resource/index.html"> 
+    <a class="nav-link active" href="../resource/index.html" aria-current="page"> 
 <span class="menu-text">Recursos</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../syllabus.html"> 
 <span class="menu-text">Programa</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../evaluations/index.html"> 
-<span class="menu-text">Evaluaciones</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://rstudio.cloud"> <i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
@@ -135,20 +166,101 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Guías</li><li class="breadcrumb-item"><a href="../resource/install.html">R, librerías y versiones</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resource/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descripción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Guías</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">1: Versiones de R y librerías</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resource/install.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">R, librerías y versiones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">2: Videos tutoriales</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">3: Glosario de conceptos</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resource/glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glosario de conceptos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+ <span class="menu-text">4: Varios</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../resource/varios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Varios</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#descripción" id="toc-descripción" class="nav-link active" data-scroll-target="#descripción">1. Descripción</a></li>
+  <li><a href="#instalar-pacman-y-utils" id="toc-instalar-pacman-y-utils" class="nav-link" data-scroll-target="#instalar-pacman-y-utils">2. Instalar pacman y utils</a></li>
+  <li><a href="#conocer-mi-versión-de-r-y-librerías" id="toc-conocer-mi-versión-de-r-y-librerías" class="nav-link" data-scroll-target="#conocer-mi-versión-de-r-y-librerías">3. Conocer mi versión de R y librerías</a></li>
+  <li><a href="#reportar-mi-versión-de-r-y-librerías" id="toc-reportar-mi-versión-de-r-y-librerías" class="nav-link" data-scroll-target="#reportar-mi-versión-de-r-y-librerías">4. Reportar mi versión de R y librerías</a></li>
+  <li><a href="#actualizar-versión-de-r-y-librerías-para-este-curso" id="toc-actualizar-versión-de-r-y-librerías-para-este-curso" class="nav-link" data-scroll-target="#actualizar-versión-de-r-y-librerías-para-este-curso">5. Actualizar versión de R y librerías para este curso</a>
+  <ul class="collapse">
+  <li><a href="#actualizar-r" id="toc-actualizar-r" class="nav-link" data-scroll-target="#actualizar-r">Actualizar R</a></li>
+  <li><a href="#actualizar-librerías" id="toc-actualizar-librerías" class="nav-link" data-scroll-target="#actualizar-librerías">Actualizar librerías</a></li>
+  <li><a href="#opción-vía-rstudio" id="toc-opción-vía-rstudio" class="nav-link" data-scroll-target="#opción-vía-rstudio">Opción vía Rstudio</a></li>
+  <li><a href="#opción-vía-código" id="toc-opción-vía-código" class="nav-link" data-scroll-target="#opción-vía-código">Opción vía código</a></li>
+  <li><a href="#recursos-adicionales" id="toc-recursos-adicionales" class="nav-link" data-scroll-target="#recursos-adicionales">Recursos adicionales</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Guías</li><li class="breadcrumb-item"><a href="../resource/install.html">R, librerías y versiones</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Instalar R, RStudio y tidyverse</h1>
+<h1 class="title">R, librerías y versiones</h1>
 </div>
 
 
@@ -165,8 +277,247 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="descripción" class="level1">
+<h1>1. Descripción</h1>
+<p>Trabajar con el software de programación R y el entorno de desarrollo integrado (IDE) RStudio requiere, la mayor parte del tiempo, estar al tanto de actualizaciones tanto de R como de las librerías que utilizamos para el procesamiento y análisis de datos.</p>
+<p>R y sus librerías tienen distintas versiones. No estar al tanto de esto puede generar problemas cuando, por ejemplo, queremos correr algún código que encontramos en internet, no podemos ejecutar el código de un colega o cuando queremos utilizar librerías o herramientas nuevas que nos ofrece la comunidad de R.</p>
+<p>Por tanto, cuando estemos desarrollando una evaluación práctica en RStudio es de suma importancia contar con una versión actualizada de R y de las librerías necesarias que se utilizan en las sesiones prácticas del curso.</p>
+<p>En esta guía de recursos te dejaremos algunas buenas prácticas para conocer:</p>
+<ol type="1">
+<li>Con qué versión de R y librerías estoy trabajando</li>
+<li>Cómo reportar las versiones que utilizo a otras personas</li>
+<li>Actualizar mi versión de R y librerías necesarias para este curso</li>
+</ol>
+</section>
+<section id="instalar-pacman-y-utils" class="level1">
+<h1>2. Instalar pacman y utils</h1>
+<p>Lo primero que haremos es verificar que tenemos instaladas dos librerías importantes: <code>pacman</code> y <code>utils</code>. La librería <code>utils</code> ya viene por defecto en R, así que solo instalaremos manualmente <code>pacman</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Con la función <code>install.packages("")</code> instalamos una determinada librería en nuestro computador. El nombre de la librería va dentro de las comillas ” “.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>IMPORTANTE</strong></p>
+<p>Si ya tienes instaladas estas librerías entonces no es necesario volver a instalarlas con <code>install.packages("")</code>. Solo basta con llamarlas con <code>library()</code>.</p>
+</div>
+</div>
+<p>Ahora nuestras librerías solo están instaldas en nuestro computador, nos falta llamarlas para que el software reconozca que las usaremos en el futuro. Esto lo hacemos con la función <code>library()</code>, y dentro de los paréntesis () va el nombre de la librería determinada <strong>sin</strong> comillas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(utils)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="conocer-mi-versión-de-r-y-librerías" class="level1">
+<h1>3. Conocer mi versión de R y librerías</h1>
+<p>Con la función <code>sessionInfo()</code> del paquete <code>utils</code> podemos obtener un resumen tanto de la versión de R como de las librerías que tenemos instaladas en nuestro computador. Veamos cómo se hace:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">sessionInfo</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.1 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/Santiago
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] pacman_0.5.1 knitr_1.48  
+
+loaded via a namespace (and not attached):
+ [1] htmlwidgets_1.6.4 compiler_4.3.3    fastmap_1.2.0     cli_3.6.3        
+ [5] tools_4.3.3       htmltools_0.5.8.1 yaml_2.3.10       rmarkdown_2.28   
+ [9] jsonlite_1.8.9    xfun_0.48         digest_0.6.37     rlang_1.1.4      
+[13] evaluate_1.0.1   </code></pre>
+</div>
+</div>
+<p>En este output de la consola vemos un listado de información muy completo, desde versión de R, sistema operativo, opciones de idioma local (LOCALE), y muchas librerías. Si optamos por esta versión de la información de la sesión, lo importante es fijarse en (a) versión de R, y (b) de las librerías cargadas al principio, que aquí aparecen bajo “other attached packages”.</p>
+</section>
+<section id="reportar-mi-versión-de-r-y-librerías" class="level1">
+<h1>4. Reportar mi versión de R y librerías</h1>
+<p>Para reportar la versión de R y librerías que tengo en mi computador a otras personas (como el profesor o colegas), basta con copiar el output que obtuvimos con <code>sessionInfo()</code> y enviarlo a quien corresponda.</p>
+</section>
+<section id="actualizar-versión-de-r-y-librerías-para-este-curso" class="level1">
+<h1>5. Actualizar versión de R y librerías para este curso</h1>
+<section id="actualizar-r" class="level2">
+<h2 class="anchored" data-anchor-id="actualizar-r">Actualizar R</h2>
+<p>El método más eficiente es descargar una nueva versión de R desde <a href="https://www.r-project.org/">sitio web de R &gt; CRAN</a>.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="../images/r1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El CRAN que utilizamos es el de la Universidad de Chile. Debes descargar e instalar la versión de R correspondiente a tu sistema operativo. Luego, reinicia tu RStudio. La nueva versión de R se cargará automáticamente.</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="../images/r2.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure class="figure">
+<p><img src="../images/r3.png" class="img-fluid quarto-figure quarto-figure-right figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La nueva versión de R aparece justo después de instalar R y reiniciar RStudio.</p>
+</section>
+<section id="actualizar-librerías" class="level2">
+<h2 class="anchored" data-anchor-id="actualizar-librerías">Actualizar librerías</h2>
+<p>Luego de realizar el paso anterior, para installar y llamar a las librerías que utilizamos en el curso usaremos la función <code>p_load()</code> del paquete <code>pacman</code>. Lo genial de esta función es que instala y llama librerías en un solo movimiento, es decir:</p>
+<ul>
+<li>si incluyo una librería que no tengo instalada previamante, <code>p_load()</code> la instala y llama</li>
+<li>si incluyo una librería que ya tengo instala previamente, <code>p_load()</code> la reconoce y sólo la llama</li>
+</ul>
+<p>En este curso hemos utilizado diversas librerías y las fundamentales para la evaluación 2 son:</p>
+<ul>
+<li><code>tidyverse</code></li>
+<li><code>sjPlot</code></li>
+<li><code>sjmisc</code></li>
+<li><code>kableExtra</code></li>
+<li><code>psych</code></li>
+<li><code>corrplot</code></li>
+<li><code>broom</code></li>
+<li><code>car</code></li>
+</ul>
+<p>Algunos otros paquetes adicionales muy útiles son:</p>
+<ul>
+<li><code>gginference</code></li>
+<li><code>ggplot2</code></li>
+<li><code>haven</code></li>
+</ul>
+<p>Veamos cómo instalar estas librerías claves para la evaluación 2 y desarrollo del curso.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># Manipulacion de datos</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>               car, <span class="co"># Recodificar</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>               sjPlot, <span class="co"># Tablas y graficos</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               sjmisc, <span class="co"># Descriptivos</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co"># Tablas</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>               psych, <span class="co"># Bivariados</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>               corrplot, <span class="co"># Graficos correlacioj</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>               broom) <span class="co"># Varios</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Comprobemos si se instalaron las librerías y qué versiones con <code>sessionInfo()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">sessionInfo</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.1 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/Santiago
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] broom_1.0.7      corrplot_0.94    psych_2.4.6.26   kableExtra_1.4.0
+ [5] sjmisc_2.8.10    sjPlot_2.8.16    car_3.1-3        carData_3.0-5   
+ [9] lubridate_1.9.3  forcats_1.0.0    stringr_1.5.1    dplyr_1.1.4     
+[13] purrr_1.0.2      readr_2.1.5      tidyr_1.3.1      tibble_3.2.1    
+[17] ggplot2_3.5.1    tidyverse_2.0.0  pacman_0.5.1     knitr_1.48      
+
+loaded via a namespace (and not attached):
+ [1] gtable_0.3.5       xfun_0.48          htmlwidgets_1.6.4  insight_0.20.5    
+ [5] lattice_0.22-6     tzdb_0.4.0         vctrs_0.6.5        tools_4.3.3       
+ [9] sjstats_0.19.0     generics_0.1.3     datawizard_0.13.0  parallel_4.3.3    
+[13] fansi_1.0.6        pkgconfig_2.0.3    ggeffects_1.7.2    lifecycle_1.0.4   
+[17] compiler_4.3.3     munsell_0.5.1      mnormt_2.1.1       htmltools_0.5.8.1 
+[21] yaml_2.3.10        Formula_1.2-5      pillar_1.9.0       abind_1.4-8       
+[25] nlme_3.1-166       tidyselect_1.2.1   sjlabelled_1.2.0   digest_0.6.37     
+[29] performance_0.12.3 stringi_1.8.4      fastmap_1.2.0      grid_4.3.3        
+[33] colorspace_2.1-1   cli_3.6.3          magrittr_2.0.3     utf8_1.2.4        
+[37] withr_3.0.1        backports_1.5.0    scales_1.3.0       timechange_0.3.0  
+[41] rmarkdown_2.28     hms_1.1.3          evaluate_1.0.1     viridisLite_0.4.2 
+[45] rlang_1.1.4        glue_1.8.0         xml2_1.3.6         svglite_2.1.3     
+[49] rstudioapi_0.16.0  jsonlite_1.8.9     R6_2.5.1           systemfonts_1.1.0 </code></pre>
+</div>
+</div>
+</section>
+<section id="opción-vía-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="opción-vía-rstudio">Opción vía Rstudio</h2>
+<p>Si queremos actualizar una librería en R, lo que podemos hacer es dirigirnos al panel inferior derecho y dar click en la pestaña de “Packages”. Allí, les aparecerá un listado de las librerías que tienen en su computador, una descripción y su versión.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/r4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Para actualizar una librería, podemos seleccionarla y darle click al botón de “Update” y luego “Install Update” a la librería correspondiente. Veamos un <strong>ejemplo</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/r5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="opción-vía-código" class="level2">
+<h2 class="anchored" data-anchor-id="opción-vía-código">Opción vía código</h2>
+<p>Bien, pero ¿hay otra alternativa? Sí, como todo en R. Una forma sencilla de actualizar una librería o varias es con la función <code>install.packages</code> pero identificando argumentos adicionales. La estructura del código es así: <code>install.packages("package_name", dependencies = TRUE, update = TRUE)</code>. Supongamos que queremos actualizar a la versión más de nueva de <code>corrplot</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"corrplot"</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>, <span class="at">update =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Con esto, actualizamos manualmente vía código una librería. Para verificarlo podemos, nuevamente, usar <code>sessionInfo()</code> o de las otras maneras que hemos aprendido.</p>
+</section>
+<section id="recursos-adicionales" class="level2">
+<h2 class="anchored" data-anchor-id="recursos-adicionales">Recursos adicionales</h2>
+<p>Para más informaciones, sobre R y Rstudio, revisar link de práctico de estadística descriptiva –&gt; <a href="https://descriptiva-facso.netlify.app/assignment/01-practico">link</a></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -212,12 +563,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiado");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiado");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

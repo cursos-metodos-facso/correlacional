@@ -1,0 +1,20 @@
+# Librerías y datos
+
+```{r}
+# librerías
+pacman::p_load(dplyr, sjPlot, sjmisc)
+```
+
+```{r, include=FALSE}
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/dataset1.RData"))
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/dataset2.RData"))
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/dataset3.RData"))
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/dataset4.RData"))
+```
+
+
+```{r}
+cor.test(dataset1$educ_rec, dataset1$ingresos_rec)
+sjPlot::sjtab(dataset1, educ_rec, ingresos_rec, show.row.prc = TRUE, show.col.prc = TRUE)
+chisq.test(dataset1$educ_rec, dataset1$ingresos_rec)
+```

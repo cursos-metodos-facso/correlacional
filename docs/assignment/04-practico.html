@@ -273,6 +273,12 @@ window.Quarto = {
  <span class="menu-text">4- Matrices de correlación, casos perdidos e índices</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/05-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: Asociación entre categóricas</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -324,6 +330,7 @@ window.Quarto = {
   <li><a href="#pregunta-2" id="toc-pregunta-2" class="nav-link" data-scroll-target="#pregunta-2">Pregunta 2</a></li>
   </ul></li>
   <li><a href="#ejercicio-autónomo" id="toc-ejercicio-autónomo" class="nav-link" data-scroll-target="#ejercicio-autónomo">Ejercicio autónomo</a></li>
+  <li><a href="#resolución-ejercicio-autónomo" id="toc-resolución-ejercicio-autónomo" class="nav-link" data-scroll-target="#resolución-ejercicio-autónomo">Resolución ejercicio autónomo</a></li>
   </ul>
 </nav>
     </div>
@@ -1219,6 +1226,122 @@ sample estimates:
 <li>Genere un índice promedio de estatus socioeconomico a partir de las variables <code>income</code> y <code>educyrs</code>, y llámelo <code>ses</code>.</li>
 <li>Calcule el coeficiente de correlación de Pearson (<span class="math inline">\(r\)</span>) entre las variables <code>psci</code> y <code>ses</code>. Reporte e interprete sus resultados.</li>
 </ol>
+</section>
+<section id="resolución-ejercicio-autónomo" class="level1">
+<h1>Resolución ejercicio autónomo</h1>
+<ol type="1">
+<li>Para estimar y reportar una matriz de correlación con las variables <code>income</code> y <code>educyrs</code>, primero crearemos un objeto <code>M_ej</code> en donde almacenaremos solo estas dos variables.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>M_ej <span class="ot">&lt;-</span> proc_issp <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(income, educyrs)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(M_ej) <span class="co"># verificamos mirando los primeros 6 casos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  income educyrs
+1      5      12
+2      5      13
+3      7       7
+4      3       6
+5      1      13
+6      5      13</code></pre>
+</div>
+</div>
+<p>Luego, calculamos la matriz de correlación sobre el objeto <code>M_ej</code>. En este caso, lo haremos con <code>tab_corr</code> para que nos entregue una tabla de calidad. Además, debemos tener claro el método de tratamiento de casos pérdidos. Una opción es utilizar listwise y trabajar solo con casos completos, considerando que tenemos un <strong>N</strong> lo suficientemente grande incluso eliminando dichos casos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_corr</span>(M_ej,</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.deletion =</span> <span class="st">"listwise"</span>, <span class="co"># espeficicamos tratamiento NA</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">triangle =</span> <span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">&nbsp;</td>
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Decil ingreso</td>
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Nivel educativo</td>
+</tr>
+<tr class="even">
+<td style="font-style: italic">Decil ingreso</td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td style="font-style: italic">Nivel educativo</td>
+<td style="text-align: center; padding: 0.2cm;">0.433<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td colspan="3" style="text-align: right; border-bottom: double black; border-top: 1px solid black; font-style: italic; font-size: 0.9em;">Computed correlation used pearson-method with listwise-deletion.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>A partir de esta matriz, podemos afirmar que la correlación de Pearson entre el ingreso y el nivel educativo es positiva, moderada y estadísticamente significativa (<span class="math inline">\(r\)</span> = 0.4, <span class="math inline">\(p\)</span> &lt; 0.05).</p>
+<ol start="2" type="1">
+<li>Para calcular el alpha de Cronbach de esta matriz, usaremos la función <code>alpha</code> del paquete <code>psych</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(M_ej)<span class="sc">$</span>total<span class="sc">$</span>raw_alpha</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5665019</code></pre>
+</div>
+</div>
+<p>El alpha de Cronbach entre el ingreso y el nivel educativo es de 0.6 (aproximado), estando justo dentro del estándar minímo en ciencias sociales. Por tanto, ambas variables son consistentes y podemos utilizarlas para generar un índice de estatus socioeconómico.</p>
+<ol start="3" type="1">
+<li>Para crear este índice, haremos un promedio entre <code>income</code> y <code>educyrs</code> con el comando <code>rowMeans</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>proc_issp <span class="ot">&lt;-</span> <span class="fu">cbind</span>(proc_issp, <span class="st">"ses"</span> <span class="ot">=</span> <span class="fu">rowMeans</span>(proc_issp <span class="sc">%&gt;%</span> <span class="fu">select</span>(income, educyrs), <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(proc_issp) <span class="co"># verificamos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  educyrs income perc_ineq conflict_rp conflict_wcmc conflict_mw conflict_tb
+1      12      5         3           4             3           1           4
+2      13      5         5           1             2           3           1
+3       7      7         5           4             4           4           3
+4       6      3         4           3             3           2           3
+5      13      1         5           3             3           4           3
+6      13      5         4           2             1           3           2
+  psci ses
+1 3.00 8.5
+2 1.75 9.0
+3 3.75 7.0
+4 2.75 4.5
+5 3.25 7.0
+6 2.00 9.0</code></pre>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Finalmente, estimamos una prueba de correlación entre la percepción de conflictos (<code>psci</code>) y el estatus socioeconómico (<code>ses</code>).</li>
+</ol>
+<p>Las hipótesis formales serían:</p>
+<ul>
+<li><span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(cor(psci, ses)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(0\)</span></li>
+<li><span class="math inline">\(H_{A}\)</span>: <span class="math inline">\(cor(psci, ses)\)</span> <span class="math inline">\(\neq\)</span> <span class="math inline">\(0\)</span></li>
+</ul>
+<p>Y la estimación en R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(proc_issp<span class="sc">$</span>psci, proc_issp<span class="sc">$</span>ses, <span class="at">method =</span> <span class="st">"pearson"</span>, </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  proc_issp$psci and proc_issp$ses
+t = -2.7693, df = 1023, p-value = 0.00572
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.14671603 -0.02515969
+sample estimates:
+        cor 
+-0.08625888 </code></pre>
+</div>
+</div>
+<p>Con este output podemos sostener lo siguiente:</p>
+<blockquote class="blockquote">
+<p>El coeficiente de correlación de Pearson entre el conflicto social percibido y el estatus socioeconómico es negativo, muy pequeño y estadísticamente significativo (<span class="math inline">\(r\)</span> = -0.08, <span class="math inline">\(p\)</span> &lt; 0.05). Por tanto, con un 95% de confianza se puede rechazar la <span class="math inline">\(H_{0}\)</span> de no asociación entre variables, existiendo evidencia a favor de la <span class="math inline">\(H_{A}\)</span> sobre una asociación significativa entre la percepción de conflictos y el estatus socioeconómico de las personas. Sustantivamente, esto sugiere que a mayor estatus socioeconómico, menor tiende a ser el conflicto percibido.</p>
+</blockquote>
 <section id="referencias" class="level4">
 <h4 class="anchored" data-anchor-id="referencias">Referencias</h4>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">

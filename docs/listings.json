@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/news/index.html",
     "items": [
       "/news/2024-10-20_tutoriales.html",
       "/news/2024-10-14_evaluacion2.html",
@@ -18,8 +18,13 @@
     ]
   },
   {
-    "listing": "/news/index.html",
+    "listing": "/index.html",
     "items": [
+      "/news/2024-10-20_tutoriales.html",
+      "/news/2024-10-14_evaluacion2.html",
+      "/news/2024-10-14_taller_centro_idea2.html",
+      "/news/2024-10-10_tutorias_grupales.html",
+      "/news/2024-10-07_Desarrollo ejercicio autonomo.html",
       "/news/2024-09-30_reporte-notas1.html",
       "/news/2024-09-04_taller_centro_idea.html",
       "/news/2024-09-03_cambios evaluacion 1.html",
