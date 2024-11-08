@@ -61,63 +61,115 @@ sjPlot::plot_scatter(data = dataset4, x = ingresos, y = autoritarismo)
 2.1 Estime y reporte la matriz de correlaciones de las variables de nivel educacional, autoritarismo y los ingresos. Corte y pegue el código de R correspondiente (1p)
 
 - Forma A:
-```{r}
+```{r, collapse=TRUE}
 cormat <- dataset1 %>% 
   dplyr::select(educ_rec, autoritarismo, ingresos)
 sjPlot::tab_corr(cormat, 
                  na.deletion = "pairwise", # espeficicamos tratamiento NA
                  triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
 ```
 
 - Forma B:
-```{r}
+```{r, collapse=TRUE}
 cormat <- dataset2 %>% 
   dplyr::select(educ_rec, autoritarismo, ingresos)
 sjPlot::tab_corr(cormat, 
                  na.deletion = "pairwise", # espeficicamos tratamiento NA
                  triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
 ```
 
 - Forma C:
-```{r}
+```{r, collapse=TRUE}
 cormat <- dataset3 %>% 
   dplyr::select(educ_rec, autoritarismo, ingresos)
 sjPlot::tab_corr(cormat, 
                  na.deletion = "pairwise", # espeficicamos tratamiento NA
                  triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
 ```
 
 - Forma D:
-```{r}
+```{r, collapse=TRUE}
 cormat <- dataset4 %>% 
   dplyr::select(educ_rec, autoritarismo, ingresos)
 sjPlot::tab_corr(cormat, 
                  na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
                  triangle = "lower")
 ```
 
 
 2.2a ¿Qué correlaciones de la matriz son estadísticamente significativas? (1p)
 
-- Forma A:
+- Forma A: 
+      
+    * **Pairwaise**: La correlación de Pearson entre _ingresos_ y _autoritarismo_ es positiva, estadísticamente significativa ($r$ = 0.809, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+    * **Listwise**: La correlación de Pearson entre _ingresos_ y _autoritarismo_ es positiva, estadísticamente significativa ($r$ = 0.809, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+
 - Forma B:
+
+    * **Pairwaise**: La correlación de Pearson entre _ingresos_ y _nivel educacional_ es positiva, estadísticamente significativa ($r$ = 0.837, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+    * **Listwise**: 
+        i. La correlación de Pearson entre _autoritarismo_ y _nivel educacional_ es positiva, estadísticamente significativa ($r$ = 0.078, $p$ < 0.05) y débil según los criteriores de Cohen (1988).
+       ii. La correlación de Pearson entre _ingresos_ y _autoritarismo_ es positiva, estadísticamente significativa ($r$ = 0.837, $p$ < 0.05) y fuerte según los criteriores de Cohen (1988).
+
+
 - Forma C:
+    
+    * **Pairwaise**: No hay asociaciones estadísticamente significativas ($p$ < 0.05) entre las variables.
+    * **Listwise**: No hay asociaciones estadísticamente significativas ($p$ < 0.05) entre las variables.
+
 - Forma D:
+
+     * **Pairwaise**: 
+        i. La correlación de Pearson entre _autoritarismo_ y _nivel educacional_ es positiva, estadísticamente significativa ($r$ = 0.523, $p$ < 0.001) y moderada según los criteriores de Cohen (1988).  
+        ii. La correlación de Pearson entre _ingresos_ y _nivel educacional_ es positiva, estadísticamente significativa ($r$ = 0.831, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+        iii. La correlación de Pearson entre _ingresos_ y _autoritarismo_ es positiva, estadísticamente significativa ($r$ = 0.795, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+     
+     * **Listwise**: 
+        i. La correlación de Pearson entre _autoritarismo_ y _nivel educacional_ es positiva, estadísticamente significativa ($r$ = 0.517, $p$ < 0.001) y moderada según los criteriores de Cohen (1988).  
+         ii. La correlación de Pearson entre _ingresos_ y _nivel educacional_ es positiva, estadísticamente significativa ($r$ = 0.830, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+         iii. La correlación de Pearson entre _ingresos_ y _autoritarismo_ es positiva, estadísticamente significativa ($r$ = 0.795, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
   
 
 2.2b ¿Qué decisión tomó sobre los casos perdidos en el cálculo de la matriz? (1p)
 
-- Forma A:
+- Forma A: 
+
+     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
+     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
+     
 - Forma B:
+
+     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
+     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
+     
 - Forma C:
+
+     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
+     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
+     
 - Forma D:
+
+     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
+     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
 
 2.2c ¿Cómo se denomina el tipo de correlación que se calcula entre nivel educacional e ingreso? (1p)
 
-- Forma A:
-- Forma B:
-- Forma C:
-- Forma D:
+- Forma A: La correlación entre la variable dummy nivel educacional (0="No universitaria"; 1="Universitaria o más") y la variable continúa ingresos se denomina correlación punto biserial.
+- Forma B: La correlación entre la variable dummy nivel educacional (0="No universitaria"; 1="Universitaria o más") y la variable continúa ingresos se denomina correlación punto biserial.
+- Forma C: La correlación entre la variable dummy nivel educacional (0="No universitaria"; 1="Universitaria o más") y la variable continúa ingresos se denomina correlación punto biserial.
+- Forma D: La correlación entre la variable dummy nivel educacional (0="No universitaria"; 1="Universitaria o más") y la variable continúa ingresos se denomina correlación punto biserial.
 
 # Pregunta 3: ¿Cómo se relaciona el nivel educacional con los ingresos?
 
