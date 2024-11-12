@@ -223,14 +223,14 @@ chisq.test(dataset4$educ_rec, dataset4$ingresos_rec) # adicional, ya que el Chi2
 3.2 Interprete el Chi2 en términos de inferencia y magnitud del efecto. (3p)
 
 - Forma A: χ2=3.292 · df=2 · Cramer's V=0.062 · p=0.193
-Chi cuadrado no es estadísticamente significativo (p>0.05), tamaño de efecto pequeño/débil según la V de Cramer
+Chi cuadrado no es estadísticamente significativo (p > 0.05), tamaño de efecto pequeño/débil según la V de Cramer
 
 - Forma B: χ2=393.623 · df=2 · Cramer's V=0.681 · p=0.000
-Chi cuadrado estadísticamente significativo (p<0.001), tamaño de efecto grande/fuerte según la V de Cramer
+Chi cuadrado estadísticamente significativo (p < 0.001), tamaño de efecto grande/fuerte según la V de Cramer
 
 - Forma C: χ2=1.405 · df=2 · Cramer's V=0.041 · p=0.495
-Chi cuadrado estadísticamente significativo (p<0.05), tamaño de efecto pequeño/débil según la V de Cramer
+Chi cuadrado no es estadísticamente significativo (p > 0.05), tamaño de efecto pequeño/débil según la V de Cramer
 
 - Forma D: χ2=379.824 · df=2 · Cramer's V=0.668 · p=0.000
-Chi cuadrado estadísticamente significativo (p<0.001), tamaño de efecto grande/fuerte según la V de Cramer
+Chi cuadrado estadísticamente significativo (p < 0.001), tamaño de efecto grande/fuerte según la V de Cramer
 
