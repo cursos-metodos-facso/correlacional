@@ -49,11 +49,15 @@ sjPlot::plot_scatter(data = dataset4, x = ingresos, y = autoritarismo)
 
 1.2 Justifique la elección del coeficiente de correlación seleccionado e interprete el resultado considerando inferencia estadística, magnitud y sentido del efecto. (3p)
 
-- Forma A:
-- Forma B:
-- Forma C:
-- Forma D:
+- **Forma A:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `autoritarismo` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion positiva y grande, siguiendo los criterios de Cohen (1988) ($r$ = 0.80). Es decir, a medida que aumentan los ingresos de las personas, también aumentan sus niveles de autoritarismo. La relación es estadísticamente significativa ($p$ < 0.001), por ende es posible rechazar $H_0$ sobre no asociación entre variables, entregando evidencia a favor de una relación entre ambas variables con un 99.9% de confianza.
+
+- **Forma B:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `autoritarismo` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion positiva y muy pequeña, siguiendo los criterios de Cohen (1988) ($r$ = 0.04). La relación **no** es estadísticamente significativa ($p$ > 0.05), por ende **no** es posible rechazar $H_0$ sobre no asociación entre variables al 95% de confianza.
+
+- **Forma C:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `autoritarismo` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion negativa y muy pequeña, siguiendo los criterios de Cohen (1988) ($r$ = -0.03). La relación **no** es estadísticamente significativa ($p$ > 0.05), por ende **no** es posible rechazar $H_0$ sobre no asociación entre variables al 95% de confianza.
+
+- **Forma D:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `autoritarismo` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion positiva y grande, siguiendo los criterios de Cohen (1988) ($r$ = 0.79). Es decir, a medida que aumentan los ingresos de las personas, también aumentan sus niveles de autoritarismo. La relación es estadísticamente significativa (p < 0.001), por ende es posible rechazar $H_0$ sobre no asociación entre variables, entregando evidencia a favor de una relación entre ambas variables con un 99.9% de confianza.
   
+> NOTA: Si se utilizaba `ingresos_rec` y se señalaba que se escogía una correlación punto biserial, también se considera correcto.
 
 # Pregunta 2: ¿Cómo se relacionan el nivel educacional, autoritarismo y los ingresos?
 
