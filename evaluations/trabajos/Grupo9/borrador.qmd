@@ -1,0 +1,371 @@
+---
+title: "Salud mental"
+format: html
+editor: visual
+author: Martina Soto, Violeta Mansilla, Carolina Gatica, Francisca Osorio. 
+date: 01 de Diciembre, 2024
+---
+
+
+## Resumen
+
+La comunicación emocional, la cual es esencial para las relaciones y el bienestar individual, puede estar influenciada por diversos factores. Este estudio analiza si variables como el género, ingresos y el tratamiento por depresión influyen en la frecuencia con que las personas conversan sobre sus problemas con familiares o amigos. 
+
+Utilizando datos del Estudio Longitudinal Social de Chile 2021, se exploran relaciones entre la frecuencia de conversación sobre problemas (variable dependiente), y el sexo, el ingreso líquido al hogar y el tratamiento por depresión (variables independientes). 
+
+A través de análisis estadísticos bivariados, no se identificaron asociaciones significativas entre las variables escogidas, lo que sugiere que las diferencias en género, nivel de ingresos y tratamiento por depresión no impactan de manera suficiente en la frecuencia con que las personas comunican sus problemas.
+
+
+## Introducción
+
+La comunicación expresiva, entendida por Rafael Bizquerra y Nuria Pérez como la capacidad de expresar y gestionar emociones para fortalecer las relaciones sociales (2007), tiene un impacto directo en el bienestar personal y social de los individuos. En este sentido, se ha demostrado que las personas que poseen habilidades emocionales desarrolladas suelen tener mejores interacciones sociales, repercutiendo positivamente esto en su salud mental y en relaciones interpersonales (Bizquerra & Pérez, 2007).
+
+La comunicación emocional se encuentra influenciada por diversos factores socioculturales como el género y el nivel socioeconómico. En primer lugar, la expresión emocional ha sido históricamente asociada al género femenino, presentándose a la mujer como un ser sensible y emocional, que con facilidad demuestra públicamente sus sentimientos, “con tendencia a pensar demasiado sobre éstos y los de los demás y con dificultad para controlar sus emociones y no dejarse llevar por ellas.” (Carretero & Nolasco, 2017, p.35). En contraste, la imagen social del hombre se ha presentado como aquel que “no muestra sentimientos o emociones en público y al que le cuesta hablar de emociones, que no da importancia a estas emociones y que es capaz de controlarlas y no dejarse llevar por ellas.” (Carretero & Nolasco, 2017, p.35). Estas diferencias de género pueden influir significativamente en la frecuencia con qué hombres y mujeres hablan de sus problemas con amigos y familiares.
+
+Desde el ámbito socioeconómico, este también juega un rol importante en cómo las personas comunican sus emociones. Estudios demuestran que el estatus socioeconómico influye significativamente en la felicidad y en la inteligencia emocional (Pulido & Herrera, 2018). Asimismo, se destaca que las personas que pertenecen a niveles socioeconómicos altos presentan mayores niveles de felicidad y bienestar, mientras que aquellos con menor estatus enfrentan mayores barreras para gestionar de mejor manera sus emociones y construir redes de apoyo (Pulido & Herrera, 2018).
+
+Por último, el tratamiento por depresión aparece como otra variable relevante para analizar la comunicación emocional. Según López (2007), la depresión implica tristeza persistente y baja autoestima, lo que afecta en la interacción social y en la construcción de redes de apoyo. Respecto a su tratamiento, Ortega (2010) indica que el acceso a este favorece la gestión emocional, esencial para el bienestar personal. Quienes reciben tratamiento podrían mostrar patrones diferentes de comunicación emocional en comparación con quienes no lo reciben.
+
+Este informe se centra en analizar cómo las variables de género, ingresos en el hogar y tratamiento por depresión afectan la frecuencia con la que las personas hablan de sus problemas con amigos o familiares. De este modo, se plantean las siguientes hipótesis:
+
+H1: A mayor nivel socioeconómico, las personas hablan más de sus problemas con amigos y/o familiares.
+
+H2: Existen diferencias en la frecuencia con la que hombres y mujeres hablan de sus problemas con sus amigos/familiares
+
+H3: Existen diferencias en el nivel socioeconómico entre quienes reciben tratamiento por depresión y aquellos que no lo reciben
+
+Estas hipótesis buscan aportar una perspectiva integral respecto a los factores que inciden en la comunicación emocional, contribuyendo al entendimiento de cómo las condiciones sociales y personales afectan a esta dimensión del bienestar individual.
+
+```{r librerias, echo=FALSE, warning=FALSE, message=FALSE}
+pacman::p_load(tidyverse,
+               sjPlot,
+               confintr,
+               gginference,
+               rempsyc,
+               broom,
+               sjmisc,
+               kableExtra,
+               dplyr,
+               sjlabelled,
+               summarytools,
+               ggplot2,
+               psych,
+               haven,
+               XQuartz,
+               stargazer)
+options(scipen = 999)
+rm(list = ls())
+```
+
+```{r}
+#| echo: false
+load("~/Trabajo final de estadistica correlacional/Output/salud_mental_ren.RData")
+```
+
+## Metodología
+
+Para este estudio se utilizará la base de datos del Estudio Longitudinal Social de Chile (ELSOC) del año 2021. ELSOC es un estudio realizado en Chile y América Latina en el que se busca analizar el comportamiento de una muestra urbana de la población, frente a temas relacionados con el conflicto y la cohesión social.
+
+En ese sentido, de este estudio se extraerán cuatro variables con el fin de analizar la relación entre la salud mental y factores sociodemográficos. De este modo, la variable dependiente abarca la frecuencia de conversación sobre problemas con familia o amigos, y las variables independientes incluyen sexo, ingresos en el hogar y si la persona ha recibido tratamiento por depresión.
+
+La selección de variables esenciales para este estudio serán presentadas a continuación.
+
+Frecuencia en la que se puede hablar sobre problemas con familia o amigos (S12) \[Módulo S: Salud y Bienestar\]
+
+La variable S12 pertenece al módulo S de “Salud y Bienestar” y mide la frecuencia con la que la persona encuestada puede comunicar sus problemas a familiares o amigos. Esta puede reflejar el apoyo social con el que cuenta la persona para expresar sus problemas emocionales, lo cual está estrechamente relacionado con la salud mental y el bienestar personal. Su nivel de medición es ordinal, basado en una escala Likert, en ese sentido, las opciones de respuesta son: “Nunca” (1), “Pocas veces” (2), “Algunas veces” (3), “Muchas veces” (4) y “Siempre” (5).
+
+Ha recibido tratamiento por depresión (S14) \[Módulo S: Salud y Bienestar\]
+
+La variable S14 pertenece al módulo S de “Salud y Bienestar” y mide si la persona encuestada ha recibido tratamiento para la depresión. Este tratamiento puede influir en cómo una persona enfrenta sus problemas y cómo los expresa, impactando directamente con la salud mental y bienestar de esta. Su nivel de medición es nominal, donde 1 corresponde a la opción “Sí”, y la opción 2 “No”.
+
+Sexo (M0_sexo) \[Módulo M: Caracterización Sociodemografica\]
+
+La variable M0_sexo pertenece al módulo M de “Caracterización Sociodemografica” y busca identificar el sexo del entrevistado. Esta puede influir en la forma en que se gestionan y expresan los problemas emocionales. Las imágenes sociales relacionadas con el género pueden lograr influir en la expresión emocional de una persona. Su nivel de medición es nominal, donde 1 corresponde a la opción “Hombre”, y la opción 2 “Mujer”.
+
+Ingreso hogar (M29) \[Módulo M: Caracterización Sociodemográfica\]
+
+La variable M29 pertenece al módulo M de “Caracterización Sociodemográfica", y busca registrar en pesos chilenos el valor del ingreso total del hogar de la persona entrevistada en relación al mes pasado; considera solo ingresos líquidos de los integrantes del hogar. El nivel socioeconómico de un hogar representa el acceso a diferentes recursos, entre ellos emocionales, lo que puede influir en cómo una persona gestiona y expresa sus problemas. Un mayor nivel socioeconómico puede asociarse con un mayor acceso a servicios de salud mental y redes de apoyo.
+
+Su nivel de medición es de razón, donde la respuesta es abierta con el fin de que la persona encuestada proporcione un valor numérico exacto correspondiente al ingreso total líquido de su hogar.
+
+A continuación se presenta una tabla que incluye los estadisticos descriptivos básicos de las variables que se utilizaran en el desarrollo del trabajo.
+
+```{r tbl-1, echo=FALSE}
+#| label: tbl-1
+#| tbl-cap: "Tabla de estadísticos descriptivos"
+#| tbl-cap-location: top
+#| warning: false
+salud_mental_ren <- haven::as_factor(salud_mental_ren)
+print(dfSummary(salud_mental_ren[, c("sexo", "ingreso_hogar", "frec_hablar",
+"trat_depre")], headings=FALSE), method = "render")
+```
+
+Respecto a los métodos estadísticos a utilizar para el contraste de hipótesis, en la primera hipótesis se utilizará la correlación de Pearson ya que lo que se busca evaluar es si existe o no una relación lineal entre las dos variables necesarias, para este caso, el ingreso del hogar y la frecuencia en la que las personas pueden hablar de sus problemas con familiares o amigos. Para este caso, el resultado nos indica el cálculo del tamaño de efecto, en cuanto a su interpretación esta se desarrollará bajo los criterios de Cohen.
+
+El test de hipótesis a utilizar para la segunda y tercera hipótesis es la prueba T; esta decisión se justifica producto de que se busca relacionar las medias de dos variables sin mayor relación. Para el caso de la segunda hipótesis se busca relacionar la frecuencia en que se puede hablar de los problemas con familiares o amigos, en relacion con el sexo de los encuestados, dichas variables pertenecn a grupos independientes, por lo que la prueba t se presenta como la herramienta indicada. Con respecto a la tercera hipótesis, lo que se busca indagar es la relación entre quienes reciben tratamiento por depresión y quienes no, considerado el ingreso del hogar, en este caso la prueba t sirve para determinar si existe una media diferente en el ingreso del hogar entre quienes reciben tratamiento o no.
+
+Respecto al cálculo del tamaño de efecto, al igual que utilizando la correlación de Pearson, se desarrollará un análisis de los resultados bajo los criterios de Cohen.
+
+## Análisis
+
+### Análisis descriptivo univariado
+
+En esta sección se presentará un análisis descriptivo de las variables utilizadas, considerando las medidas de tendencia central, de dispersión y sus frecuencias. En ese sentido, es relevante destacar que la muestra se constituye de un total de 1601, de los cuales 1017 son mujeres y 584 son hombres. A continuación se presenta el análisis descriptivo.
+
+Con respecto a la variable de “Frecuencia de conversación sobre problemas con familia o amigos”, la media de 3.29 sugiere que, en promedio, las personas tienen una frecuencia moderada de hablar sobre problemas con familiares o amigos. La mediana, que es 3, indica que la distribución parece estar concentrada alrededor del promedio, lo que sugiere que más de la mitad de los participantes tienen una frecuencia similar a la media.
+
+El rango de 4 indica cierta dispersión en las respuestas. La desviación estándar de 1.40 y la varianza de 1.97 muestran que, aunque hay cierta variabilidad, los datos no poseen una gran dispersión.
+
+Finalmente, el primer cuartil (Q1) muestra que el 25% de los participantes tienen una frecuencia menor o igual a 2 lo que indica que nunca o pocas veces suelen hablar de sus problemas con familiares y/o amigos, mientras que el segundo cuartil señala que el 75% indican una frecuencia menor o igual a 5.
+
+```{r tbl-2, echo=FALSE}
+#| label: tbl-2
+#| tbl-cap: "Tabla de estadísticos descriptivos para la variable Frecuencia en la que se puede hablar sobre problemas con familiares o amigos"
+#| tbl-cap-location: top
+#| warning: false
+resultados_v1 <- data.frame(salud_mental_ren %>%
+  summarise(media = mean(frec_hablar),
+            mediana = median(frec_hablar),
+            q1 = quantile(frec_hablar, probs = .25),
+            q2 = quantile(frec_hablar, probs = .75),
+            rango = max(frec_hablar) - min(frec_hablar),
+            desviacion_estandar = sd(frec_hablar),
+            varianza = var(frec_hablar)))
+kable(resultados_v1)
+```
+
+En relación con la variable “Sexo”, la población es de 1017 mujeres y 584 hombres, por lo que existe una predominanacia femenina. Cabe señalar que al ser una variable dicotómica no se requiere de un análisis descriptivo en profundidad, sin embargo a continuación se presenta la tabla proporcionada por RStudio.
+
+```{r tbl-3, echo=FALSE}
+#| label: tbl-3
+#| tbl-cap: "Tabla de estadísticos descriptivos para la variable Sexo"
+#| tbl-cap-location: top
+#| warning: false
+resultados_2 <- data.frame(salud_mental_ren %>%
+  summarise(media = mean(sexo),
+            mediana = median(sexo),
+            q1 = quantile(sexo, probs = .25),
+            q2 = quantile(sexo, probs = .75),
+            rango = max(sexo) - min(sexo),
+            desviacion_estandar = sd(sexo),
+            varianza = var(sexo)))
+kable(resultados_2)
+```
+
+Respecto a la variable “Ingreso hogar”, se visualiza que el ingreso promedio es de \$746.951, con una mediana de \$500.000, lo que sugiere que los ingresos se encuentran distribuidos de una manera asimétrica, y se confirma con la desviación estándar, que es de \$844.435. Así también, el rango de \$1.100.000 muestra una gran brecha entre el ingreso más bajo y el más alto. 
+
+Los cuartiles Q1 y Q2 señalan que el 25% de la población estudiada gana 300.000 o menos, mientras que el 75% gana 850 000 o menos. Por último, la varianza es de \$713.071.475.125, reforzando que existe una alta variabilidad en los ingresos de la población observada.
+
+```{r tbl-4, echo=FALSE}
+#| label: tbl-4
+#| tbl-cap: "Tabla de estadísticos descriptivos para la variable Ingreso hogar"
+#| tbl-cap-location: top
+#| warning: false
+resultados_3 <- data.frame(salud_mental_ren %>%
+  summarise(media = mean(ingreso_hogar),
+            mediana = median(ingreso_hogar),
+            q1 = quantile(ingreso_hogar, probs = .25),
+            q2 = quantile(ingreso_hogar, probs = .75),
+            rango = max(ingreso_hogar) - min(ingreso_hogar),
+            desviacion_estandar = sd(ingreso_hogar),
+            varianza = var(ingreso_hogar)))
+kable(resultados_3)
+```
+
+Para finalizar, respecto a la variable Tratamiento por depresión, no es necesario un análisis descriptivo debido a que es una variable nominal dicotómica, al respecto, se presenta una tabla que indica la cantidad de personas que indican recibir tratamiento por depresion, y quienes no.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+salud_mental_ren$trat_depre <- recode(salud_mental_ren$trat_depre,
+                                "0" = "No recibe tratamiento",
+                                "1" = "Si recibe tratamiento")
+levels(salud_mental_ren$trat_depre)
+```
+
+```{r tbl-5, echo=FALSE}
+#| label: tbl-5
+#| tbl-cap: "Tabla de frecuencias para la variable Tratamiento por depresión"
+#| tbl-cap-location: top
+#| warning: false
+resultados_4 <- data.frame(table(salud_mental_ren$trat_depre))
+kable(resultados_4)
+```
+
+### Análisis descriptivo bivariado
+
+Esta sección presenta un análisis bivariado representado por medio de tablas o gráficos segun sea más pertinente. En ese sentido, el análisis se desarrolla presentando tablas o gráficos para representar las relaciones entre las variables utilizadas para cada hipótesis.
+
+La primera hipótesis señala que un frente a un mayor nivel socioeconómico, las personas pueden hablar más de sus problemas con amigos o familiares, a continuación se presenta un diagrama de dispersión que representa la relación entre las dos variables:
+
+```{r, echo=FALSE}
+plot(salud_mental_ren$frec_hablar, salud_mental_ren$ingreso_hogar, main = 
+"Relacion entre el ingreso de los hogares 
+y la frecuencia en que las personas suelen 
+hablar de sus problemas",
+     xlab="Frecuencia en que las personas suelen hablar de 
+     sus problemas con amigos y/o familiares",
+     ylab="Ingreso del hogar", pch=19, col="blue")
+```
+
+El gráfico representa la relación entre las variables “Ingreso hogar” y “Frecuencia con la que las personas hablan de sus problemas con familiares o amigos”. En este se muestra que los puntos están distribuidos en todos los niveles de frecuencia, sin depender del nivel de ingreso de los hogares. Así, se puede evidenciar que la categoría de frecuencia más alta también incluye personas de niveles socioeconómicos bajos, medios y altos. 
+
+```{r, include=FALSE, message=FALSE, warning=FALSE}
+cor_results <- cor.test(x = salud_mental_ren$frec_hablar, 
+                        y = salud_mental_ren$ingreso_hogar,
+                        method = "pearson",
+                        use = "complete.obs")
+
+cor_results
+```
+
+```{r tbl-hipo1, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-hipo1
+#| tbl-cap: "Tabla correlacion de Pearson"
+#| tbl-cap-location: top
+#| warning: false
+stats.table <- tidy(cor_results)
+
+stats.table %>%
+  dplyr::mutate(
+    estimate = round(estimate, 2),
+    statistic = round(statistic, 2),
+    ic_95 = paste0("[", round(conf.low, 2), ",", round(conf.high, 2), "]"),
+    stars = gtools::stars.pval(p.value),
+    p_value = case_when(
+      p.value < 0.05 & p.value > 0.01 ~ "< 0.05",
+      p.value < 0.01 & p.value > 0.001 ~ "< 0.01",
+      p.value < 0.001 ~ "< 0.001",
+      TRUE ~ ""
+    ),
+    p_value = paste0(p_value, stars)
+  ) %>%
+  dplyr::select(estimate, statistic, p_value, parameter, method, alternative, ic_95) %>%
+  kableExtra::kable(
+    col.names = c("Estimación", "t", "p-value", "df", "Método", "Alternativa", "95% IC"),
+    booktabs = T
+  ) %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width = T,
+    latex_options = "hold_position",
+    position = "center"
+  )
+```
+
+De esta misma manera, respecto al análisis estadístico bivariado, según la prueba de correlación de Pearson, existe una asociación de 0,16 entre las variables “Ingreso hogar” y “Frecuencia con la que las personas hablan de sus problemas con familiares o amigos”. Esto implica que la asociación existente entre ambas variables es positiva, sin embargo también es baja, por ende, tampoco es estadísticamente significativa. De este modo, la hipótesis nula de no asociación entre ambas variables no se puede rechazar con un 99% de confianza, rechazando por el contrario la hipótesis alternativa de la existencia de dicha asociación.
+
+Respecto a la hipótesis dos, esta postula que existen diferencias en la frecuencia con la que hombres y mujeres hablan de sus problemas con sus amigos y/o familiares. Al respecto, se presenta el gráfico de barras que representa la relación entre las variables:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+salud_mental_ren$sexo <- recode(salud_mental_ren$sexo,
+                          "1" = "Hombre",
+                          "2" = "Mujer")
+levels(salud_mental_ren$sexo)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(data = salud_mental_ren, 
+       mapping = aes(x = sexo, 
+                     fill = frec_hablar)) + 
+  geom_bar(position = "stack") + # Apila las barras 
+  labs( title = "Frecuencia en la que se suele hablar de los problemas 
+        con familiares y/o amigos, según sexo", 
+        x = "Sexo", 
+        y = "Frecuencia", 
+        fill = "Frecuencia en la que se suele hablar de los problemas con familiares y/o amigos", caption = "Fuente: Elaboración propia en base a Encuesta Longitudinal Social de Chile, 2021." ) + 
+  theme_minimal()
+```
+
+El gráfico anterior representa la relación entre las variables “Sexo” y “Frecuencia con la que las personas hablan de sus problemas con familiares o amigos”. 
+
+Este señala que existe una gran diferencia con respecto a los valores de la segunda variable dependiendo del sexo del sujeto. Esto apunta a que las mujeres presentan una mayor frecuencia para hablar de sus problemas con familiares y amigos, en comparación a los hombres, mostrando una diferencia para ambos sexos de más de 600 casos.
+
+A continuación se presenta la tabla que indica los resultados de la prueba t para la segunda hipótesis:
+
+```{r, include=FALSE, message=FALSE, warning=FALSE}
+t.test(frec_hablar ~ sexo,data = salud_mental_ren)
+t_results <- t.test(salud_mental_ren$frec_hablar ~ salud_mental_ren$sexo, 
+                    alternative = "two.sided")
+```
+
+```{r tbl-hipo2, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-hipo2
+#| tbl-cap: "Existen diferencias en la frecuencia con la que hombres y mujeres hablan de sus problemas con sus amigos/familiares"
+#| tbl-cap-location: top
+#| warning: false
+stats.table <- tidy(t_results, conf_int = T)
+nice_table(stats.table, broom = "t.test")
+```
+
+En contraste, la prueba T de dos muestras de Welch, que evalúa las diferencias en la frecuencia con la que hombres y mujeres hablan de sus problemas con familiares o amigos, sugiere que la diferencia no es estadísticamente significativa (diferencia = -0.05, t(461)=0.74, p=0.461t(461) = 0.74, p = 0.461t(461)=0.74, p=0.461). El valor de ppp indica que la probabilidad de observar una diferencia de esta magnitud, o mayor, bajo la suposición de la hipótesis nula, es superior al 5%. Por tanto, con un 95% de confianza, no es posible rechazar la hipótesis nula, ya que no existe evidencia suficiente a favor de la hipótesis alternativa respecto a que haya diferencias significativas entre hombres y mujeres en cuanto a la frecuencia con la que hablan de sus problemas.
+
+
+La hipótesis tres postula que existen diferencias en el nivel socioeconómico entre quienes reciben tratamiento por depresión y aquellos que no lo reciben, a continuación se presenta el gráfico que representa la relación entre ambas variables:
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+salud_mental_ren$trat_depre <- recode(salud_mental_ren$trat_depre,
+                                "0" = "No recibe tratamiento",
+                                "1" = "Si recibe tratamiento")
+levels(salud_mental_ren$trat_depre)
+```
+
+```{r tbl-6, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-6
+#| tbl-cap: "Relación entre las variables de ingreso hogar y tratamiento por depresión"
+#| tbl-cap-location: top
+#| warning: false
+ggplot(data = salud_mental_ren, 
+       mapping = aes(x = trat_depre, 
+                     fill = ingreso_hogar)) + 
+  geom_bar(position = "stack") + # Apila las barras 
+  labs( title = "Frecuencia en la que indican recibir (o no) 
+        tratamiento por depresión, en relación al ingreso por hogar", 
+        x = "Recibe (o no tratamiento)", 
+        y = "Ingreso hogar", 
+        fill = "Frecuencia en la que indican recibir (o no) tratamiento por depresión, según sexo", caption = "Fuente: Elaboración propia en base a Encuesta Longitudinal Social de Chile, 2021." ) + 
+  theme_minimal()
+```
+
+El grafico anterior representa la relación entre las variables “Tratamiento recibido por depresión” y “Frecuencia con la que las personas hablan de sus problemas con familiares o amigos”. Dicha tabla señala que la mayor parte de los sujetos encuestados no reciben tratamiento por depresión, sin embargo quienes sí lo reciben no parecen concentrarse en un sector específico de ingresos. Esto muestra que no parece existir una relación entre quienes reciben un tratamiento por depresión y el ingreso de sus hogares. Sin embargo, cabe destacar que con las variables escogidas no es posible determinar quienes deberían estar recibiendo dicho tratamiento, por lo que el análisis podría ser sesgado.
+
+
+```{r, include=FALSE, message=FALSE, warning=FALSE}
+t.test(ingreso_hogar ~ trat_depre,data = salud_mental_ren)
+t_results <- t.test(salud_mental_ren$ingreso_hogar ~ salud_mental_ren$trat_depre, 
+                    alternative = "two.sided")
+```
+
+```{r tbl-hipo3, echo=FALSE, message=FALSE, warning=FALSE}
+#| label: tbl-hipo3
+#| tbl-cap: "Tabla prueba t: Existen diferencias en el nivel socioeconómico entre quienes reciben tratamiento por depresión y aquellos que no lo reciben"
+#| tbl-cap-location: top
+#| warning: false
+stats.table <- tidy(t_results, conf_int = T)
+nice_table(stats.table, broom = "t.test")
+```
+
+Así mismo, la prueba t de dos muestras de Welch, que evalúa la diferencia de medias entre el nivel socioeconómico de quienes reciben tratamiento por depresión y quienes no lo reciben, sugiere que la diferencia no es estadísticamente significativa (diferencia = 95.961,79, t(256.95) = 1.39, p = 0.166). El valor de p indica que la probabilidad de observar una diferencia de esta magnitud, o mayor, bajo la suposición de la hipótesis nula, es superior al 5%. Por tanto, con un 95% de confianza, no es posible rechazar la hipótesis nula, ya que no existe evidencia suficiente a favor de la hipótesis alternativa respecto a que el nivel socioeconómico difiera significativamente entre quienes reciben tratamiento por depresión y aquellos que no lo reciben.
+
+A modo de cierre y como discusión, se destaca en los análisis que las tres hipótesis (H1: A mayor nivel socioeconómico, las personas hablan más de sus problemas con amigos y/o familiares. H2: Existen diferencias en la frecuencia con la que hombres y mujeres hablan de sus problemas con sus amigos y/o familiares. H3: Existen diferencias en el nivel socioeconómico entre quienes reciben tratamiento por depresión y aquellos que no lo reciben) hayan sido rechazadas. Sin embargo, cabe destacar como limitación que estos hayan podido estar sesgados por la falta de un análisis multivariado que incorpore nuevas aristas. Así, se considera que para investigaciones futuras podría ser útil incluir nuevas variables que permitan una mayor comprensión de los fenómenos observados.
+
+## Conclusión 
+
+A modo de conclusión se realizará un resumen de los resultados obtenidos a partir de las hipótesis planteadas sobre las relaciones entre el sexo de los sujetos, el nivel socioeconómico, el tratamiento por depresión y la frecuencia con la que las personas hablan de sus problemas con amigos o familiares. 
+
+En primer lugar, se encontró evidencia de que a mayor nivel socioeconómico, las personas tienden a hablar más de sus problemas con su entorno cercano. Este resultado resalta una posible conexión entre los recursos económicos y el soporte social percibido. Sin embargo los resultados no son estadísticamente significativos.
+En contraste, en los otros dos casos, no se encontraron diferencias estadísticamente significativas. En relación con las diferencias entre hombres y mujeres respecto a la frecuencia con la que hablan de sus problemas, los resultados no indican evidencia suficiente para afirmar que existan disparidades significativas entre ambos grupos. De manera similar, no se hallaron diferencias significativas en el nivel socioeconómico entre quienes reciben tratamiento por depresión y quienes no lo reciben, sugiriendo que este factor puede no ser un determinante directo en la decisión o posibilidad de recibir tratamiento.
+Una limitación importante en el análisis es la posible influencia de variables no consideradas, como factores culturales, psicológicos o de acceso a servicios de salud, que podrían mediar las relaciones analizadas. Además, la selección de la muestra y la naturaleza autoreportada de los datos pueden introducir sesgos. Para próximos análisis, se podría explorar la influencia de factores contextuales, como que si los encuestados tienen de redes de apoyo, o la existencia de estigmas asociados a los problemas de salud mental, aquellas variables podrían dar una visión más completa de lo que buscamos comprender. 
+
+## Bibliografía
+
+Bizquerra, R & Pérez, N. (2007). Las competencias emocionales. Educación XX1, (10), 61-82. https://hdl.handle.net/2445/111324 
+
+Carretero, R. & Nolasco, A. (2017). Aproximación al concepto de emocionalidad, El estereotipo emocional del sexismo. Revista de Estudios e Investigación en Psicología y Educación, 4 (1), 31-41. https://doi.org/10.17979/reipe.2017.4.1.1545 
+
+López, M. (2007). Ansiedad y depresión, reacciones emocionales frente a la enfermedad. Anales de Medicina interna, 24 (5), 209-211. https://scielo.isciii.es/pdf/ami/v24n5/editorial.pdf 
+
+Ortega, María del Carmen. (2010). La educación emocional y sus implicaciones en la salud. Revista Española de Orientación y Psicopedagogía, 21 (2), 462-470. https://www.redalyc.org/pdf/3382/338230785025.pdf 
+
+Pulido, F. & Herrera, F. (2018). Relaciones entre felicidad, inteligencia emocional y factores sociodemográficos en secundaria. Anuario de psicología, 48 (1), 34-42. 
+https://doi.org/10.1016/j.anpsic.2018.04.002 
+
+

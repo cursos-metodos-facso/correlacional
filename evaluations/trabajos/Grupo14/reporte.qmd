@@ -1,0 +1,79 @@
+---
+title: "Título del trabajo grupal"
+subtitle: "Estadística Correlacional 2024, Carrera de Sociología - Universidad de Chile"
+abstract: "(acá el resumen del trabajo. El título más el resumen tienen 1 punto. El resumen debe ser de máximo 250 palabras, y debe contener problema, hipótesis central, datos, principales resultados)"
+author: 
+  - Persona 1
+  - Persona 2
+  - Persona 3
+
+date: "2024-11-19"
+lang: es
+format: 
+  html:
+   number-sections: true
+---
+
+
+# Introducción (2 puntos, app. 500 palabras)
+
+Definición de la problemática a abordar, su relevancia y principales conceptos. 
+
+En este apartado es importante considerar:
+
+  - Relevancia del tema de investigación.
+  
+  - Problematización: señalar problema de investigación y principales antecedentes
+
+  - Precisar los conceptos centrales a investigar: Ejemplo "vamos a analizar la participación informal, entendiendo por ello la frecuencia de participación en actividades como marchas, boycotts y en redes sociales" [cita que apoye la definición].
+  
+  - Mencionar el principal objetivo del trabajo y las hipótesis de investigación en el párrafo final de esta sección (ej: se espera que el nivel educacional sea mayor en zonas urbanas en relación a zonas rurales). Mencionar al menos tres hipótesis.
+
+Esta sección debe estar respaldada por al menos 5 referencias bibliográficas.
+
+# Metodología (2 puntos, app. 800 palabras)
+
+## Datos
+
+Descripción detallada de los datos a utilizar. Acá también se puede insertar el chunk para llamar los datos que se van a analizar:
+
+## Variables
+
+Descripción de cada una de las variables, su operacionalización y medición. Esta sección también incluye una **tabla de descriptivos** básicos.
+
+::: callout-note
+**Atención sobre recodificación de variables**
+ 
+Es importante que las variables sean recodificadas en el sentido del atributo que se está midiendo de menos a más, es decir, que el mayor valor exprese la mayor presencia del atributo.
+
+  - Ejemplo 1: si lo que se está midiendo es apoyo al aborto libre en una escala donde 5 es totalmente en desacuerdo y 1 totalmente de acuerdo, se deben recodificar los valores para que un mayor puntaje exprese mayor apoyo al aborto libre. En concreto: 1=5, 2=4, 4=2, 5=1.
+
+  - Ejemplo 2: variable dicotómica 0: si vota, 1: no vota, debe ser recodificada a 1: si vota, 0: no vota.
+
+:::
+
+## Métodos
+
+Mencionar los métodos estadísticos a utilizar para el contraste de hipótesis y cálculo del tamaño de efecto.
+
+# Análisis (8 puntos, app. 1000 palabras)
+
+## Análisis descriptivo
+
+Tablas y/o gráficos comentados, univariados y bivariados según sea más pertinente. Para esto considere medidas de tendencia central, dispersión y frecuencias, siempre considerando el nivel de medición de sus variables. En los casos que sea atingente, incluya los intervalos de confianza al 95 %. 
+
+## Análisis estadístico bivariado
+
+Considerar la estimación de coeficientes de correlación y también medidas de asociación para variables categóricas. Esta parte del análisis se relaciona directamente con las hipótesis planteadas. Para esto realizar  pruebas de hipótesis estadísticas, estadísticos de tamaño del efecto y tablas de contingencia / cruzadas, siempre considerando el nivel de medición de sus variables.
+
+Al final de esta sección también se realiza la discusión de resultados en relación a las hipótesis planteadas
+
+# Conclusiones (1 punto, app. 300 palabras)
+
+Resumen general, limitaciones y sugerencias para futuros análisis
+
+
+# Bibliografía (1 punto)
+
+Formato APA 7
+

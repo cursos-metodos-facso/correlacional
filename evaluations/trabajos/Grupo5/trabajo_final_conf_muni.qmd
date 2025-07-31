@@ -1,0 +1,574 @@
+---
+title: "Trabajo final: Análisis correlacional de la confianza en la municipalidad"
+subtitle: "Universidad de Chile. Facultad de Ciencias Sociales. Carrera de Sociología. Curso: Estadística correlacional. Docente: Juan Carlos Castillo. Ayudante: Ismael Aguayo."
+author: 
+- Gaspar Duclos
+- Lucas Erazo
+- Benjamín Ferrel
+- Ignacio Muñoz
+- Vicente Rojas
+date: "2024-11-29"
+format: html
+toc: true #arma menu
+toc-depth: 2
+number-sections: true
+code-fold: true
+code-summary: "ver código"
+lang: "es" # Define el idioma del documento
+execute: 
+  echo: false
+  eval: true 
+  message: false
+  warning: false
+  include: true
+citations-hover: true
+editor: visual
+theme: cosmo
+---
+
+## Introducción
+
+Dentro de la presente investigación, se analiza el nivel de confianza en las municipalidades utilizando el Estudio Longitudinal Social de Chile (ELSOC) diseñada por investigadores pertenecientes al Centro de Estudios de Conflicto y Cohesión Social (COES); estudio que tiene como objetivo fundamental constituirse en un insumo empírico para la comprensión de las creencias, actitudes y percepciones de los chilenos hacia las distintas dimensiones de la convivencia y el conflicto, y cómo éstas cambian a lo largo del tiempo.
+
+En primera instancia, es necesario entender que las instituciones públicas cumplen un rol fundamental en las sociedades para que éstas se mantengan operativas y funcionales. Según Putnam (1993), la confianza institucional es un factor clave para la sociedad y un requisito imprescindible para una buena gobernanza en dirección del desarrollo económico. A través de ellas, el Estado ejerce su soberanía sobre el territorio, como también en beneficio de la sociedad, brindando servicios, seguridad, etc. Sin embargo, a partir de las crecientes crisis de seguridad y de casos de corrupción política en Chile, las instituciones que representan al Estado han sufrido una baja en su legitimidad política. Por lo tanto, esto es importante evaluar para medir qué tanto se ha visto afectada la legitimidad institucional de los municipios. La relevancia del tema radica en que, tal como plantea Keefer y Scartascini (2022), se puede entender cómo de la confianza institucional se deriva en gran medida su capacidad de regular, ordenar y persuadir a los sujetos que están dentro de ellas
+
+De esta manera, nuestro estudio se enfoca en la confianza en las instituciones públicas en Chile, específicamente las municipalidades, siendo estas una corporación autónoma de derecho público, con personalidad jurídica y patrimonio propio, a la cual le corresponde la administración de una comuna o agrupación de comunas (Artículo 118.º Constitución Política de Chile) y cuya finalidad es satisfacer las necesidades de la comunidad local y asegurar su participación en el progreso económico, social y cultural de la comuna o agrupación de comunas. Siendo la encargada de los servicios básicos de educación y salud de la comuna. Cabe señalar que en Chile no existen «gobiernos municipales», pues el gobierno interior del Estado se extiende sólo al nivel regional y provincial. Las municipalidades sólo administran a nivel comunal.
+
+Ahora bien, para analizar la confianza en las municipalidades se usará como base tres variables: confianza institucional, género y su nivel educativo, respectivamente. El concepto de confianza en las instituciones públicas se explicaría por la capacidad por parte de las instituciones políticas para cumplir sus metas, hacia y en beneficio de los ciudadanos, como plantea Segovia (2008). Siendo entendida como la percepción ciudadana hacia la legitimidad y eficacia de las instituciones; género entendido como una categoría social que organiza las diferencias en las dimensiones cotidianas, y en último lugar, otro de los factores que se ven envuelto dentro de la confianza institucional es el nivel educativo, tal como dice Estella (2020) “la idea aquí es que las sociedades con más nivel educativo presentan índices de confianza más altos.” (pp.20). Siendo este mismo, un indicador de capital cultural que puede moldear las expectativas y actitudes hacia las instituciones.
+
+Las varibles fueron seleccionadas en base a las siguientes **tres hipótesis**.
+
+-   **H1**: Existe una relación positiva entre el nivel de confianza en la municipalidad y el nivel de confianza en el gobierno.
+
+-   **H2**: Existe una mayor confianza en la municipalidad en mujeres que en hombres.
+
+-   **H3**: Existe una relación entre el nivel de confianza en la municipalidad y el nivel educacional.
+
+A su vez, se desarrollan **sus hipótesis nulas correspondientes**:
+
+-   **H01**: No existe una relación positiva entre el nivel de confianza en la municipalidad y el nivel de confianza en el gobierno.
+
+-   **H02**: No existe una mayor confianza en la municipalidad en mujeres que en hombres.
+
+-   **H03**: No existe una relación entre el nivel de confianza en la municipalidad y el nivel educacional.
+
+A continuación, se presenta detalladamente la metodología utilizada.
+
+## Metodología
+
+En la sección metodológica, para analizar el nivel de confianza en las municipalidades se utilizará el cuestionario realizado por el Estudio Longitudinal Social de Chile (ELSOC). Según su ficha técnica, la población objetivo son hombres y mujeres de 18 a 75 años, residentes habituales de viviendas particulares en zonas urbanas de Chile. Para este estudio se utiliza solamente la ola 6 (año 2022) de ELSOC.
+
+Dentro de este estudio, se utilizan dos variables del Módulo de Ciudadanía y Democracia (Módulo C) y dos del Módulo de Caracterización Sociodemográfica (Módulo M):
+
+-   Confianza en tu municipalidad y confianza en el Gobierno. (Módulo C)
+
+-   Sexo y nivel educativo. (Módulo M)
+
+Descriptivamente, las variables son las siguientes:
+
+1.  A partir de la pregunta C05."Utilizando una escala donde 1 representa “Nada” y 5“Mucho”, ¿podría decirme cuánto confía usted en cada una de las siguientes instituciones?", la cual busca evaluar la confianza de instituciones públicas y privadas como Gobierno, Poder Judicial, Legislativo, Empresarios, entre otras. De allí, se desprende la principal variable C05_13, renombrada a “conf_municipalidad”. Esta variable es de carácter ordinal y pretende medir la confianza de las personas en su municipio, mediante una escala de Likert, con las siguientes alternativas: 1 (Nada), 2 (Poco), 3 (Algo), 4 (Bastante), 5 (Mucha), 6) No sabe, 7) No responde.
+
+<!-- -->
+
+2.  A partir del mismo enunciado, se utiliza la variable relacionada al Gobierno: C05_01 renombrada a “conf_gob”. Es de carácter ordinal y tiene por objetivo medir la confianza que tienen las personas sobre el gobierno, utilizando una escala de Likert donde las alternativas son: 1 (Nada), 2 (Poco), 3 (Algo), 4 (Bastante), 5 (Mucha), 6) No sabe, 7) No responde.
+
+<!-- -->
+
+3.  La tercera variable es Sexo: m0_sexo renombrada a “sexo”. Es de carácter nominal dicotómica y busca identificar el sexo de la persona encuestada como Hombre o Mujer. Estas fueron recodificadas en 0 (Hombre) y 1 (Mujer) para transformarlas de dicotómicas dummy.
+
+<!-- -->
+
+4.  La cuarta variable es Nivel educacional: m01 renombrada como “nivel_educ”, es de carácter intervalar y tiene por objetivo medir el nivel educativo del encuestado, mediante la siguiente pregunta "¿Cuál es su nivel educacional? Indique el tipo de estudio actual (si estudia actualmente) o el último tipo aprobado (si no estudia actualmente)". Esta pregunta tiene 10 opciones de respuesta, las cuales son: 1) Sin estudios, 2) Educación básica o preparatoria incompleta, 3) Educación Básica o Preparatoria incompleta, 4) Educación Media o Humanidades incompleta, 5) Educación Media o Humanidades completa, 6) Técnico Superior incompleta, 7) Técnico Superior completa, 8) Universitaria incompleta, 9) Universitaria completa, 10) Estudios de posgrado (magister o doctorado), 11) No sabe, 12) No responde.
+
+Inicialmente, la base de datos constituida era de 2730 casos. Posteriormente, producto de una alta presencia de NA's, especialmente en la variable confianza en la municipalidad (1243), y algunos valores -888 (No sabe) y -999 (No responde) presentes en las otras variables, se redujo a 1481 observaciones la muestra. El tratamiento de casos perdidos se hizo con Listwise, debido a que simplifica el análisis estadístico y no varían significativamente los resultados del análisis bivariado con Pairwise.
+
+Ahora bien, para la primera hipótesis (H1) se ocuparan las variables “conf_gob” y “conf_municipalidad”, con el fin de saber si existe una relación positiva entre ambas. Para ello, se ocupará el estadístico de **correlación de Spearman**, debido a que las variables son ordinales. El tamaño de efecto se medirá según los criterios de Cohen, donde si la correlación es ≥0,1 el efecto es pequeño, si es ≥0,3 el efecto es mediano y si es ≤0,5 el efecto es grande.
+
+En el caso de la segunda hipótesis (H2) se ocuparan las variables “conf_municipalidad” y “sexo”, el objetivo es evidenciar si existe una mayor confianza en la municipalidad en mujeres que en hombres. Para lo cual, se ocuparan los estadísticos **coeficiente Biserial y Prueba de Chi-cuadrado**, producto de la naturaleza de la hipótesis y variables. El tamaño de efecto se medirá con el coeficiente **V de Cramer**, el cual varía entre los parámetros 0 y 1, donde valores cercanos al 0 indican una asociación débil, y mientras más cercano al 1, una asociación más fuerte.
+
+En la tercera hipótesis (H3) se ocupará las variables “nivel_educativo” y “conf_municipalidad”, para saber si existe una correlación entre el nivel educativo y un nivel de confianza en la municipalidad. Para ello, se recodifica la variable “conf_municipalidad”. Igualmente, se ocupará los estadísticos **coeficiente de correlación de Pearson** y **Prueba de Chi-cuadrado**, porque se utiliza una variable ordinal con una intervalar. El tamaño de efecto de la correlación, se medirá según los criterios de Cohen, ya explicado.
+
+A continuación, se presentan tablas de las variables y sus posteriores análisis.
+
+```{r}
+### 1. CARGAR
+
+library(pacman)
+pacman::p_load(tidyverse, # colección de paquetes para manipulación de datos
+               dplyr, # para manipular datos
+               haven, # para importar datos
+               car, # para recodificar datos
+               psych, # para analizar datos
+               sjmisc, # para analizar datos
+               sjPlot, # para tablas de contingencia
+               summarytools, # para descriptivos
+               sjlabelled, # para etiquetas
+               knitr, # Render y tablas
+               kableExtra, # Formateo tablas
+               stargazer, # Tablas
+               janitor, # Tablas y formateo
+               crosstable, # Tablas
+               table1, # Tablas
+               ggmosaic
+)
+
+# " :: " es para saber que una funcion es de un paquete. 
+# No es necesario, pero es recomedable.
+
+options(scipen = 999) # para desactivar notacion cientifica
+
+rm(list = ls()) # para limpiar el entorno de trabajo
+```
+
+```{r}
+### 2. CARGAR DATOS
+
+# Cite data.elsocset: Reproducible Research, Centre for Social Conflict and Cohesion Studies COES, 2023, "Estudio Longitudinal Social de Chile 2016-2022", <https://doi.org/10.7910/DVN/QZEDUC>, Harvard data.elsocverse, V3, UNF:6:9/8K27QNGcYucpTggPBK9g== \[fileUNF\]
+
+# Cargar o read datos.
+elsoc_2023 <- read_sav("input/ELSOC_Long_2016_2022_v1.00.sav")
+```
+
+```{r}
+### 3. FITLRAR DATOS
+
+# Se filtran las variables 
+# Se utiliza ola 6, correspondiente al año 2022
+# del Estudio Longitudinal Social de Chile (ELSOC).
+
+data.elsoc <- elsoc_2023 %>% filter(ola==6) %>%  # seleccionamos solo los casos de la ola 6
+  select(conf_gob = c05_01,
+         conf_municipalidad = c05_13,
+         sexo = m0_sexo,
+         nivel_educacional = m01
+  )
+```
+
+```{r}
+### 4 RECODIFICAR
+
+data.elsoc$conf_gob <- car::recode(data.elsoc$conf_gob, "c(-999,-888,-777,-666)=NA")
+data.elsoc$conf_municipalidad <- car::recode(data.elsoc$conf_municipalidad, "c(-999,-888,-777,-666)=NA")
+data.elsoc$sexo <- car::recode(data.elsoc$sexo, "c(-999,-888,-777,-666)=NA") - 1 # Se transforma en dummy
+data.elsoc$nivel_educacional <- car::recode(data.elsoc$nivel_educacional, "c(-999,-888,-777,-666)=NA")
+
+data.elsoc$conf_gob <- set_labels(data.elsoc$conf_gob,
+                                  labels=c( "Nada"=1,
+                                            "Poca"=2,
+                                            "Algo"=3,
+                                            "Bastante"=4,
+                                            "Mucha"=5))
+
+data.elsoc$conf_municipalidad <- set_labels(data.elsoc$conf_municipalidad,
+                                   labels=c( "Nada"=1,
+                                             "Poca"=2,
+                                             "Algo"=3,
+                                             "Bastante"=4,
+                                             "Mucha"=5))
+
+data.elsoc$sexo <- set_labels(data.elsoc$sexo,
+                              labels=c( "Hombre"=0,
+                                        "Mujer"=1))
+
+
+data.elsoc$nivel_educacional <- set_labels(data.elsoc$nivel_educacional,
+                                            labels=c( "Sin estudios"=1,
+                                                      "Educacion Basica o Preparatoria incompleta"=2,
+                                                      "Educacion Basica o Preparatoria completa"=3,
+                                                      "Educacion Media o Humanidades incompleta"=4,
+                                                      "Educacion Media o Humanidades completa"=5,
+                                                      "Tecnico Superior incompleta"=6,
+                                                      "Tecnico Superior completa"=7,
+                                                      "Universitaria incompleta"=8,
+                                                      "Universitaria completa"=9,
+                                                      "Estudios de posgrado (magister o doctorado)"=10))
+```
+
+```{r}
+### 5 OMITIR NA
+
+data.elsoc <- na.omit(data.elsoc) # Guardar omitir NA.
+```
+
+**Tabla 1 "Tabla Resumen de Variables":**
+
+```{r}
+summarytools::dfSummary(data.elsoc) %>% 
+  summarytools::view(method = "render") 
+```
+
+## Análisis
+
+### Parte 1: Análisis descriptivos
+
+**Tabla 2 "Tabla Resumen Descriptivo":**
+
+```{r}
+psych::describe(data.elsoc) %>%
+  kable() %>%
+  kable_styling(full_width = TRUE)
+```
+
+### **a) HIPÓTESIS 1**
+
+**a.1) Análisis descriptivo**
+
+**a.1.1) Tabla 3 "Tabla de frecuencias para Confianza en la municipalidad"**
+
+En la Tabla 3, se puede observar que la moda se concentra en la opción 3 (Algo) con un 33,9% (502), seguida de "Poca" (22.08%) y "Bastante" (20.19%). También, hasta la opción 3 es donde un 74,34% de la frecuencia se acumula, mostrando una baja en las alternativas 4 (20,19%) y 5 (5,47%), con un total del 25,66%. De igual manera, en la Tabla 2, la media (2,73) y mediana (2), indican que el promedio se encuentra sobre el corte del 50% de los datos. Además, la desviación estándar (1,13) sugiere una dispersión moderada alrededor de la media y una distribución que es asimétrica positiva (skew: 0,03) y platicúrtica (kurtosis: -0,81), lo cual indica una baja concentración de los datos en el medio de los datos, con una leve tendencia hacia los valores más bajos.
+
+```{r}
+print("Tabla de frecuencias para Confianza en la municipalidad:")
+
+sjmisc::frq(data.elsoc$conf_municipalidad) %>%
+  kable() 
+```
+
+**a.1.2) Tabla 4 "Tabla de frecuencias para Confianza en el Gobierno"**
+
+En la Tabla 4, se puede observar que la alternativa con más respuestas se concentra en la opción 1 (Nada), con un 39,91% (591), seguida de "Poca" (24.92%) y "Algo" (21.81%). Además, hasta la opción 2 (Poco), la frecuencia se acumula un 64,82% y un 86,63% en la opción 3 (Algo), demostrando que más del 50% de las respuestas confían poco o nada en el gobierno. También, según la Tabla 2, la media (2,11) y mediana (2), muestran que el promedio de los datos se encuentran cercano al corte del 50%, influido por los valores más bajos. Este tiene una asimetría positiva (skew: 0,69) y moderada (\<0.5), indicando una fuerte tendencia hacia los valores más bajos.
+
+```{r}
+print("Tabla de frecuencias para Confianza en el Gobierno:")
+
+sjmisc::frq(data.elsoc$conf_gob) %>%
+  kable() 
+```
+
+**a.1.3) Gráfico 1 "Distribución de Niveles de Confianza en la municipalidad"**
+
+```{r}
+ggplot(data = data.elsoc, aes(x = conf_municipalidad)) +
+  geom_bar(fill = "steelblue", color = "black") +
+  labs(
+    title = "Distribución de Niveles de Confianza en la municipalidad",
+    x = "Nivel de Confianza",
+    y = "Frecuencia"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+    axis.title = element_text(size = 12),
+    axis.text = element_text(size = 10)
+  )
+```
+
+**a.1.4) Gráfico 2 "Distribución de Niveles de Confianza en el Gobierno"**
+
+```{r}
+ggplot(data = data.elsoc, aes(x = conf_gob)) +
+  geom_bar(fill = "darkorange", color = "black") +
+  labs(
+    title = "Distribución de Niveles de Confianza en el Gobierno",
+    x = "Nivel de Confianza",
+    y = "Frecuencia"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+    axis.title = element_text(size = 12),
+    axis.text = element_text(size = 10)
+  )
+```
+
+### **b) HIPÓTESIS 2**
+
+**b.1) Análisis descriptivo**
+
+**b.1.1) Tabla 5 "Tabla de frecuencias para Sexo"**
+
+En la Tabla 5, se puede apreciar que el 34,5% de las personas encuestadas son Hombres y 65,5% son Mujeres, de un total de 1481 casos. De la misma manera, en la Tabla 2, en relación al skew (-0.65) se puede observar que hay una asimetría negativa inclinada en su mayoría hacia las mujeres. De forma simultánea, la media (0.65) se relaciona con el skew, ya que los valores del promedio determinan que hay mayor presencia femenina que masculina dentro de la encuesta. Además, la desviación estándar (0,47) muestra una moderada dispersión alrededor de la media.
+
+```{r}
+print("Tabla de frecuencias para Sexo:")
+
+sjmisc::frq(data.elsoc$sexo) %>%
+  kable() 
+```
+
+### **c) HIPÓTESIS 3**
+
+**c.1) Análisis descriptivo**
+
+**c.1.1) Tabla 6 "Tabla de frecuencias para Nivel educacional"**
+
+En la Tabla 6, se puede observar que la alternativa más escogida se concentra en la opción 5 (Educación Media o Humanidades completa), con 472 respuestas (31,87%). Además, hasta esa opción, la frecuencia se acumula un 69,21%, demostrando que alrededor del 50% de las respuestas tienen Educación media completa o más. Esto se puede reafirmar, al observar la Tabla 2, con la mediana (5) y la media (5,13), las cuales sugieren que el promedio se encuentra cercano al corte del 50% de los datos. A su vez, con un rango (9) se explicaría la mayor desviación estándar (2.21) presente en la variable.
+
+```{r}
+# **c.1.1) Tabla de frecuencias para Nivel educacional.**
+
+print("Tabla de frecuencias para Nivel educativo:")
+
+sjmisc::frq(data.elsoc$nivel_educacional) %>%
+  kable() 
+```
+
+**c.1.2) Gráfico 3 "Distribución de Niveles educacionales en la muestra"**
+
+```{r}
+ggplot(data.elsoc, aes(x = nivel_educacional)) +
+  geom_bar(fill = "skyblue", color = "black") +
+  labs(
+    title = "Distribución de Niveles educacionales en la muestra",
+    x = "Nivel educacional",
+    y = "Frecuencia",
+    caption = "Fuente: Elaboración propia en base a ELSOC 2022 del Centro de Estudios de Conflicto y Cohesión Social (COES)."
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+    axis.text.y = element_text(size = 10)
+  )
+```
+
+### Parte 2: Análisis bivariados
+
+### **a) HIPÓTESIS 1**
+
+**a.2) Análisis bivariado**
+
+Hipótesis alternativa y nula, respectivamente:
+
+-   **H1**: Existe una relación positiva entre el nivel de confianza en la municipalidad y el nivel de confianza en el gobierno.
+
+<!-- -->
+
+-   **H01**: No existe una relación positiva entre el nivel de confianza en la municipalidad y el nivel de confianza en el gobierno.
+
+Estadísticos de correlación:
+
+Al someter a análisis las variables de confianza en el Gobierno y en la municipalidad, utilizando el coeficiente de Spearman para evaluar su correlación y significancia estadística. Se puede rechazar la hipótesis nula, ya que indica una correlación positiva moderada (p=0,000, p\<0.05). Además, señala que esta correlación sí es estadísticamente significativa con un 95% de confianza y positiva con un tamaño de efecto mediano (rho=0,304), según los criterios de Cohen. Así, a medida que aumenta la confianza en el gobierno, también tiende a aumentar la confianza en la municipalidad, y viceversa. Aunque esto sugiere que las percepciones de confianza estén relacionadas, puede que otros factores también influyen en cada una de ellas.
+
+Por otra parte, al revisar la Tabla 8, igualmente se confirma la información mencionada, ya que el Chi-cuadrado observado supera el valor crítico establecido para los grados de libertad de la tabla de contingencia (Chi-cuadrado empírico: 244,2 \> Chi-cuadrado crítico: 26,3 , df = 16). De igual manera, en la tabla se puede apreciar que hay una mayor concentración de la frecuencia en las categorías más bajas, como Nada-Nada (70,6)%, Poca-Poca (39,4%) o Nada-Poca (37%). Aquello se puede evidenciar, igualmente, en la Tabla 9 donde el mapa de calor muestra una clara concentración de los porcentajes entre los valores 1-3 de confianza en la municipalidad y los valores 1-3 de confianza en el gobierno.
+
+```{r}
+cor.test(data.elsoc$conf_municipalidad, data.elsoc$conf_gob, method = "spearman")
+```
+
+**a.2.1) Tabla 7 "Tabla de contingencia entre confianza en el Gobierno y confianza en la municipalidad"**
+
+```{r}
+crosstable::crosstable(data.elsoc, conf_municipalidad, by = conf_gob, margin=c("row", "col"), total = "both") %>% 
+  kable() %>%
+  kable_styling(full_width = TRUE)
+```
+
+**a.2.2) Tabla 8 "Tabla de frecuencias entre confianza en el Gobierno y confianza en la municipalidad"**
+
+```{r}
+sjPlot::tab_xtab(data.elsoc$conf_municipalidad, data.elsoc$conf_gob, show.row.prc = TRUE)
+```
+
+**a.2.3) Gráfico 4 "Asociación entre confianza en el Gobierno y en la municipalidad"**
+
+```{r}
+ga21 <- data.elsoc %>%
+  dplyr::select(conf_gob, conf_municipalidad) %>% 
+  na.omit() %>% 
+  dplyr::mutate(
+    conf_gob = as.factor(conf_gob),
+    conf_municipalidad = as.factor(conf_municipalidad)
+  )
+
+ggplot(data = ga21) +
+  geom_mosaic(aes(product(conf_gob, conf_municipalidad), fill = conf_municipalidad)) + # agregamos mapping y geometría a la vez
+  geom_label(data = layer_data(last_plot(), 1),
+             aes(x = (xmin + xmax)/ 2,
+                 y = (ymin + ymax)/ 2,
+                 label = paste0(round((.wt/sum(.wt))*100,1),"%"))) +# agregamos porcentajes de cada combinación de categórias
+  scale_fill_discrete(name = "",
+                      labels = c("Nada",
+                                 "Poca",
+                                 "Algo", 
+                                 "Bastante",
+                                 "Mucha")) + 
+  labs(title ="Asociación entre confianza en el Gobierno y en la municipalidad", 
+       y = "Confianza en el Gobierno", 
+       x = "Confianza en la municipalidad",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2023.") + # agregamos titulo, nombres a los ejes y fuente 
+  theme_bw() # especificamos tema
+```
+
+**a.2.4) Tabla 9 "Heatmap (mapa de calor) entre confianza en el Gobierno y en la municipalidad**
+
+```{r}
+# Crear la tabla de contingencia con proporciones
+tabla_heatmap <- data.elsoc %>%
+  tabyl(conf_gob, conf_municipalidad) %>%  # Crear tabla de contingencia
+  adorn_percentages("all") %>%            # Calcular proporciones
+  pivot_longer(cols = -conf_gob, names_to = "conf_municipalidad", values_to = "Porcentaje")  
+
+ggplot(tabla_heatmap, aes(x = conf_municipalidad, y = conf_gob, fill = Porcentaje)) +
+  geom_tile(color = "white") +                      # Crear mosaicos
+  scale_fill_gradient(low = "white", high = "blue", name = "Porcentaje") + # Gradiente de colores
+  geom_text(aes(label = paste0(round(Porcentaje * 100, 1), "%")), size = 4) + # Añadir texto con porcentajes
+  labs(
+    title = "Mapa de calor",
+    x = "Confianza en la municipalidad",
+    y = "Confianza en el Gobierno",
+    caption = "Fuente: Elaboración propia en base a ELSOC 2022 del Centro de Estudios de Conflicto y Cohesión Social (COES)."
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.text.y = element_text(size = 10)
+  )
+```
+
+### **b) HIPÓTESIS 2**
+
+**b.2) Análisis bivariado**
+
+Hipótesis alternativa y nula, respectivamente:
+
+-   **H2**: Existe una mayor confianza en la municipalidad en mujeres que en hombres.
+
+-   **H02**: No existe una mayor confianza en la municipalidad en mujeres que en hombres.
+
+Estadísticos de correlación:
+
+Para este analisis bivariado, se utilizaron los estadísticos coeficiente Biserial y Prueba de Chi-cuadrado entre las variables sexo y confianza en la municipalidad. El valor obtenido de la prueba Biserial (0.002) indica una correlación positiva muy pequeña que no es estadísticamente significativa (p\>0,05) entre estas dos variables. De igual forma, la prueba de Chi-cuadrado señala los siguientes valores: Chi-cuadrado = 1.2249, df = 4, p = 0.874. Por lo tanto, no se puede rechazar la hipótesis nula, debido a que el valor p\>0.05, y el valor empírico (Chi-cuadrado = 1.22) no supera el valor crítico establecido para los grados de libertad (Chi-cuadrado crítico: 9,49 , df = 4). Por lo cual, no hay evidencia suficiente para afirmar que existe una asociación significativa entre la confianza en la municipalidad y el sexo. Por último, se menciona que el tamaño de efecto, según la V de Carmer, indica que es muy pequeño (V=0.029).
+
+Sin embargo, según la Tabla 11, se puede apreciar la mayor presencia femenina en la muestra, porque los porcentajes de incidencia entre la variable de confianza en la municipalidad con el sexo “Mujer” están sobre el 60% en todas las casillas respectivas. Por lo cual la hipótesis alternativa sobre una mayor presencia de mujeres en la confianza a la municipalidad si se puede afirmar, al contrastar con la frecuencia de presencia masculina.
+
+```{r}
+print("biserial(data.elsoc$conf_municipalidad,data.elsoc$sexo)")
+
+biserial(data.elsoc$conf_municipalidad,data.elsoc$sexo)
+
+chisq.test(data.elsoc$conf_municipalidad,data.elsoc$sexo)
+```
+
+**b.2.1) Tabla 10 "Tabla de contingencia entre sexo y confianza en la municipalidad"**
+
+```{r}
+crosstable::crosstable(data.elsoc, conf_municipalidad, by = sexo, margin=c("row", "col"), total = "both") %>% 
+  kable() %>%
+  kable_styling(full_width = TRUE)
+```
+
+**b.2.2) Tabla 11 "Tabla de frecuencias entre sexo y confianza en la municipalidad"**
+
+```{r}
+sjPlot::tab_xtab(data.elsoc$conf_municipalidad, data.elsoc$sexo, show.row.prc = TRUE)
+```
+
+### **c) HIPÓTESIS 3**
+
+**c.2) Análisis bivariado**
+
+Hipótesis alternativa y nula, respectivamente:
+
+-   **H3**: Existe una relación entre el nivel de confianza en la municipalidad y el nivel educacional.
+
+-   **H03**: No existe una relación entre el nivel de confianza en la municipalidad y el nivel educacional.
+
+Estadísticos de correlación:
+
+En este último análisis bivariado, los estadísticos utilizados son el coeficiente de correlación de Pearson y Prueba de Chi-cuadrado entre el nivel educacional y confianza en la municipalidad. El valor del coeficiente de correlación (r) es de -0.026, lo que indica una correlación muy débil, según criterios de Cohen, y negativa entre variables. También, el el valor (p=0,324, p\<0.05) sugiere que no hay evidencia estadísticamente significativa para rechazar la hipótesis nula. Es decir, no se puede afirmar que exista una relación lineal entre estas dos variables. Además, el intervalo de confianza al 95% de \[-0.0765, 0.0253\] incluye el valor cero, lo que refuerza la falta de significancia de la correlación. Sin embargo, la Prueba de Chi-cuadrado señala un Chi-cuadrado = 51.292, df = 36, p = 0.047. Por lo tanto, con esta prueba sí se rechaza la hipótesis nula a un nivel de confianza del 95%. Lo cual indica que existe una asociación significativa. Sin embargo, dado el gran número de grados de libertad (df = 36), esta asociación puede ser débil o dependiente de otros factores que inciden.
+
+Aunque ambas pruebas indican valores distintos, ello se debe a que cada prueba estadística se centra en aspectos distintos: Pearson evalúa la fuerza y dirección de una relación lineal, mientras que Chi-cuadrado identifica cualquier tipo de asociación categórica. Esto explica la discrepancia entre los valores P y su significancia estadística. La prueba de Chi-cuadrado puede ser influenciada por tamaños de muestra grandes y el número de categorías (grados de libertad), lo que aumenta la probabilidad de detectar asociaciones débiles que Pearson puede ignorar.
+
+```{r}
+cor.test(data.elsoc$conf_municipalidad, data.elsoc$nivel_educacional, method = "pearson")
+
+chisq.test(data.elsoc$conf_municipalidad,data.elsoc$nivel_educacional)
+```
+
+**c.2.1) Tabla 12 "Tabla de contingencia entre Nivel educacional y confianza en la municipalidad"**
+
+```{r}
+crosstable::crosstable(data.elsoc, conf_municipalidad, by = nivel_educacional, margin=c("row", "col"), total = "both") %>% 
+  kable() %>%
+  kable_styling(full_width = TRUE)
+```
+
+**c.2.2) Tabla 13 "Tabla de frecuencias entre Nivel educacional y confianza en la municipalidad"**
+
+```{r}
+sjPlot::tab_xtab(data.elsoc$conf_municipalidad, data.elsoc$nivel_educacional, show.row.prc = TRUE)
+```
+
+**c.2.3) Gráfico 4 "Asociación entre Nivel educacional y confianza en la municipalidad"**
+
+```{r}
+ga23 <- data.elsoc %>%
+  dplyr::select(nivel_educacional, conf_municipalidad) %>% 
+  na.omit() %>% 
+  dplyr::mutate(
+    conf_gob = as.factor(nivel_educacional),
+    conf_municipalidad = as.factor(conf_municipalidad)
+  )
+
+ggplot(data = ga23) +
+  geom_mosaic(aes(product(nivel_educacional, conf_municipalidad), fill = conf_municipalidad)) + # agregamos mapping y geometría a la vez
+  geom_label(data = layer_data(last_plot(), 1),
+             aes(x = (xmin + xmax)/ 2,
+                 y = (ymin + ymax)/ 2,
+                 label = paste0(round((.wt/sum(.wt))*100,1),"%"))) +# agregamos porcentajes de cada combinación de categórias
+  scale_fill_discrete(name = "",
+                      labels = c("Nada",
+                                 "Poca",
+                                 "Algo", 
+                                 "Bastante",
+                                 "Mucha")) + 
+  labs(title ="Asociación entre Nivel educacional y  confianza en la municipalidad", 
+       y = "Nivel educacional", 
+       x = "Confianza en la municipalidad",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2022 del Centro de Estudios de Conflicto y Cohesión Social (COES).") + # agregamos titulo, nombres a los ejes y fuente 
+  theme_bw() # especificamos tema
+```
+
+**c.2.4) Tabla 14 "Heatmap (mapa de calor) entre Nivel educacional y confianza en la municipalidad**
+
+```{r}
+# Crear la tabla de contingencia con proporciones
+tabla_heatmap2 <- data.elsoc %>%
+  tabyl(nivel_educacional, conf_municipalidad) %>%  # Crear tabla de contingencia
+  adorn_percentages("all") %>%            # Calcular proporciones
+  pivot_longer(cols = -nivel_educacional, names_to = "conf_municipalidad", values_to = "Porcentaje")
+
+# Crear el heatmap
+ggplot(tabla_heatmap2, aes(x = conf_municipalidad, y = nivel_educacional, fill = Porcentaje)) +
+  geom_tile(color = "white") +                      # Crear mosaicos
+  scale_fill_gradient(low = "white", high = "blue", name = "Porcentaje") + # Gradiente de colores
+  geom_text(aes(label = paste0(round(Porcentaje * 100, 1), "%")), size = 4) + # Añadir texto con porcentajes
+  labs(
+    title = "Mapa de calor",
+    x = "Confianza en la municipalidad",
+    y = "Nivel educacional",
+    caption = "Fuente: Elaboración propia en base a ELSOC 2022 del Centro de Estudios de Conflicto y Cohesión Social (COES)."
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.text.y = element_text(size = 10)
+  )
+```
+
+## Conclusiones
+
+En conclusión, los resultados de los análisis bivariados permiten identificar patrones diferenciados en las variables asociadas al nivel de confianza en la municipalidad. La correlación de Spearman mostró una relación positiva moderada y estadísticamente significativa entre la confianza en el Gobierno y en la municipalidad, sugiriendo que las percepciones de confianza en estas instituciones están relacionadas. Por otro lado, tanto el coeficiente Biserial como la Prueba de Chi-cuadrado confirmaron que no existe una relación significativa entre el sexo y la confianza en la municipalidad, indicando independencia entre estas variables.
+
+Respecto a la relación entre Nivel educacional y confianza en la municipalidad, los resultados fueron mixtos. La correlación de Pearson no encontró evidencia significativa de una relación lineal, mientras que la Prueba de Chi-cuadrado sí detectó una asociación significativa aunque posiblemente débil o no lineal, debido al gran número de grados de libertad. Esto sugiere que la relación entre estas variables podría depender de categorías específicas de nivel educacional, requiriendo análisis adicionales para esclarecer estos patrones.
+
+## Bibliografía
+
+Centro de Estudios de Conflicto y Cohesión Social (2022). Estudio Longitudinal Social de Chile, Versión Panel Combinada (ELSOC_Long). \[Archivo de datos\]. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES). www.coes.cl
+
+Centro de Estudios de Conflicto y Cohesión Social (2022). Manual de Usuario de Estudio Longitudinal Social de Chile. Santiago, Chile: Centro de Estudios de Conflicto y Cohesión Social (COES).
+
+Chile. (1980). *Constitución Política de la República de Chile*. Artículo 118. Última reforma publicada en noviembre de 2024. Biblioteca del Congreso Nacional. Recuperado de \[<https://www.bcn.cl>\].
+
+Estella, A. (2020): “Confianza institucional en América Latina: un análisis comparado”, *Documentos de Trabajo nº 34* (2ª época), Madrid, Fundación Carolina.
+
+Keefer, P. y Scartascini, C. 2022. *Confianza: La clave de la cohesión social y el crecimiento en América Latina y el Caribe*. Banco Interamericano de Desarrollo.
+
+Segovia, C., Haye, A., González, R., Manzi, J. y Carvacho, H. (2008). Confianza en instituciones políticas en Chile: un modelo de los componentes centrales de juicios de confianza. *Revista de Ciencia Política*, 28(2), 39-60.
+
+Putnam, R. D., Leonardi, R. y Nanetti, R. Y. (1993). *Making democracy work: Civic traditions in modern Italy*. Princeton, Estados Unidos: Princeton University Press.
+
+Reproducible Research, Centre for Social Conflict and Cohesion Studies COES, 2024, "Estudio Longitudinal Social de Chile 2016-2023", https://doi.org/10.7910/DVN/LD4BPH, Harvard Dataverse, V2, UNF:6:Il/1XZ8T4MaM8wOn8SvXrw== \[fileUNF\]

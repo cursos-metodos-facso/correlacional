@@ -181,6 +181,28 @@ Hay 4 semanas para realizar el trabajo. Durante este tiempo los horarios de clas
 
 - mantener coherencia entre conceptos, hipótesis, descripción de variables, análisis, discusión, ojalá siempre en el mismo orden. 
 
+# Trabajos finales
+
+- [Grupo 1](/evaluations/trabajos/Grupo1/simce correlacional.html)
+- [Grupo 2]
+- [Grupo 3]
+- [Grupo 4]
+- [Grupo 5]
+- [Grupo 6]
+- [Grupo 7]
+- [Grupo 8]
+- [Grupo 9]
+- [Grupo 10]
+- [Grupo 11]
+- [Grupo 12]
+- [Grupo 13]
+- [Grupo 14]
+- [Grupo 15]
+- [Grupo 16]
+- [Grupo 17]
+- [Grupo 18]
+- [Grupo 19]
+
 # Foro
 
 <script src="https://giscus.app/client.js"

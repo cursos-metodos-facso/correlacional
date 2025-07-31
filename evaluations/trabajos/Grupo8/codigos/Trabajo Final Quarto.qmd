@@ -1,0 +1,196 @@
+---
+title: "Estudio de la financiarización de los hogares a través del uso de criptomonedas por estrato de ingreso y valor total de activos financieros"
+author: "Pablo Guzmán, Antonia Hernández, Valeria Reyes, Carla Roa y Daniel Thumala."
+format: html
+execute: 
+  echo: false
+  eval: true
+  message: false
+  warning: false
+  include: true
+---
+
+# Resumen
+
+El presente informe se enmarca en el estudio de la financiarización del comportamiento económico en los hogares de Chile, un fenómeno que implica una creciente influencia de los mercados financieros en las decisiones económicas de los agentes. Concretamente, mediante análisis bivariado a partir de los datos de la Encuesta Financiera de Hogares de 2021, se busca una relación entre el uso de criptomonedas con dos variables: el estrato de ingresos de los hogares y el valor de los activos financieros. De esta forma, se ahonda en la relación entre características socioeconómicas y el uso de tecnologías financieras digitales. Los resultados muestran que existen asociaciones estadísticamente significativas entre el uso de criptomonedas y los factores socioeconómicos, pese a la débil magnitud de la fuerza de estas asociaciones, lo cual describe un escenario débilmente financiarizado en entornos digitales. A su vez se observa una asociación positiva y moderada entre el valor total de activos financieros y el estrato de nivel de ingreso, que indica que los hogares de mayor estrato de nivel de ingreso tienden a tener un mayor valor total de activos financieros y por ende en estos hogares podría haber una prevalencia de conductas financiarizadas más “tradicionales” en contraste con las nuevas prácticas digitales de financiarización.
+
+# Introducción
+
+La financiarización puede ser entendida como un proceso de cambio en la estructura económico social en donde el sistema financiero se hace cada vez más autónomo, separándose de la economía productiva y pasando a tener como fin la producción de dinero, de manera que los mercados, actores y valores financieros van adquiriendo una creciente importancia para los distintos agentes económicos y sociales (Zwan, 2014). Este fenómeno afecta tanto a las economías de las sociedades, como a las empresas, hogares e individuos, los cuales pueden mostrar comportamientos financiarizados que indican una determinada percepción del riesgo, y valores en consonancia con la inversión, el endeudamiento y las finanzas. Dentro de la literatura sobre financiarización, los hogares se consideran en el nivel “micro” de análisis, también denominado “financiarización de la vida cotidiana”, pues la lógica financiera se integra en la vida cotidiana de los individuos de distintas formas, incorporando valores financieros dentro del hogar (Abalde, et al., 2024).
+
+Como indica Marambio (2018), en Chile, la relación de gran parte de la población con los mercados financieros tuvo un punto de inflexión en la década de los 80, donde se desregula el sistema financiero, surgiendo nuevos prestamistas institucionales y una expansión crediticia. Para la década de los 90 esto derivó en una “democratización del crédito”, lo que implica la inclusión financiera y bancarización de las clases populares, esto es catalogado por el autor como una financiarización del consumo que persiste hasta hoy, donde se valoriza la imagen del ciudadano consumidor que se endeuda responsablemente. Dentro de este marco general de financiarización, la vida cotidiana ha sido fuertemente afectada, pues el ámbito doméstico se expande al financiero y las acciones económicas cotidianas están impregnadas de redes financieras (Langley, 2008).
+
+Como señalan Abalde et. al. (2024), existe diversa literatura sobre este fenómeno pero escasos estudios que midan la conducta financiarizada. Las variables a utilizar se relacionan con el comportamiento financiero, el manejo de dinero, y la actitud o percepción hacia el riesgo. El presente estudio, busca medir la conducta financiarizada en los hogares mediante el uso de criptomonedas.
+
+Las criptomonedas son activos digitales que, al constituirse como tecnologías financieras emergentes, plantean una nueva forma de relacionarse con los mercados financieros, permitiendo a los individuos participar directamente en mercados digitales sin bancos como intermediarios (Nakamoto, 2008). En el presente trabajo se entiende el uso de criptomonedas como una innovadora forma de conducta financiarizada a través de medios digitales, la cual permite inversiones minoristas, pues las criptomonedas han permitido a más personas involucrarse en actividades financieras que antes estaban reservadas a grandes inversionistas, lo que puede profundizar la financiarización en los hogares. (Pereira 2024; Jagati, 2023; Financieras, sf).
+
+De esta forma, enmarcado en el estudio de la financiarización de los hogares, se pretende analizar los factores que afectan el uso de tarjetas con criptomonedas, lo cual se entiende como una manifestación de la financiarización de la vida cotidiana en entornos digitales, para lo cual se presenta como objetivo principal: identificar factores socioeconómicos que se relacionan con el uso de criptomonedas, considerando estrato de nivel de ingresos, y valor total de los activos financieros por hogar.
+
+Como primera hipótesis (H1) se plantea que existiría asociación positiva entre el uso de tarjetas con criptomonedas en el hogar y los hogares de estratos de nivel de ingresos más altos. Por ende como hipótesis nula (H0) se considera que existiría una asociación negativa entre el uso de tarjetas con criptomonedas y los hogares de estratos de nivel de ingresos más altos.
+
+La segunda hipótesis (H2) consiste en que existe una asociación positiva entre el uso de tarjetas con criptomonedas en el hogar y el valor total de activos financieros. Como hipótesis nula (H0) se plantea que existiría asociación negativa entre el uso de tarjetas con criptomonedas en el hogar y el valor total de activos financieros.
+
+Finalmente, como tercera hipótesis (H3) se sostiene que existe una asociación positiva entre los hogares de estratos de nivel de ingreso más altos y el valor total de activos financieros. La hipótesis nula (H0) es que existiría asociación negativa entre los estratos de nivel de ingreso y el valor total de activos financieros.
+
+# Metodología
+
+La base de datos utilizada en esta investigación corresponde a la base imputada de la Encuesta Financiera de Hogares (EFH), realizada por el Banco Central de Chile el año 2021, la cual proporciona información sobre ingresos, gastos y situación financiera de los hogares, junto con características demográficas y socioeconómicas (EFH, 2022). Dicha encuesta define "hogar" como: (1) un grupo de personas que viven en una misma vivienda y comparten un presupuesto de alimentación, o (2) una persona que vive en una vivienda y se provee de su propia alimentación. La encuesta recoge información a través de 114 variables, de las cuales se seleccionaron tres.
+
+## Variables
+
+Como variable dependiente se consideró el uso de tarjetas con criptomonedas (u_tcripto). Esta variable mide si algún miembro del hogar utiliza tarjetas con criptomonedas (por ejemplo, bitcoin o chaucha) como medio de pago. Es una variable dicotómica que adopta los valores: 1 = Sí; 0 = No. En cuanto a las variables independientes, se seleccionan dos, las cuales corresponden al valor total de los activos financieros (act_fin) y al estrato de ingreso efectivo del hogar (estrato). La variable referente al valor total de activos financieros corresponde a una variable continua, la cual representa la suma de los montos totales invertidos por el hogar en instrumentos de renta fija y variable. Por otro lado, la variable de estrato de ingreso efectivo del hogar, corresponde a una variable categórica ordinal, la cual identifica el estrato de ingreso al que pertenece el hogar, designados en tres categorías según los deciles del ingreso total. La categoría “1” comprende los deciles del 1 al 5, la categoría “2” comprende los deciles 6 al 8 y la categoría “3” comprende los deciles 9 y 10. Mediante estas variables se pretende analizar las relaciones entre el uso de tarjetas con criptomonedas en los hogares y sus características financieras y económicas, de manera que se pueda caracterizar qué tipo de hogares en Chile son los que más utilizan tarjetas con criptomonedas –según las variables mencionadas–, presentando un comportamiento financiarizado a través de medios digitales.
+
+## Contraste de hipótesis
+
+Para el contraste de hipótesis se realizó un análisis entre la variable dependiente “Uso de tarjetas con criptomonedas” (u_tcripto), la cual es de tipo categórica dicotómica, y las variables independientes, siendo “Estrato de ingreso efectivo del hogar” (estrato) una de tipo categórica y la variable “Valor total de los activos financieros” una de tipo continua (act_fin).
+
+Para la primera hipótesis, que consiste en la existencia de una asociación positiva entre el uso de de tarjetas con criptomonedas en el hogar y los estratos altos de ingreso efectivo del hogar, se aplica la prueba Chi cuadrado, técnica estadística que permite identificar si existe una relación significativa entre el estrato de nivel de ingreso (estrato) y el uso de tarjetas con criptomonedas (u_tcripto), dos variables categóricas. Esto se realiza a partir de la comparación de una tabla de contingencia y una tabla que representa la hipótesis nula, la cual asume independencia entre las variables. El propósito de este cálculo es poder rechazar la hipótesis nula al analizar e interpretar el resultado: si el valor p es menor al p crítico con un nivel de significancia de 0.05, se puede rechazar la hipótesis nula. De lo contrario, si el valor p es mayor a 0.05, no es posible rechazar la hipótesis nula, indicando que no hay evidencia suficiente para afirmar que existe una asociación estadísticamente significativa.
+
+En la segunda hipótesis, que consiste en la existencia de una asociación positiva entre el uso de tarjetas con criptomonedas en el hogar (u_tcripto) y el valor total de los activos financieros (act_fin), se utiliza la correlación punto biserial, la cual es una técnica estadística que mide la fuerza y dirección de la relación entre una variable dicotómica y otra continua. Dicho estadístico permite establecer si la asociación es positiva o negativa, pudiendo tomar cualquier valor que se encuentre entre el intervalo \[-1, +1\]. Significando así que los valores cercanos a +1 indican una asociación positiva fuerte, los valores cercanos a -1 indican una asociación negativa fuerte, y los valores cercanos a 0 indican una relación débil. Para rechazar la hipótesis nula, se debe determinar si el coeficiente de correlación es significativo según su valor p, el cual debe ser menor al nivel de significancia de 0.05, de manera que si el valor p es significativo y el coeficiente de correlación es positivo, es posible rechazar la hipótesis nula y respaldar la la hipótesis alternativa. Para el último contraste de hipótesis, se analiza la asociación entre el valor total de activos financieros (act_fin) y el estrato de nivel de ingresos (estrato), siendo estas las variables independientes. Para esto, considerando que una variable es continua y la otra ordinal, se utiliza el método de cálculo de correlación de Spearman, cuyo coeficiente de correlación rho indica la fuerza y dirección de la asociación, pudiendo asumir valores entre -1 y +1. Para interpretar este coeficiente, se deben seguir los criterios de Cohen, en donde un valor de rho mayor o igual a o.50 es considerado una asociación fuerte. Así, si el resultado de la correlación de Spearman es positivo y significativo, se puede rechazar la hipótesis nula y respaldar la hipótesis alternativa, indicando una relación positiva entre el valor total de activos financieros y el estrato de nivel de ingresos.
+
+# Análisis
+
+```{r library, echo=FALSE, warning=FALSE, message=FALSE}
+library(haven)
+library(pacman)
+library(httr)
+library(vcd)
+pacman::p_load(tidyverse, # para sintaxis
+               ggplot2,   # para gráficos
+               car,       # para recodificar
+               psych,     # para analizar datos
+               sjmisc,    # para analizar datos
+               dplyr, # Manipulacion datos
+               kableExtra, # Tablas
+               sjPlot, # Graficos
+               corrplot, # Correlaciones
+               knitr, # Render y tablas
+               summarytools, # Tablas
+               stargazer, # Tablas
+               janitor, # Tablas y formateo
+               crosstable, # Tablas
+               table1  # Tablas
+              ) # Gráficos
+
+options(scipen = 999) # para desactivar notacion cientifica
+```
+
+```{r BBDD, echo=FALSE, warning=FALSE, message=FALSE}
+EFH2021 <- read_dta("../datos/EFH2021.dta")
+```
+
+Para un mejor entendimiento de los estadísticos bivariados presentes en la investigación, se efectúa un análisis descriptivo de las variables utilizadas (0 = No usa; 1 = Si usa)
+
+TABLA DE FRECUENCIAS SOBRE USO DE TARJETAS CON CRIPTOMONEDAS
+
+```{r Descriptivo2_Uso_cripto}
+frecuencias_cripto <- table(EFH2021$u_tcripto)
+frecuencias_cripto
+```
+
+Respecto a la variable uso de tarjetas con criptomonedas en el hogar, se muestra que la gran mayoría, equivalente al 99.14% (135,222 hogares), no utiliza criptomonedas, mientras que solo el 0.86% (1,178 hogares) sí las utiliza. La moda por lo tanto, es decir, la categoría con mayor frecuencia, es "no usa criptomonedas".
+
+TABLA DESCRIPTIVA ACTIVOS FINANCIEROS:
+
+```{r Descriptivo_Activos_financieros}
+frecuencias_cripto <- table(EFH2021$u_tcripto)
+summary(EFH2021$act_fin)
+```
+
+La segunda variable, valor total de los activos financieros, presenta una distribución altamente desigual. La media es de 7.286.706, lo que indica un promedio elevado que se ve influenciado por algunos hogares con altos valores de activos. La mediana, por otro lado, es de 0, lo cual significa que al menos el 50% de los hogares no poseen activos financieros. El primer cuartil (Q1) también es 0, es decir que al menos el 25% de los hogares carece de activos, mientras que el tercer cuartil (Q3) es de 1.000.000, indicando que el 75% de los hogares tiene activos financieros por debajo de este valor. Hay una desviación estándar de 44.299.725, lo que refleja una gran variabilidad de activos financieros en los hogares, y ya en relación al rango este oscila entre un valor mínimo de 0 y un máximo de 1.280.000.000. Estos indicadores de la variable mostrarían una distribución muy desproporcionada con una marcada concentración de hogares sin activos financieros y una pequeña proporción con valores de activos financieros muy altos.
+
+TABLA DE FRECUENCIAS SOBRE VARIABLE ESTRATO DE NIVEL DE INGRESO
+
+```{r Descriptivo_estrato2}
+# Frecuencias y porcentajes
+frecuencias_estrat <- table(EFH2021$estrato)
+porcentaje_estrat <- prop.table(frecuencias_estrat) * 100
+
+# Tabla con frecuencias y porcentajes
+tabla_resultados_estrat <- data.frame(
+  Estrato = names(frecuencias_estrat),
+  Frecuencia = frecuencias_estrat,
+  Porcentaje = round(porcentaje_estrat, 2)  # Redondeamos los porcentajes a 2 decimales
+)
+
+
+kable(tabla_resultados_estrat, caption = "Distribución del Estrato de Ingreso Efectivo del Hogar")
+```
+
+Como última variable se encuentra el estrato de ingreso efectivo del hogar. Sus medidas de tendencia central indican que la moda es 1 (deciles de 1 a 5), lo que refleja que el estrato de ingreso más frecuente es el estrato 1, mientras que la mediana es 2 (deciles de 6 a 8), señalando que la mitad de los hogares se encuentran en el estrato 2 o menos, lo que significa que al menos el 50% de los hogares encuestados pertenecen a los deciles 1 a 8. Según la distribución del ingreso, el estrato 1 tiene una frecuencia absoluta de 61.938, representando el 45.41% del total; el estrato 2 cuenta con 40.424, equivalente al 29.64%; y el estrato 3 incluye 34.038 hogares, que constituyen el 24.95%. Esto quiere decir que el estrato 1 no solo es el más frecuente, es decir, la moda, sino que también es aquel que concentra casi la mitad de la distribución, mientras que el estrato 3, con un 24.95%, tiene la menor representación.
+
+# Análisis Bivariado
+
+Tabla de contingencia Chi Cuadrado
+
+```{r Tabla_1}
+EFH2021 %>%
+  sjPlot::sjtab(estrato,
+                u_tcripto,
+                show.row.prc = TRUE, # porcentaje fila
+                show.col.prc = TRUE # porcentaje columna
+  )
+```
+
+```{r Resultado_Chi_cuadrado}
+chi_results <- chisq.test(EFH2021$estrato, EFH2021$u_tcripto)
+chi_results
+```
+
+TABLA DE CONTINGENCIA OBSERVADA CHI CUADRADO:
+
+```{r Tabla_contingencia}
+tabla_contingencia <- table(EFH2021$estrato, EFH2021$u_tcripto)
+tabla_contingencia
+```
+
+Como primer cruce de variables para el contraste de hipótesis, se opera entre las variables uso de tarjetas con criptomonedas en el hogar y estrato de ingreso total, ambas variables categóricas, es por esto que se decide usar el test de hipótesis chi cuadrado. Los resultados indican un valor chi cuadrado de 590.40 con dos grados de libertad y un valor p de 2.2e-16, lo cual es un valor extremadamente pequeño, menor a 0.05. Esto indica, con un 95% de confianza, una diferencia significativa entre las frecuencias esperadas y las frecuencias observadas, de manera que es muy improbable que los resultados sean debido al azar, por lo que existe evidencia sólida para rechazar la hipótesis nula, la cual sostenía que habría una asociación negativa entre el uso de tarjetas con criptomonedas y los estratos de ingreso total, y se concluye que hay evidencia que respalda la hipótesis alternativa que indica que existe una asociación positiva y estadísticamente significativa entre el estrato de nivel de ingreso y el uso de criptomonedas, aunque cabe recalcar que en general hay poco uso de criptomonedas. No obstante, se efectuó el cálculo del estadístico V de Cramer para medir la fuerza de la asociación, lo que dio como resultado 0.0658, indicando una fuerza muy débil en la asociación, de manera que si bien la evidencia estadística respalda la hipótesis alternativa, la fuerza de la asociación entre las el Uso de tarjetas con criptomonedas y los Estratos de nivel de ingreso es muy débil, lo que podría deberse al bajo uso de tarjetas con criptomonedas en general. Por lo tanto, al ser tan débil la asociación entre las variables, no se puede sostener que el estrato de nivel ingreso tiene un impacto relevante en el uso de tarjetas con criptomonedas.
+
+```{r Resultado_punto_biserial}
+cor_result <- cor.test(EFH2021$u_tcripto, EFH2021$act_fin)
+cor_result
+```
+
+En segundo lugar, para cruzar las variables valor total de los activos financieros y uso de tarjetas con criptomonedas se utiliza la correlación punto biserial debido a que una variable es continua y la otra dicotómica. Respecto a los resultados, el coeficiente de correlación fue de 0.0078, lo que indica una asociación positiva y en extremo pequeña según los criterios de Cohen. Por otra parte, el valor p dio como resultado 0.0041, de manera que, con un 95% se rechaza la hipótesis nula, indicando que la relación es estadísticamente significativa. Por lo tanto, se puede sostener que si bien existe evidencia para rechazar la hipótesis nula, la cual indica que existe asociación negativa entre uso de tarjetas con criptomonedas y valor total de activos financieros. Como la fuerza de la relación es demasiado pequeña, se puede plantear que el valor total de activos financieros tiene una relevancia práctica muy limitada en el uso de tarjetas con criptomonedas. Al igual que en la correlación anterior entre uso de tarjetas con criptomonedas y estrato de nivel de ingreso, esto puede deberse al bajo uso de tarjetas con criptomonedas en la población encuestada.
+
+```{r Resultado_Spearman}
+EFH2021$estrato <- as.numeric(as.character(EFH2021$estrato))
+spearman_result <- cor.test(EFH2021$estrato, EFH2021$act_fin, method = "spearman", use = "complete.obs")
+print(spearman_result)
+```
+
+Por último, al cruzar la variable estrato de nivel de ingreso con el valor total de los activos financieros, se utiliza el estadístico de correlación de Spearman, pues una variable es ordinal y la otra continua. Los resultados muestran una asociación positiva y moderada –según los criterios de Cohen– entre ambas variables (rho = 0.411, p \< 0.05), de manera que, debido al valor p menor a 0.05, rechazamos la hipótesis nula con un nivel de confianza de 95%, la cual indica que existiría asociación negativa entre los estratos de nivel de ingreso y el valor total de activos financieros, esto implica rechazar la hipótesis nula, sugiriendo que los hogares de mayor estrato de nivel de ingresos tienden a tener un mayor valor total de activos financieros.
+
+# Discusión
+
+Recapitulando los resultados en relación a las hipótesis planteadas, se puede apreciar que a pesar de que existe evidencia que respalda que las variables uso de tarjetas con criptomonedas y estrato de nivel de ingreso están asociadas positivamente a través de la prueba Chi Cuadrado (590.40, p \< 0,05), la prueba V de Cramer indica que dicha relación en tan débil (0.0658), que sugiere que el estrato de nivel de ingreso no es un factor relevante en el uso de tarjetas con criptomonedas en los hogares. Lo mismo ocurre con la segunda asociación entre el uso de tarjetas con criptomonedas y el valor total de los activos financieros, en donde, a través de la prueba Punto Biserial, también existe evidencia para rechazar la hipótesis nula y respaldar la hipótesis alternativa que indicaría una asociación positiva entre las variables (0,0078, p \< 0,05), pero como la magnitud de la asociación es tan débil, la relevancia práctica de dicha asociación parece ser muy limitada en términos prácticos. En ambos casos, la debilidad de la asociación poca relevancia práctica podría deberse al bajo uso de tarjetas con criptomonedas en la población en general (0,86% de la población encuestada), lo cual limita la capacidad de detectar relaciones fuertes. En el caso de la segunda asociación, se suma el hecho de que la variable valor total de activos financieros presenta una distribución muy asimétrica, con más del 50% de los hogares sin activos financieros.
+
+Por otro lado, la tercera asociación muestra resultados más consistentes, pues la asociación entre el valor total de activos financieros y el estrato de nivel de ingresos a través del estadístico de correlación de Spearman dio como resultado un rho = 0.411, y un valor p \< 0.05 lo que indica una asociación positiva y moderada según los criterios de Cohen, y permite rechazar la hipótesis nula con un 95% de confianza. Por lo tanto, se rechaza la hipótesis nula de que existiría una asociación negativa entre los estratos de nivel de ingreso y el valor total de activos financieros, por lo que se sostiene la existencia de evidencia estadística que respalda la asociación entre el valor de activos con el estrato de nivel de ingreso de los hogares.
+
+El contraste tan marcado entre las asociaciones podría deberse a que para 2021, el uso de tarjetas con criptomonedas en hogares chilenos era una práctica incipiente, de manera que su bajo uso podría relacionarse con una débil conducta financiarizada en entornos digitales, mientras que la robustez de los datos y la asociación entre el valor total de activos financieros y el estrato de nivel de ingreso indicaría una prevalencia de conductas financiarizadas que podríamos denominar “tradicionales” en contraposición a uso de tarjetas con criptomonedas que es una práctica emergente.
+
+# Conclusiones
+
+El presente estudio se centró en buscar una relación entre el uso de tarjetas con criptomonedas, entendido como una forma de financiarización de los hogares chilenos en entornos digitales con dos factores socioeconómicos: estrato de nivel de ingresos y valor total de activos financieros. Los resultados muestran que si bien existen asociaciones estadísticamente significativas entre el uso de tarjetas con criptomonedas y los factores socioeconómicos mencionados, la magnitud de la fuerza de estas asociaciones es tan débil que su relevancia práctica es muy limitada, lo cual describe un escenario débilmente financiarizado en entornos digitales en la generalidad de los hogares encuestados.
+
+En contraposición a esto, se encontró una asociación positiva y moderada entre el valor total de activos financieros y el estrato de nivel de ingreso, lo cual indica que los hogares de mayor estrato de nivel de ingreso tienden a tener un mayor valor total de activos financieros. Esto indica que en los hogares de mayores ingresos podría haber una prevalencia de conductas financiarizadas que se pueden denominar como “tradicionales” en contraste a las nuevas prácticas digitales de financiarización.
+
+En cuanto a las limitaciones que se presentaron, la principal se relaciona con las características de la variable uso de tarjetas con criptomonedas y la baja concentración de respuestas “sí” (0.86%), lo que limitó la capacidad para encontrar asociaciones fuertes. Por otra parte, la distribución fuertemente asimétrica de la variable valor total de activos financieros, en donde más del 50% de los hogares reportó no tener activos financieros, y muy pocos reportaron valores extremadamente altos, surgen dificultades al interpretar el coeficiente de correlación como representativo de toda la población.
+
+A modo de cierre y como sugerencia para futuros análisis, se recomienda utilizar el glosario de la Encuesta Financiera de Hogares de 2021 en conjunto con el presente informe, con la finalidad de comprender a cabalidad las tendencias financieras recolectadas por dicha encuesta, las cuales no logran ser analizadas en su totalidad debido a la acotada extensión de este análisis. A su vez, se sugiere recodificar la variable continua “valor total de activos financieros” a una variable ordinal debido a que los datos de esta variable son altamente asimétricos, donde al menos el 50% de los hogares registrados reportan no poseer activos financieros.
+
+# Bibliografía
+
+Abalde, N., López-Roldán, P., & Massó M. (2024). Financialisation of everyday life: exploring socio economic behavior in Southern European Countries. EMPIRIA: Revista de Metodología de Ciencias Sociales, 61, 41-67. https://doi.org/61.2024.41282
+
+Encuesta financiera de Hogares (2022). Informe Metodológico. Banco Central de Chile, disponible en: https://www.bcentral.cl/documents/33528/3660586/Documento+Metodológico+EFH+2021.pdf/76935084-9482-a170-04ec-fa5593f6c920?t=1669222656176
+
+Jagati, S. (2024). Cómo creció la adopción de criptomonedas en 2023. https://es.cointelegraph.com/news/crypto-adoption-2023-investing-ventures Langley, P. (2008). Financialization and the consumer credit boom. Competition & Change, 12(2), 133-147.
+
+Marambio, A. (2018). El peso de la financiarización de la vida diaria del nuevo proletariado de servicios en Chile. Revista Central de Sociología, N°8, 2019 pp. 82 - 101. Disponible en: http://200.9.234.120/bitstream/handle/ucm/2650/marambio_a_peso.pdf?sequence=1&isAllowed=y
+
+Nakamoto, S. (2008). Bitcoin: A Peer-to-Peer Electronic Cash System. Disponible en: https://bitcoin.org/bitcoin.pdf
+
+Pereira, A. (2024). ¿Qué impacto tiene la Criptomoneda en la Economía Global?. https://fundacioneveris.com/economia-criptomonedas/que-impacto-tiene-la-criptomoneda/
+
+Van der Zwan, N. (2014). Making sense of financialization. Socio-Economic Review, 12(1): 99 - 129. https://doi.org/10.1093/ser/mwt020 Financieras (sf) Las criptomonedas y su impacto en el mercado financiero. https://financieras.org/blog/las-criptomonedas-y-su-impacto-en-el-mercado-financiero

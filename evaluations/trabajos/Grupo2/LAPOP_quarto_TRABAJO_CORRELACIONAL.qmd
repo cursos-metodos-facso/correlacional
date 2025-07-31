@@ -1,0 +1,732 @@
+---
+title: "Impacto de la percepción de seguridad en la aprobación de Bukele y confianza en el gobierno: Un análisis bivariado con datos de LAPOP 2023"
+subtitle: "Estadística Correlacional 2024, Carrera de Sociología - Universidad de Chile"
+description:  |
+  - Profesor: Juan Carlos Castillo
+  - Apoyos Docentes: Andreas Laffert y Martín Venegas
+
+author: 
+  - "Bastián Martin Gerdes"
+  - "Isidora Valencia Almendras"
+  - "Maite Jullian Corral"
+  - "Manuela Chateau Vives"
+  - "Marta Bascuñán Soto"
+
+date: "2024-12-01"
+
+abstract: "El Salvador ha desarrollado una política represiva y ha limitado derechos constitucionales de su ciudadanía en razón de mejorar la seguridad de dicho país. Se realizaron 3 asociaciones entre variables de la base de datos en la Encuesta Latin American Political Opinion Project (LAPOP), del año 2023. Este estudio tiene por objetivo contrastar tres hipótesis, primero, se espera que a mayor percepción de seguridad en la actualidad, mayor aprobación de Bukele (H1), segundo, se espera que a mayor noción de que mejoró la seguridad, mayor aprobación de Bukele (H2), y por último, se espera que exista una asociación entre la sensación de seguridad en la actualidad y la confianza en que el gobierno nacional está haciendo lo correcto (H3). Se utilizó el estadístico de prueba de hipótesis Spearman para las primeras dos asociaciones, y para la última se usó Chi cuadrado a a través del software Rstudio. Al hacer el análisis bivariado se puede mencionar que existe evidencia a favor de las hipótesis H1; (r =0.224, p<0.001), H2; (r =0.4165, p<0.001) y H3; (X2 = 151.94, df = 9, V = 0.185, p<0.001)."
+
+format: 
+  html:
+    theme: cosmos
+    css: estilos.css
+    mainfont: Times new roman
+    fontsize: 1.3em
+    linestretch: 2
+
+toc: true #arma menu
+toc-depth: 2
+number-sections: true
+code-fold: true
+code-summary: "ver código"
+lang: "es" # idioma
+execute: 
+  echo: false
+  eval: true 
+  message: false
+  warning: false
+  include: true
+
+
+editor: visual
+---
+
+```{r code, include =FALSE}
+# ******************************************************************************
+# 
+#                         Universidad de Chile
+#                     Facultad de Ciencias Sociales
+#                    Estadística Correlacional 2023
+#
+#
+# ******************************************************************************
+# Carga Librerías --------------------------------------------------------------
+
+pacman::p_load(tidyverse,
+               sjmisc,
+               knitr,
+               kableExtra,
+               sjPlot,
+               stargazer,
+               janitor,
+               crosstable,
+               table1,
+               haven,
+               car,
+               psych,
+               summarytools,
+               ggplot2,
+               dplyr,
+               broom
+) 
+
+options(scipen = 999)
+rm(list = ls())
+
+# Datos y procesamiento de datos -----------------------------------------------
+
+
+# Carga datos ------------------------------------------------------------------
+
+SLV_2023_LAPOP_AmericasBarometer_v1.0_w.sav <- read_sav ("http://datasets.americasbarometer.org/database/files/SLV_2023_LAPOP_AmericasBarometer_v1.0_w.sav") 
+
+# Filtrar y seleccionar -------------------------------------------------------
+
+data <- SLV_2023_LAPOP_AmericasBarometer_v1.0_w.sav %>%
+  dplyr::select(aprob_gob = m1, #1-5
+                gob_correct = anestg, #1-4
+                conf_pres = b21a, #1-7
+                sensa_seg = aoj11, #1-4
+                seg_pais = soe1, #1-3
+                seg_com = soe2, #1-3
+                seg_fam = soe3) #1-3
+
+## Remover NA's ----------------------------------------------------------------
+data$aprob_gob <- car::recode(data$aprob_gob, "c(888888,988888)=NA")
+data$gob_correct <- car::recode(data$gob_correct, "c(888888,988888)=NA")
+data$conf_pres <- car::recode(data$conf_pres, "c(888888,988888)=NA")
+data$sensa_seg <- car::recode(data$sensa_seg, "c(888888,988888)=NA")
+data$seg_pais <- car::recode(data$seg_pais, "c(888888,988888)=NA")
+data$seg_com <- car::recode(data$seg_com, "c(888888,988888)=NA")
+data$seg_fam <- car::recode(data$seg_fam, "c(888888,988888)=NA")
+
+colSums(is.na(data))
+sum(is.na(data))
+
+data<- na.omit(data)
+
+## Recodificar en función del sentido ------------------------------------------
+data <- data %>%
+  dplyr::mutate(aprob_gob = case_when(aprob_gob == 1  ~ 5, 
+                                      aprob_gob == 2 ~ 4,
+                                      aprob_gob == 3 ~ 3,
+                                      aprob_gob == 4 ~ 2,
+                                      aprob_gob == 5 ~ 1))
+
+data <- data %>%
+  dplyr::mutate(gob_correct = case_when(gob_correct == 1  ~ 4, 
+                                        gob_correct == 2 ~ 3,
+                                        gob_correct == 3 ~ 2,
+                                        gob_correct == 4 ~ 1))
+data <- data %>%
+  dplyr::mutate(sensa_seg = case_when(sensa_seg == 1  ~ 4, 
+                                      sensa_seg == 2 ~ 3,
+                                      sensa_seg == 3 ~ 2,
+                                      sensa_seg == 4 ~ 1))
+data <- data %>%
+  dplyr::mutate(seg_pais = case_when(seg_pais == 1  ~ 3, 
+                                     seg_pais == 2 ~ 2,
+                                     seg_pais == 3 ~ 1))
+data <- data %>%
+  dplyr::mutate(seg_com = case_when(seg_com == 1  ~ 3, 
+                                    seg_com == 2 ~ 2,
+                                    seg_com == 3 ~ 1))
+data <- data %>%
+  dplyr::mutate(seg_fam = case_when(seg_fam == 1  ~ 3, 
+                                    seg_fam == 2 ~ 2,
+                                    seg_fam == 3 ~ 1))
+
+#Para todas las variables, 1 es "menos" o "menor" y el número más grande es,
+#"más" o "mayor" o "mejor"...
+
+
+# Crear índice: aprobación del gobierno ----------------------------------------
+##Recodificación de variables
+
+data <- data %>%
+  mutate(r_aprob_gob = case_when(aprob_gob %in% c(1, 2) ~ 1,
+                                 aprob_gob == 3 ~ 2,
+                                 aprob_gob %in% c(4, 5) ~ 3))
+data <- data %>%
+  mutate(r_gob_correct = case_when(gob_correct %in% c(1, 2) ~ 1,  
+                                   gob_correct == 3 ~ 2,          
+                                   gob_correct == 4 ~ 3))
+data <- data %>%
+  mutate(r_conf_pres = case_when(conf_pres %in% c(1, 2) ~ 1,  
+                                 conf_pres %in% c(3, 4, 5) ~ 2,          
+                                 conf_pres %in% c(6, 7) ~ 3))
+#indice gobierno
+
+### Consistencia de la bateria de datos-----------------------------------------
+
+gobierno <- data %>%
+  dplyr::select(r_aprob_gob, r_gob_correct, r_conf_pres)
+
+sjPlot::tab_corr(gobierno, 
+                 triangle = "lower")
+
+psych::alpha(gobierno)
+
+#### Creación del indice -------------------------------------------------------
+
+data = data %>% 
+  rowwise() %>%
+  mutate(indice_gob = mean(c(r_aprob_gob, r_gob_correct, r_conf_pres))) %>% 
+  ungroup()
+
+summary(data$indice_gob)
+
+# Crear escala: de  seguridad --------------------------------------------------
+#Consistencia de la batería de variables y porqué no se eligió sensa_seg
+#Seguridad: todas las variables (no tiene buena correlación)
+
+seguridad <- data %>%
+  dplyr::select(sensa_seg, seg_pais, seg_com, seg_fam)
+
+sjPlot::tab_corr(seguridad,
+                 triangle = "lower")
+
+psych::alpha(seguridad)
+
+## Escala de Seguridad: varibles de cambio -------------------------------------
+#(estas sí tienen toda la correlación)
+
+cambio_seguridad <- data %>%
+  dplyr::select(seg_pais, seg_com, seg_fam)
+
+sjPlot::tab_corr(cambio_seguridad,
+                 triangle = "lower")
+### consistencia de la bateria de datos-----------------------------------------
+
+psych::alpha(cambio_seguridad)
+
+# Escala seguridad -------------------------------------------------------------
+
+data = data %>% 
+  rowwise() %>%
+  mutate(escala_seg= mean(c(seg_pais, seg_com, seg_fam))) %>% 
+  ungroup()
+
+summary(data$escala_seg)
+
+# Descriptivos -----------------------------------------------------------------
+## Descriptivos generales ------------------------------------------------------
+#Descriptivos de todas las variables a usar
+
+descriptivos <- data %>%
+  dplyr::select(aprob_gob, gob_correct, conf_pres, sensa_seg, seg_pais, seg_com,
+                seg_fam, indice_gob, escala_seg)
+
+psych::describe(descriptivos) %>%
+  kable() %>%
+  kable_styling(full_width = TRUE)
+
+### Tabla ----------------------------------------------------------------------
+
+## Descriptivos: Indice gobierno -----------------------------------------------
+
+psych::describe(data$indice_gob) %>%
+  kable() %>%
+  kable_styling(full_width = TRUE)
+
+describe(data$escala_seg)
+
+### Tabla ----------------------------------------------------------------------
+
+### Diagrama -------------------------------------------------------------------
+
+## Descriptivos: Escala de seguridad -------------------------------------------
+
+psych::describe(data$escala_seg) %>%
+  kable() %>%
+  kable_styling(full_width = TRUE)
+
+### Tabla ----------------------------------------------------------------------
+
+### Grafico  -------------------------------------------------------------------
+
+## Descriptivos: Sensación de seguridad ----------------------------------------
+
+psych::describe(data$sensa_seg) %>%
+  kable() %>%
+  kable_styling(full_width = TRUE)
+
+### Tabla ----------------------------------------------------------------------
+
+### Grafico --------------------------------------------------------------------
+
+# Análisis estadistico Bivariado -----------------------------------------------
+## Hipótesis 1:-----------------------------------------------------------------
+### Prueba de hipótesis --------------------------------------------------------
+###A mayor percepción de seguridad actual,
+###mayor aprobación del gobierno de Bukele
+
+gob_sensa_seg <- data %>% 
+  dplyr::select(indice_gob, sensa_seg)
+
+sjPlot::tab_corr(gob_sensa_seg, 
+                 na.deletion = "listwise",
+                 triangle = "lower")
+
+cor.test(data$indice_gob, data$sensa_seg)
+
+# Visualización bivariada ------------------------------------------------------
+
+## Hipótesis 2:-----------------------------------------------------------------
+### Prueba de hipótesis --------------------------------------------------------
+###A mayor noción de que mejoró la seguridad,
+###mayor aprobación de Bukele
+
+gob_escala_seg <- data %>% 
+  dplyr::select(indice_gob, escala_seg)
+
+sjPlot::tab_corr(gob_escala_seg, 
+                 na.deletion = "listwise",
+                 triangle = "lower")
+
+cor.test(data$indice_gob, data$escala_seg)
+
+# Visualización bivariada ------------------------------------------------------
+
+## Hipótesis 3:-----------------------------------------------------------------
+### Prueba de hipótesis --------------------------------------------------------
+### A mayor sensación de seguridad actual,
+###mayor confianza en que el gobiernonacional está haciendo lo correcto 
+
+sjPlot::sjt.xtab(data$sensa_seg, data$gob_correct,
+                 show.row.prc = TRUE,
+                 show.col.prc = TRUE)
+
+chisq.test(data$sensa_seg, data$gob_correct)
+
+# Visualización bivariada ------------------------------------------------------
+
+
+# Guardar datos ----------------------------------------------------------------
+```
+
+## Introducción
+
+Las fallidas políticas de seguridad de los gobiernos predecesores han aumentado la escalada de la violencia y con esto la desconfianza en instituciones y la clase política tradicional. El descontento con problemáticas sociales y políticas contribuyeron al triunfo de Nayib Bukele en el año 2019, imponiendo un régimen de excepción para combatir a las pandillas, una deriva autoritaria que lo ha convertido en uno de los presidentes salvadoreños mejor evaluados (Sanchez, 2024).
+
+Tras esto, El Salvador ha desarrollado un enfoque multifacético de medidas preventivas y represivas para combatir el crimen y la violencia para la recomposición de la paz dentro de sus límites territoriales, esto debido al aumento de crímenes y la violencia por parte de las pandillas desde finales de marzo del año 2022 (Milena & Sabykira, 2024).
+
+La relevancia de la investigación radica en el alto impacto mediático que ha tenido el gobierno de Bukele. En este mismo sentido, sus políticas con respecto a la seguridad en El Salvador, han sido de gran inspiración a la ultraderecha Latinoamericana, sobre cómo afrontar los niveles de delincuencia y violencia que el continente arrastra los últimos años.
+
+El Salvador se sumaba a los países en los que se había degradado notablemente la democracia (Martí & Rodriguez, 2024). Sabido es la disminución de la calidad democrática en dicho país, por las fuertes políticas impuestas. Es por eso, que es importante visualizar el impacto de dichas políticas en la percepción de seguridad y los niveles de aprobación del gobierno de Nayib Bukele.
+
+La percepción de seguridad, constituye un problema social real, que evidencia las consecuencias personales y sociales. Esto puede traer un problema por modificación de conductas hacia la violencia, aislamiento, abandono y degradación de espacios públicos, estigmatización de grupos considerados peligrosos y una demanda social de mayor seguridad que recae en el poder político (Fuentealba et al., 2016).
+
+Por seguridad se entiende como un estado o condición socio institucional subjetivo, influenciado por experiencias previas, factores sociales, culturales, en el cual se puede hacer libre ejercicio de derechos individuales y colectivos (Guerrero & Ramírez, 2017).
+
+La aprobación del poder ejecutivo actual, centrada en la confianza depositada en Nayib Bukele, puede entenderse como: la confianza se convierte en una condición necesaria para la formación de instituciones, pues su ausencia promueve el conflicto social, ya que las instituciones tienen la función de reducir el grado de incertidumbre que genera la complejidad social (Luhmann, 1996 citado por Beramendi, 2016). La confianza institucional depende de la percepción de buen desempeño y capacidad para satisfacer las demandas ciudadanas. El respaldo a Bukele refleja la percepción de eficacia en su gestión y atención a las expectativas de la población.
+
+Para esta investigación se desarrollaron tres hipótesis, en primer lugar, se espera que a mayor percepción de seguridad en la actualidad, mayor aprobación de Bukele (H1). En segundo lugar, se espera que a mayor noción de que mejoró la seguridad, mayor aprobación de Bukele (H2). Y por último, se espera que exista una asociación entre la sensación de seguridad en la actualidad y la confianza en que el gobierno nacional está haciendo lo correcto (H3).
+
+## Metodología
+
+### Datos
+
+Para este trabajo, se utilizaron los datos de Latin American Political Opinion Project (LAPOP) \[Proyecto de Opinión Pública Latinoamericano\] de AmericasBarometer del año 2023, una encuesta que mida las actitudes, evaluaciones, experiencias y comportamientos en adultos en distintos países de América Latina, en temas como la economía, la capacidad estatal, confianza en instituciones, valores individuales, corrupción, seguridad, y más (Vanderbilt University, s.f). Se utilizaron los datos específicos de El Salvador, del año 2023. La encuesta se llevó a cabo entre Julio y Agosto 2023, en modalidad presencial, y tiene un tamaño muestral de 1.516 personas.
+
+### Variables
+
+La variable "m1", renombrada "aprob_gob" en el procesamiento de los datos, mide la evaluación del encuestado del trabajo realizado por el presidente Nayib Bukele. Es una variable ordinal tipo Likert de 1 al 5, que fue recodificada, para que valores mayores indiquen una mejor evaluación. En la escala recodificada, 1 es "Muy malo (pésimo)" y 5 es "Muy bueno".
+
+La variable "anestg", renombrada "gob_correct", mide el nivel de confianza en que el gobierno nacional hace lo correcto. Es una variable categórica ordinal que va de 1 a 4, que fue recodificada, para que valores mayores indiquen mayor confianza. En la variable recodificada, 1 es "Nada" y 4 es "Mucho". La variable b21a, renombrada "conf_pres", mide el nivel de confianza en el presidente. Es una escala ordinal que va de 1 a 7, donde 1 es "Nada" y 7 es "Mucho".
+
+La variable "aoj11", renombrada "sensa_seg", mide la percepción de seguridad en la comunidad/colonia frente a la posibilidad de ser víctima de asalto o robo. Es una variable categórica ordinal que va de 1 a 4, que fue recodificada, para que valores mayores indiquen mayor percepción de seguridad. En la variable recodificada, 1 es "Muy inseguro(a)", y 4 es "Muy seguro(a)".
+
+La variable "soe1", renombrada "seg_pais", evalúa si, según el/la encuestado/a, la situación actual de seguridad del país está mejor, igual, o peor que antes del régimen de excepción. Es una variable ordinal que va de 1 a 3, donde 1 es "Mejor", 2 es "Igual", y 3 es "Peor". Fue recodificada para que un valor más alto indique una apreciación positiva. En la variable recodificada, 1 es "Peor" y 3 es "Mejor".
+
+La variable "soe2", renombrada "seg_com", evalúa si, según el/la encuestado/a, la situación actual de seguridad en su comunidad o colonia está mejor, igual, o peor que antes del régimen de excepción. Es una variable ordinal que va de 1 a 3, con los mismos valores que "soe1". Fue recodificada para que un valor más alto indique una apreciación positiva. En la variable recodificada, 1 es "Peor" y 3 es "Mejor".
+
+La variable "soe3", renombrada "seg_fam", evalúa si, según el/la encuestado/a, la situación actual de seguridad en su familia está mejor, igual, o peor que antes del régimen de excepción. Es una variable ordinal que va de 1 a 3, con los mismos valores que "soe1". Fue recodificada para que un valor más alto indique una apreciación positiva. En la variable recodificada, 1 es "Peor" y 3 es "Mejor".
+
+Se crearon dos variables nuevas. Primero, un índice de aprobación del poder ejecutivo actual, de Nayib Bukele, ("indice_gob"), reuniendo las variables "aprob_gob", "gob_correct", y "conf_pres"; considerando que las variables miden distintas dimensiones de la aprobación del poder ejecutivo. Dado que las variables tienen todas niveles de medición distintos, se recodificaron de modo que todas quedaron con 3 niveles, donde 1 indica menor presencia del atributo o una apreciación negativa, y 3 indica mayor presencia del atributo o una apreciación positiva. Se promediaron las 3 variables (con igual ponderación), creando un índice (continuo) que va de 1 a 3, donde valores más cercanos a 1 indican menor aprobación del poder ejecutivo, y más cercanos a 3 indican mayor aprobación.
+
+Además, se creó una escala con las variables "seg_pais", " seg_com", y "seg_fam", a modo de unir las tres variables que preguntan sobre la percepción de mejoría de la situación de seguridad después del régimen de excepción ("escala_seg"). Se promediaron las tres variables, generando una escala continua que va del 1 al 3, donde 1 es "Peor" y 3 es "Mejor", y los valores intermedios indican mayor proximidad a una u otra apreciación.
+
+```{r}
+#| label: fig-1
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Tabla: Resumen de descriptivos de todas las variables'
+#| echo: true
+
+descriptivos <- data %>%
+  dplyr::select(aprob_gob, gob_correct, conf_pres, sensa_seg, seg_pais, seg_com, seg_fam, indice_gob, escala_seg)
+
+tab1<-psych::describe(descriptivos) %>%
+  kable() %>%
+  kable_styling(full_width = TRUE)
+
+tab1
+```
+
+### Métodos
+
+Para evaluar Hipótesis 1, se calculó el coeficiente de correlación de Spearman entre las variables "sensa_seg" e "indice_gob", para evaluar si existe una correlación estadísticamente significativa entre percepción de seguridad actual y aprobación al poder ejecutivo.
+
+Para la Hipótesis 2, se calculó el coeficiente de correlación de Spearman entre las variables "escala_seg" e "indice_gob", para evaluar si existe una asociación estadísticamente significativa entre la percepción de mejoría de la seguridad y aprobación al poder ejecutivo.
+
+En el caso de Hipótesis 3, se usó la prueba de Chi-Cuadrado (X2) entre las variables "sensa_seg" y "gob_correct", para evaluar si existe una asociación estadísticamente significativa entre la percepción de seguridad actual y el nivel de confianza en que el gobierno nacional está haciendo lo correcto.
+
+Los análisis estadísticos para contraste de hipótesis, y análisis descriptivo se realizaron en el software RStudio.
+
+## Análisis
+
+### Análisis descriptivo
+
+#### Escala de percepción de mejoría de la seguridad
+
+```{r}
+#| label: fig-2
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Tabla de descriptivos: de escala de seguridad'
+#| echo: true
+
+tab2<-psych::describe(data$escala_seg) %>%
+  kable() %>%
+  kable_styling(full_width = TRUE)
+
+tab2
+
+```
+
+Como se presenta la @fig-2, en la escala de percepción de mejoría de la seguridad (después del régimen de excepción) el promedio es de 2.838651. Dado que el mínimo es 1, y el máximo es 3, se deduce de la media que mayoritariamente las personas consideran que la situación de seguridad ha mejorado. La mediana es 3, lo que indica que al menos el 50% de las personas encuestadas opinan que la seguridad ha mejorado.
+
+```{r}
+#| label: fig-3
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Diagrama de densidad: Escala de seguridad'
+#| echo: true
+
+
+diagrama3<-ggplot(data = data, 
+       mapping = aes(x = escala_seg)) + 
+  geom_density(color = "black", fill = "darkred", alpha = 0.8)  + 
+  labs(title ="Diagrama de densidad: Escala de seguridad", 
+       x = "Seguridad", 
+       y = "Frecuencia",
+       caption = "Fuente: Elaboración propia en base a LAPOP 2023.") 
+
+diagrama3
+```
+
+#### Índice de aprobación del poder ejecutivo
+
+```{r}
+#| label: fig-4
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Tabla de descriptivos: índice de gobierno'
+#| echo: true
+
+tab4<-psych::describe(data$indice_gob) %>%
+  kable() %>%
+  kable_styling(full_width = TRUE)
+
+
+tab4
+```
+
+En el índice de aprobación del poder ejecutivo la @fig-4 presenta que el promedio es 2.51437, y la mediana es 2.66. Dado que el mínimo es 1 y el máximo 3, se deduce de la media y la mediana que hay una alta aprobación del poder ejecutivo, pero menos transversal que la percepción de mejoría de la seguridad.
+
+```{r}
+#| label: fig-5
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Diagrama de densidad: Índice de aprobación del poder ejecutivo actual'
+#| echo: true
+
+
+diagrama5<-ggplot(data = data, 
+       mapping = aes(x = indice_gob)) + 
+  geom_density(color = "black", fill = "darkred", alpha = 0.8)  + 
+  labs(title ="Diagrama de densidad: Índice de aprobación del poder ejecutivo actual", 
+       x = "Aprobación del poder ejecutivo actual", 
+       y = "Frecuencia",
+       caption = "Fuente:  Elaboración propia en base a LAPOP 2023.") 
+
+diagrama5
+```
+
+#### Percepción de seguridad actual:
+
+```{r}
+#| label: fig-6
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Tabla de descriptivos: Percepción de seguridad'
+#| echo: true
+
+tab6<-psych::describe(data$sensa_seg) %>%
+  kable() %>%
+  kable_styling(full_width = TRUE)
+
+tab6
+```
+
+La variable de percepción de seguridad actual "sensa_seg", como se muestra en la @fig-6, tiene un total de 1473 de observaciones válidas, que varían entre el 1 y el 4. La media es 3.2614, con una mediana de 3, lo que sugiere una distribución centrada cerca de este valor, y una percepción de seguridad actual mediana-alta.
+
+```{r}
+#| label: fig-7
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Grafico de barras: Percepción de seguridad'
+#| echo: true
+
+
+grafico7<-ggplot(data = data, 
+       mapping = aes(x = sensa_seg)) +
+  geom_bar(color = "black", fill = "#5D3766") + 
+  scale_y_continuous(limits = c(0,750)) + 
+  geom_text(aes(label = ..count..), stat = "count", vjust = 2, colour = "white") +
+  labs(title ="Grafico de barras: Percepción de seguridad actual",
+       y = "Cantidad",
+       x = "Percepción de seguridad actual (Siendo 1 'Muy inseguro' y 4 'Muy seguro)'",
+      caption = "Fuente:  Elaboración propia en base a LAPOP 2023.") 
+
+
+grafico7
+```
+
+### Análisis estadístico bivariado
+
+#### Hipótesis 1
+
+```{r}
+#| label: fig-8
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Asociación entre percepción de seguridad actual, y nivel de aprobación del poder ejecutivo'
+#| echo: true
+
+
+grafico8 <- sjPlot::plot_scatter(
+  data = data, 
+  x = sensa_seg,
+  y = indice_gob, 
+  fit.line = "lm",      
+  show.ci = FALSE,     
+  dot.size = 1 
+) +
+  labs(title ="Asociación entre percepción de seguridad actual, y nivel de aprobación del poder ejecutivo", 
+       y = "Aprobación del poder ejecutivo", 
+       x = "Percepción de seguridad actual",
+       caption = "Fuente: Elaboración propia en base a LAPOP 2023.") +  
+  theme_bw() 
+
+grafico8
+
+```
+
+```{r}
+#| label: fig-9
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Resultados del cálculo de la correlación de Spearman para H1'
+#| echo: false
+
+H1 <- cor.test(data$indice_gob, data$sensa_seg)
+
+tab_h1 <- tidy(H1)
+
+tab_h1 %>%
+    dplyr::mutate(
+        estimate = round(estimate, 4),
+        statistic = round(statistic, 4),
+        ic_95 = paste0("[", round(conf.low, 2), ",", round(conf.high, 2), "]"),
+        stars = gtools::stars.pval(p.value),
+        p_value = case_when(
+            p.value < 0.05 & p.value > 0.01 ~ "< 0.05",
+            p.value < 0.01 & p.value > 0.001 ~ "< 0.01",
+            p.value < 0.001 ~ "< 0.001",
+            TRUE ~ ""
+        ),
+        p_value = paste0(p_value, stars)
+    ) %>%
+    dplyr::select(estimate, statistic, p_value, parameter, method, alternative, ic_95) %>%
+    kableExtra::kable(
+        col.names = c("Correlación", "t", "p-value", "df", "Método", "Alternativa", "95% IC"),
+        booktabs = T
+    ) %>%
+    kableExtra::kable_styling(
+        bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+        full_width = T,
+        latex_options = "hold_position",
+        position = "center"
+    )
+
+
+```
+
+H0 : La relación entre la percepción de seguridad actual ("sensa_seg") y el nivel aprobación al poder ejecutivo (indice_gob) es nula o negativa.
+
+HA: En medida en que la percepción de seguridad actual ("sensa_seg") es mayor, el nivel aprobación al poder ejecutivo (indice_gob) es mayor.
+
+En la @fig-8 se muestra la correlación de las variables "sensa_seg" y "indice_gob". Se observa que la concentración de casos aumenta hacia los valores mayores de percepción de seguridad; y al mismo tiempo hacia más altos de aprobación del poder ejecutivo, pero con menor intensidad. Además, la línea de regresión muestra una correlación ascendente y de moderada pendiente. Para calcular la correlación, se calculó el coeficiente de correlación de Spearman. Se puede apreciar en la @fig-9 que según los criterios de Cohen la correlación es pequeña, y es positiva, y estadísticamente significativa (*r* =0.224, p\<0.001), lo que permite rechazar la hipótesis nula H0. Con un 99.9% de confianza se rechaza la hipótesis nula H0 y podemos decir que existe evidencia a favor de la hipótesis alternativa HA, de que a mayor percepción de seguridad en la actualidad, mayor la aprobación del poder ejecutivo.  
+
+#### Hipótesis 2
+
+```{r}
+#| label: fig-10
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Asociación entre percepción de mejoría de seguridad después del estado de excepción y nivel de aprobación al poder ejecutivo'
+#| echo: true
+
+
+grafico9 <- sjPlot::plot_scatter(
+  data = data, 
+  x = escala_seg,
+  y = indice_gob, 
+  fit.line = "lm",     
+  show.ci = FALSE,       
+  dot.size = 2 
+) +
+  labs(title ="Asociación entre percepcion de mejoría de la seguridad y nivel de aprobación al poder ejecutivo", 
+       y = "Nivel de aprobación al poder ejecutivo", 
+       x = "Percepción de mejoría de la seguridad",
+       caption = "Fuente: Elaboración propia en base a LAPOP 2023.") + 
+  theme_bw() 
+grafico9
+```
+
+```{r}
+#| label: fig-11
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Resultados del cálculo de la correlación de Spearman para H2'
+#| echo: false
+
+H2 <- cor.test(data$indice_gob, data$escala_seg)
+
+tab_h2 <- tidy(H2)
+
+tab_h2 %>%
+    dplyr::mutate(
+        estimate = round(estimate, 4),
+        statistic = round(statistic, 4),
+        ic_95 = paste0("[", round(conf.low, 2), ",", round(conf.high, 2), "]"),
+        stars = gtools::stars.pval(p.value),
+        p_value = case_when(
+            p.value < 0.05 & p.value > 0.01 ~ "< 0.05",
+            p.value < 0.01 & p.value > 0.001 ~ "< 0.01",
+            p.value < 0.001 ~ "< 0.001",
+            TRUE ~ ""
+        ),
+        p_value = paste0(p_value, stars)
+    ) %>%
+    dplyr::select(estimate, statistic, p_value, parameter, method, alternative, ic_95) %>%
+    kableExtra::kable(
+        col.names = c("Correlación", "t", "p-value", "df", "Método", "Alternativa", "95% IC"),
+        booktabs = T
+    ) %>%
+    kableExtra::kable_styling(
+        bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+        full_width = T,
+        latex_options = "hold_position",
+        position = "center"
+    )
+
+
+```
+
+H0 : La relación entre percepción de mejoría de la seguridad después del régimen de excepción ("escala_seg") y la aprobación al poder ejecutivo (indice_gob) es nula o negativa.
+
+HA: En medida en que la sensación de mejoría de la seguridad después del régimen de excepción ("escala_seg") es mayor, la aprobación al poder ejecutivo (indice_gob) es mayor.
+
+En la @fig-10 se muestra la correlación entre las variable "escala_seg" e "indice_gob". Se observa que una concentración de casos que aumenta fuertemente hacia los valores mayores de percepción de mejoría de la seguridad; y en menor medida, también aumenta hacia valores mayores de aprobación al poder ejecutivo. Además, la línea negra muestra una correlación ascendente y de fuerte pendiente. Para calcular la correlación, se calculó el coeficiente de correlación de Spearman. Se puede apreciar en la @fig-11 que según los criterios de Cohen la correlación es moderada, y es positiva y estadísticamente significativa (*r* =0.4165, p\<0.001), lo que permite rechazar la hipótesis nula H0. Con un 99.9 de confianza se rechaza la hipótesis nula H0, con evidencia a favor de la hipótesis alternativa HA, de que a mayor percepción de mejoría de la seguridad, mayor es la aprobación al poder ejecutivo.
+
+#### Hipótesis 3
+
+```{r}
+#| label: fig-12
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Asociación entre percepción de mejoría de seguridad después del estado de excepción y la confianza en que el gobierno hace lo correcto'
+#| echo: true
+
+tabla <- table(data$sensa_seg, data$gob_correct)
+tabla_df <- as.data.frame(as.table(tabla))
+
+# Heatmap
+grafico10<-ggplot(tabla_df, aes(Var1, Var2, fill = Freq)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient(low = "pink", high = "darkred") +
+  labs(
+    x = "Sensación de Seguridad",
+    y = "Confianza en el Gobierno",
+    fill = "Frecuencia"
+  ) +
+  theme_minimal()
+grafico10
+```
+
+```{r}
+#| label: fig-13
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Resultados de la prueba de Chi-cuadrado (X2) para H3'
+#| echo: false
+
+H3 <- chisq.test(data$sensa_seg, data$gob_correct)
+
+tab_h3 <- tidy(H3)
+
+tab_h3 %>%
+    dplyr::mutate(
+        statistic = round(statistic, 2),
+        p_value = case_when(
+            p.value < 0.05 & p.value > 0.01 ~ "< 0.05*",
+            p.value < 0.01 & p.value > 0.001 ~ "< 0.01**",
+            p.value < 0.001 ~ "< 0.001***",
+            TRUE ~ ""
+        )
+    ) %>%
+    dplyr::select(statistic, p_value, parameter, method) %>%
+    kableExtra::kable(
+        format = "html",
+        col.names = c("X2", "p-value", "df", "Método"),
+        booktabs = T,
+        caption = "Prueba de Chi-cuadrado entre la sensación de seguridad actual y la confianza en que el gobierno nacional hace lo correcto"
+    ) %>%
+    kableExtra::kable_styling(
+        bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+        full_width = T,
+        latex_options = "hold_position",
+        position = "center"
+    ) %>%
+    column_spec(4, width = "8cm")
+
+```
+
+H0: No existe asociación entre la sensación de seguridad actual ("sensa_seg") y el nivel de confianza en que el gobierno nacional hace lo correcto ("conf_gob").
+
+HA: Existe una asociación entre la sensación de seguridad actual ("sensa_seg") y el nivel de confianza en que el gobierno nacional hace lo correcto("conf_gob"). 
+
+En la @fig-12 se muestra la asociación de las variables "sensa_seg" y "conf_gob". Se observa que la frecuencia de casos aumenta significativamente hacia mayores valores en la sensación de seguridad actual, y en menor medida, hacia mayores niveles de confianza en que el gobierno nacional hace lo correcto. Se aplicó la prueba de Chi-cuadrado (X2), como se puede apreciar en la @fig-13 nos entregó un valor X2 = 151.94, para 9 grados de libertad, y un valor *p*\<0.001. Además, se calculó el V de Cramer, que señala el tamaño del efecto; el cual sería pequeño en este caso, con *V* = 0.185. Con 9 grados de libertad, se observa que el X2 empírico es mayor al X2, crítico. Por lo tanto, tenemos una asociación pequeña y estadísticamente significativa. Con un 99.9% de confianza, se rechaza la hipótesis nula H0 de no asociación entre las variables (X2 = 151.94, *df* = 9, *V* = 0.185, *p*\<0.001).
+
+## Conclusiones
+
+El análisis exploró la relación entre la sensación de seguridad actual, la percepción de mejora de seguridad y la aprobación del poder ejecutivo en las personas de El Salvador. El análisis fue producido a base de la encuesta LAPOP del 2023 desarrollada en El Salvador. Las correlaciones entre las variables resultaron ser moderadas, positivas y significativas estadísticamente, por lo que se observa que efectivamente existe una relación entre la seguridad y la confianza en el poder ejecutivo en El Salvador, aunque esta pareciera no ser tan fuerte. Como limitaciones dentro del presente trabajo, se observa el hecho de que la legitimidad en el gobierno no se relaciona exclusivamente con la sensación y percepción de seguridad, por lo que el análisis producido no resulta suficiente para comprender la compleja situación en El Salvador. Otra limitación se encuentra en el tipo de datos utilizados, ya que al ser una encuesta de opinión pública, la información obtenida de esta puede estar sesgada, resultando en datos que tal vez no representan de la forma más adecuada la realidad en El Salvador. Por otro lado, resultaría interesante analizar qué otros factores se relacionan con la legitimidad de Nayib Bukele, si es que los hay. Además de esto, podrían realizarse comparaciones con otros años y con otros países de la región en los que se haya realizado la encuesta LAPOP.
+
+## Bibliografía {#bibliografia}
+
+Beramendi, M., Delfino G. & Zubieta E. (2016) Confianza Institucional y Social: Una Relación Insoslayable. *Acta de investigación psicológica, 6*(1), 2289 - 2301. <https://www.redalyc.org/articulo.oa?id=358945983005>
+
+Duque y Moreno (2024). *Análisis de la efectividad de las estrategias de seguridad en la reducción de la violencia en el Salvador: Administración de Najib Bukele (2022-2023)* \[Universidad Tecnológica ECOTEC\]. <https://repositorio.ecotec.edu.ec/handle/123456789/1157>
+
+Fuentealba, P. Rojas, J. y Barriga, O. (2016). Diferencias en la percepción de inseguridad a nivel cognitivo y emocional de acuerdo al perfil sociodemográfico y político: Estudio del Gran Concepción, Chile. *Política criminal, 11*(22), 620-655. <https://dx.doi.org/10.4067/S0718-33992016000200008>
+
+Guerrero, B. M., y Ramírez, I. S. (2017). *Informe final de proyecto de título para optar al grado académico de licenciado en trabajo social y el título profesional de trabajador social.* \[Tesis de pregrado, Universidad de Valparaíso\] <http://repositoriobibliotecas.uv.cl/handle/uvscl/5507>
+
+Martí Puig, S., y Rodríguez Suárez, D. (2024). Nayib Bukele, seguridad a cambio de democracia. *Más Poder Local*, (56), 141-154. <https://doi.org/10.56151/maspoderlocal.231>
+
+Sanchez, M. (2024). De las políticas de mano dura a la política del estado de excepción en El Salvador. *ECA: Estudios Centroamericanos, 79*(776), 13-46. <https://doi.org/10.51378/eca.v79i776.8198>
+
+Vanderbilt University (s.f.) *AmericasBarometer*. <https://www.vanderbilt.edu/lapop/about-americasbarometer.php>
