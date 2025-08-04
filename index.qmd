@@ -52,7 +52,7 @@ withr::with_dir(here::here(), {
 #### Apoyo Docente
 
 <div class="image-cropper">
-  <img src="https://multinivel-facso.netlify.app/files/img/kevin.png" alt="avatar" class="profile-pic"   width= "100" height= "auto">
+  <img src="https://ucampus.uchile.cl/d/r/usuario/f1/f102fdb482bd26aa12d41abfa8054b0b/perfil/75bf44ba76242207373e3bda4ea0733f.jpg" alt="avatar" class="profile-pic"   width= "10" height= "auto">
 </div>
 - {{< fa user >}} &nbsp; Kevin Carrasco
 - {{< fa building >}} &nbsp; 328 Sociología FACSO, Universidad de Chile
