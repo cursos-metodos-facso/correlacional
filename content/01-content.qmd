@@ -1,6 +1,6 @@
 ---
 title: "Presentación"
-date: "2024-08-12"
+date: "2025-08-04"
 lang: es
 execute:
   freeze: auto   
