@@ -16,7 +16,7 @@ output:
       beforeInit: "libs/macros.js"
     seal: false # esto omite title slide automática
 ---
-class: front
+class: front darkgreen
 
 
 ```{r setup, include=FALSE, cache = FALSE}
@@ -137,6 +137,9 @@ Individuos en contexto social
 (C.Wright Mills)]
 ]
 ]
+
+--
+
 .pull-right[
 .center[
 .content-box-green[
@@ -175,10 +178,7 @@ class: inverse middle center
 
 ## _"El problema con el mundo es que las personas inteligentes están llenas de dudas, mientras que las estúpidas están llenas de certezas"_ (Bukowski)
 
----
-class: middle center
-![](https://jc-castillo.com/images/albums/gallery/dino3.png)
-
+![:scale 50%](img/dino.png)
 
 ---
 class: inverse middle center
