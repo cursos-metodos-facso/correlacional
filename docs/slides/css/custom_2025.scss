@@ -1,0 +1,57 @@
+/*-- scss:defaults --*/
+
+@import url(./fonts/league-gothic/league-gothic.css);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:ital@0;1&display=swap');
+
+// fonts
+$font-family-sans-serif:  'Montserrat' !default;
+
+// colors
+$body-bg: #fff !default;
+$body-color: #212529 !default;
+$link-color: #3498db !default;
+$selection-bg: #fff !default;
+
+
+// headings
+$presentation-heading-font: "Montserrat", sans-serif !default;
+$presentation-heading-color: #041E42 !default;
+
+$heading1Size: 3.00em;
+$heading2Size: 2.11em;
+$heading3Size: 1.55em;
+$heading4Size: 1.00em;
+
+
+// code blocks
+$code-block-border-color: #93a1a1 !default;
+
+
+
+/*-- scss:rules --*/
+.reveal .footer {
+ color: #1b241f !important;
+
+}
+
+.hide-logo .slide-logo {
+  display: none !important;
+}
+
+.content-box-red {
+  background-color: #c0392b;
+  color: white;
+  padding: 0.5em;
+  border-radius: 1px;
+}
+
+.content-box-green {
+  background-color: #27ae60;
+  color: white;
+  padding: 0.5em;
+  border-radius: 1px;
+}
+
+.columns {
+  align-items: center;
+}

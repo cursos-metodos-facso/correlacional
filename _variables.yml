@@ -21,15 +21,14 @@ other2:
 
 course:
   number: "PMAP 8521"
-  semester: "Segundo 2024"
-  days: "Lunes y Martes"
-  time: "10:15-11:45 (Lunes) y 8:30-10:00  (Martes)"
-  location: "Lunes - Aulario C6, Martes - Aulario C7-C8 & FACSO 345"
-  dates: "12 Agosto al 29 de Noviembre, 2023"
+  semester: "Segundo 2025"
+  days: "Lunes y Miércoles"
+  time: "08:30-10:00 (Lunes) y 8:30-10:00  (Miércoles)"
+  location: "Lunes - Aulario C6, Miércoles - Aulario B1 & FACSO 345"
+  dates: "04 Agosto al 26 de Noviembre - 2025"
   github: "https://github.com/cursos-metodos-facso/correlacional"
   url: "https://correlacional.netlify.app"
-  copyright_year: "2024"
-  slack: ""
+  copyright_year: "2025"
 
 university:
   name: Universidad de Chile

@@ -89,9 +89,10 @@ Complementariamente se espera que los estudiantes adquieran herramientas que les
 
 - Curva normal  y error estándar
 
+
 - Intervalos de confianza
 
-- Test de hipótesis
+- Test de hipótesis - Pruebas t y Z
 
 - Hipótesis no direccionales y para proporciones
 
@@ -123,7 +124,7 @@ Complementariamente se espera que los estudiantes adquieran herramientas que les
 
 3. **Trabajos**: se desarrollarán trabajos de investigación que permitirán a l_s participantes aplicar contenidos y recibir retroalimentación de su desempeño. Los trabajos serán asesorados por ayudantes que se asignarán a cada grupo.
 
-El semestre comienza con clases lectivas, y posteriormente se integran elementos prácticos y de aplicación.
+El semestre comienza con clases lectivas, y posteriormente se integran progresivamente elementos prácticos y de aplicación.
 
 - Las clases en general se acompañan de documentos de presentación, que estarán disponibles antes de la sesión en la página de Clases, y están desarrollados con base en Rmarkdown/Xaringan. Estos documentos no son:
 
@@ -137,8 +138,7 @@ El curso tendrá tres instancias de evaluación **(actualizado)**:
 
 - Evaluación 1: Inferencia (30%, teórico) 
 - Evaluación 2: Asociación (40% = 30% teórico + 10% práctico)
-- Evaluación 3: Reporte de aplicación - trabajo grupal (30%= 20% reporte escrito + 10% poster)
-
+- Evaluación 3: Reporte de aplicación - trabajo grupal (30%= 25% reporte escrito + 5% presentación/cápsula)
 
 La nota ponderada de las evaluaciones equivaldrá al 60% de la nota del curso y el examen final al 40% restante.
 
@@ -193,6 +193,23 @@ Requisitos para presentación a examen:
 
 - El examen de segunda oportunidad será para aquellos estudiantes que presenten una nota igual o inferior a 3.5 o aquellos que en el examen de primera oportunidad no hubiesen logrado una nota igual o superior a 4.0.
 
+## Sobre asistencia, participación y comunicación
+
+- Asistencia mínima: 75%, se controlará a la entrada de la clase con código QR (8:30 - tope 8:45). Si no se cumple con asistencia, se pasa directo a examen de primera oportunidad. 
+
+- Informar flexibilidades académicas al principio del semestre (en caso que la jefatura de carrera no lo haga de manera centralizada). Las flexibilidades académicas no aplican para cambios de fechas de evaluaciones grupales. 
+
+- Se espera y enfatiza la participación activa por distintos canales disponibles. Estos son:
+  - contacto por correo con equipo docente del curso (profesor y apoyos docentes)
+  - espacio para resolver dudas individualmente al final de la clase
+  - reuniones con equipo docente, para lo cual se deben inscribir previamente en la página inicial de este sitio
+  - foros, disponibles tanto para las [clases](/content/foro-clases.qmd) como para los [prácticos](/assignment/foro-practicos.qmd).
+  - mentorías con ayudantes asignados
+  
+- También se enfatiza un trato respetuoso y horizontal. Quienes están tomando este curso serán referidos como participantes y/o estudiantes, evitar el uso de “l_s cabr_s” o “l_s chiquill_s”, que si bien puede intentar transmitir cercanía finalmente expresan un trato paternalista y peyorativo de la contraparte. Quien no se sienta tratad_ apropiadamente o vea que otr_s no lo están siendo, se solicita reportar para solucionar la situación.
+
+- No se responderán mensajes fuera del horario laboral (incluyendo por supuesto fines de semana).
+
 ## Bibliografía Obligatoria 
 
 Capítulos correspondientes a cada sesión de los siguientes textos principales:
@@ -210,25 +227,6 @@ Field, A., Milles, J., & Field, Z. (2012). Discovering statistics using R. Londo
 Salkind, N. J. (Ed.). (2010). Encyclopedia of research design (Vol. 1). Sage.
 
 Levin, J. & Levin, W. (1997). Fundamentos de Estadística en la Investigación Social (Vol.2). Oxford University Press. 
-
-
-## Sobre participación y comunicación
-
-- Se espera asistencia y participación activa, tanto a las sesiones lectivas como a las prácticas. Se pasará lista en todas las sesiones. No habrá penalización por inasistencia, pero si llevaremos registro principalmente con objetivos de monitoreo y retroalimentación del curso.
-
-- Informar flexibilidades académicas al principio del semestre (en caso que la jefatura de carrera no lo haga de manera centralizada). Las flexibilidades academicas no aplican para cambios de fechas de evaluaciones grupales. 
-
-- Se espera y enfatiza la participación activa por distintos canales disponibles. Estos son:
-  - contacto por correo con equipo docente del curso (profesor y apoyos docentes)
-  - espacio para resolver dudas individualmente al final de la clase
-  - reuniones con equipo docente, para lo cual se deben inscribir previamente en la página inicial de este sitio
-  - foros, disponibles tanto para las [clases](/content/foro-clases.qmd) como para los [prácticos](/assignment/foro-practicos.qmd).
-  - mentorías con ayudantes asignados
-  
-- También se enfatiza un trato respetuoso y horizontal. Quienes están tomando este curso serán referidos como participantes y/o estudiantes, evitar el uso de “l_s cabr_s” o “l_s chiquill_s”, que si bien puede intentar transmitir cercanía finalmente expresan minimización de la contraparte. Quien no se sienta tratad_ apropiadamente o vea que otr_s no lo están siendo, se solicita reportar para solucionar la situación.
-
-- No se responderán mensajes fuera del horario laboral (incluyendo por supuesto fines de semana).
-
 
 ## Programación de sesiones
 

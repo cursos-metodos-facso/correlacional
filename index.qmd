@@ -2,7 +2,7 @@
 title: "Estadística Correlacional"
 subtitle: "Inferencia, asociación y reporte"
 details: |
-  SOC01019 • Segundo Semestre 2024<br>Departamento de Sociología, Facultad de Ciencias Sociales<br>Universidad de Chile
+  SOC01019 • Segundo Semestre 2025<br>Departamento de Sociología, Facultad de Ciencias Sociales<br>Universidad de Chile
 sidebar: false
 toc: false
 page-layout: full
@@ -15,7 +15,7 @@ execute:
 course-logo: /files/logo-correlacional.png
 listing:
   id: informaciones
-  contents: "news/2024*.qmd"
+  contents: "news/2025*.qmd"
   type: grid
   sort: "date desc"
   categories: false
@@ -30,108 +30,55 @@ withr::with_dir(here::here(), {
 })
 ```
 
-:::: {.columns}
+::: {.home}
 
-:::: {style="background-color: #E1F2F2"}
-
-### Equipo docente
-::: {.column width="40%"}
+::: {.grid .course-details}
 
 
-**Profesor**
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+### Profesor
+
 
 <div class="image-cropper">
-  <img src="https://ucampus.uchile.cl/d/r/usuario/ff/ffd4a9d15a5239c0a425a58a798889c8/perfil/bf49d6261628eb095bcaec76eda1e0d1.jpg" alt="avatar" class="profile-pic">
+  <img src="https://ucampus.uchile.cl/d/r/usuario/ff/ffd4a9d15a5239c0a425a58a798889c8/perfil/3f226cddefb67f6a7d4c047fec39097f.jpg" alt="avatar" class="profile-pic" width= "100" height= "auto">
 </div>
 
-
-
-[{{< var instructor.name >}}]({{< var instructor.url >}})
-
-- {{< fa university >}} &nbsp; {{< var instructor.office >}}
-- {{< fa envelope >}} &nbsp; {{< var instructor.email >}}
+- {{< fa user >}} &nbsp; [{{< var instructor.name >}}]({{< var instructor.url >}})
+- {{< fa building >}} &nbsp; {{< var instructor.office >}}
+- {{< fa envelope >}} &nbsp; <a href="mailto:juancastillov@uchile.cl">juancastillov@uchile.cl</a>
 - {{< fa calendar-check >}} &nbsp; [Agendar reunión]({{< var instructor.appointment_url >}})
 
-:::
-
-::: {.column width="10%"}
-
-:::
-
-::: {.column width="38%"}
-
-**Apoyos docentes**
+#### Apoyo Docente
 
 <div class="image-cropper">
-  <img src="/slides/img/martin.png" alt="avatar" class="profile-pic">
+  <img src="https://multinivel-facso.netlify.app/files/img/kevin.png" alt="avatar" class="profile-pic"   width= "100" height= "auto">
 </div>
+- {{< fa user >}} &nbsp; Kevin Carrasco
+- {{< fa building >}} &nbsp; 328 Sociología FACSO, Universidad de Chile
+- {{< fa envelope >}} &nbsp; <a href="mailto:kevinkevin.carrasco@ug.uchile.cl ">kevin.carrasco@ug.uchile.cl </a>
+- {{< fa calendar-check >}} &nbsp; Agendar reunión
 
-*Martín Venegas*
-
-- {{< fa envelope >}} &nbsp; {{< var other2.email >}}
-
-<div class="image-cropper">
-  <img src="https://ucampus.uchile.cl/d/r/usuario/5b/5b662afdc07fea74ce535d3c5e29712e/perfil/f812fd6a269ed14b58c1e61866f47274.jpg" alt="avatar" class="profile-pic">
-</div>
-
-
-*Andreas Laffert T.*
-
-- {{< fa envelope >}} &nbsp; {{< var other.email >}}
 
 :::
 
-:::: {.columns}
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+### Actividades
 
-**Ayudantes**
+- {{< fa clock >}} &nbsp; **Lunes 08:30-10:00** - Aulario C Sala 6
 
-::: {.column width="32%"}
-
-- Victoria Arias
-- Jesús Díaz
-- Javiera González
-- Antonia Jiménez
-:::
-
-::: {.column width="32%"}
-- Sophia Karoussis
-- Cristóbal Mejías
-- María Fernanda Núñez
-- Luis Ríos
-:::
-
-::: {.column width="32%"}
-- Fernanda Zúñiga
-- Ismael Aguayo
-- Franco Acevedo
-:::
-
-::::
-::::
-
-:::: {.columns}
-
-::: {.column width="40%"}
-### Sesiones
-
-- {{< fa university >}} &nbsp; **Lunes 10:15-11:45** - Aulario C/6
-
-- {{< fa university >}} &nbsp; **Martes 8:30-10:00** Aulario C7/C8 & FACSO 345
-:::
-
-::: {.column width="10%"}
+- {{< fa clock >}} &nbsp; **Miércoles 08:30-10:00** - Aulario B Sala 1
 
 :::
 
-::: {.column width="38%"}
+::: {.g-col-12 .g-col-md-4 .contact-policy}
 ### Contacto
 
 {{< var instructor.contact_policy >}}
-Para resolver dudas puntuales se recomienda el uso de los foros de [clases](/content/foro-clases.qmd) y de las [Guías prácticas](/assignment/foro-practicos.qmd).
 :::
 
-::::
-
+:::
+:::
 
 ## Últimas informaciones
 
@@ -139,10 +86,5 @@ Para resolver dudas puntuales se recomienda el uso de los foros de [clases](/con
 :::
 
 -> ir a la [página de Informaciones](/news/index.qmd) del sitio.
-
-
-## Versiones previas del curso:
-
-- [2023](https://2023--correlacional.netlify.app/)
 
 

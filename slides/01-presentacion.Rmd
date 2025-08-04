@@ -1,7 +1,7 @@
 ---
 title: "Estadística Correlacional"
 author: ".small[Juan Carlos Castillo <br><br> Departamento de Sociología - UCH / COES <br><br>]"
-date: "2do Sem 2023"
+date: "2do Sem 2025"
 output:
   xaringan::moon_reader:
     css: "css/custom_2020.css"
@@ -50,8 +50,8 @@ xaringanExtra::use_scribble()
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
-## [.black[correlacional.netlify.com]](https://correlacional.netlify.com)
+## 2do Sem 2025
+## [.black[correlacional.netlify.app]](https://correlacional.netlify.app)
 ]
     
 
@@ -91,13 +91,14 @@ class: inverse middle center
 --
 
 .pull-left[
-![](https://jc-castillo.com/media/albums/gallery/IMG-20220312-WA0007.jpg)
+![](https://jc-castillo.com/images/albums/gallery/IMG-20220312-WA0007.jpg)
 
 ]
 
 --
 
 .pull-right[
+
 - positivismo
 
 - predominante
@@ -165,7 +166,7 @@ class: inverse middle center
 
 # Dos características: 
 
-- **humildad**: la inferencia siempre posee una probabilidad de error
+- **humildad**: la inferencia siempre posee una probabilidad de **error**
 
 - **pretensión**: podemos medir y establecer qué grado de error estamos cometiendo
 ]
@@ -176,7 +177,16 @@ class: inverse middle center
 
 ---
 class: middle center
-![](https://jc-castillo.com/media/albums/gallery/dino3.png)
+![](https://jc-castillo.com/images/albums/gallery/dino3.png)
+
+
+---
+class: inverse middle center
+
+
+## Concepto central:
+
+# .yellow[ERROR ... y su medición]
 
 
 ---
@@ -216,7 +226,7 @@ Contraste de hipótesis y teorías científicas en base a datos de investigació
 # Sobre el sentido general del curso
 En este curso vamos a aprender tres cosas principales:
 
-1. **Inferencia**: los resultados que encontramos en nuestra muestra, ¿se encuentran también en la población de la cual proviene la muestra?
+1. **Inferencia**: los resultados que encontramos en nuestra muestra, ¿se encuentran también en la población de la cual proviene la muestra? ¿Con qué probabilidad de **error**?
 
 2. **Asociación** entre variables: tamaño y significación estadística
 
@@ -271,8 +281,8 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
-## [.black[correlacional.netlify.com]](https://correlacional.netlify.com)
+## 2do Sem 2025
+## [.black[correlacional.netlify.app]](https://correlacional.netlify.app)
 ]
     
 

@@ -1,0 +1,45 @@
+/* estilo general */
+.reveal .slide-logo {
+  max-height: 60px !important;
+}
+
+/* simulación de .pull-left / .pull-right */
+.pull-left {
+  float: left;
+  width: 45%;
+  padding-right: 2%;
+}
+.pull-right {
+  float: right;
+  width: 45%;
+  padding-left: 2%;
+}
+.pull-left-wide {
+  float: left;
+  width: 60%;
+}
+.pull-right-narrow {
+  float: right;
+  width: 35%;
+}
+
+/* caja de contenido */
+.content-box-red {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 1em;
+  border-radius: 6px;
+}
+
+.content-box-green {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 1em;
+  border-radius: 6px;
+}
+
+/* clases extra */
+.curso {
+  font-size: 1.5em;
+  color: #003366;
+}

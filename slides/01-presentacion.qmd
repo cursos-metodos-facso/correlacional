@@ -1,0 +1,134 @@
+---
+format:
+  revealjs:
+    logo: images/ocs-transparent.png
+    theme: [css/custom_2025.scss]
+    title-slide-attributes:
+      visibility: false
+    transition: slide
+    transition-speed: slow
+# data-background-image: images/cover.jpg
+# data-background-size: cover
+    auto-play-media: true
+    title-slide-logo: false
+editor: source
+---
+
+# {.hide-logo data-background-color="rgb(12, 53, 71)"}
+
+::::: columns
+::: {.column width="35%"}
+
+<br>
+
+![](img/logo-correlacional-transp.png){width="100%" fig-align="right"}
+:::
+
+:::{.column width="10%"}
+
+:::
+
+::: {.column width="55%" style="font-size: 25px; text-align: right; margin: 0 auto;"}
+
+<br>
+
+### 
+
+<span style="font-size: 3em; color: white;">Estadística Correlacional</span>
+
+<span style="font-size: 1.5em; color: grey;">Inferencia, asociación y reporte</span>
+
+
+<span style="font-size: 1.5em; color: lightblue;">Juan Carlos Castillo
+Sociología FACSO UChile</span>
+
+<span style="font-size: 1.5em; color: lightblue;">Primer Semstre 2025</span>
+
+[correlacional.netlify.app](https://correlacional.netlify.app/)
+
+:::
+:::::
+
+# Objetivo de la sesión:
+
+1. Concepto general del curso
+
+2. Motivación 
+
+3. Contenidos y funcionamiento
+
+# {.hide-logo data-background-color="rgb(12, 53, 71)"}
+
+::: {.my-block style="font-size: 1.5em; color: white;"}
+### <span style="color: white;">_¿Qué saben de este curso?_</span>
+
+<br>
+
+### <span style="color: white;">_¿Cuáles son sus expectativas?_</span>
+:::
+
+# 
+## Algunos mitos
+
+<br>
+
+::::: columns
+::: {.column width="55%"}
+
+![](https://jc-castillo.com/images/albums/gallery/IMG-20220312-WA0007.jpg)
+
+:::
+
+::: {.column width="45%"}
+- positivismo
+
+- predominante
+
+- foco en los números
+
+- cuadrado
+
+- masculino
+
+- verdad absoluta
+:::
+:::::
+
+# ¿Por qué estudiar estadística en sociología? {.hide-logo data-background-color="rgb(12, 53, 71)"}
+
+
+##
+
+::::: columns
+
+::: {.column width="45%" .content-box-red}
+
+### Imaginación sociológica
+
+Relación del individuo con la sociedad y con la historia  
+Individuos en contexto social  
+
+<br>
+<br>
+
+(C. Wright Mills)
+
+
+
+:::
+
+::: {.column width="45%" .content-box-green}
+<div style="text-align: right;">
+
+### Imaginación estadística
+
+Una apreciación de qué tan usual o inusual es un evento, circunstancia o comportamiento, en relación con un conjunto mayor de eventos similares  
+
+(Ritchey, 2008)
+
+</div>
+:::
+
+:::::
+ 
+
