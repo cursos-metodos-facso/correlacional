@@ -73,8 +73,8 @@ website:
           contents:
             - text: "Introducción"
               file: content/01-content.qmd
-            # - text: "Inferencia 1"
-            #   file: content/02-content.qmd
+            - text: "Inferencia 1"
+              file: content/02-content.qmd
             # - text: "Inferencia 2"
             #   file: content/03-content.qmd
             # - text: "Inferencia 3"

@@ -1,6 +1,6 @@
 ---
 title: "Inferencia 1: Datos, probabilidad y distribuciones muestrales"
-date: "2024-08-13"
+date: "2025-08-06"
 lang: es
 execute:
   freeze: auto   
