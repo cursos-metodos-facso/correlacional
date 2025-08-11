@@ -157,7 +157,7 @@ withr::with_dir(here::here(), {
 :::
 :::
 
-::: {.g-col-12 .g-col-md-4 .contact-policy}
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
 ::: {.avatar-container}
 ::: {.avatar-photo}
 ![](images/ayudantes/rodrigo.png){.profile-pic}

@@ -1,6 +1,6 @@
 ---
 title: "Inferencia 2: Curva normal y error estándar"
-date: "2024-08-19"
+date: "2025-08-11"
 lang: es
 execute:
   freeze: auto   
