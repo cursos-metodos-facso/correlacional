@@ -1,7 +1,7 @@
 ---
 title: "Estadística Correlacional"
 author: ".small[Juan Carlos Castillo <br><br> Departamento de Sociología - UCH / COES <br><br>]"
-date: "2do Sem 2024"
+date: "2do Sem 2025"
 output:
   xaringan::moon_reader:
     css: "css/custom_2020.css"
@@ -52,8 +52,8 @@ xaringanExtra::use_search(show_icon = TRUE)
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
-## [.orange[correlacional.netlify.com]](https:/correlacional.netlify.com)
+## 2do Sem 2025
+## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
 
@@ -69,6 +69,24 @@ xaringanExtra::use_search(show_icon = TRUE)
 
 layout: true
 class: animated, fadeIn
+
+---
+# Padlet
+
+<div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4"><p style="padding:0;margin:0"><iframe src="https://padlet.com/embed/oby3pqtb7pchp9lw" frameborder="0" allow="camera;microphone;geolocation;display-capture;clipboard-write" style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe></p><div style="display:flex;align-items:center;justify-content:end;margin:0;height:28px"><a href="https://padlet.com?ref=embed" style="display:block;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none" target="_blank"><div style="display:flex;align-items:center;"><img src="https://padlet.net/embeds/made_with_padlet_2022.png" width="114" height="28" style="padding:0;margin:0;background:0 0;border:none;box-shadow:none" alt="Hecho con Padlet"></div></a></div></div>
+
+
+
+---
+class: roja 
+
+# ¿Preguntas de los textos?
+
+
+
+--
+
+# ¿Dudas de la clase pasada?
 
 ---
 # Pilares de la inferencia
@@ -164,6 +182,8 @@ Y se asocia al concepto de **.red[nivel de confianza**]
 - No hay certezas, solo probabilidades
 
 - Las probabilidades se asocian a un rango (intervalo) que garantice un cierto nivel de confianza
+
+--
 
 - Y esto requiere un compromiso o compensación (trade-off), ya que: 
 .medium[

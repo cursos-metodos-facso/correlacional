@@ -77,8 +77,8 @@ website:
               file: content/02-content.qmd
             - text: "Inferencia 2"
               file: content/03-content.qmd
-            # - text: "Inferencia 3"
-            #   file: content/04-content.qmd
+            - text: "Inferencia 3"
+              file: content/04-content.qmd
             # - text: "Inferencia 4"
             #   file: content/05-content.qmd
             # - text: "Inferencia 5"
