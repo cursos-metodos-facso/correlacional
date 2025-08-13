@@ -10,7 +10,30 @@
 <atom:link href="https://correlacional.netlify.app/news/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Mon, 19 Aug 2024 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 13 Aug 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Padlet</title>
+  <link>https://correlacional.netlify.app/news/2025-08-12_padlet.html</link>
+  <description><![CDATA[ 
+
+<div class="back-nav"><a href="../news/">← News</a></div>
+
+
+
+
+<p><img src="https://correlacional.netlify.app/images/padlet.jpg" class="img-fluid"></p>
+<ul>
+<li></li>
+</ul>
+
+
+
+ ]]></description>
+  <category>info</category>
+  <guid>https://correlacional.netlify.app/news/2025-08-12_padlet.html</guid>
+  <pubDate>Wed, 13 Aug 2025 04:00:00 GMT</pubDate>
+  <media:content url="https://correlacional.netlify.app/images/padlet.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Informaciones por acá</title>
   <link>https://correlacional.netlify.app/news/2025-08-04_inicio.html</link>
