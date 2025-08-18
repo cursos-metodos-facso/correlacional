@@ -209,9 +209,10 @@ _.red["con un 100% de probabilidad te aseguro que tu nota se encuentra entre 1 y
 ---
 # ¿De qué depende el nivel de confianza?
 
-- en estadística inferencial, la confianza se asocia a 1 - probabilidad de error
+- en estadística inferencial, el **nivel de confianza** equivale a:
+  -  .content-box-red[1 - probabilidad de error]
 
-- la probabilidad de error a aceptar no es un criterio estadístico, es convencional
+- el nivel de probabilidad de error aceptadono es un criterio estadístico, es **convencional**
 
 - por convención, se acepta como estadísticamente significativa una probabilidad de error **menor al 5%**, lo que equivale (al menos) a un **nivel de confianza del 95%**
 
@@ -527,7 +528,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.com]](https://encuestas-sociales.netlify.com)
 ]
     

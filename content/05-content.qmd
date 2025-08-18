@@ -1,6 +1,6 @@
 ---
 title: "Inferencia 4 - Test de hipótesis"
-date: "2024-08-26"
+date: "2025-08-18"
 lang: es
 execute:
   freeze: auto 

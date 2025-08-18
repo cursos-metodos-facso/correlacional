@@ -79,8 +79,8 @@ website:
               file: content/03-content.qmd
             - text: "Inferencia 3"
               file: content/04-content.qmd
-            # - text: "Inferencia 4"
-            #   file: content/05-content.qmd
+            - text: "Inferencia 4"
+              file: content/05-content.qmd
             # - text: "Inferencia 5"
             #   file: content/06-content.qmd
             # - text: "Ejercicio Inferencia"
