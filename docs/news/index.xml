@@ -9,7 +9,7 @@
 <link>https://correlacional.netlify.app/news/</link>
 <atom:link href="https://correlacional.netlify.app/news/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.5.57</generator>
+<generator>quarto-1.7.33</generator>
 <lastBuildDate>Wed, 13 Aug 2025 04:00:00 GMT</lastBuildDate>
 <item>
   <title>Padlet</title>
@@ -22,9 +22,22 @@
 
 
 <p><img src="https://correlacional.netlify.app/images/padlet.jpg" class="img-fluid"></p>
-<ul>
-<li></li>
-</ul>
+<p>Vamos a probar Padlet para realizar preguntas sobre los contenidos del curso, se pueden hacer durante o después de clases, pueden ser anónimas.</p>
+<p>Link: <a href="https://padlet.com/juancarloscastillo/correlacional">https://padlet.com/juancarloscastillo/correlacional</a></p>
+<p>Y acá disponible (con QR):</p>
+<div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4">
+<p style="padding:0;margin:0">
+<iframe src="https://padlet.com/embed/oby3pqtb7pchp9lw" frameborder="0" allow="camera;microphone;geolocation;display-capture;clipboard-write" style="width:100%;height:608px;display:block;padding:0;margin:0">
+</iframe>
+</p>
+<div style="display:flex;align-items:center;justify-content:end;margin:0;height:28px">
+<a href="https://padlet.com?ref=embed" style="display:block;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none" target="_blank">
+<div style="display:flex;align-items:center;">
+<img src="https://padlet.net/embeds/made_with_padlet_2022.png" width="114" height="28" style="padding:0;margin:0;background:0 0;border:none;box-shadow:none" alt="Hecho con Padlet">
+</div>
+</a>
+</div>
+</div>
 
 
 
