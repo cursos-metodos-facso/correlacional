@@ -467,7 +467,7 @@
     "href": "index.html#últimas-informaciones",
     "title": "\n            Estadística Correlacional\n        ",
     "section": "Últimas informaciones",
-    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
+    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
   },
   {
     "objectID": "index.html#versiones-previas-del-curso",
@@ -502,7 +502,7 @@
     "href": "news/index.html",
     "title": "Informaciones",
     "section": "",
-    "text": "Acá las principales informaciones y actualizaciones del curso.\n\n\n   \n    \n    \n      Ordenar por\n      Por defecto\n      \n        Fecha - Menos reciente\n      \n      \n        Fecha - Más reciente\n      \n      \n        Título\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nFecha\n\n\n\nTítulo\n\n\n\nCategorías\n\n\n\n\n\n\n\n\nmiércoles agosto 13, 2025 at 12:00 AM\n\n\nPadlet\n\n\ninfo\n\n\n\n\n\n\nlunes agosto 19, 2024 at 12:00 AM\n\n\nInformaciones por acá\n\n\ninfo\n\n\n\n\n\n\nNo hay resultados\n\n\n\n\n\n\n\nSuscribirse!\n\n\n\nPuedes usar un lector de feeds como Feedly o un servicio RSS-to-email como Blogtrottr para suscribirte a cualquiera de estos mensajes.\n\n\n\n\n\n RSS"
+    "text": "Acá las principales informaciones y actualizaciones del curso.\n\n\n   \n    \n    \n      Ordenar por\n      Por defecto\n      \n        Fecha - Menos reciente\n      \n      \n        Fecha - Más reciente\n      \n      \n        Título\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nFecha\n\n\n\nTítulo\n\n\n\nCategorías\n\n\n\n\n\n\n\n\nmartes agosto 19, 2025 at 12:00 AM\n\n\nInicio practicos\n\n\ninfo\n\n\n\n\n\n\nmiércoles agosto 13, 2025 at 12:00 AM\n\n\nPadlet\n\n\ninfo\n\n\n\n\n\n\nlunes agosto 19, 2024 at 12:00 AM\n\n\nInformaciones por acá\n\n\ninfo\n\n\n\n\n\n\nNo hay resultados\n\n\n\n\n\n\n\nSuscribirse!\n\n\n\nPuedes usar un lector de feeds como Feedly o un servicio RSS-to-email como Blogtrottr para suscribirte a cualquiera de estos mensajes.\n\n\n\n\n\n RSS"
   },
   {
     "objectID": "trabajos.html",
@@ -1471,7 +1471,7 @@
     "href": "assignment/01-practico.html",
     "title": "Distribución Normal e Intervalos de Confianza",
     "section": "",
-    "text": "El objetivo de esta guía práctica es introducirnos en la inferencia estadística, revisando los conceptos y aplicaciones de la curva normal y las probabilidades bajo esta con puntajes Z, además del cálculo de intervalos de confianza.\nEn detalle, aprenderemos y recordaremos:\n\nLos conceptos de promedio y desviación estándar\nQué es la probabilidad y su aplicación para estadística\nQué es la distribución normal\nCómo calcular e interpretar intervalos de confianza\n\n\n\nCargaremos algunas librerías que serán necesarias en las diferentes partes de esta guía práctica:\n\nlibrary(pacman)\npacman::p_load(tidyverse, # para sintaxis\n               ggplot2,   # para gráficos\n               car,       # para recodificar\n               psych,     # para analizar datos\n               sjmisc,    # para analizar datos\n               srvyr,     # para estimación de IC y ponderadores\n               Publish)   # para IC)    \n\noptions(scipen = 999) # para desactivar notacion cientifica\nrm(list = ls())       # para limpar el entonrno de trabajo",
+    "text": "Sesión del miércoles, 20 de agosto de 2025",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1482,8 +1482,8 @@
     "objectID": "assignment/01-practico.html#librerías",
     "href": "assignment/01-practico.html#librerías",
     "title": "Distribución Normal e Intervalos de Confianza",
-    "section": "",
-    "text": "Cargaremos algunas librerías que serán necesarias en las diferentes partes de esta guía práctica:\n\nlibrary(pacman)\npacman::p_load(tidyverse, # para sintaxis\n               ggplot2,   # para gráficos\n               car,       # para recodificar\n               psych,     # para analizar datos\n               sjmisc,    # para analizar datos\n               srvyr,     # para estimación de IC y ponderadores\n               Publish)   # para IC)    \n\noptions(scipen = 999) # para desactivar notacion cientifica\nrm(list = ls())       # para limpar el entonrno de trabajo",
+    "section": "Librerías",
+    "text": "Librerías\nCargaremos algunas librerías que serán necesarias en las diferentes partes de esta guía práctica:\n\npacman::p_load permite instalarlas automáticamente si no las tienes.\n\n\nlibrary(pacman)\npacman::p_load(dplyr, # para sintaxis\n               Publish)   # para IC)    \n\noptions(scipen = 999) # para desactivar notacion cientifica\nrm(list = ls())       # para limpiar el entorno de trabajo",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1542,8 +1542,8 @@
     "objectID": "assignment/01-practico.html#cálculo-de-probabilidades-con-puntaje-z",
     "href": "assignment/01-practico.html#cálculo-de-probabilidades-con-puntaje-z",
     "title": "Distribución Normal e Intervalos de Confianza",
-    "section": "3.5. Cálculo de probabilidades con puntaje z",
-    "text": "3.5. Cálculo de probabilidades con puntaje z\nLos valores estandarizados o puntajes Z además nos permiten conocer probabilidades.\nCon R es posible generar un conjunto de datos simulados con una distribución normal.\n\nx_values &lt;- seq(-4,4,length=1000)\ny_values &lt;- dnorm(x_values)\nplot(x_values,y_values,type=\"l\",xlab=\"Valor Z\",ylab=\"Probabilidad\",main=\"Distribución Normal\")\n\n\n\n\n\n\n\n\nPodemos preguntar qué parte de la curva cae por debajo de un valor particular. Por ejemplo, preguntaremos sobre el valor 0 antes de ejecutar el código. Piense ¿cuál debería ser la respuesta?\n\npnorm(q = 0)\n\n[1] 0.5\n\n\nPor tanto, la probabilidad (en una curva normal estándar) de obtener un valor igual o menor a 0 es de 0.5, es decir, del 50%, pero ¿por qué?\n\nPorque como la distribución normal estándar es simétrica al rededor de cero, la probabilidad de que sea menor o igual a cero es 0.5, es decir, el 50% de la distribución está por debajo de cero y el otro 50% está por encima de cero.\n\nEso lo podemos ver en el gráfico:\n\nplot(x_values,y_values,type=\"l\",xlab=\"Valor Z\",ylab=\"Probabilidad\",main=\"Distribución Normal\")\nabline(v=0)\n\n\n\n\n\n\n\n\nAhora probemos los valores Z de +1,96 y -1,96.\nSabemos que estos valores aproximados marcan el 2,5% superior e inferior de la distribución normal estándar. Esto corresponde a un alfa típico \\(\\alpha = 0,05\\) para una prueba de hipótesis de dos colas.\n\npnorm(q = 1.96, lower.tail=TRUE)\n\n[1] 0.9750021\n\n\nLa respuesta nos dice lo que ya sabemos: el 97,5% de la distribución normal ocurre por debajo del valor z de 1,96.\nPodemos agregar una línea al gráfico para mostrar dónde se usaría abline.\nEl 97,5% de la distribución queda por debajo de esta línea.\n\nplot(x_values, y_values, type=\"l\", lty=1, xlab=\"Z value\", ylab=\"Probability\", main=\"Normal Distribution\") +\nabline(v = 1.96)\n\n\n\n\n\n\n\n\ninteger(0)",
+    "section": "2.1. Cálculo de probabilidades con puntaje Z",
+    "text": "2.1. Cálculo de probabilidades con puntaje Z\n\n# Estandarizar el vector\nz_scores &lt;- scale(vector)\n\n# Comparar valores originales y estandarizados\nhead(data.frame(Valor=vector, Z=z_scores), 10)\n\n      Valor           Z\n1  3.879049 -0.71304802\n2  4.539645 -0.35120270\n3  8.117417  1.60854170\n4  5.141017 -0.02179795\n5  5.258575  0.04259548\n6  8.430130  1.77983218\n7  5.921832  0.40589817\n8  2.469878 -1.48492941\n9  3.626294 -0.85149566\n10 4.108676 -0.58726835\n\n\nLos valores estandarizados o puntajes Z además nos permiten conocer probabilidades.\nCon R es posible generar un conjunto de datos simulados con una distribución normal.\n\nx_values &lt;- seq(-4,4,length=1000)\ny_values &lt;- dnorm(x_values)\nplot(x_values,y_values,type=\"l\",xlab=\"Valor Z\",ylab=\"Probabilidad\",main=\"Distribución Normal\")\n\n\n\n\n\n\n\n\nPodemos preguntar qué parte de la curva cae por debajo de un valor particular. Por ejemplo, preguntaremos sobre el valor 0 antes de ejecutar el código. Piense ¿cuál debería ser la respuesta?\n\n# Probabilidades acumuladas\npnorm(0)       # P(Z &lt;= 0)\n\n[1] 0.5\n\n\nAhora probemos los valores Z de +1,96 y -1,96.\nSabemos que estos valores aproximados marcan el 2,5% superior e inferior de la distribución normal estándar. Esto corresponde a un alfa típico \\(\\alpha = 0,05\\) para una prueba de hipótesis de dos colas.\n\npnorm(1.96)    # P(Z &lt;= 1.96)\n\n[1] 0.9750021\n\npnorm(-1.96)   # P(Z &lt;= -1.96)\n\n[1] 0.0249979\n\n\nLa respuesta nos dice lo que ya sabemos: el 97,5% de la distribución normal ocurre por debajo del valor z de 1,96.",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1554,8 +1554,8 @@
     "objectID": "assignment/01-practico.html#cálculo-de-intervalos-de-confianza",
     "href": "assignment/01-practico.html#cálculo-de-intervalos-de-confianza",
     "title": "Distribución Normal e Intervalos de Confianza",
-    "section": "4.1. Cálculo de intervalos de confianza",
-    "text": "4.1. Cálculo de intervalos de confianza\nEn el caso de nuestro vector aleatorio, un intervalo de confianza para la media se puede calcular de la siguiente manera:\n\n# Calcular un intervalo de confianza para la media\nintervalo_confianza &lt;- t.test(vector)$conf.int  # Intervalo de confianza del 95% para la media\nintervalo_confianza\n\n[1] 4.818567 5.543057\nattr(,\"conf.level\")\n[1] 0.95\n\n\nTambién podemos calcular intervalos de confianza para casos reales. Carguemos la base de datos que utilizaremos, que corresponde a un subset de la Encuesta Suplementaria de ingresos ESI para ocupados:\n\nload(url(\"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/esi-2021-ocupados.rdata\"))\n\n\n\n\n\n\n\nNota\n\n\n\nRecordemos que podemos contar con bases de datos que tengan factor de expansión (ponderador) o no. Esta distinción se presenta cuando trabajamos con muestras simples o complejas. Al trabajar con muestras complejas debemos identificar cuál es la variable del ponderador e incorporarla en nuestro cálculo.\nEn esta guía practicaa trabajaremos sin factores de expansión o ponderadores.\n\n\n\nIC para Medias\nCalculemos un intervalo de confianza para la media de ingresos de personas ocupadas:\n\npsych::describe(esi$ing_t_p)\n\n   vars     n     mean       sd   median  trimmed      mad min      max\nX1    1 37124 586360.4 697362.9 405347.7 474473.1 255411.6   0 38206253\n      range skew kurtosis      se\nX1 38206253   12   402.32 3619.36\n\n\n\nPublish::ci.mean(esi$ing_t_p, alpha = 0.05)\n\n mean      CI-95%               \n 586360.41 [579266.37;593454.45]\n\n\nContamos con una media de ingresos de $586.360 como estimación puntual. Pero también podemos decir que con un 95% de confianza el parámetro poblacional se encontrará entre $579.266 y $593.454.",
+    "section": "3.1. Cálculo de intervalos de confianza",
+    "text": "3.1. Cálculo de intervalos de confianza\nEn el caso de nuestro vector aleatorio, un intervalo de confianza para la media se puede calcular de la siguiente manera:\n\n# Calcular un intervalo de confianza para la media\nintervalo_confianza &lt;- t.test(vector)$conf.int  # Intervalo de confianza del 95% para la media\nintervalo_confianza\n\n[1] 4.818567 5.543057\nattr(,\"conf.level\")\n[1] 0.95\n\n\n\nIC para Medias\n\nPublish::ci.mean(vector, alpha = 0.01)\n\n mean CI-99%     \n 5.18 [4.70;5.66]\n\n\nContamos con una media 5.18 como estimación puntual. Pero también podemos decir que con un 95% de confianza el parámetro poblacional se encontrará entre 4.82 y 5.54.",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1774,5 +1774,36 @@
     "title": "Padlet",
     "section": "",
     "text": "← News\n\n\n\n\n\nVamos a probar Padlet para realizar preguntas sobre los contenidos del curso, se pueden hacer durante o después de clases, pueden ser anónimas.\nLink: https://padlet.com/juancarloscastillo/correlacional\nY acá disponible (con QR):"
+  },
+  {
+    "objectID": "assignment/01-practico.html#revisión-básica-de-r-y-rstudio",
+    "href": "assignment/01-practico.html#revisión-básica-de-r-y-rstudio",
+    "title": "Distribución Normal e Intervalos de Confianza",
+    "section": "Revisión básica de R y RStudio",
+    "text": "Revisión básica de R y RStudio\nAntes de comenzar, repasemos algunos puntos clave:\n\nConsola: aquí se pueden escribir y ejecutar comandos de manera directa.\n\nArchivo de código (.R o .qmd): permite guardar el código, comentarios y reproducir el análisis.\n\nEjecutar código:\n\nSelecciona la línea y presiona Ctrl + Enter (Windows/Linux) o Cmd + Enter (Mac).\n\nTambién puedes ejecutar un bloque completo con el botón Run.\n\n\nComentarios: se escriben con #. Todo lo que sigue en la línea después de # no se ejecuta.\n\nAtajos útiles:\n\nCtrl + Shift + C: comentar o descomentar líneas seleccionadas.\n\nCtrl + Shift + J: Añade pipe %&gt;%\nCtrl + L: limpiar la consola.",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "1: Curva Normal e Intervalos de Confianza"
+    ]
+  },
+  {
+    "objectID": "assignment/01-practico.html#instrucciones",
+    "href": "assignment/01-practico.html#instrucciones",
+    "title": "Distribución Normal e Intervalos de Confianza",
+    "section": "Instrucciones",
+    "text": "Instrucciones\n\nGenera un vector de datos simulados\n\n\nCrea un vector con 150 observaciones distribuidas normalmente\nDebe tener \\(\\mu = 10\\) y \\(\\sigma = 5\\)\n\n\nCalcula y describe la distribución\n\n\nObtén la media y desviación estándar de tu vector.\nVisualiza la distribución en un histograma\n\n\nEstandariza los datos (puntajes Z)\n\n\nTransforma tu vector a puntajes Z usando scale().\nIdentifica qué valores del vector tienen |Z| &gt; 2 (es decir, más de 2 desviaciones estándar sobre o bajo la media).\n\n\nCalcula el intervalo de confianza (IC 95%) para la media\n\n\nEstima el IC para un 95% de confianza",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "1: Curva Normal e Intervalos de Confianza"
+    ]
+  },
+  {
+    "objectID": "news/2025-08-19_practicos.html",
+    "href": "news/2025-08-19_practicos.html",
+    "title": "Inicio practicos",
+    "section": "",
+    "text": "← News\n\n\n\n\n\nEl día Miércoles 20 de agosto vamos a comenzar con la realización de los talleres prácticos de R.\nLos talleres prácticos consisten en guías de trabajo con énfasis en la aplicación práctica de los contenidos mediante el uso de R.\nLa estructura de la sesión será la siguiente:\n\n8:30 en la sala B1 comenzamos con la revisión del taller práctico correspondiente (30min aprox.)\n9:00 tendremos una sección de trabajo autónomo donde podrán aplicar los contenidos vistos en el taller. Para esto, es necesario que cada estudiante asista con su computador personal:\n\nSi asiste con su propio computador, deben traer instalado R (versión 4.5.1), RStudio (versión 2025.05.1+513) y las librerías pacman, dplyr y Publish.\nSi no pueden asistir con su propio computador, tenemos 30 cupos disponibles en la sala 45 del edificio antiguo de FACSO. Para asistir a esta sala deben inscribirse en el siguiente formulario: https://forms.gle/jsFdiWNkjLmCAP5D6"
   }
 ]

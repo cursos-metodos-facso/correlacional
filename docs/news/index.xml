@@ -10,7 +10,38 @@
 <atom:link href="https://correlacional.netlify.app/news/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.7.33</generator>
-<lastBuildDate>Wed, 13 Aug 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 19 Aug 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Inicio practicos</title>
+  <link>https://correlacional.netlify.app/news/2025-08-19_practicos.html</link>
+  <description><![CDATA[ 
+
+<div class="back-nav"><a href="../news/">← News</a></div>
+
+
+
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png" class="img-fluid"></p>
+<p>El día Miércoles 20 de agosto vamos a comenzar con la realización de los talleres prácticos de R.</p>
+<p>Los talleres prácticos consisten en guías de trabajo con énfasis en la aplicación práctica de los contenidos mediante el uso de R.</p>
+<p>La estructura de la sesión será la siguiente:</p>
+<ol type="1">
+<li><p>8:30 en la sala B1 comenzamos con la revisión del taller práctico correspondiente (30min aprox.)</p></li>
+<li><p>9:00 tendremos una sección de trabajo autónomo donde podrán aplicar los contenidos vistos en el taller. Para esto, es necesario que cada estudiante asista con su computador personal:</p>
+<ol type="a">
+<li><p>Si asiste con su propio computador, deben traer instalado R (versión 4.5.1), RStudio (versión 2025.05.1+513) y las librerías <code>pacman</code>, <code>dplyr</code> y <code>Publish</code>.</p></li>
+<li><p>Si no pueden asistir con su propio computador, tenemos 30 cupos disponibles en la sala 45 del edificio antiguo de FACSO. Para asistir a esta sala deben inscribirse en el siguiente formulario: <a href="https://forms.gle/jsFdiWNkjLmCAP5D6">https://forms.gle/jsFdiWNkjLmCAP5D6</a></p></li>
+</ol></li>
+</ol>
+
+
+
+ ]]></description>
+  <category>info</category>
+  <guid>https://correlacional.netlify.app/news/2025-08-19_practicos.html</guid>
+  <pubDate>Tue, 19 Aug 2025 04:00:00 GMT</pubDate>
+  <media:content url="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png" medium="image" type="image/png"/>
+</item>
 <item>
   <title>Padlet</title>
   <link>https://correlacional.netlify.app/news/2025-08-12_padlet.html</link>
