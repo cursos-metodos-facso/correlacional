@@ -830,8 +830,8 @@
     "objectID": "assignment/index.html#descripción",
     "href": "assignment/index.html#descripción",
     "title": "Prácticos",
-    "section": "",
-    "text": "Las clases se acompañan de guías de trabajo con énfasis en la aplicación práctica mediante el uso de software estadístico.\nLas guías se encontrarán disponibles en esta página (link a la izquierda). Habrá dos guías para la Unidad 1 (Inferencia), y 2 para la Unidad 2 (Asociación). La unidad 3 será eminentemente práctica y de aplicación.\nLas guías son desarrolladas de manera autónoma, y cada dos semanas los días martes habrá un espacio práctico de revisión de las guías y de consultas. Para ello se espera que quienes puedan traigan su computador a la sala, y quienes no tienen lo podrán hacer simultáneamente en la sala de computación 345.\nEn las prácticas vamos a trabajar con el software R, Versión 4.4.1.",
+    "section": "Descripción",
+    "text": "Descripción\nLas clases se acompañan de guías de trabajo con énfasis en la aplicación práctica mediante el uso de software estadístico.\nLas guías se encontrarán disponibles en esta página (link a la izquierda). Habrá dos guías para la Unidad 1 (Inferencia), y 2 para la Unidad 2 (Asociación). La unidad 3 será eminentemente práctica y de aplicación.\nLas guías son desarrolladas de manera autónoma, y cada dos semanas los días martes habrá un espacio práctico de revisión de las guías y de consultas. Para ello se espera que quienes puedan traigan su computador a la sala, y quienes no tienen lo podrán hacer simultáneamente en la sala de computación 345.\nEn las prácticas vamos a trabajar con el software R, Versión 4.4.1.",
     "crumbs": [
       "Prácticos",
       "Descripción"
