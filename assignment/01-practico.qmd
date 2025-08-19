@@ -21,6 +21,8 @@ En detalle, aprenderemos y recordaremos:
 
 Antes de comenzar, repasemos algunos puntos clave:
 
+![Estructura de RStudio](../files/rstudio.png)
+
 - **Consola**: aquí se pueden escribir y ejecutar comandos de manera directa.  
 - **Archivo de código (.R o .qmd)**: permite guardar el código, comentarios y reproducir el análisis.  
 - **Ejecutar código**:  
@@ -39,13 +41,25 @@ Cargaremos algunas librerías que serán necesarias en las diferentes partes de 
   - pacman::p_load permite instalarlas automáticamente si no las tienes.
 
 ```{r, warning=FALSE}
-library(pacman)
+if (!require("pacman")) install.packages("pacman") # instalar pacman
+
 pacman::p_load(dplyr, # para sintaxis
                Publish)   # para IC)    
 
 options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls())       # para limpiar el entorno de trabajo
 ```
+
+::: callout-note
+
+## ¿Qué es un vector en R?
+
+En R, un vector es la estructura de datos más básica:
+
+- Es una colección ordenada de valores del mismo tipo (números, caracteres o lógicos).
+
+- Por ejemplo, una columna en una base de datos
+:::
 
 
 # 1. Promedio y desviación estándar
@@ -134,13 +148,22 @@ pnorm(-1.96)   # P(Z <= -1.96)
 
 La respuesta nos dice lo que ya sabemos: el 97,5% de la distribución normal ocurre por debajo del valor z de 1,96.
 
+y si lo visualizamos:
+
+```{r}
+plot(x_values, y_values, type="l", lty=1, xlab="Z value", ylab="Probability", main="Normal Distribution") +
+abline(v = 1.96)
+```
+
 # 3. Intervalos de confianza
 
 Un intervalo de confianza es un rango dentro del cual es probable que se encuentre un parámetro poblacional con un nivel de confianza específico. Además, proporciona información sobre la precisión de nuestras estimaciones.
 
-## 3.1. Cálculo de intervalos de confianza
+## 3.1. Cálculo de intervalos de confianza para medias
 
-En el caso de nuestro vector aleatorio, un intervalo de confianza para la media se puede calcular de la siguiente manera:
+En el caso de nuestro vector aleatorio, un intervalo de confianza para la media se puede calcular de dos maneras:
+
+Primero, con la función `t.test` que, por defecto, estima el intervalo de confianza del 95%
 
 ```{r}
 # Calcular un intervalo de confianza para la media
@@ -148,13 +171,19 @@ intervalo_confianza <- t.test(vector)$conf.int  # Intervalo de confianza del 95%
 intervalo_confianza
 ```
 
-#### IC para Medias
+Otra opción es con la función `ci.mean` del paquete `Publish`. Con esta función también podemos especificar si queremos estimar los CI al 95% (alpha = 0.05) o al 99% (alpha = 0.05)
+
+```{r}
+Publish::ci.mean(vector, alpha = 0.05)
+```
+
+Contamos con una media 5.18 como estimación puntual. Pero también podemos decir que con un 95% de confianza el parámetro poblacional se encontrará entre 4.82 y 5.54.
 
 ```{r}
 Publish::ci.mean(vector, alpha = 0.01)
 ```
 
-Contamos con una media 5.18 como estimación puntual. Pero también podemos decir que con un 95% de confianza el parámetro poblacional se encontrará entre 4.82 y 5.54.
+Contamos con una media 5.18 como estimación puntual. Pero también podemos decir que con un 99% de confianza el parámetro poblacional se encontrará entre 4.70 y 5.66.
 
 # Resumen
 
@@ -171,8 +200,13 @@ En este ejercicio aplicarás los tres pasos vistos en el taller: cálculo de med
 ## Instrucciones
 
 1. Genera un vector de datos simulados
-  - Crea un vector con 150 observaciones distribuidas normalmente
+  - Crea un vector con 500 observaciones distribuidas normalmente
   - Debe tener $\mu = 10$ y $\sigma = 5$
+
+```{r}
+set.seed(123) # Fijar la semilla para reproducibilidad
+vector <- rnorm(500, mean = 10, sd = 5)
+```
 
 2. Calcula y describe la distribución
   - Obtén la media y desviación estándar de tu vector.
@@ -180,8 +214,15 @@ En este ejercicio aplicarás los tres pasos vistos en el taller: cálculo de med
 
 3. Estandariza los datos (puntajes Z)
   - Transforma tu vector a puntajes Z usando scale().
-  - Identifica qué valores del vector tienen |Z| > 2 (es decir, más de 2 desviaciones estándar sobre o bajo la media).
+  - Muestra los primeros 10 valores (`head()`).
+  - Muestra también los últimos 10 valores (`tail()`).
+  - ¿Cuál es el máximo puntaje Z y el mínimo puntaje Z?
+  - Verifica la media y sd
 
 4. Calcula el intervalo de confianza (IC 95%) para la media
   - Estima el IC para un 95% de confianza
 
+
+# Referencias
+
+[Análisis de datos en Lenguaje R](/files/textos/ximenez2022.pdf)

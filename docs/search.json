@@ -467,7 +467,7 @@
     "href": "index.html#últimas-informaciones",
     "title": "\n            Estadística Correlacional\n        ",
     "section": "Últimas informaciones",
-    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
+    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n\n-&gt; ir a la página de Informaciones del sitio."
   },
   {
     "objectID": "index.html#versiones-previas-del-curso",
@@ -1471,7 +1471,7 @@
     "href": "assignment/01-practico.html",
     "title": "Distribución Normal e Intervalos de Confianza",
     "section": "",
-    "text": "Sesión del miércoles, 20 de agosto de 2025",
+    "text": "El objetivo de esta guía práctica es introducirnos en la inferencia estadística, revisando los conceptos y aplicaciones de la curva normal y las probabilidades bajo esta con puntajes Z, además del cálculo de intervalos de confianza.\nEn detalle, aprenderemos y recordaremos:\n\nLos conceptos de promedio y desviación estándar\nEstimación de puntaje Z\n\nCómo calcular e interpretar intervalos de confianza\n\n\n\nAntes de comenzar, repasemos algunos puntos clave:\n\n\n\nEstructura de RStudio\n\n\n\nConsola: aquí se pueden escribir y ejecutar comandos de manera directa.\n\nArchivo de código (.R o .qmd): permite guardar el código, comentarios y reproducir el análisis.\n\nEjecutar código:\n\nSelecciona la línea y presiona Ctrl + Enter (Windows/Linux) o Cmd + Enter (Mac).\n\nTambién puedes ejecutar un bloque completo con el botón Run.\n\n\nComentarios: se escriben con #. Todo lo que sigue en la línea después de # no se ejecuta.\n\nAtajos útiles:\n\nCtrl + Shift + C: comentar o descomentar líneas seleccionadas.\n\nCtrl + Shift + J: Añade pipe %&gt;%\nCtrl + L: limpiar la consola.\n\n\n\n\n\nCargaremos algunas librerías que serán necesarias en las diferentes partes de esta guía práctica:\n\npacman::p_load permite instalarlas automáticamente si no las tienes.\n\n\nif (!require(\"pacman\")) install.packages(\"pacman\") # instalar pacman\n\nLoading required package: pacman\n\npacman::p_load(dplyr, # para sintaxis\n               Publish)   # para IC)    \n\noptions(scipen = 999) # para desactivar notacion cientifica\nrm(list = ls())       # para limpiar el entorno de trabajo\n\n\n\n\n\n\n\n¿Qué es un vector en R?\n\n\n\nEn R, un vector es la estructura de datos más básica:\n\nEs una colección ordenada de valores del mismo tipo (números, caracteres o lógicos).\nPor ejemplo, una columna en una base de datos",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1482,8 +1482,8 @@
     "objectID": "assignment/01-practico.html#librerías",
     "href": "assignment/01-practico.html#librerías",
     "title": "Distribución Normal e Intervalos de Confianza",
-    "section": "Librerías",
-    "text": "Librerías\nCargaremos algunas librerías que serán necesarias en las diferentes partes de esta guía práctica:\n\npacman::p_load permite instalarlas automáticamente si no las tienes.\n\n\nlibrary(pacman)\npacman::p_load(dplyr, # para sintaxis\n               Publish)   # para IC)    \n\noptions(scipen = 999) # para desactivar notacion cientifica\nrm(list = ls())       # para limpiar el entorno de trabajo",
+    "section": "",
+    "text": "Cargaremos algunas librerías que serán necesarias en las diferentes partes de esta guía práctica:\n\npacman::p_load permite instalarlas automáticamente si no las tienes.\n\n\nif (!require(\"pacman\")) install.packages(\"pacman\") # instalar pacman\n\nLoading required package: pacman\n\npacman::p_load(dplyr, # para sintaxis\n               Publish)   # para IC)    \n\noptions(scipen = 999) # para desactivar notacion cientifica\nrm(list = ls())       # para limpiar el entorno de trabajo\n\n\n\n\n\n\n\n¿Qué es un vector en R?\n\n\n\nEn R, un vector es la estructura de datos más básica:\n\nEs una colección ordenada de valores del mismo tipo (números, caracteres o lógicos).\nPor ejemplo, una columna en una base de datos",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1543,7 +1543,7 @@
     "href": "assignment/01-practico.html#cálculo-de-probabilidades-con-puntaje-z",
     "title": "Distribución Normal e Intervalos de Confianza",
     "section": "2.1. Cálculo de probabilidades con puntaje Z",
-    "text": "2.1. Cálculo de probabilidades con puntaje Z\n\n# Estandarizar el vector\nz_scores &lt;- scale(vector)\n\n# Comparar valores originales y estandarizados\nhead(data.frame(Valor=vector, Z=z_scores), 10)\n\n      Valor           Z\n1  3.879049 -0.71304802\n2  4.539645 -0.35120270\n3  8.117417  1.60854170\n4  5.141017 -0.02179795\n5  5.258575  0.04259548\n6  8.430130  1.77983218\n7  5.921832  0.40589817\n8  2.469878 -1.48492941\n9  3.626294 -0.85149566\n10 4.108676 -0.58726835\n\n\nLos valores estandarizados o puntajes Z además nos permiten conocer probabilidades.\nCon R es posible generar un conjunto de datos simulados con una distribución normal.\n\nx_values &lt;- seq(-4,4,length=1000)\ny_values &lt;- dnorm(x_values)\nplot(x_values,y_values,type=\"l\",xlab=\"Valor Z\",ylab=\"Probabilidad\",main=\"Distribución Normal\")\n\n\n\n\n\n\n\n\nPodemos preguntar qué parte de la curva cae por debajo de un valor particular. Por ejemplo, preguntaremos sobre el valor 0 antes de ejecutar el código. Piense ¿cuál debería ser la respuesta?\n\n# Probabilidades acumuladas\npnorm(0)       # P(Z &lt;= 0)\n\n[1] 0.5\n\n\nAhora probemos los valores Z de +1,96 y -1,96.\nSabemos que estos valores aproximados marcan el 2,5% superior e inferior de la distribución normal estándar. Esto corresponde a un alfa típico \\(\\alpha = 0,05\\) para una prueba de hipótesis de dos colas.\n\npnorm(1.96)    # P(Z &lt;= 1.96)\n\n[1] 0.9750021\n\npnorm(-1.96)   # P(Z &lt;= -1.96)\n\n[1] 0.0249979\n\n\nLa respuesta nos dice lo que ya sabemos: el 97,5% de la distribución normal ocurre por debajo del valor z de 1,96.",
+    "text": "2.1. Cálculo de probabilidades con puntaje Z\n\n# Estandarizar el vector\nz_scores &lt;- scale(vector)\n\n# Comparar valores originales y estandarizados\nhead(data.frame(Valor=vector, Z=z_scores), 10)\n\n      Valor           Z\n1  3.879049 -0.71304802\n2  4.539645 -0.35120270\n3  8.117417  1.60854170\n4  5.141017 -0.02179795\n5  5.258575  0.04259548\n6  8.430130  1.77983218\n7  5.921832  0.40589817\n8  2.469878 -1.48492941\n9  3.626294 -0.85149566\n10 4.108676 -0.58726835\n\n\nLos valores estandarizados o puntajes Z además nos permiten conocer probabilidades.\nCon R es posible generar un conjunto de datos simulados con una distribución normal.\n\nx_values &lt;- seq(-4,4,length=1000)\ny_values &lt;- dnorm(x_values)\nplot(x_values,y_values,type=\"l\",xlab=\"Valor Z\",ylab=\"Probabilidad\",main=\"Distribución Normal\")\n\n\n\n\n\n\n\n\nPodemos preguntar qué parte de la curva cae por debajo de un valor particular. Por ejemplo, preguntaremos sobre el valor 0 antes de ejecutar el código. Piense ¿cuál debería ser la respuesta?\n\n# Probabilidades acumuladas\npnorm(0)       # P(Z &lt;= 0)\n\n[1] 0.5\n\n\nAhora probemos los valores Z de +1,96 y -1,96.\nSabemos que estos valores aproximados marcan el 2,5% superior e inferior de la distribución normal estándar. Esto corresponde a un alfa típico \\(\\alpha = 0,05\\) para una prueba de hipótesis de dos colas.\n\npnorm(1.96)    # P(Z &lt;= 1.96)\n\n[1] 0.9750021\n\npnorm(-1.96)   # P(Z &lt;= -1.96)\n\n[1] 0.0249979\n\n\nLa respuesta nos dice lo que ya sabemos: el 97,5% de la distribución normal ocurre por debajo del valor z de 1,96.\ny si lo visualizamos:\n\nplot(x_values, y_values, type=\"l\", lty=1, xlab=\"Z value\", ylab=\"Probability\", main=\"Normal Distribution\") +\nabline(v = 1.96)\n\n\n\n\n\n\n\n\ninteger(0)",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1779,8 +1779,8 @@
     "objectID": "assignment/01-practico.html#revisión-básica-de-r-y-rstudio",
     "href": "assignment/01-practico.html#revisión-básica-de-r-y-rstudio",
     "title": "Distribución Normal e Intervalos de Confianza",
-    "section": "Revisión básica de R y RStudio",
-    "text": "Revisión básica de R y RStudio\nAntes de comenzar, repasemos algunos puntos clave:\n\nConsola: aquí se pueden escribir y ejecutar comandos de manera directa.\n\nArchivo de código (.R o .qmd): permite guardar el código, comentarios y reproducir el análisis.\n\nEjecutar código:\n\nSelecciona la línea y presiona Ctrl + Enter (Windows/Linux) o Cmd + Enter (Mac).\n\nTambién puedes ejecutar un bloque completo con el botón Run.\n\n\nComentarios: se escriben con #. Todo lo que sigue en la línea después de # no se ejecuta.\n\nAtajos útiles:\n\nCtrl + Shift + C: comentar o descomentar líneas seleccionadas.\n\nCtrl + Shift + J: Añade pipe %&gt;%\nCtrl + L: limpiar la consola.",
+    "section": "",
+    "text": "Antes de comenzar, repasemos algunos puntos clave:\n\n\n\nEstructura de RStudio\n\n\n\nConsola: aquí se pueden escribir y ejecutar comandos de manera directa.\n\nArchivo de código (.R o .qmd): permite guardar el código, comentarios y reproducir el análisis.\n\nEjecutar código:\n\nSelecciona la línea y presiona Ctrl + Enter (Windows/Linux) o Cmd + Enter (Mac).\n\nTambién puedes ejecutar un bloque completo con el botón Run.\n\n\nComentarios: se escriben con #. Todo lo que sigue en la línea después de # no se ejecuta.\n\nAtajos útiles:\n\nCtrl + Shift + C: comentar o descomentar líneas seleccionadas.\n\nCtrl + Shift + J: Añade pipe %&gt;%\nCtrl + L: limpiar la consola.",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1792,7 +1792,7 @@
     "href": "assignment/01-practico.html#instrucciones",
     "title": "Distribución Normal e Intervalos de Confianza",
     "section": "Instrucciones",
-    "text": "Instrucciones\n\nGenera un vector de datos simulados\n\n\nCrea un vector con 150 observaciones distribuidas normalmente\nDebe tener \\(\\mu = 10\\) y \\(\\sigma = 5\\)\n\n\nCalcula y describe la distribución\n\n\nObtén la media y desviación estándar de tu vector.\nVisualiza la distribución en un histograma\n\n\nEstandariza los datos (puntajes Z)\n\n\nTransforma tu vector a puntajes Z usando scale().\nIdentifica qué valores del vector tienen |Z| &gt; 2 (es decir, más de 2 desviaciones estándar sobre o bajo la media).\n\n\nCalcula el intervalo de confianza (IC 95%) para la media\n\n\nEstima el IC para un 95% de confianza",
+    "text": "Instrucciones\n\nGenera un vector de datos simulados\n\n\nCrea un vector con 500 observaciones distribuidas normalmente\nDebe tener \\(\\mu = 10\\) y \\(\\sigma = 5\\)\n\n\nset.seed(123) # Fijar la semilla para reproducibilidad\nvector &lt;- rnorm(500, mean = 10, sd = 5)\n\n\nCalcula y describe la distribución\n\n\nObtén la media y desviación estándar de tu vector.\nVisualiza la distribución en un histograma\n\n\nEstandariza los datos (puntajes Z)\n\n\nTransforma tu vector a puntajes Z usando scale().\nMuestra los primeros 10 valores (head()).\nMuestra también los últimos 10 valores (tail()).\n¿Cuál es el máximo puntaje Z y el mínimo puntaje Z?\nVerifica la media y sd\n\n\nCalcula el intervalo de confianza (IC 95%) para la media\n\n\nEstima el IC para un 95% de confianza",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1805,5 +1805,17 @@
     "title": "Inicio practicos",
     "section": "",
     "text": "← News\n\n\n\n\n\nEl día Miércoles 20 de agosto vamos a comenzar con la realización de los talleres prácticos de R.\nLos talleres prácticos consisten en guías de trabajo con énfasis en la aplicación práctica de los contenidos mediante el uso de R.\nLa estructura de la sesión será la siguiente:\n\n8:30 en la sala B1 comenzamos con la revisión del taller práctico correspondiente (30min aprox.)\n9:00 tendremos una sección de trabajo autónomo donde podrán aplicar los contenidos vistos en el taller. Para esto, es necesario que cada estudiante asista con su computador personal:\n\nSi asiste con su propio computador, deben traer instalado R (versión 4.5.1), RStudio (versión 2025.05.1+513) y las librerías pacman, dplyr y Publish.\nSi no pueden asistir con su propio computador, tenemos 30 cupos disponibles en la sala 45 del edificio antiguo de FACSO. Para asistir a esta sala deben inscribirse en el siguiente formulario: https://forms.gle/jsFdiWNkjLmCAP5D6"
+  },
+  {
+    "objectID": "assignment/01-practico.html#cálculo-de-intervalos-de-confianza-para-medias",
+    "href": "assignment/01-practico.html#cálculo-de-intervalos-de-confianza-para-medias",
+    "title": "Distribución Normal e Intervalos de Confianza",
+    "section": "3.1. Cálculo de intervalos de confianza para medias",
+    "text": "3.1. Cálculo de intervalos de confianza para medias\nEn el caso de nuestro vector aleatorio, un intervalo de confianza para la media se puede calcular de dos maneras:\nPrimero, con la función t.test que, por defecto, estima el intervalo de confianza del 95%\n\n# Calcular un intervalo de confianza para la media\nintervalo_confianza &lt;- t.test(vector)$conf.int  # Intervalo de confianza del 95% para la media\nintervalo_confianza\n\n[1] 4.818567 5.543057\nattr(,\"conf.level\")\n[1] 0.95\n\n\nOtra opción es con la función ci.mean del paquete Publish. Con esta función también podemos especificar si queremos estimar los CI al 95% (alpha = 0.05) o al 99% (alpha = 0.05)\n\nPublish::ci.mean(vector, alpha = 0.05)\n\n mean CI-95%     \n 5.18 [4.82;5.54]\n\n\nContamos con una media 5.18 como estimación puntual. Pero también podemos decir que con un 95% de confianza el parámetro poblacional se encontrará entre 4.82 y 5.54.\n\nPublish::ci.mean(vector, alpha = 0.01)\n\n mean CI-99%     \n 5.18 [4.70;5.66]\n\n\nContamos con una media 5.18 como estimación puntual. Pero también podemos decir que con un 99% de confianza el parámetro poblacional se encontrará entre 4.70 y 5.66.",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "1: Curva Normal e Intervalos de Confianza"
+    ]
   }
 ]
