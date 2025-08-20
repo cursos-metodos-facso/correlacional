@@ -195,34 +195,82 @@ Hoy pudimos aprender y recordar:
 
 # Ejercicio práctico de trabajo autónomo
 
-En este ejercicio aplicarás los tres pasos vistos en el taller: cálculo de media y desviación estándar, puntajes Z e intervalos de confianza, pero con nuevos datos simulados.
+En este ejercicio aplicara los tres pasos vistos en el taller: cálculo de media y desviación estándar, puntajes Z e intervalos de confianza, pero con nuevos datos simulados.
 
 ## Instrucciones
 
-1. Genera un vector de datos simulados
-  - Crea un vector con 500 observaciones distribuidas normalmente
+1. Genere un vector de datos simulados
+  - Cree un vector con 500 observaciones distribuidas normalmente
   - Debe tener $\mu = 10$ y $\sigma = 5$
 
 ```{r}
 set.seed(123) # Fijar la semilla para reproducibilidad
-vector <- rnorm(500, mean = 10, sd = 5)
+vector2 <- rnorm(500, mean = 10, sd = 5)
 ```
 
-2. Calcula y describe la distribución
-  - Obtén la media y desviación estándar de tu vector.
-  - Visualiza la distribución en un histograma
+2. Calcule y describa la distribución
+  - Obtenga la media y desviación estándar de su vector.
 
-3. Estandariza los datos (puntajes Z)
-  - Transforma tu vector a puntajes Z usando scale().
-  - Muestra los primeros 10 valores (`head()`).
-  - Muestra también los últimos 10 valores (`tail()`).
+```{r}
+media <- mean(vector2)
+desv_estandar <- sd(vector2)
+
+cat("Media:", media, "\n")
+cat("Desviación Estándar:", desv_estandar, "\n")
+```
+
+  - Visualice la distribución en un histograma
+
+```{r}
+hist(vector2,main="Histograma del Vector",xlab="Valor",ylab="Frecuencia",col="cyan4",border="black")
+```
+
+
+3. Estandarice los datos (puntajes Z)
+  - Transforme tu vector a puntajes Z usando scale().
+```{r}
+# Comparar valores originales y estandarizados
+head(data.frame(Valor=vector2, Z=z_scores), 10)
+```
+
+  - Muestre los primeros 10 valores (`head()`).
+```{r}
+# Comparar valores originales y estandarizados
+head(data.frame(Valor=vector2, Z=z_scores), 10)
+```
+  - Muestre también los últimos 10 valores (`tail()`).
+```{r}
+# Comparar valores originales y estandarizados
+tail(data.frame(Valor=vector2, Z=z_scores), 10)
+```
+
   - ¿Cuál es el máximo puntaje Z y el mínimo puntaje Z?
-  - Verifica la media y sd
-
-4. Calcula el intervalo de confianza (IC 95%) para la media
-  - Estima el IC para un 95% de confianza
 
 
+  - Verifique la media y sd
+
+```{r}
+data <- data.frame(Valor=vector2, Z=z_scores)
+
+```
+
+
+```{r}
+media <- mean(data$Z)
+desv_estandar <- sd(data$Z)
+
+cat("Media:", media, "\n")
+cat("Desviación Estándar:", desv_estandar, "\n")
+```
+
+1. Calcule el intervalo de confianza (IC 95%) para la media
+  - Estime el IC para un 95% de confianza
+
+```{r}
+# Calcular un intervalo de confianza para la media
+intervalo_confianza <- t.test(vector2)$conf.int  # Intervalo de confianza del 95% para la media
+intervalo_confianza
+```
 # Referencias
 
 [Análisis de datos en Lenguaje R](/files/textos/ximenez2022.pdf)
