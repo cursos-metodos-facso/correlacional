@@ -205,7 +205,7 @@ En este ejercicio aplicara los tres pasos vistos en el taller: cálculo de media
 
 ```{r}
 set.seed(123) # Fijar la semilla para reproducibilidad
-vector2 <- rnorm(500, mean = 10, sd = 5)
+vector2 <- rnorm(500, mean = 10, sd = 5) # cambiamos a vector2 para no confundir con el otro
 ```
 
 2. Calcule y describa la distribución
@@ -229,41 +229,36 @@ hist(vector2,main="Histograma del Vector",xlab="Valor",ylab="Frecuencia",col="cy
 3. Estandarice los datos (puntajes Z)
   - Transforme tu vector a puntajes Z usando scale().
 ```{r}
-# Comparar valores originales y estandarizados
-head(data.frame(Valor=vector2, Z=z_scores), 10)
+z_scores2 <- scale(vector2)
 ```
 
   - Muestre los primeros 10 valores (`head()`).
 ```{r}
 # Comparar valores originales y estandarizados
-head(data.frame(Valor=vector2, Z=z_scores), 10)
+head(data.frame(Valor=vector2, Z=z_scores2), 10)
 ```
   - Muestre también los últimos 10 valores (`tail()`).
 ```{r}
 # Comparar valores originales y estandarizados
-tail(data.frame(Valor=vector2, Z=z_scores), 10)
+tail(data.frame(Valor=vector2, Z=z_scores2), 10)
 ```
 
   - ¿Cuál es el máximo puntaje Z y el mínimo puntaje Z?
+
+```{r}
+max_z <- max(z_scores2)
+min_z <- min(z_scores2)
+```
 
 
   - Verifique la media y sd
 
 ```{r}
-data <- data.frame(Valor=vector2, Z=z_scores)
-
+mean(z_scores2) # Debe ser 0
+sd(z_scores2)    # Debe ser 1
 ```
 
-
-```{r}
-media <- mean(data$Z)
-desv_estandar <- sd(data$Z)
-
-cat("Media:", media, "\n")
-cat("Desviación Estándar:", desv_estandar, "\n")
-```
-
-1. Calcule el intervalo de confianza (IC 95%) para la media
+4. Calcule el intervalo de confianza (IC 95%) para la media
   - Estime el IC para un 95% de confianza
 
 ```{r}

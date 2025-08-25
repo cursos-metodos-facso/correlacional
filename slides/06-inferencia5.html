@@ -4,7 +4,7 @@
     <title>Estadística Correlacional</title>
     <meta charset="utf-8" />
     <meta name="author" content=".small[Juan Carlos Castillo    Departamento de Sociología - UCH / COES   ]" />
-    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <script src="libs/mark.js-8.11.1/mark.min.js"></script>
     <link href="libs/xaringanExtra-search-0.0.1/search.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-search-0.0.1/search.js"></script>
@@ -37,7 +37,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -70,9 +70,11 @@ class: inverse
 5. Interpretación
 
 ---
-# Pendientes: 
+class: roja
 
-- prueba t
+# Esta clase: 
+
+- comparación de medias: prueba t
 
 - cálculo de valor crítico de prueba para contraste de hipótesis
 
@@ -92,7 +94,8 @@ class: inverse bottom right
   - los chilenos son más prejuiciosos que los migrantes
   
   - ahora se apoyan los cambios más graduales que antes (comparación en el tiempo)
-  
+
+
 ---
 class: inverse right middle
 .large["_la sociología comparada no es una rama especial de la sociología, sino que
@@ -111,6 +114,12 @@ a dar razón de los hechos_"]
 --
 
 - la clase anterior realizamos una prueba Z para diferencia de medias solo a modo de simplificación, quedando pendiente el aplicar la prueba correspondiente: .large[_**t**_] 
+
+---
+
+![](img/t-test.png)
+
+
 ---
 # Del ejemplo de la clase anterior (sub muestra CASEN)
 
@@ -132,34 +141,6 @@ casen_350%&gt;% # se especifica la base de datos
 |2. Mujer  |  138| 604420.3| 444666.0|
 
 .right[Diferencia salarial = 654.585-604.420=**50.165**]
-
----
-# Generación de intervalo (con Z)
-
-`\begin{align*}
-\bar{x}_1-\bar{x}_2 &amp;\pm t_{\alpha/2}*SE_{\bar{x_1}-\bar{x_2}} \\
-50165 &amp;\pm 1.96*50561 \\
-50165 &amp;\pm 99099.56 \\
-CI[-49287.48&amp;;149617.63]
-\end{align*}`
-
-Asumiendo que el **valor crítico** Z para un error `\(\alpha\)` de 0.5 (o 95% de confianza) es de **1.96**
-
-Para diferencia de medias necesitamos un valor crítico más preciso que el que nos da `\(Z\)`, que se denomina el valor .large[_**t**_] .
-
----
-# `\(t\)` y valores críticos
-
-- la distribución `\(t\)` es similar a `\(Z\)`
-
-- se basa en la **distribución normal**, pero con **ajuste para muestras pequeñas** y para cuando no conocemos la desviación estándar de la población
-
-- por lo tanto, la **forma de la distribución** varía según el tamaño muestral, asociado al concepto de **grados de libertad** 
-
----
-class: middle, center
-
-![:scale 60%](img/t_vs_z.png)
 
 ---
 .pull-left[
@@ -197,15 +178,40 @@ qnorm(0.975) # límite superior
 Y aproximando, `\(\pm\)` **1.96**
 
 ---
-- En el ejemplo de la clase anterior, para una diferencia de salarios de 50165, un error estándar de 50561, y un Z de 1.96=
+class: inverse middle
 
+## El **valor crítico** es el punto (o los puntos) en la distribución de una estadística de prueba que separa la región de aceptación de la región de rechazo en una prueba de hipótesis
+
+
+---
+# Generación de intervalo (con Z)
 
 `\begin{align*}
-\bar{x}_1-\bar{x}_2 &amp;\pm [Z]_{\alpha/2}*SE_{\bar{x_1}-\bar{x_2}} \\\\
-50165 &amp;\pm 1.96*50561 \\\\
-50165 &amp;\pm 99099.56 \\\\
+\bar{x}_1-\bar{x}_2 &amp;\pm t_{\alpha/2}*SE_{\bar{x_1}-\bar{x_2}} \\
+50165 &amp;\pm 1.96*50561 \\
+50165 &amp;\pm 99099.56 \\
 CI[-49287.48&amp;;149617.63]
 \end{align*}`
+
+Asumiendo que el **valor crítico** Z para un error `\(\alpha\)` de 0.5 (o 95% de confianza) es de **1.96**
+
+Para diferencia de medias necesitamos un valor crítico más preciso que el que nos da `\(Z\)`, que se denomina el valor .large[_**t**_] .
+
+---
+# `\(t\)` y valores críticos
+
+- la distribución `\(t\)` es similar a `\(Z\)`
+
+- se basa en la **distribución normal**, pero con **ajuste para muestras pequeñas** y para cuando no conocemos la desviación estándar de la población
+
+- por lo tanto, la **forma de la distribución** varía según el tamaño muestral
+
+
+---
+class: middle, center
+
+![:scale 60%](img/t_vs_z.png)
+
 
 ---
 # Intervalo de confianza para diferencia de medias con prueba `\(t\)`
@@ -217,17 +223,15 @@ CI[-49287.48&amp;;149617.63]
 - la pregunta a responder es: **¿cuál es el valor crítico de `\(t\)` para una probabilidad de error `\(\alpha\)` y grados de libertad `\(N-2\)`?**
 
 ---
-.pull-left[
-![:scale 60%](img/t_table.png)
-]
+class: inverse
 
-.pull-right[
-Para esto, tradicionalmente se recurre a la "tabla de valores `\(t\)`"
+## Los **grados de libertad** son la cantidad de información independiente disponible para estimar parámetros o calcular una estadística.
 
-A medida que aumenta la muestra (asociada a DF-grados de libertad), t se aproxima a Z
+### Cada restricción (como conocer un promedio, fijar una suma, etc.) reduce en 1 los grados de libertad.
 
-Como se ve en la tabla, en una muestra de 1000 el valor crítico para 0.025   t=1.96
-]
+--
+
+Por ejemplo, si hay tres números que tienen promedio 10, se pueden elegir libremente 2 de ellos, y el tercero ya está determinado. Por lo tanto, hay 3-1 grados de libertad
 
 ---
 # Establecimiento del valor crítico de la prueba (t)
@@ -290,7 +294,7 @@ class: roja middle
 .medium[
 - además de la construcción de **intervalos**, otra forma más tradicional de test de hipótesis para diferencia de medias es la **prueba `\(t\)`**
 
-- la prueba `\(t\)` consiste en el contraste de un **_valor crítico_** de `\(t\)`  con un **_valor empírico_** (o estadísitico) `\(t\)` calculado con datos de nuestra muestra: 
+- la prueba `\(t\)` consiste en el contraste del **_valor crítico_** de `\(t\)`  con un **_valor empírico_** (o estadísitico) `\(t\)` calculado con datos de nuestra muestra: 
 ]]
 
 --
@@ -324,9 +328,9 @@ Este valor `\(t\)` (empírico) se contrasta con el valor `\(t\)` crítico corres
 ---
 # Prueba t
 
-Contrastando ahora el valor calculado con el valor crítico:
+Contrastando ahora el valor empírico (calculado) con el valor crítico:
 
-`$$t_{crtitico}= -1.96 &lt; t_{calculado}=0.992 &lt; t_{critico}= 1.96$$`
+`$$t_{crtitico}= -1.96 &lt; t_{empírico}=0.992 &lt; t_{critico}= 1.96$$`
 - Por lo tanto, nuestro valor estimado queda fuera de la zona de rechazo de la hipótesis nula: la diferencia de medias no es estadísiticamente distinta de 0. 
 
 - En consecuencia, con un nivel de confianza de 95% no podemos afirmar que existen diferencias salariales entre hombres y mujeres
@@ -354,7 +358,7 @@ El gráfico muestra nuestro valor estimado de t fuera de la zona de rechazo (zon
 ---
 class: roja
 
-- La prueba t consiste en un contraste entre el estadístico t (calculado a partir de nuestra muestra) y el valor crítico t para un nivel de error definido (usualmente 5%) 
+- La prueba t consiste en un contraste entre el t empírico (calculado a partir de nuestra muestra) y el valor crítico t para un nivel de error definido (usualmente 5%) 
 
 --
 
@@ -362,7 +366,7 @@ class: roja
 
 --
 
-- Si el estadísitico t es superior al valor crítico, se rechaza la hipótesis nula
+- Si el estadístico t es superior al valor crítico, se rechaza la hipótesis nula
 
 --
 
@@ -469,7 +473,7 @@ stats.table &lt;- tidy(model, conf.int = TRUE)
 nice_table(stats.table, broom = "t.test")
 ```
 
-&lt;div class="tabwid"&gt;&lt;style&gt;.cl-ca7bff70{table-layout:auto;}.cl-ca7496e0{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca7496ea{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-ca7496f4{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-ca77fdd0{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-ca77fdda{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-ca7814aa{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca7814b4{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ca7814be{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table data-quarto-disable-processing='true' class='cl-ca7bff70'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;th class="cl-ca7814aa"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;Method&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-ca7814aa"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-ca7814aa"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;Mean 1&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-ca7814aa"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;Mean 2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-ca7814aa"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496ea"&gt;M&lt;/span&gt;&lt;span class="cl-ca7496f4"&gt;1&lt;/span&gt;&lt;span class="cl-ca7496e0"&gt; - &lt;/span&gt;&lt;span class="cl-ca7496ea"&gt;M&lt;/span&gt;&lt;span class="cl-ca7496f4"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-ca7814aa"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496ea"&gt;t&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-ca7814aa"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496ea"&gt;df&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-ca7814aa"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496ea"&gt;p&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-ca7814aa"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;95% CI&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-ca7814b4"&gt;&lt;p class="cl-ca77fdda"&gt;&lt;span class="cl-ca7496e0"&gt;Two Sample t-test&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-ca7814be"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;two.sided&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-ca7814be"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;654,585.37&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-ca7814be"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;604,420.29&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-ca7814be"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;50,165.08&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-ca7814be"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;0.99&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-ca7814be"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;341&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-ca7814be"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;.322&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-ca7814be"&gt;&lt;p class="cl-ca77fdd0"&gt;&lt;span class="cl-ca7496e0"&gt;[-49287.48, 149617.63]&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="tabwid"&gt;&lt;style&gt;.cl-b8c03e96{table-layout:auto;}.cl-b8babffc{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b8bac010{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b8bac01a{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-b8bd3ed0{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-b8bd3ee4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-b8bd553c{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b8bd5546{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b8bd5564{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table data-quarto-disable-processing='true' class='cl-b8c03e96'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;th class="cl-b8bd553c"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;Method&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b8bd553c"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b8bd553c"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;Mean 1&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b8bd553c"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;Mean 2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b8bd553c"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8bac010"&gt;M&lt;/span&gt;&lt;span class="cl-b8bac01a"&gt;1&lt;/span&gt;&lt;span class="cl-b8babffc"&gt; - &lt;/span&gt;&lt;span class="cl-b8bac010"&gt;M&lt;/span&gt;&lt;span class="cl-b8bac01a"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b8bd553c"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8bac010"&gt;t&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b8bd553c"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8bac010"&gt;df&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b8bd553c"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8bac010"&gt;p&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b8bd553c"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;95% CI&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-b8bd5546"&gt;&lt;p class="cl-b8bd3ee4"&gt;&lt;span class="cl-b8babffc"&gt;Two Sample t-test&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b8bd5564"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;two.sided&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b8bd5564"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;654,585.37&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b8bd5564"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;604,420.29&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b8bd5564"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;50,165.08&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b8bd5564"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;0.99&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b8bd5564"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;341&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b8bd5564"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;.322&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b8bd5564"&gt;&lt;p class="cl-b8bd3ed0"&gt;&lt;span class="cl-b8babffc"&gt;[-49287.48, 149617.63]&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 ???
 https://rempsyc.remi-theriault.com/articles/t-test
 
@@ -486,7 +490,7 @@ _"Se realizó una prueba t para muestras independientes para comparar los salari
 
 ``` r
 model &lt;- t.test(salario ~ sexo, data = casen_350, var.equal=TRUE)
-report(model)
+report::report(model)
 ```
 
 _La prueba t de dos muestras que evalúa la diferencia de salario según sexo (media en el grupo 1 = 654585, media en el grupo 2 = 604420) sugiere que el efecto es positivo, estadísticamente no significativo y muy pequeño (diferencia = 50165, IC del 95% [-49,287.48, 150,000], t(341) = 0.99, p = 0.322)._
@@ -598,7 +602,7 @@ qt(p=.05,
 ## 5. Interpretación
 
 .small[
-&lt;div class="tabwid"&gt;&lt;style&gt;.cl-cc344dae{table-layout:auto;}.cl-cc2d88b6{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cc2d88ca{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cc2d88cb{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-cc30c134{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-cc30c148{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-cc30d3ea{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cc30d3f4{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cc30d3f5{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table data-quarto-disable-processing='true' class='cl-cc344dae'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;th class="cl-cc30d3ea"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;Method&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc30d3ea"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc30d3ea"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;Mean 1&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc30d3ea"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;Mean 2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc30d3ea"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88ca"&gt;M&lt;/span&gt;&lt;span class="cl-cc2d88cb"&gt;1&lt;/span&gt;&lt;span class="cl-cc2d88b6"&gt; - &lt;/span&gt;&lt;span class="cl-cc2d88ca"&gt;M&lt;/span&gt;&lt;span class="cl-cc2d88cb"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc30d3ea"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88ca"&gt;t&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc30d3ea"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88ca"&gt;df&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc30d3ea"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88ca"&gt;p&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc30d3ea"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;95% CI&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-cc30d3f4"&gt;&lt;p class="cl-cc30c148"&gt;&lt;span class="cl-cc2d88b6"&gt;Two Sample t-test&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc30d3f5"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;greater&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc30d3f5"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;654,585.37&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc30d3f5"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;604,420.29&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc30d3f5"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;50,165.08&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc30d3f5"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;0.99&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc30d3f5"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;341&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc30d3f5"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;.161&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc30d3f5"&gt;&lt;p class="cl-cc30c134"&gt;&lt;span class="cl-cc2d88b6"&gt;[-33228.46, Inf]&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="tabwid"&gt;&lt;style&gt;.cl-b967e15a{table-layout:auto;}.cl-b9623106{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b9623124{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b9623125{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-b964b00c{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-b964b020{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-b964c8da{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b964c8e4{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b964c8ee{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table data-quarto-disable-processing='true' class='cl-b967e15a'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;th class="cl-b964c8da"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;Method&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b964c8da"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b964c8da"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;Mean 1&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b964c8da"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;Mean 2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b964c8da"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623124"&gt;M&lt;/span&gt;&lt;span class="cl-b9623125"&gt;1&lt;/span&gt;&lt;span class="cl-b9623106"&gt; - &lt;/span&gt;&lt;span class="cl-b9623124"&gt;M&lt;/span&gt;&lt;span class="cl-b9623125"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b964c8da"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623124"&gt;t&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b964c8da"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623124"&gt;df&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b964c8da"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623124"&gt;p&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b964c8da"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;95% CI&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-b964c8e4"&gt;&lt;p class="cl-b964b020"&gt;&lt;span class="cl-b9623106"&gt;Two Sample t-test&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b964c8ee"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;greater&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b964c8ee"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;654,585.37&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b964c8ee"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;604,420.29&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b964c8ee"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;50,165.08&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b964c8ee"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;0.99&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b964c8ee"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;341&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b964c8ee"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;.161&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b964c8ee"&gt;&lt;p class="cl-b964b00c"&gt;&lt;span class="cl-b9623106"&gt;[-33228.46, Inf]&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 ]
 
 _"Se realizó una prueba t para muestras independientes para examinar si el salario promedio de los hombres (M = 654585, SD = 468692) es mayor que el de las mujeres (M = 604420, SD = 444666), siendo la diferencia entre ambos de 50.165. Los resultados no fueron estadísticamente significativos, t(341)=0.9921, p=0.161. Por lo tanto, con un 95% de confianza no se puede rechazar la hipótesis nula, lo que no permite sustentar la hipótesis inicial (alternativa) que el salario de los hombres es mayor que el de las mujeres."_
@@ -643,7 +647,7 @@ nice_table(stats.table4,
            broom = "t.test")
 ```
 
-&lt;div class="tabwid"&gt;&lt;style&gt;.cl-cc5ec214{table-layout:auto;}.cl-cc591cce{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cc591cd8{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cc591ce2{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-cc5ba6f6{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-cc5ba700{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-cc5bb77c{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cc5bb786{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cc5bb787{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table data-quarto-disable-processing='true' class='cl-cc5ec214'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;th class="cl-cc5bb77c"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;Method&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc5bb77c"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc5bb77c"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;Mean 1&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc5bb77c"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;Mean 2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc5bb77c"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cd8"&gt;M&lt;/span&gt;&lt;span class="cl-cc591ce2"&gt;1&lt;/span&gt;&lt;span class="cl-cc591cce"&gt; - &lt;/span&gt;&lt;span class="cl-cc591cd8"&gt;M&lt;/span&gt;&lt;span class="cl-cc591ce2"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc5bb77c"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cd8"&gt;t&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc5bb77c"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cd8"&gt;df&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc5bb77c"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cd8"&gt;p&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-cc5bb77c"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;95% CI&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-cc5bb786"&gt;&lt;p class="cl-cc5ba700"&gt;&lt;span class="cl-cc591cce"&gt;Two Sample t-test&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc5bb787"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;greater&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc5bb787"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;746,620.67&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc5bb787"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;605,775.58&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc5bb787"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;140,845.09&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc5bb787"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;3.86&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc5bb787"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;1,442&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc5bb787"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;&amp;lt; .001***&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-cc5bb787"&gt;&lt;p class="cl-cc5ba6f6"&gt;&lt;span class="cl-cc591cce"&gt;[80836.78, Inf]&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div class="tabwid"&gt;&lt;style&gt;.cl-b98ffb4a{table-layout:auto;}.cl-b98a2d0a{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b98a2d1e{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-b98a2d28{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-b98ca5bc{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-b98ca5d0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-b98cbdcc{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b98cbde0{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b98cbdea{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table data-quarto-disable-processing='true' class='cl-b98ffb4a'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;th class="cl-b98cbdcc"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;Method&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b98cbdcc"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b98cbdcc"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;Mean 1&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b98cbdcc"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;Mean 2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b98cbdcc"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d1e"&gt;M&lt;/span&gt;&lt;span class="cl-b98a2d28"&gt;1&lt;/span&gt;&lt;span class="cl-b98a2d0a"&gt; - &lt;/span&gt;&lt;span class="cl-b98a2d1e"&gt;M&lt;/span&gt;&lt;span class="cl-b98a2d28"&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b98cbdcc"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d1e"&gt;t&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b98cbdcc"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d1e"&gt;df&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b98cbdcc"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d1e"&gt;p&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;th class="cl-b98cbdcc"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;95% CI&lt;/span&gt;&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-b98cbde0"&gt;&lt;p class="cl-b98ca5d0"&gt;&lt;span class="cl-b98a2d0a"&gt;Two Sample t-test&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b98cbdea"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;greater&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b98cbdea"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;746,620.67&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b98cbdea"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;605,775.58&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b98cbdea"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;140,845.09&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b98cbdea"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;3.86&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b98cbdea"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;1,442&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b98cbdea"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;&amp;lt; .001***&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-b98cbdea"&gt;&lt;p class="cl-b98ca5bc"&gt;&lt;span class="cl-b98a2d0a"&gt;[80836.78, Inf]&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
 ]
 ]
 .pull-right[
@@ -698,7 +702,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -715,10 +719,10 @@ class: front
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="libs/macros.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "dracula",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "ratio": "16:9",
+  "highlightStyle": "dracula",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

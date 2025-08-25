@@ -575,7 +575,7 @@ attr(,"conf.level")
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># Fijar la semilla para reproducibilidad</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>vector2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>vector2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">5</span>) <span class="co"># cambiamos a vector2 para no confundir con el otro</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Calcule y describa la distribución</li>
@@ -616,92 +616,78 @@ attr(,"conf.level")
 <li>Transforme tu vector a puntajes Z usando scale().</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar valores originales y estandarizados</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">data.frame</span>(<span class="at">Valor=</span>vector2, <span class="at">Z=</span>z_scores), <span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       Valor           Z
-1   7.197622 -0.71304802
-2   8.849113 -0.35120270
-3  17.793542  1.60854170
-4  10.352542 -0.02179795
-5  10.646439  0.04259548
-6  18.575325  1.77983218
-7  12.304581  0.40589817
-8   3.674694 -1.48492941
-9   6.565736 -0.85149566
-10  7.771690 -0.58726835</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>z_scores2 <span class="ot">&lt;-</span> <span class="fu">scale</span>(vector2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Muestre los primeros 10 valores (<code>head()</code>).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar valores originales y estandarizados</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">data.frame</span>(<span class="at">Valor=</span>vector2, <span class="at">Z=</span>z_scores), <span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar valores originales y estandarizados</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">data.frame</span>(<span class="at">Valor=</span>vector2, <span class="at">Z=</span>z_scores2), <span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Valor           Z
-1   7.197622 -0.71304802
-2   8.849113 -0.35120270
-3  17.793542  1.60854170
-4  10.352542 -0.02179795
-5  10.646439  0.04259548
-6  18.575325  1.77983218
-7  12.304581  0.40589817
-8   3.674694 -1.48492941
-9   6.565736 -0.85149566
-10  7.771690 -0.58726835</code></pre>
+1   7.197622 -0.61172371
+2   8.849113 -0.27217955
+3  17.793542  1.56678232
+4  10.352542  0.03692339
+5  10.646439  0.09734814
+6  18.575325  1.72751586
+7  12.304581  0.43825984
+8   3.674694 -1.33603268
+9   6.565736 -0.74163858
+10  7.771690 -0.49369607</code></pre>
 </div>
 </div>
 <ul>
 <li>Muestre también los últimos 10 valores (<code>tail()</code>).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar valores originales y estandarizados</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">data.frame</span>(<span class="at">Valor=</span>vector2, <span class="at">Z=</span>z_scores), <span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparar valores originales y estandarizados</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(<span class="fu">data.frame</span>(<span class="at">Valor=</span>vector2, <span class="at">Z=</span>z_scores2), <span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        Valor          Z
-491  9.471079  0.9893539
-492 17.020251  0.5017343
-493 16.470420  0.1624926
-494  4.550041 -0.7869188
-495  5.634645  1.3915693
-496  3.209605 -0.7566318
-497 10.909236  2.2972071
-498 10.824204  1.5799514
-499 11.820573 -0.3572531
-500 12.760789 -1.2234963</code></pre>
+491  9.471079 -0.1443041
+492 17.020251  1.4077949
+493 16.470420  1.2947503
+494  4.550041 -1.1560626
+495  5.634645 -0.9330695
+496  3.209605 -1.4316543
+497 10.909236  0.1513789
+498 10.824204  0.1338965
+499 11.820573  0.3387486
+500 12.760789  0.5320555</code></pre>
 </div>
 </div>
 <ul>
-<li><p>¿Cuál es el máximo puntaje Z y el mínimo puntaje Z?</p></li>
-<li><p>Verifique la media y sd</p></li>
+<li>¿Cuál es el máximo puntaje Z y el mínimo puntaje Z?</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Valor=</span>vector2, <span class="at">Z=</span>z_scores)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>max_z <span class="ot">&lt;-</span> <span class="fu">max</span>(z_scores2)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>min_z <span class="ot">&lt;-</span> <span class="fu">min</span>(z_scores2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ul>
+<li>Verifique la media y sd</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>Z)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>desv_estandar <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>Z)</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Media:"</span>, media, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(z_scores2) <span class="co"># Debe ser 0</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Media: -0.0000000000000002188404 </code></pre>
+<pre><code>[1] -1.457272e-16</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Desviación Estándar:"</span>, desv_estandar, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(z_scores2)    <span class="co"># Debe ser 1</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Desviación Estándar: 0.9959839 </code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
 </div>
-<ol type="1">
+<ol start="4" type="1">
 <li>Calcule el intervalo de confianza (IC 95%) para la media</li>
 </ol>
 <ul>
 <li>Estime el IC para un 95% de confianza</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular un intervalo de confianza para la media</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>intervalo_confianza <span class="ot">&lt;-</span> <span class="fu">t.test</span>(vector2)<span class="sc">$</span>conf.int  <span class="co"># Intervalo de confianza del 95% para la media</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>intervalo_confianza</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular un intervalo de confianza para la media</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>intervalo_confianza <span class="ot">&lt;-</span> <span class="fu">t.test</span>(vector2)<span class="sc">$</span>conf.int  <span class="co"># Intervalo de confianza del 95% para la media</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>intervalo_confianza</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  9.745589 10.600316
 attr(,"conf.level")
