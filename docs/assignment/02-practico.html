@@ -8,7 +8,7 @@
 
 <meta name="description" content="Estadística Correlacional - Inferencia, asociación y reporte">
 
-<title>Práctico 2: Intentando rechazar – Estadística Correlacional</title>
+<title>Práctico 2: Test de hipótesis – Estadística Correlacional</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,7 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <link href="../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+
 <script src="../site_libs/tabwid-1.1.3/tabwid.js"></script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -136,7 +138,7 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Práctico 2: Intentando rechazar – Estadística Correlacional">
+<meta property="og:title" content="Práctico 2: Test de hipótesis – Estadística Correlacional">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://correlacional.netlify.app/files/logo-correlacional.png">
 <meta property="og:site_name" content="Estadística Correlacional">
@@ -245,36 +247,6 @@ window.Quarto = {
  <span class="menu-text">2: Test de hipótesis</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../assignment/03-practico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3: Correlación de Pearson</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../assignment/04-practico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4- Matrices de correlación, casos perdidos e índices</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../assignment/05-practico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5: Asociación entre categóricas</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../assignment/06-practico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6: Visualización 1: Tablas</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../assignment/07-practico.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7: Gráficos bivariados en reportes dinámicos</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -308,12 +280,7 @@ window.Quarto = {
   <li><a href="#recordemos" id="toc-recordemos" class="nav-link" data-scroll-target="#recordemos">Recordemos…</a></li>
   <li><a href="#ejercicio-1" id="toc-ejercicio-1" class="nav-link" data-scroll-target="#ejercicio-1">Ejercicio 1</a></li>
   <li><a href="#ejercicio-2" id="toc-ejercicio-2" class="nav-link" data-scroll-target="#ejercicio-2">Ejercicio 2</a></li>
-  <li><a href="#ejercicio-3" id="toc-ejercicio-3" class="nav-link" data-scroll-target="#ejercicio-3">Ejercicio 3</a>
-  <ul class="collapse">
-  <li><a href="#formulación-de-hipótesis" id="toc-formulación-de-hipótesis" class="nav-link" data-scroll-target="#formulación-de-hipótesis">1. Formulación de hipótesis</a></li>
-  <li><a href="#pasos-2-3-y-4-de-una-vez-con-r" id="toc-pasos-2-3-y-4-de-una-vez-con-r" class="nav-link" data-scroll-target="#pasos-2-3-y-4-de-una-vez-con-r">Pasos 2, 3 y 4 de una vez con R</a></li>
-  </ul></li>
-  <li><a href="#interpretación" id="toc-interpretación" class="nav-link" data-scroll-target="#interpretación">5. Interpretación</a></li>
+  <li><a href="#ejercicio-3" id="toc-ejercicio-3" class="nav-link" data-scroll-target="#ejercicio-3">Ejercicio 3</a></li>
   </ul>
 </nav>
     </div>
@@ -321,10 +288,10 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header">
-<h1 class="title display-7">Práctico 2: Intentando rechazar</h1>
+<h1 class="title display-7">Práctico 2: Test de hipótesis</h1>
 
 <div class="date-block bg-assignment text-white p-2">
-  <p class="date">Sesión del martes, 3 de septiembre de 2024</p>
+  <p class="date">Sesión del miércoles, 27 de agosto de 2025</p>
 </div>
 </header>
 
@@ -335,7 +302,7 @@ window.Quarto = {
 <p>La guía tiene <strong>3 ejercicios</strong>. El primero de ellos es un ejemplo, y los ejercicios 2 y 3 se desarrollan de manera autónoma en la sala (también puede ser en grupo).</p>
 <section id="recursos-de-la-práctica" class="level2">
 <h2 class="anchored" data-anchor-id="recursos-de-la-práctica">Recursos de la práctica</h2>
-<p>En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el <a href="https://observatorio.ministeriodesarrollosocial.gob.cl/">Ministerio de Desarrollo Social y Familia</a>. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: <a href="https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/proc_casen.RData"><i class="fa-solid fa-table" aria-label="table"></i> <code>CASEN 20222</code></a>. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.</p>
+<p>En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el <a href="https://observatorio.ministeriodesarrollosocial.gob.cl/">Ministerio de Desarrollo Social y Familia</a>. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: <a href="https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/proc_casen.RData"><i class="fa-solid fa-table" aria-label="table"></i> <code>CASEN 2022</code></a>. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.</p>
 </section>
 <section id="cinco-pasos-para-la-inferencia-estadística" class="level2">
 <h2 class="anchored" data-anchor-id="cinco-pasos-para-la-inferencia-estadística">Cinco pasos para la inferencia estadística</h2>
@@ -417,10 +384,12 @@ Intrepreta los resultados
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               gginference, <span class="co"># Visualizacion </span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               rempsyc, <span class="co"># Reporte</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               kableExtra, <span class="co"># Tablas</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               broom) <span class="co"># Varios</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               broom, <span class="co"># Varios</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               flextable, <span class="co"># nice table</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               rempsyc)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -458,7 +427,7 @@ Tip
 <pre><code>[1] 202111     29</code></pre>
 </div>
 </div>
-<p>Contamos con 24 variables (columnas) y 202.111 observaciones (filas).</p>
+<p>Contamos con 29 variables (columnas) y 202.111 observaciones (filas).</p>
 </section>
 <section id="recordemos" class="level1">
 <h1>Recordemos…</h1>
@@ -493,7 +462,10 @@ Prueba de una cola
 <p><span class="math display">\[  H_{A}: \mu_{0} &lt; \mu_{1} \]</span></p>
 </div>
 </div>
-<p>Veamos ahora cómo aplicar todos estos conocimientos con ejercicios.</p>
+<p>Veamos ahora cómo aplicar todos estos conocimientos con ejercicios, pero utilizamos <code>set.seed</code> para reproducibilidad de los resultados</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># Fijar la semilla para reproducibilidad</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="ejercicio-1" class="level1">
 <h1>Ejercicio 1</h1>
@@ -501,20 +473,20 @@ Prueba de una cola
 <p>La pregunta de investigación es: <em>¿Es el salario de los hombres mayor que el de las mujeres?</em></p>
 <p>Para contrastar esta hipótesis, vamos utilizar la bbdd <code>proc_casen</code>, seleccionaremos las variables <code>sexo</code> e <code>ytrabajocor</code> y haremos un subset de datos de 1.500 casos.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>casen_subset <span class="ot">&lt;-</span> proc_casen <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sexo, ytrabajocor) <span class="sc">%&gt;%</span> <span class="co"># seleccionamos</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">1500</span>) <span class="co"># extraemos una muestra de 1500 casos</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>casen_subset <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(casen_subset) <span class="co"># eliminamos casos perdidos (listwise)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>casen_subset <span class="ot">&lt;-</span> proc_casen <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sexo, ytrabajocor) <span class="sc">%&gt;%</span> <span class="co"># seleccionamos</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">1500</span>) <span class="co"># extraemos una muestra de 1500 casos</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>casen_subset <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(casen_subset) <span class="co"># eliminamos casos perdidos (listwise)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Generamos tabla para visualizar la distribución de los datos.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>casen_subset <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(sexo) <span class="sc">%&gt;%</span> <span class="co"># se agrupan por la variable categórica </span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Obs. =</span> <span class="fu">n</span>(),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Promedio =</span> <span class="fu">mean</span>(ytrabajocor, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">SD =</span> <span class="fu">sd</span>(ytrabajocor, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="co"># se agregan las operaciones a presentar en la tabla</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"markdown"</span>) <span class="co"># se genera la tabla</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>casen_subset <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(sexo) <span class="sc">%&gt;%</span> <span class="co"># se agrupan por la variable categórica </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Obs. =</span> <span class="fu">n</span>(),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Promedio =</span> <span class="fu">mean</span>(ytrabajocor, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">SD =</span> <span class="fu">sd</span>(ytrabajocor, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="co"># se agregan las operaciones a presentar en la tabla</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"markdown"</span>) <span class="co"># se genera la tabla</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -528,15 +500,15 @@ Prueba de una cola
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">347</td>
-<td style="text-align: right;">818853.3</td>
-<td style="text-align: right;">1032522.6</td>
+<td style="text-align: right;">379</td>
+<td style="text-align: right;">690724.8</td>
+<td style="text-align: right;">613238.9</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">312</td>
-<td style="text-align: right;">502896.2</td>
-<td style="text-align: right;">378438.7</td>
+<td style="text-align: right;">309</td>
+<td style="text-align: right;">585360.4</td>
+<td style="text-align: right;">567737.7</td>
 </tr>
 </tbody>
 </table>
@@ -563,48 +535,46 @@ Prueba de una cola
 </ol>
 <p>Esta secuencia de pasos tiene un sentido pedagógico para poder entender cómo finalmente se llega a interpretar el contraste de hipótesis en el paso 5. Pero en análisis de datos, luego de establecer las hipótesis nos vamos directamente al software que nos permite obtener de una vez toda la información de los pasos 2, 3 y 4.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>test_ej1 <span class="ot">&lt;-</span> <span class="fu">t.test</span>(casen_subset<span class="sc">$</span>ytrabajocor <span class="sc">~</span> casen_subset<span class="sc">$</span>sexo, </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>test_ej1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>test_ej1 <span class="ot">&lt;-</span> <span class="fu">t.test</span>(casen_subset<span class="sc">$</span>ytrabajocor <span class="sc">~</span> casen_subset<span class="sc">$</span>sexo, </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>test_ej1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
 
 data:  casen_subset$ytrabajocor by casen_subset$sexo
-t = 5.3169, df = 446.04, p-value = 0.00000008362
+t = 2.3355, df = 674.99, p-value = 0.009906
 alternative hypothesis: true difference in means between group 1 and group 2 is greater than 0
 95 percent confidence interval:
- 218007.7      Inf
+ 31054.71      Inf
 sample estimates:
 mean in group 1 mean in group 2 
-       818853.3        502896.2 </code></pre>
+       690724.8        585360.4 </code></pre>
 </div>
 </div>
 <p>También podemos visualizarlo en una tabla más amable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rempsyc)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(test_ej1, <span class="at">conf_int =</span> T)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nice_table</span>(stats.table, <span class="at">broom =</span> <span class="st">"t.test"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(test_ej1, <span class="at">conf_int =</span> T)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nice_table</span>(stats.table, <span class="at">broom =</span> <span class="st">"t.test"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-bf015b54{table-layout:auto;}.cl-bef94112{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-bef9411c{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-bef94126{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-befd5e82{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-befd5e8c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-befd8862{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-befd886c{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-befd886d{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-bf015b54"><thead><tr style="overflow-wrap:break-word;"><th class="cl-befd8862"><p class="cl-befd5e82"><span class="cl-bef94112">Method</span></p></th><th class="cl-befd8862"><p class="cl-befd5e82"><span class="cl-bef94112">Alternative</span></p></th><th class="cl-befd8862"><p class="cl-befd5e82"><span class="cl-bef94112">Mean 1</span></p></th><th class="cl-befd8862"><p class="cl-befd5e82"><span class="cl-bef94112">Mean 2</span></p></th><th class="cl-befd8862"><p class="cl-befd5e82"><span class="cl-bef9411c">M</span><span class="cl-bef94126">1</span><span class="cl-bef94112"> - </span><span class="cl-bef9411c">M</span><span class="cl-bef94126">2</span></p></th><th class="cl-befd8862"><p class="cl-befd5e82"><span class="cl-bef9411c">t</span></p></th><th class="cl-befd8862"><p class="cl-befd5e82"><span class="cl-bef9411c">df</span></p></th><th class="cl-befd8862"><p class="cl-befd5e82"><span class="cl-bef9411c">p</span></p></th><th class="cl-befd8862"><p class="cl-befd5e82"><span class="cl-bef94112">95% CI</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-befd886c"><p class="cl-befd5e8c"><span class="cl-bef94112">Welch Two Sample t-test</span></p></td><td class="cl-befd886d"><p class="cl-befd5e82"><span class="cl-bef94112">greater</span></p></td><td class="cl-befd886d"><p class="cl-befd5e82"><span class="cl-bef94112">818,853.29</span></p></td><td class="cl-befd886d"><p class="cl-befd5e82"><span class="cl-bef94112">502,896.20</span></p></td><td class="cl-befd886d"><p class="cl-befd5e82"><span class="cl-bef94112">315,957.09</span></p></td><td class="cl-befd886d"><p class="cl-befd5e82"><span class="cl-bef94112">5.32</span></p></td><td class="cl-befd886d"><p class="cl-befd5e82"><span class="cl-bef94112">446.04</span></p></td><td class="cl-befd886d"><p class="cl-befd5e82"><span class="cl-bef94112">&lt; .001***</span></p></td><td class="cl-befd886d"><p class="cl-befd5e82"><span class="cl-bef94112">[218007.71, Inf]</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-44b223fa{table-layout:auto;}.cl-44a8cea4{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-44a8ceb8{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-44a8ceb9{font-family:'Times New Roman';font-size:7.2pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.6pt;}.cl-44ad74cc{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-44ad74d6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-44ad90ba{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-44ad90c4{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-44ad90c5{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-44b223fa"><thead><tr style="overflow-wrap:break-word;"><th class="cl-44ad90ba"><p class="cl-44ad74cc"><span class="cl-44a8cea4">Method</span></p></th><th class="cl-44ad90ba"><p class="cl-44ad74cc"><span class="cl-44a8cea4">Alternative</span></p></th><th class="cl-44ad90ba"><p class="cl-44ad74cc"><span class="cl-44a8cea4">Mean 1</span></p></th><th class="cl-44ad90ba"><p class="cl-44ad74cc"><span class="cl-44a8cea4">Mean 2</span></p></th><th class="cl-44ad90ba"><p class="cl-44ad74cc"><span class="cl-44a8ceb8">M</span><span class="cl-44a8ceb9">1</span><span class="cl-44a8cea4"> - </span><span class="cl-44a8ceb8">M</span><span class="cl-44a8ceb9">2</span></p></th><th class="cl-44ad90ba"><p class="cl-44ad74cc"><span class="cl-44a8ceb8">t</span></p></th><th class="cl-44ad90ba"><p class="cl-44ad74cc"><span class="cl-44a8ceb8">df</span></p></th><th class="cl-44ad90ba"><p class="cl-44ad74cc"><span class="cl-44a8ceb8">p</span></p></th><th class="cl-44ad90ba"><p class="cl-44ad74cc"><span class="cl-44a8cea4">95% CI</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-44ad90c4"><p class="cl-44ad74d6"><span class="cl-44a8cea4">Welch Two Sample t-test</span></p></td><td class="cl-44ad90c5"><p class="cl-44ad74cc"><span class="cl-44a8cea4">greater</span></p></td><td class="cl-44ad90c5"><p class="cl-44ad74cc"><span class="cl-44a8cea4">690,724.82</span></p></td><td class="cl-44ad90c5"><p class="cl-44ad74cc"><span class="cl-44a8cea4">585,360.36</span></p></td><td class="cl-44ad90c5"><p class="cl-44ad74cc"><span class="cl-44a8cea4">105,364.47</span></p></td><td class="cl-44ad90c5"><p class="cl-44ad74cc"><span class="cl-44a8cea4">2.34</span></p></td><td class="cl-44ad90c5"><p class="cl-44ad74cc"><span class="cl-44a8cea4">674.99</span></p></td><td class="cl-44ad90c5"><p class="cl-44ad74cc"><span class="cl-44a8cea4">.010**</span></p></td><td class="cl-44ad90c5"><p class="cl-44ad74cc"><span class="cl-44a8cea4">[31054.71, Inf]</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <p>Visualicemos la distribución de esta prueba y su zona de rechazo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gginference<span class="sc">::</span><span class="fu">ggttest</span>(test_ej1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>gginference<span class="sc">::</span><span class="fu">ggttest</span>(test_ej1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="02-practico_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="02-practico_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p><strong>5. Interpretación</strong></p>
-<p>La prueba T que evalúa la diferencia de medias entre el salario y el sexo sugiere que el efecto es positivo y estadísticamente signficativo (diferencia = 32567.11, t(566.69) = 2.05, p &lt; .05). El valor <span class="math inline">\(p\)</span> indica que la probabilidad de observar una diferencia de esta magnitud, o mayor, bajo la suposición de <span class="math inline">\(H_{0}\)</span> es menor al 5%. Por tanto, con un 95% de confianza, rechazamos la <span class="math inline">\(H_{0}\)</span> ya que existe evidencia a favor de nuestra <span class="math inline">\(H_{A}\)</span> respecto a que el salario de los hombres es mayor al salario de las mujeres.</p>
+<p>La prueba t que evalúa la diferencia de medias entre el salario y el sexo sugiere que el efecto es positivo y estadísticamente signficativo (diferencia = 105.364,47, t = 2.34, p &lt; .05). El valor <span class="math inline">\(p\)</span> indica que la probabilidad de observar una diferencia de esta magnitud, o mayor, bajo la suposición de <span class="math inline">\(H_{0}\)</span> es menor al 5%. Por tanto, con un 95% de confianza, rechazamos la <span class="math inline">\(H_{0}\)</span> ya que existe evidencia a favor de nuestra <span class="math inline">\(H_{A}\)</span> respecto a que el salario de los hombres es mayor al salario de las mujeres.</p>
 </section>
 <section id="ejercicio-2" class="level1">
 <h1>Ejercicio 2</h1>
@@ -613,18 +583,18 @@ mean in group 1 mean in group 2
 <p>Genere una tabla de descriptivos de los ingresos (<code>ytrabajocor</code>) según si las observaciones tienen hijos o no (<code>hijo</code>). Presente cantidad de observaciones por categoría, media y desviación estándar.</p>
 <p>Una ayuda con el procesamiento (solo esta vez)…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>goldin_data <span class="ot">&lt;-</span> proc_casen <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ocupado, sexo, ytrabajocor, hijo) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(ocupado <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> sexo <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">1500</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()<span class="co"># creamos subset con solo mujeres ocupadas</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>goldin_data <span class="sc">%&gt;%</span> </span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(hijo) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Obs. =</span> <span class="fu">n</span>(),</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Media =</span> <span class="fu">mean</span>(ytrabajocor, <span class="at">na.rm =</span> T),</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">DS =</span> <span class="fu">sd</span>(ytrabajocor, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"markdown"</span>) <span class="co"># hacemos la tabla</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>goldin_data <span class="ot">&lt;-</span> proc_casen <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ocupado, sexo, ytrabajocor, hijo) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(ocupado <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> sexo <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">1500</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()<span class="co"># creamos subset con solo mujeres ocupadas</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>goldin_data <span class="sc">%&gt;%</span> </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(hijo) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Obs. =</span> <span class="fu">n</span>(),</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">Media =</span> <span class="fu">mean</span>(ytrabajocor, <span class="at">na.rm =</span> T),</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">DS =</span> <span class="fu">sd</span>(ytrabajocor, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"markdown"</span>) <span class="co"># hacemos la tabla</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -638,15 +608,15 @@ mean in group 1 mean in group 2
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">376</td>
-<td style="text-align: right;">650186.2</td>
-<td style="text-align: right;">540687.7</td>
+<td style="text-align: right;">378</td>
+<td style="text-align: right;">688196.8</td>
+<td style="text-align: right;">633486.4</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1082</td>
-<td style="text-align: right;">558742.2</td>
-<td style="text-align: right;">498760.1</td>
+<td style="text-align: right;">1077</td>
+<td style="text-align: right;">563537.0</td>
+<td style="text-align: right;">576534.7</td>
 </tr>
 </tbody>
 </table>
@@ -660,24 +630,18 @@ mean in group 1 mean in group 2
 <p><strong>5. Interpretación</strong></p>
 <p>Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis planteada?</p>
 <blockquote class="blockquote">
-<p>La prueba T que evalúa la diferencia de medias…</p>
+<p>La prueba t que evalúa la diferencia de medias…</p>
 </blockquote>
 </section>
 <section id="ejercicio-3" class="level1">
 <h1>Ejercicio 3</h1>
 <p>En este ejercicio tomamos de ejemplo una pregunta clásica en ciencias sociales: <em>¿el ingreso de las personas está relacionado a su nivel educacional?</em>. Para responder esta pregunta vamos a usar una prueba <span class="math inline">\(t\)</span> de contraste de medias para dos muestras independientes.</p>
 <p>Esta vez les dejaremos el procesamiento a ustedes. Utilice la bbdd <code>proc_casen</code> y seleccione las variables <code>ytrabajocor</code> y <code>universitaria</code>. Luego genere una muestra aleatoria 1500 casos con la función <code>sample_n()</code> y elimine los datos perdidos de la variable <code>ytrabajocor</code>. Luego, genere una tabla de descriptivos de los ingresos (<code>ytrabajocor</code>) según si las personas cuentan con educación universitaria o no (<code>universitaria</code>). Presente cantidad de observaciones por categoría, media y desviación estándar.</p>
-<section id="formulación-de-hipótesis" class="level2">
-<h2 class="anchored" data-anchor-id="formulación-de-hipótesis">1. Formulación de hipótesis</h2>
+<p><strong>1. Formulación de hipótesis</strong></p>
 <p>El primer paso es traducir nuestra pregunta a una hipótesis estadística contrastable. Para ello: a) elija el tipo de hipótesis a plantear ¿direccional o no direccional? y b) especifique la hipótesis nula (<span class="math inline">\(H_0\)</span>) e hipótesis alternativa (<span class="math inline">\(H_A\)</span>).</p>
-</section>
-<section id="pasos-2-3-y-4-de-una-vez-con-r" class="level2">
-<h2 class="anchored" data-anchor-id="pasos-2-3-y-4-de-una-vez-con-r">Pasos 2, 3 y 4 de una vez con R</h2>
+<p><strong>Pasos 2, 3 y 4 de una vez con R</strong></p>
 <p>Siguiendo el ejemplo del Ejercicio 1, utilice el <em>software</em> para generar los estadísticos correspondientes. Contraste sus hipótesis considerando un 95% de confianza y un 99% de confianza. Comente las diferencias en el paso 5.</p>
-</section>
-</section>
-<section id="interpretación" class="level1">
-<h1>5. Interpretación</h1>
+<p><strong>5. Interpretación</strong></p>
 <p>Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis nula? ¿a raíz de qué información llega a la conclusión? ¿qué diferencia observa al aplicar la prueba con ambos niveles de confianza (95% y 99%)?</p>
 
 
@@ -1108,7 +1072,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Content <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2024 by <a href="https://www.jc-castillo.com">Juan Castillo</a> <br> All content licensed under a <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc" aria-label="creative-commons-nc"></i> <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></p>
+<p>Content <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2025 by <a href="https://www.jc-castillo.com">Juan Castillo</a> <br> All content licensed under a <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-nc" aria-label="creative-commons-nc"></i> <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

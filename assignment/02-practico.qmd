@@ -1,6 +1,6 @@
 ---
-title: "Práctico 2: Intentando rechazar"
-date: "2024-09-03"
+title: "Práctico 2: Test de hipótesis"
+date: "2025-08-27"
 lang: es
 execute:
   freeze: auto
@@ -20,7 +20,7 @@ La guía tiene **3 ejercicios**. El primero de ellos es un ejemplo, y los ejerci
 
 ## Recursos de la práctica
 
-En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el [Ministerio de Desarrollo Social y Familia](https://observatorio.ministeriodesarrollosocial.gob.cl/). Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `CASEN 20222`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/proc_casen.RData). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.
+En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el [Ministerio de Desarrollo Social y Familia](https://observatorio.ministeriodesarrollosocial.gob.cl/). Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `CASEN 2022`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/proc_casen.RData). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.
 
 ## Cinco pasos para la inferencia estadística
 
@@ -82,7 +82,9 @@ pacman::p_load(dplyr, # Manipulacion datos
                gginference, # Visualizacion 
                rempsyc, # Reporte
                kableExtra, # Tablas
-               broom) # Varios
+               broom, # Varios
+               flextable, # nice table
+               rempsyc)
 
 options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
@@ -111,7 +113,7 @@ dim(proc_casen) # Dimensiones
 
 ```
 
-Contamos con 24 variables (columnas) y 202.111 observaciones (filas).
+Contamos con 29 variables (columnas) y 202.111 observaciones (filas).
 
 # Recordemos...
 
@@ -137,7 +139,11 @@ $$  H_{A}: \mu_{0} > \mu_{1} $$
 $$  H_{A}: \mu_{0} < \mu_{1} $$
 :::
 
-Veamos ahora cómo aplicar todos estos conocimientos con ejercicios.
+Veamos ahora cómo aplicar todos estos conocimientos con ejercicios, pero utilizamos `set.seed` para reproducibilidad de los resultados
+
+```{r}
+set.seed(123) # Fijar la semilla para reproducibilidad
+```
 
 # Ejercicio 1
 
@@ -205,8 +211,6 @@ test_ej1
 También podemos visualizarlo en una tabla más amable.
 
 ```{r}
-library(flextable)
-library(rempsyc)
 stats.table <- tidy(test_ej1, conf_int = T)
 nice_table(stats.table, broom = "t.test")
 ```
@@ -219,7 +223,7 @@ gginference::ggttest(test_ej1)
 
 **5. Interpretación**
 
-La prueba T que evalúa la diferencia de medias entre el salario y el sexo sugiere que el efecto es positivo y estadísticamente signficativo (diferencia = 32567.11, t(566.69) = 2.05, p < .05). El valor $p$ indica que la probabilidad de observar una diferencia de esta magnitud, o mayor, bajo la suposición de $H_{0}$ es menor al 5%. Por tanto, con un 95% de confianza, rechazamos la $H_{0}$ ya que existe evidencia a favor de nuestra $H_{A}$ respecto a que el salario de los hombres es mayor al salario de las mujeres.
+La prueba t que evalúa la diferencia de medias entre el salario y el sexo sugiere que el efecto es positivo y estadísticamente signficativo (diferencia = 105.364,47, t = 2.34, p < .05). El valor $p$ indica que la probabilidad de observar una diferencia de esta magnitud, o mayor, bajo la suposición de $H_{0}$ es menor al 5%. Por tanto, con un 95% de confianza, rechazamos la $H_{0}$ ya que existe evidencia a favor de nuestra $H_{A}$ respecto a que el salario de los hombres es mayor al salario de las mujeres.
 
 # Ejercicio 2
 
@@ -261,7 +265,7 @@ Siguiendo el ejemplo del Ejercicio 1, utilice el software para generar los estad
 
 Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis planteada?
 
-> La prueba T que evalúa la diferencia de medias...
+> La prueba t que evalúa la diferencia de medias...
 
 # Ejercicio 3
 
@@ -269,14 +273,14 @@ En este ejercicio tomamos de ejemplo una pregunta clásica en ciencias sociales:
 
 Esta vez les dejaremos el procesamiento a ustedes. Utilice la bbdd `proc_casen` y seleccione las variables `ytrabajocor` y `universitaria`. Luego genere una muestra aleatoria 1500 casos con la función `sample_n()` y elimine los datos perdidos de la variable `ytrabajocor`. Luego, genere una tabla de descriptivos de los ingresos (`ytrabajocor`) según si las personas cuentan con educación universitaria o no (`universitaria`). Presente cantidad de observaciones por categoría, media y desviación estándar.
 
-## 1. Formulación de hipótesis
+**1. Formulación de hipótesis**
 
 El primer paso es traducir nuestra pregunta a una hipótesis estadística contrastable. Para ello: a) elija el tipo de hipótesis a plantear ¿direccional o no direccional? y b) especifique la hipótesis nula ($H_0$) e hipótesis alternativa ($H_A$).
 
-## Pasos 2, 3 y 4 de una vez con R
+**Pasos 2, 3 y 4 de una vez con R**
 
 Siguiendo el ejemplo del Ejercicio 1, utilice el _software_ para generar los estadísticos correspondientes. Contraste sus hipótesis considerando un 95% de confianza y un 99% de confianza. Comente las diferencias en el paso 5.
 
-# 5. Interpretación
+**5. Interpretación**
 
 Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis nula? ¿a raíz de qué información llega a la conclusión? ¿qué diferencia observa al aplicar la prueba con ambos niveles de confianza (95% y 99%)?
