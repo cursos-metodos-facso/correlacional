@@ -147,6 +147,7 @@ set.seed(123) # Fijar la semilla para reproducibilidad
 
 # Ejercicio 1
 
+
 Este ejercicio está basado en un ejemplo de clases y está desarrollado para que sirva de ejemplo a los siguientes ejercicios que deben ser desarrollados de manera autónoma.
 
 La pregunta de investigación es: *¿Es el salario de los hombres mayor que el de las mujeres?*
@@ -235,6 +236,7 @@ Genere una tabla de descriptivos de los ingresos (`ytrabajocor`) según si las o
 
 Una ayuda con el procesamiento (solo esta vez)...
 
+
 ```{r, collapse=FALSE}
 
 goldin_data <- proc_casen %>% 
@@ -257,15 +259,38 @@ Ahora vamos con los [5 pasos de la inferencia](https://correlacional.netlify.app
 
 El primer paso es traducir nuestra pregunta a una hipótesis estadística contrastable. Para ello: a) elija el tipo de hipótesis a plantear ¿direccional o no direccional? y b) especifique la hipótesis nula ($H_0$) e hipótesis alternativa ($H_A$).
 
+a) hipótesis direccional
+
+b.1) ($H_0$): No existen diferencias en el salario de las mujeres con y sin hijos
+
+b.2) ($H_A$): Promedio salarial de mujeres con hijos será mayor que el promedio salarial de las mujeres sin hijos.
+
 **Pasos 2, 3 y 4 de una vez con R**
 
 Siguiendo el ejemplo del Ejercicio 1, utilice el software para generar los estadísticos correspondientes. Contraste sus hipótesis considerando un 95% de confianza.
+
+```{r}
+test_ej2 <- t.test(goldin_data$ytrabajocor ~ goldin_data$hijo, 
+                   alternative = "greater",
+                   conf.level = 0.95)
+
+test_ej2
+```
+
+```{r}
+stats.table <- tidy(test_ej2, conf_int = T)
+nice_table(stats.table, broom = "t.test")
+```
 
 **5. Interpretación**
 
 Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis planteada?
 
+
+
 > La prueba t que evalúa la diferencia de medias...
+
+Respuesta: Con un 95% de confianza es posible rechazar la hipótesis nula planteada. El promedio salarial de las mujeres con hijos es $124.659,75 mayor que el de las mujeres sin hijos.
 
 # Ejercicio 3
 
@@ -273,14 +298,71 @@ En este ejercicio tomamos de ejemplo una pregunta clásica en ciencias sociales:
 
 Esta vez les dejaremos el procesamiento a ustedes. Utilice la bbdd `proc_casen` y seleccione las variables `ytrabajocor` y `universitaria`. Luego genere una muestra aleatoria 1500 casos con la función `sample_n()` y elimine los datos perdidos de la variable `ytrabajocor`. Luego, genere una tabla de descriptivos de los ingresos (`ytrabajocor`) según si las personas cuentan con educación universitaria o no (`universitaria`). Presente cantidad de observaciones por categoría, media y desviación estándar.
 
+
+```{r warning=FALSE }
+casen_ej3 <- proc_casen %>% 
+  select(universitaria, ytrabajocor) %>% # seleccionamos
+  sample_n(1500) # extraemos una muestra de 1500 casos
+
+casen_ej3 <- na.omit(casen_ej3) # eliminamos casos perdidos (listwise)
+```
+
+```{r}
+casen_ej3 %>% 
+  dplyr::group_by(universitaria) %>% # se agrupan por la variable categórica 
+  dplyr::summarise(Obs. = n(),
+                   Promedio = mean(ytrabajocor, na.rm=TRUE),
+                   SD = sd(ytrabajocor, na.rm=TRUE)) %>% # se agregan las operaciones a presentar en la tabla
+  kableExtra::kable(format = "markdown") # se genera la tabla
+```
+
 **1. Formulación de hipótesis**
 
 El primer paso es traducir nuestra pregunta a una hipótesis estadística contrastable. Para ello: a) elija el tipo de hipótesis a plantear ¿direccional o no direccional? y b) especifique la hipótesis nula ($H_0$) e hipótesis alternativa ($H_A$).
+
+a) Hipótesis direccional
+
+b1) ($H_0$): No existen diferencias en el promedio salarial según el nivel educacional de las personas.
+
+b2) ($H_A$): Las personas con nivel educacional universitaria tendrán un promedio salarial mayor que las personas de nivel educacional más bajo.
 
 **Pasos 2, 3 y 4 de una vez con R**
 
 Siguiendo el ejemplo del Ejercicio 1, utilice el _software_ para generar los estadísticos correspondientes. Contraste sus hipótesis considerando un 95% de confianza y un 99% de confianza. Comente las diferencias en el paso 5.
 
+**95%**
+
+```{r}
+test_ej3 <- t.test(casen_ej3$ytrabajocor ~ casen_ej3$universitaria, 
+                   alternative = "less",
+                   conf.level = 0.95)
+
+test_ej3
+```
+
+```{r}
+stats.table <- tidy(test_ej3, conf_int = T)
+nice_table(stats.table, broom = "t.test")
+```
+
+**99%**
+
+```{r}
+test_ej4 <- t.test(casen_ej3$ytrabajocor ~ casen_ej3$universitaria, 
+                   alternative = "less",
+                   conf.level = 0.99)
+
+test_ej4
+```
+
+```{r}
+stats.table <- tidy(test_ej4, conf_int = T)
+nice_table(stats.table, broom = "t.test")
+```
 **5. Interpretación**
 
 Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis nula? ¿a raíz de qué información llega a la conclusión? ¿qué diferencia observa al aplicar la prueba con ambos niveles de confianza (95% y 99%)?
+
+Respuesta: es posible rechazar la hipótesis nula tanto para un 95% como para un 99% de confianza.
+
+El único cambio observado es un leve aumento de el intervalo de confianza estimado para un 99% de confianza.
