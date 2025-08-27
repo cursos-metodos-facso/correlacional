@@ -1304,7 +1304,7 @@
     "href": "assignment/02-practico.html",
     "title": "Práctico 2: Test de hipótesis",
     "section": "",
-    "text": "El objetivo de esta guía práctica es realizar una serie de ejercicios de inferencia estadística, tomando como base todos los contenidos de la Unidad 1. En particular, se abordan pruebas de hipótesis para diferencias de medias y direccionales utilizando la prueba t\nLa guía tiene 3 ejercicios. El primero de ellos es un ejemplo, y los ejercicios 2 y 3 se desarrollan de manera autónoma en la sala (también puede ser en grupo).\n\n\nEn esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el Ministerio de Desarrollo Social y Familia. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace:  CASEN 2022. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.\n\n\n\n\nEn inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística:\n\n\n\n\nPaso\n\n\nDetalle\n\n\n\n\n1\n\n\nFormula \\(H_0\\) y \\(H_A\\) y estipula la dirección de la prueba\n\n\n\n\n2\n\n\nCalcula el error estándar (SE) y el valor estimado de la prueba (ej: Z o t)\n\n\n\n\n3\n\n\nEspecifica la probabilidad de error \\(\\alpha\\) y el valor crítico de la prueba\n\n\n\n\n4\n\n\nContrasta el valor estimado con el valor crítico\n\n\n\n\n5\n\n\nIntrepreta los resultados\n\n\n\nAdemás de estos 5 pasos también existe la posibilidad de calcular un intervalo de confianza, que acompañe la precisión de nuestra estimación.",
+    "text": "Sesión del miércoles, 27 de agosto de 2025",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1315,8 +1315,8 @@
     "objectID": "assignment/02-practico.html#recursos-de-la-práctica",
     "href": "assignment/02-practico.html#recursos-de-la-práctica",
     "title": "Práctico 2: Test de hipótesis",
-    "section": "",
-    "text": "En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el Ministerio de Desarrollo Social y Familia. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace:  CASEN 2022. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.",
+    "section": "Recursos de la práctica",
+    "text": "Recursos de la práctica\nEn esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el Ministerio de Desarrollo Social y Familia. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace:  CASEN 2022. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.",
     "crumbs": [
       "Prácticos",
       "Guías",
@@ -1327,8 +1327,8 @@
     "objectID": "assignment/02-practico.html#cinco-pasos-para-la-inferencia-estadística",
     "href": "assignment/02-practico.html#cinco-pasos-para-la-inferencia-estadística",
     "title": "Práctico 2: Test de hipótesis",
-    "section": "",
-    "text": "En inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística:\n\n\n\n\nPaso\n\n\nDetalle\n\n\n\n\n1\n\n\nFormula \\(H_0\\) y \\(H_A\\) y estipula la dirección de la prueba\n\n\n\n\n2\n\n\nCalcula el error estándar (SE) y el valor estimado de la prueba (ej: Z o t)\n\n\n\n\n3\n\n\nEspecifica la probabilidad de error \\(\\alpha\\) y el valor crítico de la prueba\n\n\n\n\n4\n\n\nContrasta el valor estimado con el valor crítico\n\n\n\n\n5\n\n\nIntrepreta los resultados\n\n\n\nAdemás de estos 5 pasos también existe la posibilidad de calcular un intervalo de confianza, que acompañe la precisión de nuestra estimación.",
+    "section": "Cinco pasos para la inferencia estadística",
+    "text": "Cinco pasos para la inferencia estadística\n\nEn inferencia, las pruebas de hipótesis nos ayudan a determinar si el resultado que obtenemos en nuestra muestra es un efecto real/extensible a la población o un error. Aquí recomendamos una lista de cinco pasos lógicos para enfrentarnos a la inferencia estadística:\n\n\n\n\nPaso\n\n\nDetalle\n\n\n\n\n1\n\n\nFormula \\(H_0\\) y \\(H_A\\) y estipula la dirección de la prueba\n\n\n\n\n2\n\n\nCalcula el error estándar (SE) y el valor estimado de la prueba (ej: Z o t)\n\n\n\n\n3\n\n\nEspecifica la probabilidad de error \\(\\alpha\\) y el valor crítico de la prueba\n\n\n\n\n4\n\n\nContrasta el valor estimado con el valor crítico\n\n\n\n\n5\n\n\nIntrepreta los resultados\n\n\n\nAdemás de estos 5 pasos también existe la posibilidad de calcular un intervalo de confianza, que acompañe la precisión de nuestra estimación.",
     "crumbs": [
       "Prácticos",
       "Guías",
