@@ -228,7 +228,7 @@ La prueba t que evalúa la diferencia de medias entre el salario y el sexo sugie
 
 # Ejercicio 2
 
-Tomando como ejemplo el trabajo de la ganadora del Premio Nobel de Economía 2023 Claudia Goldin, en este ejercicio evaluaremos la siguiente pregunta: _¿Es el salario de las mujeres sin hijos menor al salario de las mujeres con hijos?_ Por ende, usaremos **prueba $t$** para diferencia de medias.
+Tomando como ejemplo el trabajo de la ganadora del Premio Nobel de Economía 2023 Claudia Goldin, en este ejercicio evaluaremos la siguiente pregunta: _¿Es el salario de las mujeres con hijos menor al salario de las mujeres sin hijos?_ Por ende, usaremos **prueba $t$** para diferencia de medias.
 
 Utilice la bbdd `proc_casen` y seleccione las variables `ocupado`, `sexo`, `ytrabajocor` e `hijo`. Luego, filtra por `ocupado == 1` y `sexo == 2` para quedarse solo con mujeres ocupadas y genera una muestra aleatoria de 1.500 casos con la función `sample_n()`. Luego, elimina los casos pérdidos con `na.omit()`. 
 
@@ -238,6 +238,7 @@ Una ayuda con el procesamiento (solo esta vez)...
 
 
 ```{r, collapse=FALSE}
+set.seed(123)
 
 goldin_data <- proc_casen %>% 
   dplyr::select(ocupado, sexo, ytrabajocor, hijo) %>% 
@@ -261,9 +262,9 @@ El primer paso es traducir nuestra pregunta a una hipótesis estadística contra
 
 a) hipótesis direccional
 
-b.1) ($H_0$): No existen diferencias en el salario de las mujeres con y sin hijos
+b.1) ($H_0$): El promedio salarial de las mujeres sin hijos será igual o menor que el promedio salarial de las mujeres con hijos.
 
-b.2) ($H_A$): Promedio salarial de mujeres con hijos será mayor que el promedio salarial de las mujeres sin hijos.
+b.2) ($H_A$): Promedio salarial de mujeres sin hijos será mayor que el promedio salarial de las mujeres con hijos.
 
 **Pasos 2, 3 y 4 de una vez con R**
 
@@ -290,7 +291,7 @@ Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis plantea
 
 > La prueba t que evalúa la diferencia de medias...
 
-Respuesta: Con un 95% de confianza es posible rechazar la hipótesis nula planteada. El promedio salarial de las mujeres con hijos es $124.659,75 mayor que el de las mujeres sin hijos.
+Respuesta: Con un 95% de confianza es posible rechazar la hipótesis nula planteada. El promedio salarial de las mujeres sin hijos es $115.265,96 mayor que el de las mujeres con hijos.
 
 # Ejercicio 3
 
@@ -300,6 +301,8 @@ Esta vez les dejaremos el procesamiento a ustedes. Utilice la bbdd `proc_casen` 
 
 
 ```{r warning=FALSE }
+set.seed(123)
+
 casen_ej3 <- proc_casen %>% 
   select(universitaria, ytrabajocor) %>% # seleccionamos
   sample_n(1500) # extraemos una muestra de 1500 casos
@@ -322,9 +325,9 @@ El primer paso es traducir nuestra pregunta a una hipótesis estadística contra
 
 a) Hipótesis direccional
 
-b1) ($H_0$): No existen diferencias en el promedio salarial según el nivel educacional de las personas.
+b1) ($H_0$): El promedio salarial de las personas con educación no universitaria será igual o menor que el promedio salarial de las personas con nivel educacional universitaria.
 
-b2) ($H_A$): Las personas con nivel educacional universitaria tendrán un promedio salarial mayor que las personas de nivel educacional más bajo.
+b2) ($H_A$): Las personas con educación no universitaria tienen un promedio salarial menor que quienes tienen universitaria
 
 **Pasos 2, 3 y 4 de una vez con R**
 
@@ -343,6 +346,10 @@ test_ej3
 ```{r}
 stats.table <- tidy(test_ej3, conf_int = T)
 nice_table(stats.table, broom = "t.test")
+```
+
+```{r}
+gginference::ggttest(test_ej3)
 ```
 
 **99%**
