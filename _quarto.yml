@@ -46,7 +46,7 @@ website:
     right:
       - text: "Informaciones"
         file: news/index.qmd
-      - schedule.qmd
+      - schedule2.qmd
       - text: "Clases"
         file: content/index.qmd
       - text: "Prácticos"
