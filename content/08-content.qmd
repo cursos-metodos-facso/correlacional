@@ -1,6 +1,6 @@
 ---
 title: "Bivariada 1 - Asociación y covarianza "
-date: "2024-09-23"
+date: "2025-09-08"
 lang: es
 execute:
   freeze: auto 
