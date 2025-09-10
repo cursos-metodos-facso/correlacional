@@ -87,8 +87,8 @@ website:
               file: content/07-content.qmd
             - text: "Bivariada 1"
               file: content/08-content.qmd
-            # - text: "Bivariada 2"
-            #   file: content/09-content.qmd
+            - text: "Bivariada 2"
+              file: content/09-content.qmd
             # - text: "Bivariada 3"
             #   file: content/10-content.qmd
             # - text: "Bivariada 4"

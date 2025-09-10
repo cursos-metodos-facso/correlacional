@@ -51,7 +51,7 @@ xaringanExtra::use_search(show_icon = TRUE)
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -91,6 +91,11 @@ class: inverse bottom right
 .pull-left-narrow[
 .small[
 ```{r echo=FALSE}
+# Datos ejemplo
+id <- seq(1,8)
+educ <-c(2,3,4,4,5,7,8,8)
+ing <-c(1,3,3,5,4,7,9,11)
+data <-data.frame(id,educ,ing)
 data %>% select (id,educ,ing) %>% kableExtra::kbl(.)
 ```
 ]
@@ -103,12 +108,6 @@ data %>% select (id,educ,ing) %>% kableExtra::kbl(.)
 
 
 ```{r, echo=F}
-# Datos ejemplo
-id <- seq(1,8)
-educ <-c(2,3,4,4,5,7,8,8)
-ing <-c(1,3,3,5,4,7,9,11)
-data <-data.frame(id,educ,ing)
-
 data$mean_educ <- mean(data$educ)
 data$dif_m_educ <- data$educ-data$mean_educ  
 data$dif_m_educ2 <- (data$dif_m_educ)^2
@@ -331,7 +330,6 @@ Simulamos dos variables: edad, y puntaje en escala de izquierda (1) - derecha (1
 edad <-c(18,25,40,55,70, 82)
 iz_der <-c(5,4,5,9,5,7)
 cor(edad,iz_der)
-(cor(edad,iz_der))^2 #r2
 
 ```
 ]
@@ -477,14 +475,7 @@ La varianza no compartida se asocia al concepto de .red[residuos], es decir, la 
 Para poder obtener los residuos vamos a generar una .red[recta] que represente la asociación entre las variables. Esta es la recta de **regresión** <sup>1</sup>
 
 Esta recta nos permite obtener un valor estimado de $y$ para cada valor de $x$
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <br>
 .small[[1] Detalles próximo semestre]
 ]
@@ -570,13 +561,12 @@ $R^2=r^2$
 Por lo tanto, en nuestro ejemplo:
 .small[
 ```{r}
-cor(data$educ,data$ing)
+cor(edad,iz_der)
+cor(edad,iz_der)^2
 ```
 ]
 \begin{align*}
-r&= 0.95 \\
-r^2&=0.95 ^2 \\
-r^2&=0.902 = R^2
+R^2&= 0.25
 \end{align*}
 
 ]
@@ -586,9 +576,9 @@ r^2&=0.902 = R^2
 .content-box-red[
 Intepretación:
 
-_El porcentaje de varianza compartida entre educación e ingreso es de 90%._
+_El porcentaje de varianza compartida entre edad y orientación izquierda-derecha es de 25%._
 
-_Es decir, ambas variables comparten el 90% de su varianza_
+Es decir, ambas variables comparten el 25% de su varianza_
 ]]
 ---
 # $R^2$ o coeficiente de determinación
@@ -658,7 +648,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https://correlacional.netlify.app)
 ]
     
