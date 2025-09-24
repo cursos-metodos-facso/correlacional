@@ -246,7 +246,7 @@
     "href": "index.html#últimas-informaciones",
     "title": "\n            Estadística Correlacional\n        ",
     "section": "Últimas informaciones",
-    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
+    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\nReporte Evaluación 1\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
   },
   {
     "objectID": "example/index.html",
@@ -1319,5 +1319,40 @@
     "title": "Programa",
     "section": "Programación de sesiones",
     "text": "Programación de sesiones\nVisitar la página de Planificación."
+  },
+  {
+    "objectID": "news/2025-09-25_reporte-notas1.html",
+    "href": "news/2025-09-25_reporte-notas1.html",
+    "title": "Reporte Evaluación 1",
+    "section": "",
+    "text": "← News\nEste reporte realiza un análisis de la Evaluación 1 sobre la Unidad 1: Inferencia estadística"
+  },
+  {
+    "objectID": "news/2025-09-25_reporte-notas1.html#solicitudes-de-recorrección",
+    "href": "news/2025-09-25_reporte-notas1.html#solicitudes-de-recorrección",
+    "title": "Reporte Evaluación 1",
+    "section": "Solicitudes de recorrección",
+    "text": "Solicitudes de recorrección\n\nEnviar correo a apoyo docente Kevin Carrasco, kevin.carrasco@uchile.cl, quien estará coordinando estas solicitudes\nEn el correo:\n\nmencionar pregunta a corregir\nargumento y puntaje esperado\nfoto de la pregunta\n\n\nSolicitudes hasta el miércoles 1 de Octubre 23:59, las solicitudes se responderán en un plazo máximo el lunes 6 de Octubre."
+  },
+  {
+    "objectID": "news/2025-09-25_reporte-notas1.html#etiquetados",
+    "href": "news/2025-09-25_reporte-notas1.html#etiquetados",
+    "title": "Reporte Evaluación 1",
+    "section": "Etiquetados",
+    "text": "Etiquetados\n\n# Label variables\n\nprueba1$p1a &lt;- set_label(x = prueba1$p1a, \n                         label = \"Error tipo II\")\nprueba1$p1b &lt;- set_label(x = prueba1$p1b, \n                         label = \"Significancia\")\nprueba1$p1c &lt;- set_label(x = prueba1$p1c, \n                         label = \"Rechazo H0 valor p\")\nprueba1$p2a &lt;- set_label(x = prueba1$p2a, \n                         label = \"Formulación hipótesis\")\nprueba1$p2b &lt;- set_label(x = prueba1$p2b, \n                         label = \"Contraste de prueba t\")\nprueba1$p2c &lt;- set_label(x = prueba1$p2c, \n                         label = \"Intervalo confianza de prueba t\")\nprueba1$nota &lt;- set_label(x = prueba1$nota, \n                         label = \"Nota final\")\nprueba1$asistencia &lt;- set_label(x = prueba1$asistencia, \n                         label = \"Asistencia \")\nprueba1$grupo &lt;- set_label(x = prueba1$grupo, \n                         label = \"Grupo u-cursos\")"
+  },
+  {
+    "objectID": "news/2025-09-25_reporte-notas1.html#tabla-descriptiva",
+    "href": "news/2025-09-25_reporte-notas1.html#tabla-descriptiva",
+    "title": "Reporte Evaluación 1",
+    "section": "Tabla descriptiva",
+    "text": "Tabla descriptiva\n\nprueba1 %&gt;% descr(., show = c(\"label\",\"range\", \"mean\", \"sd\", \"n\"))%&gt;% kable(.,\"markdown\", digits=2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar\nlabel\nn\nmean\nsd\nrange\n\n\n\n\n3\np1a\nError tipo II\n75\n0.53\n0.45\n1 (0-1)\n\n\n4\np1b\nSignificancia\n75\n0.30\n0.43\n1 (0-1)\n\n\n5\np1c\nRechazo H0 valor p\n75\n0.27\n0.49\n2 (0-2)\n\n\n6\np2a\nFormulación hipótesis\n75\n1.69\n0.60\n2 (0-2)\n\n\n7\np2b\nContraste de prueba t\n75\n2.82\n1.40\n4 (0-4)\n\n\n8\np2c\nIntervalo confianza de prueba t\n75\n1.32\n0.81\n2 (0-2)\n\n\n9\npuntaje\npuntaje\n75\n6.94\n2.58\n11 (0-11)\n\n\n2\nnota\nNota final\n75\n44.91\n12.93\n55 (10-65)\n\n\n1\nasistencia\nAsistencia\n75\n52.86\n19.86\n71.4 (14.3-85.7)"
+  },
+  {
+    "objectID": "news/2025-09-25_reporte-notas1.html#gráficos-descriptivos",
+    "href": "news/2025-09-25_reporte-notas1.html#gráficos-descriptivos",
+    "title": "Reporte Evaluación 1",
+    "section": "Gráficos descriptivos",
+    "text": "Gráficos descriptivos\n\nhist(prueba1$nota)\n\n\n\n\n\n\n\nplot_frq(data = prueba1$nota,type = \"hist\",show.mean = T)\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(notas_cat=cut(nota, breaks=c(-Inf,40,50,60, Inf), labels=c(\"Menor a 4.0\",\"4.0-5.0\",\"5.0-6.0\",\"6.0-7.0\")))\n\nfrq(prueba1$notas_cat, out=\"browser\", show.na = FALSE, title = \"Rangos de notas\")\n\n\nRangos de notas\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenor a 4.0\n22\n29.33\n29.33\n29.33\n\n\n\n4.0-5.0\n26\n34.67\n34.67\n64.00\n\n\n\n5.0-6.0\n24\n32.00\n32.00\n96.00\n\n\n\n6.0-7.0\n3\n4.00\n4.00\n100.00\n\n\n\ntotal N=75 · valid N=72 · x̄=2.11 · σ=0.88\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-notas_cat)"
   }
 ]
