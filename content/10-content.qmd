@@ -1,6 +1,6 @@
 ---
 title: "Ordinales y matrices"
-date: "2024-09-30"
+date: "2025-09-24"
 lang: es
 execute:
   freeze: auto 
