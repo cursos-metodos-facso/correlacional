@@ -91,8 +91,8 @@ website:
               file: content/09-content.qmd
             - text: "Bivariada 3"
               file: content/10-content.qmd
-            # - text: "Bivariada 4"
-            #   file: content/11-content.qmd
+            - text: "Bivariada 4"
+              file: content/11-content.qmd
             # - text: "Bivariada 5"
             #   file: content/12-content.qmd
             # - text: "Documentos dinámicos"
