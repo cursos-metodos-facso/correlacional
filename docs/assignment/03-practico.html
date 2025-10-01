@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-6c1d4747946d1be0d0588e27238c39f9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-39aa1c037a30761ab9151af6b8579c08.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f58af8c7f73aa68b9a77e654cb5d1cf7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -106,7 +106,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -218,22 +220,12 @@ window.Quarto = {
   <li><a href="#recursos-de-la-práctica" id="toc-recursos-de-la-práctica" class="nav-link" data-scroll-target="#recursos-de-la-práctica">Recursos de la práctica</a></li>
   </ul></li>
   <li><a href="#preparación-de-datos" id="toc-preparación-de-datos" class="nav-link" data-scroll-target="#preparación-de-datos">1. Preparación de datos</a></li>
-  <li><a href="#correlación-de-pearson" id="toc-correlación-de-pearson" class="nav-link" data-scroll-target="#correlación-de-pearson">2. Correlación de Pearson</a>
-  <ul class="collapse">
-  <li><a href="#recordemos" id="toc-recordemos" class="nav-link" data-scroll-target="#recordemos">Recordemos…</a></li>
-  </ul></li>
-  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  <li><a href="#correlación-de-pearson" id="toc-correlación-de-pearson" class="nav-link" data-scroll-target="#correlación-de-pearson">2. Correlación de Pearson</a></li>
   <li><a href="#tamaños-de-efecto" id="toc-tamaños-de-efecto" class="nav-link" data-scroll-target="#tamaños-de-efecto">3. Tamaños de efecto</a></li>
   <li><a href="#diagramas-de-dispersión" id="toc-diagramas-de-dispersión" class="nav-link" data-scroll-target="#diagramas-de-dispersión">4. Diagramas de dispersión</a></li>
   <li><a href="#inferencia-en-correlación" id="toc-inferencia-en-correlación" class="nav-link" data-scroll-target="#inferencia-en-correlación">5. Inferencia en correlación</a></li>
   <li><a href="#coeficiente-de-determinación-r2" id="toc-coeficiente-de-determinación-r2" class="nav-link" data-scroll-target="#coeficiente-de-determinación-r2">6. Coeficiente de determinación (<span class="math inline">\(R^2\)</span>)</a></li>
-  <li><a href="#limitaciones-de-la-correlación-de-pearson" id="toc-limitaciones-de-la-correlación-de-pearson" class="nav-link" data-scroll-target="#limitaciones-de-la-correlación-de-pearson">7. Limitaciones de la correlación de Pearson</a>
-  <ul class="collapse">
-  <li><a href="#a-valores-extremos" id="toc-a-valores-extremos" class="nav-link" data-scroll-target="#a-valores-extremos">(a) Valores extremos</a></li>
-  <li><a href="#b-distintas-distribuciones" id="toc-b-distintas-distribuciones" class="nav-link" data-scroll-target="#b-distintas-distribuciones">(b) Distintas distribuciones</a></li>
-  </ul></li>
   <li><a href="#ejercicio-autónomo" id="toc-ejercicio-autónomo" class="nav-link" data-scroll-target="#ejercicio-autónomo">Ejercicio autónomo</a></li>
-  <li><a href="#resolución-ejercicio-autónomo" id="toc-resolución-ejercicio-autónomo" class="nav-link" data-scroll-target="#resolución-ejercicio-autónomo">Resolución ejercicio autónomo</a></li>
   </ul>
 </nav>
     </div>
@@ -244,7 +236,7 @@ window.Quarto = {
 
 
 <div class="date-block bg-assignment text-white p-2">
-  <p class="date">Sesión del martes, 1 de octubre de 2024</p>
+  <p class="date">Sesión del miércoles, 1 de octubre de 2025</p>
 </div>
 </header>
 
@@ -274,10 +266,12 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># Manipulacion datos</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               sjPlot, <span class="co"># Graficos</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               rstatix, <span class="co"># Test estadísticos</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               broom) <span class="co"># Tablas</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               labelled, <span class="co"># Para labels</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               broom, <span class="co"># Tablas</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               kableExtra) <span class="co"># Tablas</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Cargamos los datos directamente desde internet.</p>
 <div class="cell">
@@ -398,7 +392,6 @@ window.Quarto = {
 <pre><code>[1] 2740  311</code></pre>
 </div>
 </div>
-<p>Contamos con 311 variables (columnas) y 2740 observaciones (filas).</p>
 <p>Ahora, realizaremos un pequeño procesamiento de nuestros datos con <code>dplyr</code> y <code>sjlabelled</code>, todo de una vez mediante el uso de pipes <code>%&gt;%</code>. Para recordar los pasos para el procesamiento de datos, revisar el <a href="https://descriptiva-facso.netlify.app/assignment/03-practico">curso anterior</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Procesemos la bbdd quedandonos solo con algunas variables de interés</span></span>
@@ -409,64 +402,35 @@ window.Quarto = {
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ing_per_just =</span> m15,</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">edad =</span> m0_edad, </span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">mesfuerzo =</span> c18_09, </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">mtalento =</span> c18_10</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span>  <span class="co"># seleccionamos</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">across</span>(ing_per<span class="sc">:</span>mtalento, <span class="sc">~</span> <span class="fu">if_else</span>(. <span class="sc">%in%</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">666</span>, <span class="sc">-</span><span class="dv">777</span>, <span class="sc">-</span><span class="dv">888</span>, <span class="sc">-</span><span class="dv">999</span>), <span class="cn">NA</span>, .)), <span class="co"># Recodificar a NA</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">pmerit =</span> (mesfuerzo <span class="sc">+</span> mtalento) <span class="sc">/</span> <span class="dv">2</span> <span class="co"># Crear nueva variable</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> <span class="co"># recodificamos y transformamos</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    labelled<span class="sc">::</span><span class="fu">set_variable_labels</span>(</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">pmerit =</span> <span class="st">"Promedio entre percepción de meritocracia por esfuerzo y talento"</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    ) <span class="co"># etiquetamos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">mtalento =</span> c18_10,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">ess=</span> d01_01</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span>  <span class="co"># seleccionamos</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">across</span>(ing_per<span class="sc">:</span>ess, <span class="sc">~</span> <span class="fu">if_else</span>(. <span class="sc">%in%</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">666</span>, <span class="sc">-</span><span class="dv">777</span>, <span class="sc">-</span><span class="dv">888</span>, <span class="sc">-</span><span class="dv">999</span>), <span class="cn">NA</span>, .)), <span class="co"># Recodificar a NA</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">pmerit =</span> (mesfuerzo <span class="sc">+</span> mtalento) <span class="sc">/</span> <span class="dv">2</span> <span class="co"># Crear nueva variable</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> <span class="co"># recodificamos y transformamos</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    labelled<span class="sc">::</span><span class="fu">set_variable_labels</span>(</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">pmerit =</span> <span class="st">"Promedio entre percepción de meritocracia por esfuerzo y talento"</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    ) <span class="co"># etiquetamos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Veamos cómo quedó nuetras base procesada <code>proc_elsoc</code></p>
+<p>Veamos cómo quedó nuestra base procesada <code>proc_elsoc</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(proc_elsoc)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  idencuesta ing_per ing_per_just edad mesfuerzo mtalento pmerit
-1    1101011      NA           NA   69         2        2      2
-2    1101012      NA           NA   65         2        2      2
-3    1101013      NA           NA   30         4        4      4
-4    1101021  600000      1000000   55         3        3      3
-5    1101023      NA      1000000   65         2        2      2
-6    1101032      NA           NA   58         2        2      2</code></pre>
+<pre><code>  idencuesta ing_per ing_per_just edad mesfuerzo mtalento ess pmerit
+1    1101011      NA           NA   69         2        2   5      2
+2    1101012      NA           NA   65         2        2   6      2
+3    1101013      NA           NA   30         4        4   5      4
+4    1101021  600000      1000000   55         3        3   5      3
+5    1101023      NA      1000000   65         2        2   5      2
+6    1101032      NA           NA   58         2        2   5      2</code></pre>
 </div>
 </div>
 </section>
 <section id="correlación-de-pearson" class="level1">
 <h1>2. Correlación de Pearson</h1>
-<section id="recordemos" class="level2">
-<h2 class="anchored" data-anchor-id="recordemos">Recordemos…</h2>
-<p>El coeficiente de correlación de Pearson es una medida estandarizada de covarianza que nos muestra la asociación <strong>lineal</strong> (sentido y fuerza) entre dos variables continuas. En otras palabras, nos permite conocer cómo y cuánto se relaciona la variación de una variable, con la variación de otra variable.</p>
-<p>Sus valores oscilan entre -1 y 1, donde:</p>
-<ul>
-<li><p><span class="math inline">\(r\)</span> = 1: Correlación positiva perfecta. Cuando una variable aumenta, la otra también aumenta.</p></li>
-<li><p><span class="math inline">\(r\)</span> = -1: Correlación negativa perfecta. Cuando una variable aumenta, la otra disminuye.</p></li>
-<li><p><span class="math inline">\(r\)</span> = 0: No hay correlación lineal entre las variables. No hay una relación lineal discernible entre los cambios en las variables.</p></li>
-</ul>
-<p>Cuanto más cercano esté el valor de <span class="math inline">\(r\)</span> a 1 o -1, más fuerte será la correlación. Cuanto más cercano esté a 0, más débil será la correlación.</p>
-<p><img src="../slides/img/scatters3.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Formula de la correlación
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><span class="math display">\[
-Correlacion = r = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})} {(n-1)\sigma_x \sigma_y }
-\]</span></p>
-</div>
-</div>
-</section>
-</section>
-<section id="ejemplo" class="level1">
-<h1>Ejemplo</h1>
 <p>El coeficiente de correlación de Pearson es una herramienta poderosa en investigación social, ya que nos permite cuantificar la relación entre dos fenómenos. Consideremos la siguiente pregunta: <em>¿Cómo se relacionan los ingresos que las personas reciben con los ingresos que creen que deberían recibir?</em></p>
-<p>A partir de esta pregunta, podemos formular una hipótesis que guíe nuestra investigación: las personas con mayores ingresos podrían sentirse más justificadas en recibirlos, en función de su experiencia o habilidades. Por tanto, podríamos esperar una relación positiva entre los ingresos reales y los ingresos percibidos como merecidos. Dicho de otra forma:</p>
+<p>A partir de esta pregunta, podemos formular una hipótesis que guíe nuestra investigación: las personas con mayores ingresos podrían justificar en mayor medida recibir estos ingresos, en función de su experiencia o habilidades. Por tanto, podríamos esperar una relación positiva entre los ingresos reales y los ingresos percibidos como merecidos. Dicho de otra forma:</p>
 <blockquote class="blockquote">
 <p>A medida que aumentan los ingresos reales de las personas, también aumentan los ingresos que creen merecer.</p>
 </blockquote>
@@ -576,9 +540,38 @@ Grande
 <div class="cell-output-display">
 <div>
 <figure class="figure">
+<p><img src="03-practico_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x =</span> proc_elsoc<span class="sc">$</span>ing_per, </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> proc_elsoc<span class="sc">$</span>ing_per_just, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4659845</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>maximo <span class="ot">&lt;-</span> <span class="fu">max</span>(proc_elsoc<span class="sc">$</span>ing_per_just, <span class="at">na.rm =</span> T)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>proc_elsoc2 <span class="ot">&lt;-</span> proc_elsoc <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span>ing_per_just <span class="sc">%in%</span> maximo)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(<span class="at">data =</span> proc_elsoc2, </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> ing_per, </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> ing_per_just)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
 <p><img src="03-practico_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x =</span> proc_elsoc2<span class="sc">$</span>ing_per, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> proc_elsoc2<span class="sc">$</span>ing_per_just, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8479801</code></pre>
 </div>
 </div>
 <p>A raíz del gráfico observamos que:</p>
@@ -626,12 +619,12 @@ Hipótesis en correlación
 </ul>
 <p>Volvamos a calcular el coeficiente para estas dos variables. Anteriormente utilizamos la función <code>cor()</code> que nos entrega la magnitud del coeficiente, pero no nos entrega información respecto a su significancia estadística. Para ello, utilizaremos la función <code>cor.test()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cor_results <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> proc_elsoc<span class="sc">$</span>ing_per, </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> proc_elsoc<span class="sc">$</span>ing_per_just,</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">method =</span> <span class="st">"pearson"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">use =</span> <span class="st">"complete.obs"</span>) <span class="co"># Considerar solo datos completos (listwise)</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>cor_results</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>cor_results <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> proc_elsoc<span class="sc">$</span>ing_per, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> proc_elsoc<span class="sc">$</span>ing_per_just,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">method =</span> <span class="st">"pearson"</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">use =</span> <span class="st">"complete.obs"</span>) <span class="co"># Considerar solo datos completos (listwise)</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>cor_results</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -648,33 +641,33 @@ sample estimates:
 </div>
 <p>Tenemos nuestro resultado, pero es poco amigable visualmente. Generemos una tabla para nuestra correlación.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(cor_results)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>stats.table <span class="sc">%&gt;%</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">2</span>),</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">statistic =</span> <span class="fu">round</span>(statistic, <span class="dv">2</span>),</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">ic_95 =</span> <span class="fu">paste0</span>(<span class="st">"["</span>, <span class="fu">round</span>(conf.low, <span class="dv">2</span>), <span class="st">","</span>, <span class="fu">round</span>(conf.high, <span class="dv">2</span>), <span class="st">"]"</span>),</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">stars =</span> gtools<span class="sc">::</span><span class="fu">stars.pval</span>(p.value),</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">case_when</span>(</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> p.value <span class="sc">&gt;</span> <span class="fl">0.01</span> <span class="sc">~</span> <span class="st">"&lt; 0.05"</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.01</span> <span class="sc">&amp;</span> p.value <span class="sc">&gt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"&lt; 0.01"</span>,</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"&lt; 0.001"</span>,</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>            <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">""</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">paste0</span>(p_value, stars)</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(estimate, statistic, p_value, parameter, method, alternative, ic_95) <span class="sc">%&gt;%</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Estimación"</span>, <span class="st">"t"</span>, <span class="st">"p-value"</span>, <span class="st">"df"</span>, <span class="st">"Método"</span>, <span class="st">"Alternativa"</span>, <span class="st">"95% IC"</span>),</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">booktabs =</span> T</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>),</span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">full_width =</span> T,</span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">latex_options =</span> <span class="st">"hold_position"</span>,</span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">position =</span> <span class="st">"center"</span></span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(cor_results)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>stats.table <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">estimate =</span> <span class="fu">round</span>(estimate, <span class="dv">2</span>),</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">statistic =</span> <span class="fu">round</span>(statistic, <span class="dv">2</span>),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">ic_95 =</span> <span class="fu">paste0</span>(<span class="st">"["</span>, <span class="fu">round</span>(conf.low, <span class="dv">2</span>), <span class="st">","</span>, <span class="fu">round</span>(conf.high, <span class="dv">2</span>), <span class="st">"]"</span>),</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">stars =</span> gtools<span class="sc">::</span><span class="fu">stars.pval</span>(p.value),</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">case_when</span>(</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> p.value <span class="sc">&gt;</span> <span class="fl">0.01</span> <span class="sc">~</span> <span class="st">"&lt; 0.05"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.01</span> <span class="sc">&amp;</span> p.value <span class="sc">&gt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"&lt; 0.01"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"&lt; 0.001"</span>,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>            <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">""</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">paste0</span>(p_value, stars)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(estimate, statistic, p_value, parameter, method, alternative, ic_95) <span class="sc">%&gt;%</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Estimación"</span>, <span class="st">"t"</span>, <span class="st">"p-value"</span>, <span class="st">"df"</span>, <span class="st">"Método"</span>, <span class="st">"Alternativa"</span>, <span class="st">"95% IC"</span>),</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">booktabs =</span> T</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>),</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">full_width =</span> T,</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">latex_options =</span> <span class="st">"hold_position"</span>,</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">position =</span> <span class="st">"center"</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="table-responsive">
 <table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
@@ -717,11 +710,11 @@ sample estimates:
 <li>sus valores van desde 0 a 1, en donde 0 indica que ambas variables comparten el 0% de su varianza, y 1 que comparten el 100% de su varianza.</li>
 </ul>
 <p>En el contexto de la correlación entre <strong>solo dos variables</strong>, el <span class="math inline">\(R^2\)</span> es igual a elevar al cuadrado el coeficiente de correlación = <code>(r)^2</code>. Esto nos permite conocer qué tanto la variabilidad de una variable X estaría asociado a la variabilidad de otra variable Y.</p>
-<p>En nuestro ejemplo anterior entre los ingresos reales y los ingresos justos, teníamos que su coeficiente de correlación era <span class="math inline">\(r = 0.47\)</span></p>
+<p>En nuestro ejemplo anterior entre los ingresos reales y los ingresos justos, teníamos que su coeficiente de correlación era <span class="math inline">\(r = 0.47\)</span>. Por lo tanto, creamos un efecto que incluya el resultado de esta correlación.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>coef_r <span class="ot">&lt;-</span> cor_results<span class="sc">$</span>estimate</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>coef_r</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>coef_r <span class="ot">&lt;-</span> cor_results<span class="sc">$</span>estimate</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>coef_r</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      cor 
 0.4659845 </code></pre>
@@ -729,7 +722,7 @@ sample estimates:
 </div>
 <p>Calculemos el <span class="math inline">\(R^2\)</span> de esta asociación.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>coef_r<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>coef_r<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      cor 
 0.2171416 </code></pre>
@@ -737,175 +730,23 @@ sample estimates:
 </div>
 <p>Con esto, podemos decir que el 21.7% de la variabilidad del ingreso real es compartido con la variabilidad de los ingresos justos.</p>
 </section>
-<section id="limitaciones-de-la-correlación-de-pearson" class="level1">
-<h1>7. Limitaciones de la correlación de Pearson</h1>
-<p>Como vimos en clases, el coeficiente de correlación de Pearson tiene una serie de limitaciones. Veamos como se reflejan algunas de estas en la práctica.</p>
-<p>Para ejemplificar, tomaremos dos de las limitaciones más conocidas: <strong>(a) el coeficiente de correlación de Pearson es sensible a valores extremos; (b) puede reflejar distribuciones bivariadas distintas</strong>.</p>
-<section id="a-valores-extremos" class="level2">
-<h2 class="anchored" data-anchor-id="a-valores-extremos">(a) Valores extremos</h2>
-<p>Anteriormente, observamos valores extremos en el diagrama de dispersión de nuestro ejemplo.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(<span class="at">data =</span> proc_elsoc, </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> ing_per, </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> ing_per_just) <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="st">"← Ingresos = 750.000 e Ingresos justos = 50.000.000"</span>),</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">x =</span> <span class="dv">5500000</span>, </span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> <span class="dv">50100000</span>, </span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size =</span> <span class="dv">3</span>, </span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">hjust =</span> <span class="dv">1</span>, </span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">"black"</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>                 )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03-practico_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Vemos que el punto más extremo en el <em>eje y</em> corresponde a un caso que reporta que sus ingresos mensuales son de $750.000 y los ingresos que considera merecer son $50.000.000 ¿Cambiaría el coeficiente si eliminamos este valor de la base de datos?</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Sobre eliminar valores…
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La decisión de eliminar uno o más de valores específicos de una base de datos debe estar justificada. Generalmente, estas decisiones están basadas en posibles errores técnicos con el dato, por ejemplo, un error de digitación.</p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Encuentra el punto con el valor máximo de ing_per_just</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>max_ing_per_just <span class="ot">&lt;-</span> proc_elsoc <span class="sc">%&gt;%</span> </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(ing_per_just <span class="sc">==</span> <span class="fu">max</span>(ing_per_just, <span class="at">na.rm =</span> T))</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Excluye este caso de proc_elsoc</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>proc_elsoc2 <span class="ot">&lt;-</span> proc_elsoc <span class="sc">%&gt;%</span> </span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span>idencuesta <span class="sc">%in%</span> max_ing_per_just<span class="sc">$</span>idencuesta)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular coeficiente</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x =</span> proc_elsoc2<span class="sc">$</span>ing_per, </span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> proc_elsoc2<span class="sc">$</span>ing_per_just, </span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.8479801</code></pre>
-</div>
-</div>
-<p>Vemos ahora que el coeficente de correlación entre los ingresos reales y los ingresos considerados justos es de 0.85.</p>
-<p>Visualicemos nuevamente sin este caso extremo:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(<span class="at">data =</span> proc_elsoc2, </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> ing_per, </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> ing_per_just)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03-practico_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Al eliminar este caso extremo, se facilita la identificación del patrón subyacente en la relación entre las variables, revelando una asociación positiva fuerte. Este caso, que mostraba una gran discrepancia entre los ingresos reales y los ingresos percibidos como justos, estaba afectando significativamente el análisis, reduciendo el coeficiente de correlación a casi la mitad de su valor original.</p>
-<p>Esto <strong>ilustra cómo un solo valor atípico puede distorsionar nuestras conclusiones sobre la fuerza y dirección de la relación entre dos variables</strong>.</p>
-</section>
-<section id="b-distintas-distribuciones" class="level2">
-<h2 class="anchored" data-anchor-id="b-distintas-distribuciones">(b) Distintas distribuciones</h2>
-<p>Otra de las limitaciones más conocidas del coeficiente de correlación es que un mismo valor puede representar distintas distribuciones de datos. El mejor ejemplo de esta limitación es el cuarteto de Anscombe, que muestra cuatro conjuntos de datos con las mismas propiedades estadísticas (media, mediana y varianza), pero con distribuciones muy diferentes.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="03-practico_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>A pesar de tener las mismas propiedades estadísticas, los cuatro conjuntos producen el mismo coeficiente de correlación (<span class="math inline">\(r = 0.82\)</span>). Esto podría llevarnos a esperar que las distribuciones sean similares, pero el cuarteto de Anscombe demuestra lo contrario: <strong>el mismo coeficiente de correlación no implica que los conjuntos de datos tengan una distribución bivariada similar.</strong></p>
-<p>Este ejemplo subraya la importancia de complementar los análisis estadísticos (como el coeficiente de correlación) con visualizaciones de los datos para tener una mejor comprensión de las relaciones entre las variables.</p>
-</section>
-</section>
 <section id="ejercicio-autónomo" class="level1">
 <h1>Ejercicio autónomo</h1>
-<p>A partir de la base de datos de <code>proc_elsoc</code> responda la siguiente pregunta <em>¿en qué medida la edad de las personas está asociadas a sus percepciones sobre la meritocracia?</em> Para responder esta pregunta siga los siguientes pasos:</p>
-<ol type="1">
+<p>1- A partir de la base de datos de <code>proc_elsoc</code> responda la siguiente pregunta <em>¿en qué medida la edad de las personas está asociada a sus percepciones sobre la meritocracia?</em> Para responder esta pregunta siga los siguientes pasos:</p>
+<ol type="a">
 <li>Calcule el coeficiente de correlación de Pearson (<span class="math inline">\(r\)</span>) entre las variables <code>edad</code> y <code>pmerit</code>. <code>pmerit</code> es una variable que promedia las variables de <code>mesfuerzo</code> y <code>mtalento</code></li>
 <li>Interprete el tamaño de efecto del coeficiente siguiendo los criterios de Cohen (1988)</li>
 <li>Reporte el sentido de la dirección de la correlación</li>
 <li>Interprete la significancia estadística del coeficiente</li>
 <li>Visualice la relación entre las variables con un gráfico de dispersión y comente</li>
 </ol>
-</section>
-<section id="resolución-ejercicio-autónomo" class="level1">
-<h1>Resolución ejercicio autónomo</h1>
-<p>Formulemos nuestra hipótesis de manera formal:</p>
-<ul>
-<li><span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(cor(edad, pmerit)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(0\)</span></li>
-<li><span class="math inline">\(H_{A}\)</span>: <span class="math inline">\(cor(edad, pmerit)\)</span> <span class="math inline">\(\neq\)</span> <span class="math inline">\(0\)</span></li>
-</ul>
-<p>Para contestar los puntos 1,2,3 y 4 usaremos el comando <code>cor.test</code> para evaluar la correlación entre <code>edad</code> y <code>pmerit</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>results_ej <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> proc_elsoc<span class="sc">$</span>edad, <span class="at">y =</span> proc_elsoc<span class="sc">$</span>pmerit, <span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>results_ej</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Pearson's product-moment correlation
-
-data:  proc_elsoc$edad and proc_elsoc$pmerit
-t = 5.5057, df = 2700, p-value = 0.00000004023
-alternative hypothesis: true correlation is not equal to 0
-95 percent confidence interval:
- 0.06792922 0.14251033
-sample estimates:
-      cor 
-0.1053679 </code></pre>
-</div>
-</div>
-<p>Con este output podemos sostener lo siguiente:</p>
-<blockquote class="blockquote">
-<p>El coeficiente de correlación de Pearson entre la edad y el promedio de meritocracia es positivo y estadísticamente significativo (<span class="math inline">\(r\)</span> = 0.11, <span class="math inline">\(p\)</span> &lt; 0.001). Por tanto, con un 95% de confianza se puede rechazar la <span class="math inline">\(H_{0}\)</span> de no asociación entre variables, existiendo evidencia a favor de la <span class="math inline">\(H_{A}\)</span> sobre una asociación significativa entre la edad de las personas y su percepción de meritocracia.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Respecto al tamaño de este efecto, de acuerdo a los criterios de Cohen corresponde a un tamaño pequeño. Consistentemente, la varianza compartida (<span class="math inline">\(r²\)</span>) entre ambas variables es muy baja, correspondiendo a un 0.01%.</p>
-</blockquote>
-<p>Para contestar el punto 5 usaremos el comando <code>plot_scatter</code> para visualizar la asociación entre <code>edad</code> y <code>pmerit</code>.</p>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(<span class="at">data =</span> proc_elsoc, </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> edad, </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> pmerit)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-ej" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ej-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="03-practico_files/figure-html/fig-ej-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ej-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1: Scatterplot entre edad y percepción de meritocracia promedio
-</figcaption>
-</figure>
-</div>
-<p>De acuerdo con la <a href="#fig-ej" class="quarto-xref">Figura&nbsp;1</a>, podemos observar que no existe un claro patrón de asociación entre la <code>edad</code> y <code>pmerit</code>. En detalle, la nube de puntos muestra una distribución bivariada muy dispersa, por lo que es posible sostener que no hay una asociación lineal suficientemente fuerte. Esto, se puede respaldar en el coeficiente de correlación que obtuvimos antes <span class="math inline">\(r\)</span> = 0.11, ya que si bien es positivo es de un tamaño de efecto muy pequeño según los criteriores de Cohen (1988).</p>
-<div class="row d-flex justify-content-center">
-<div class="col-md-6">
-<div class="card bg-danger text-white">
-<div class="card-body">
-<p><strong>A tener en cuenta en la interpretación</strong></p>
-<ul>
-<li><p>Los dos aspectos principales en la interpretación de una prueba estadística son la <strong>inferencia</strong> y el <strong>tamaño de efecto</strong></p></li>
-<li><p>En la <strong>inferencia</strong> se comenta si existe evidencia significativa para rechazar la hipótesis nula de no asociación. Para ello se considera:</p>
-<ul>
-<li>el nombre de la prueba utilizada (Z, T, Pearson,Spearman, Chi2, etc),</li>
-<li>el resultado del cálculo de esta prueba empírica con los datos (ej: t=2.60)</li>
-<li>información adicional si corresponde en el cálculo (ej: grados de libertad)</li>
-<li>el valor p correspondiente a la prueba empírica: si bien existe un nivel convencional de rechazo de Ho p&lt;0.05, en caso que el p sea menor que otros valores convencionales (p&lt;0.01 o p&lt;0.001) hay que mencionar los niveles con menor probabilidad de error.</li>
-</ul></li>
-<li><p>En el caso de <strong>tamaño de efecto</strong> hay que considerar aquellos específicos de cada prueba, por ejemplo criterios de Cohen y R2 para Pearson, o Phi/Cramer para Chi 2.</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
+<p>2- Al igual que en el ejercicio anterior responde la siguiente pregunta <em>¿en qué medida el estatus social subjetivo de las personas está asociada a su nivel de ingresos?</em> Para responder esta pregunta siga los siguientes pasos:</p>
+<ol type="a">
+<li>Calcule el coeficiente de correlación de Pearson (<span class="math inline">\(r\)</span>) entre las variables <code>ess</code> e <code>ing_per</code>. <code>ess</code> es una variable que pregunta, en una escala de 0 a 10, en qué lugar se ubica cada encuestad-.</li>
+<li>Interprete el tamaño de efecto del coeficiente siguiendo los criterios de Cohen (1988), reporte el sentido de la dirección de la correlación e interprete la significancia estadística del coeficiente</li>
+<li>Visualice la relación entre las variables con un gráfico de dispersión y comente.</li>
+<li>¿Qué conclusiones se pueden obtener a partir de esta correlación entre dos variables que -de cierta forma- abordan el estatus de las personas?</li>
+</ol>
 
 
 </section>
