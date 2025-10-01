@@ -2,10 +2,10 @@
 title: "Inicio practicos"
 date: "2025-08-19"
 categories: [info]
-image: https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png
+image: R_logo.png
 ---
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1024px-R_logo.svg.png)
+![](R_logo.png)
 
 
 El día Miércoles 20 de agosto vamos a comenzar con la realización de los talleres prácticos de R.
