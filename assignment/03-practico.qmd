@@ -42,7 +42,8 @@ pacman::p_load(tidyverse, # Manipulacion datos
                sjPlot, # Graficos
                rstatix, # Test estadísticos
                labelled, # Para labels
-               broom) # Tablas
+               broom, # Tablas
+               kableExtra) # Tablas
 
 options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
@@ -91,7 +92,7 @@ proc_elsoc <- elsoc_2021 %>%
 
 ```
 
-Veamos cómo quedó nuetras base procesada `proc_elsoc`
+Veamos cómo quedó nuestra base procesada `proc_elsoc`
 
 ```{r head, echo=TRUE}
 
@@ -223,9 +224,13 @@ Siempre es recomendable acompañar el valor de la correlación con una exploraci
 sjPlot::plot_scatter(data = proc_elsoc, 
                      x = ing_per,
                      y = ing_per_just)
+
+cor(x = proc_elsoc$ing_per, 
+    y = proc_elsoc$ing_per_just, 
+    use = "complete.obs")
 ```
 
-```{r, include=FALSE, echo=TRUE, warning=FALSE}
+```{r, echo=TRUE, warning=FALSE}
 
 maximo <- max(proc_elsoc$ing_per_just, na.rm = T)
 
@@ -330,7 +335,7 @@ El coeficiente de determinación $R^2$ es una medida estadística que indica la 
 
 En el contexto de la correlación entre **solo dos variables**, el $R^2$ es igual a elevar al cuadrado el coeficiente de correlación = `(r)^2`. Esto nos permite conocer qué tanto la variabilidad de una variable X estaría asociado a la variabilidad de otra variable Y. 
 
-En nuestro ejemplo anterior entre los ingresos reales y los ingresos justos, teníamos que su coeficiente de correlación era $r = 0.47$
+En nuestro ejemplo anterior entre los ingresos reales y los ingresos justos, teníamos que su coeficiente de correlación era $r = 0.47$. Por lo tanto, creamos un efecto que incluya el resultado de esta correlación.
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 
