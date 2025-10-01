@@ -149,7 +149,7 @@ window.Quarto = {
 <meta property="og:image:width" content="466">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -179,7 +179,7 @@ window.Quarto = {
 <span class="menu-text">Clases</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assignment/index.html"> 
+    <a class="nav-link active" href="../assignment/index.html" aria-current="page"> 
 <span class="menu-text">Prácticos</span></a>
   </li>  
   <li class="nav-item">
@@ -205,10 +205,74 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment/01-practico.html">Guías</a></li><li class="breadcrumb-item"><a href="../assignment/03-practico.html">3: Correlación de Pearson</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descripción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Guías</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/01-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: Curva Normal e Intervalos de Confianza</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/02-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: Test de hipótesis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/03-practico.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">3: Correlación de Pearson</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/foro-practicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foro Prácticos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/consola.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Consola R Online</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -226,11 +290,12 @@ window.Quarto = {
   <li><a href="#inferencia-en-correlación" id="toc-inferencia-en-correlación" class="nav-link" data-scroll-target="#inferencia-en-correlación">5. Inferencia en correlación</a></li>
   <li><a href="#coeficiente-de-determinación-r2" id="toc-coeficiente-de-determinación-r2" class="nav-link" data-scroll-target="#coeficiente-de-determinación-r2">6. Coeficiente de determinación (<span class="math inline">\(R^2\)</span>)</a></li>
   <li><a href="#ejercicio-autónomo" id="toc-ejercicio-autónomo" class="nav-link" data-scroll-target="#ejercicio-autónomo">Ejercicio autónomo</a></li>
+  <li><a href="#resolución-ejercicios" id="toc-resolución-ejercicios" class="nav-link" data-scroll-target="#resolución-ejercicios">Resolución ejercicios</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Práctico 3: Correlación de Pearson</h1></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment/01-practico.html">Guías</a></li><li class="breadcrumb-item"><a href="../assignment/03-practico.html">3: Correlación de Pearson</a></li></ol></nav><h1 class="title display-7">Práctico 3: Correlación de Pearson</h1></header>
 
 <header id="title-block-header">
 
@@ -747,6 +812,117 @@ sample estimates:
 <li>Visualice la relación entre las variables con un gráfico de dispersión y comente.</li>
 <li>¿Qué conclusiones se pueden obtener a partir de esta correlación entre dos variables que -de cierta forma- abordan el estatus de las personas?</li>
 </ol>
+</section>
+<section id="resolución-ejercicios" class="level1">
+<h1>Resolución ejercicios</h1>
+<p>Formulemos nuestra hipótesis de manera formal:</p>
+<ul>
+<li><span class="math inline">\(H_{0}\)</span>: <span class="math inline">\(cor(edad, pmerit)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(0\)</span></li>
+<li><span class="math inline">\(H_{A}\)</span>: <span class="math inline">\(cor(edad, pmerit)\)</span> <span class="math inline">\(\neq\)</span> <span class="math inline">\(0\)</span></li>
+</ul>
+<p>Para contestar los puntos 1,2,3 y 4 usaremos el comando <code>cor.test</code> para evaluar la correlación entre <code>edad</code> y <code>pmerit</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>results_ej <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> proc_elsoc<span class="sc">$</span>edad, <span class="at">y =</span> proc_elsoc<span class="sc">$</span>pmerit, <span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>results_ej</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  proc_elsoc$edad and proc_elsoc$pmerit
+t = 5.5057, df = 2700, p-value = 0.00000004023
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.06792922 0.14251033
+sample estimates:
+      cor 
+0.1053679 </code></pre>
+</div>
+</div>
+<p>Con este output podemos sostener lo siguiente:</p>
+<blockquote class="blockquote">
+<p>El coeficiente de correlación de Pearson entre la edad y el promedio de meritocracia es positivo y estadísticamente significativo (<span class="math inline">\(r\)</span> = 0.11, <span class="math inline">\(p\)</span> &lt; 0.001). Por tanto, con un 95% de confianza se puede rechazar la <span class="math inline">\(H_{0}\)</span> de no asociación entre variables, existiendo evidencia a favor de la <span class="math inline">\(H_{A}\)</span> sobre una asociación significativa entre la edad de las personas y su percepción de meritocracia.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Respecto al tamaño de este efecto, de acuerdo a los criterios de Cohen corresponde a un tamaño pequeño. Consistentemente, la varianza compartida (<span class="math inline">\(r²\)</span>) entre ambas variables es muy baja, correspondiendo a un 0.01%.</p>
+</blockquote>
+<p>Para contestar el punto 5 usaremos el comando <code>plot_scatter</code> para visualizar la asociación entre <code>edad</code> y <code>pmerit</code>.</p>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> edad, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> pmerit)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-ej" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ej-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-practico_files/figure-html/fig-ej-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ej-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Scatterplot entre edad y percepción de meritocracia promedio
+</figcaption>
+</figure>
+</div>
+<p>De acuerdo con la <a href="#fig-ej" class="quarto-xref">Figura&nbsp;1</a>, podemos observar que no existe un claro patrón de asociación entre la <code>edad</code> y <code>pmerit</code>. En detalle, la nube de puntos muestra una distribución bivariada muy dispersa, por lo que es posible sostener que no hay una asociación lineal suficientemente fuerte. Esto, se puede respaldar en el coeficiente de correlación que obtuvimos antes <span class="math inline">\(r\)</span> = 0.11, ya que si bien es positivo es de un tamaño de efecto muy pequeño según los criteriores de Cohen (1988).</p>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>results_ej <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> proc_elsoc<span class="sc">$</span>ess, <span class="at">y =</span> proc_elsoc<span class="sc">$</span>ing_per, <span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>results_ej</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  proc_elsoc$ess and proc_elsoc$ing_per
+t = 9.9123, df = 1547, p-value &lt; 0.00000000000000022
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.1969661 0.2906437
+sample estimates:
+     cor 
+0.244375 </code></pre>
+</div>
+</div>
+<p>Con este output podemos sostener lo siguiente:</p>
+<blockquote class="blockquote">
+<p>El coeficiente de correlación de Pearson entre el estatus social subjetivo y los ingresos es positivo y estadísticamente significativo (<span class="math inline">\(r\)</span> = 0.24, <span class="math inline">\(p\)</span> &lt; 0.001). Por tanto, con un 95% de confianza se puede rechazar la <span class="math inline">\(H_{0}\)</span> de no asociación entre variables, existiendo evidencia a favor de la <span class="math inline">\(H_{A}\)</span> sobre una asociación significativa entre el estatus social subjetivo de las personas y sus ingresos.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Respecto al tamaño de este efecto, de acuerdo a los criterios de Cohen corresponde a un tamaño pequeño. Consistentemente, la varianza compartida (<span class="math inline">\(r²\)</span>) entre ambas variables es muy baja, correspondiendo a un 0.06%.</p>
+</blockquote>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(<span class="at">data =</span> proc_elsoc, </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> ess, </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> ing_per)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-ej2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ej2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-practico_files/figure-html/fig-ej2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ej2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Scatterplot entre edad y percepción de meritocracia promedio
+</figcaption>
+</figure>
+</div>
+<p>¿a qué se debe esta diferencia entre el estatus social subjetivo de una persona y su nivel de ingresos reales?</p>
+<div class="row d-flex justify-content-center">
+<div class="col-md-6">
+<div class="card bg-danger text-white">
+<div class="card-body">
+<p><strong>A tener en cuenta en la interpretación</strong></p>
+<ul>
+<li><p>Los dos aspectos principales en la interpretación de una prueba estadística son la <strong>inferencia</strong> y el <strong>tamaño de efecto</strong></p></li>
+<li><p>En la <strong>inferencia</strong> se comenta si existe evidencia significativa para rechazar la hipótesis nula de no asociación. Para ello se considera:</p>
+<ul>
+<li>el nombre de la prueba utilizada (Z, T, Pearson,Spearman, Chi2, etc),</li>
+<li>el resultado del cálculo de esta prueba empírica con los datos (ej: t=2.60)</li>
+<li>información adicional si corresponde en el cálculo (ej: grados de libertad)</li>
+<li>el valor p correspondiente a la prueba empírica: si bien existe un nivel convencional de rechazo de Ho p&lt;0.05, en caso que el p sea menor que otros valores convencionales (p&lt;0.01 o p&lt;0.001) hay que mencionar los niveles con menor probabilidad de error.</li>
+</ul></li>
+<li><p>En el caso de <strong>tamaño de efecto</strong> hay que considerar aquellos específicos de cada prueba, por ejemplo criterios de Cohen y R2 para Pearson, o Phi/Cramer para Chi 2.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>

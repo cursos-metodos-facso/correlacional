@@ -490,14 +490,24 @@
     "href": "assignment/03-practico.html",
     "title": "Práctico 3: Correlación de Pearson",
     "section": "",
-    "text": "Sesión del miércoles, 1 de octubre de 2025"
+    "text": "Sesión del miércoles, 1 de octubre de 2025",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "3: Correlación de Pearson"
+    ]
   },
   {
     "objectID": "assignment/03-practico.html#recursos-de-la-práctica",
     "href": "assignment/03-practico.html#recursos-de-la-práctica",
     "title": "Práctico 3: Correlación de Pearson",
     "section": "Recursos de la práctica",
-    "text": "Recursos de la práctica\nEn esta práctica trabajaremos con los datos del Estudio Longitudinal Social de Chile (ELSOC) del año 2021, elaborado por COES. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también es posible acceder a la misma información a través del siguiente enlace:  ELSOC 2021. Desde allí, se puede descargar el archivo que contiene la base de datos ELSOC 2021."
+    "text": "Recursos de la práctica\nEn esta práctica trabajaremos con los datos del Estudio Longitudinal Social de Chile (ELSOC) del año 2021, elaborado por COES. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también es posible acceder a la misma información a través del siguiente enlace:  ELSOC 2021. Desde allí, se puede descargar el archivo que contiene la base de datos ELSOC 2021.",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "3: Correlación de Pearson"
+    ]
   },
   {
     "objectID": "assignment/03-practico.html#recordemos",
