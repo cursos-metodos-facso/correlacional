@@ -369,3 +369,87 @@ b. Interprete el tamaño de efecto del coeficiente siguiendo los criterios de Co
 c. Visualice la relación entre las variables con un gráfico de dispersión y comente.
 d. ¿Qué conclusiones se pueden obtener a partir de esta correlación entre dos variables que -de cierta forma- abordan el estatus de las personas?
 
+# Resolución ejercicios
+
+Formulemos nuestra hipótesis de manera formal:
+
+- $H_{0}$: $cor(edad, pmerit)$ $=$ $0$
+- $H_{A}$: $cor(edad, pmerit)$ $\neq$ $0$
+
+Para contestar los puntos 1,2,3 y 4 usaremos el comando `cor.test` para evaluar la correlación entre `edad` y `pmerit`.
+
+```{r re1, echo=TRUE}
+
+results_ej <- cor.test(x = proc_elsoc$edad, y = proc_elsoc$pmerit, method = "pearson", use = "complete.obs")
+
+results_ej
+
+```
+
+Con este output podemos sostener lo siguiente:
+
+> El coeficiente de correlación de Pearson entre la edad y el promedio de meritocracia es positivo y estadísticamente significativo ($r$ = 0.11, $p$ < 0.001). Por tanto, con un 95% de confianza se puede rechazar la $H_{0}$ de no asociación entre variables, existiendo evidencia a favor de la $H_{A}$ sobre una asociación significativa entre la edad de las personas y su percepción de meritocracia. 
+
+> Respecto al tamaño de este efecto, de acuerdo a los criterios de Cohen corresponde a un tamaño pequeño. Consistentemente, la varianza compartida ($r²$) entre ambas variables es muy baja, correspondiendo a un 0.01%.
+
+
+Para contestar el punto 5 usaremos el comando `plot_scatter` para visualizar la asociación entre `edad` y `pmerit`.
+
+```{r re2, echo=TRUE, results='asis'}
+#| label: fig-ej
+#| fig-cap: Scatterplot entre edad y percepción de meritocracia promedio
+sjPlot::plot_scatter(data = proc_elsoc, 
+                     x = edad, 
+                     y = pmerit)
+```
+
+De acuerdo con la @fig-ej, podemos observar que no existe un claro patrón de asociación entre la `edad` y `pmerit`. En detalle, la nube de puntos muestra una distribución bivariada muy dispersa, por lo que es posible sostener que no hay una asociación lineal suficientemente fuerte. Esto, se puede respaldar en el coeficiente de correlación que obtuvimos antes $r$ = 0.11, ya que si bien es positivo es de un tamaño de efecto muy pequeño según los criteriores de Cohen (1988).
+
+2.
+
+```{r re3, echo=TRUE}
+
+results_ej <- cor.test(x = proc_elsoc$ess, y = proc_elsoc$ing_per, method = "pearson", use = "complete.obs")
+
+results_ej
+
+```
+
+Con este output podemos sostener lo siguiente:
+
+> El coeficiente de correlación de Pearson entre el estatus social subjetivo y los ingresos es positivo y estadísticamente significativo ($r$ = 0.24, $p$ < 0.001). Por tanto, con un 95% de confianza se puede rechazar la $H_{0}$ de no asociación entre variables, existiendo evidencia a favor de la $H_{A}$ sobre una asociación significativa entre el estatus social subjetivo de las personas y sus ingresos. 
+
+> Respecto al tamaño de este efecto, de acuerdo a los criterios de Cohen corresponde a un tamaño pequeño. Consistentemente, la varianza compartida ($r²$) entre ambas variables es muy baja, correspondiendo a un 0.06%.
+
+```{r re4, echo=TRUE, results='asis'}
+#| label: fig-ej2
+#| fig-cap: Scatterplot entre estatus social subjetivo e ingresos reales
+sjPlot::plot_scatter(data = proc_elsoc, 
+                     x = ess, 
+                     y = ing_per)
+```
+
+¿a qué se debe esta diferencia entre el estatus social subjetivo de una persona y su nivel de ingresos reales?
+
+
+:::::: {.row .d-flex .justify-content-center}
+::::: {.col-md-6} 
+:::: {.card .bg-danger .text-white}
+::: {.card-body}
+
+**A tener en cuenta en la interpretación**
+
+- Los dos aspectos principales en la interpretación de una prueba estadística son la **inferencia** y el **tamaño de efecto**
+
+- En la **inferencia** se comenta si existe evidencia significativa para rechazar la hipótesis nula de no asociación. Para ello se considera:
+  - el nombre de la prueba utilizada (Z, T, Pearson,Spearman, Chi2, etc), 
+  - el resultado del cálculo de esta prueba empírica con los datos (ej: t=2.60)
+  - información adicional si corresponde en el cálculo (ej: grados de libertad)
+  - el valor p correspondiente a la prueba empírica: si bien existe un nivel convencional de rechazo de Ho p<0.05, en caso que el p sea menor que otros valores convencionales (p<0.01 o p<0.001) hay que mencionar los niveles con menor probabilidad de error.
+
+- En el caso de **tamaño de efecto** hay que considerar aquellos específicos de cada prueba, por ejemplo criterios de Cohen y R2 para Pearson, o Phi/Cramer para Chi 2.
+
+:::
+::::
+:::::
+::::::
