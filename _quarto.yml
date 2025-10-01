@@ -109,8 +109,8 @@ website:
                file: assignment/01-practico.qmd
              - text: "2: Test de hipótesis"
                file: assignment/02-practico.qmd
-            # - text: "3: Correlación de Pearson"
-            #   file: assignment/03-practico.qmd
+             - text: "3: Correlación de Pearson"
+               file: assignment/03-practico.qmd
             # - text: "4- Matrices de correlación, casos perdidos e índices"
             #   file: assignment/04-practico.qmd
             # - text: "5: Asociación entre categóricas"
