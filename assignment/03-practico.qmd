@@ -431,6 +431,10 @@ sjPlot::plot_scatter(data = proc_elsoc,
 
 ¿a qué se debe esta diferencia entre el estatus social subjetivo de una persona y su nivel de ingresos reales?
 
+::: {.callout-tip title="Recomendación"}
+[Castillo, JC., Miranda, D. & Cabib, I. (2013). Todos somos de clase media: Sobre el Estatus Social Subjetivo en Chile. Latin American Research Review](https://www.cambridge.org/core/journals/latin-american-research-review/article/todos-somos-de-clase-media-sobre-el-estatus-social-subjetivo-en-chile/0F00D872A76787C29E3F1CCDB59A5DA1){.btn .btn-primary target="_blank" rel="noopener"}
+[PDF](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/0F00D872A76787C29E3F1CCDB59A5DA1/S0023879100010785a.pdf/todos-somos-de-clase-media-sobre-el-estatus-social-subjetivo-en-chile.pdf){.btn .btn-outline-primary target="_blank" rel="noopener"}
+:::
 
 :::::: {.row .d-flex .justify-content-center}
 ::::: {.col-md-6} 
