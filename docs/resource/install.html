@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-6c1d4747946d1be0d0588e27238c39f9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-39aa1c037a30761ab9151af6b8579c08.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f58af8c7f73aa68b9a77e654cb5d1cf7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -328,36 +328,32 @@ Nota
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">sessionInfo</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.3 (2024-02-29)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 24.04.1 LTS
+<pre><code>R version 4.3.2 (2023-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 11 x64 (build 26100)
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[1] LC_COLLATE=Spanish_Chile.utf8  LC_CTYPE=Spanish_Chile.utf8   
+[3] LC_MONETARY=Spanish_Chile.utf8 LC_NUMERIC=C                  
+[5] LC_TIME=Spanish_Chile.utf8    
 
 time zone: America/Santiago
-tzcode source: system (glibc)
+tzcode source: internal
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] pacman_0.5.1 knitr_1.48  
+[1] pacman_0.5.1 knitr_1.45  
 
 loaded via a namespace (and not attached):
- [1] htmlwidgets_1.6.4 compiler_4.3.3    fastmap_1.2.0     cli_3.6.3        
- [5] tools_4.3.3       htmltools_0.5.8.1 yaml_2.3.10       rmarkdown_2.28   
- [9] jsonlite_1.8.9    xfun_0.48         digest_0.6.37     rlang_1.1.4      
-[13] evaluate_1.0.1   </code></pre>
+ [1] htmlwidgets_1.6.4 compiler_4.3.2    fastmap_1.2.0     cli_3.6.1        
+ [5] tools_4.3.2       htmltools_0.5.8.1 yaml_2.3.7        rmarkdown_2.28   
+ [9] jsonlite_1.8.7    xfun_0.43         digest_0.6.33     rlang_1.1.2      
+[13] evaluate_1.0.4   </code></pre>
 </div>
 </div>
 <p>En este output de la consola vemos un listado de información muy completo, desde versión de R, sistema operativo, opciones de idioma local (LOCALE), y muchas librerías. Si optamos por esta versión de la información de la sesión, lo importante es fijarse en (a) versión de R, y (b) de las librerías cargadas al principio, que aquí aparecen bajo “other attached packages”.</p>
@@ -440,49 +436,50 @@ loaded via a namespace (and not attached):
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">sessionInfo</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.3 (2024-02-29)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 24.04.1 LTS
+<pre><code>R version 4.3.2 (2023-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 11 x64 (build 26100)
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[1] LC_COLLATE=Spanish_Chile.utf8  LC_CTYPE=Spanish_Chile.utf8   
+[3] LC_MONETARY=Spanish_Chile.utf8 LC_NUMERIC=C                  
+[5] LC_TIME=Spanish_Chile.utf8    
 
 time zone: America/Santiago
-tzcode source: system (glibc)
+tzcode source: internal
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] broom_1.0.7      corrplot_0.94    psych_2.4.6.26   kableExtra_1.4.0
- [5] sjmisc_2.8.10    sjPlot_2.8.16    car_3.1-3        carData_3.0-5   
+ [1] broom_1.0.5      corrplot_0.92    psych_2.3.9      kableExtra_1.4.0
+ [5] sjmisc_2.8.9     sjPlot_2.8.16    car_3.1-2        carData_3.0-5   
  [9] lubridate_1.9.3  forcats_1.0.0    stringr_1.5.1    dplyr_1.1.4     
-[13] purrr_1.0.2      readr_2.1.5      tidyr_1.3.1      tibble_3.2.1    
-[17] ggplot2_3.5.1    tidyverse_2.0.0  pacman_0.5.1     knitr_1.48      
+[13] purrr_1.0.2      readr_2.1.4      tidyr_1.3.0      tibble_3.2.1    
+[17] ggplot2_3.5.1    tidyverse_2.0.0  pacman_0.5.1     knitr_1.45      
 
 loaded via a namespace (and not attached):
- [1] gtable_0.3.5       xfun_0.48          htmlwidgets_1.6.4  insight_0.20.5    
- [5] lattice_0.22-6     tzdb_0.4.0         vctrs_0.6.5        tools_4.3.3       
- [9] sjstats_0.19.0     generics_0.1.3     datawizard_0.13.0  parallel_4.3.3    
-[13] fansi_1.0.6        pkgconfig_2.0.3    ggeffects_1.7.2    lifecycle_1.0.4   
-[17] compiler_4.3.3     munsell_0.5.1      mnormt_2.1.1       htmltools_0.5.8.1 
-[21] yaml_2.3.10        Formula_1.2-5      pillar_1.9.0       abind_1.4-8       
-[25] nlme_3.1-166       tidyselect_1.2.1   sjlabelled_1.2.0   digest_0.6.37     
-[29] performance_0.12.3 stringi_1.8.4      fastmap_1.2.0      grid_4.3.3        
-[33] colorspace_2.1-1   cli_3.6.3          magrittr_2.0.3     utf8_1.2.4        
-[37] withr_3.0.1        backports_1.5.0    scales_1.3.0       timechange_0.3.0  
-[41] rmarkdown_2.28     hms_1.1.3          evaluate_1.0.1     viridisLite_0.4.2 
-[45] rlang_1.1.4        glue_1.8.0         xml2_1.3.6         svglite_2.1.3     
-[49] rstudioapi_0.16.0  jsonlite_1.8.9     R6_2.5.1           systemfonts_1.1.0 </code></pre>
+ [1] sjlabelled_1.2.0   tidyselect_1.2.0   viridisLite_0.4.2  farver_2.1.2      
+ [5] fastmap_1.2.0      TH.data_1.1-2      bayestestR_0.16.0  sjstats_0.18.2    
+ [9] digest_0.6.33      estimability_1.4.1 timechange_0.2.0   lifecycle_1.0.4   
+[13] survival_3.5-7     magrittr_2.0.3     compiler_4.3.2     rlang_1.1.2       
+[17] tools_4.3.2        yaml_2.3.7         htmlwidgets_1.6.4  mnormt_2.1.1      
+[21] xml2_1.3.5         RColorBrewer_1.1-3 multcomp_1.4-25    abind_1.4-5       
+[25] withr_3.0.2        grid_4.3.2         xtable_1.8-4       emmeans_1.10.6    
+[29] scales_1.4.0       MASS_7.3-60        dichromat_2.0-0.1  insight_1.3.0     
+[33] cli_3.6.1          mvtnorm_1.2-3      rmarkdown_2.28     generics_0.1.3    
+[37] rstudioapi_0.17.1  performance_0.14.0 modelr_0.1.11      tzdb_0.4.0        
+[41] minqa_1.2.6        splines_4.3.2      parallel_4.3.2     vctrs_0.6.4       
+[45] boot_1.3-28.1      Matrix_1.6-3       sandwich_3.1-0     jsonlite_1.8.7    
+[49] hms_1.1.3          systemfonts_1.0.5  glue_1.6.2         nloptr_2.0.3      
+[53] codetools_0.2-19   stringi_1.8.2      gtable_0.3.6       ggeffects_1.3.2   
+[57] lme4_1.1-35.1      pillar_1.11.0      htmltools_0.5.8.1  R6_2.6.1          
+[61] evaluate_1.0.4     lattice_0.21-9     backports_1.4.1    Rcpp_1.0.11       
+[65] svglite_2.1.2      coda_0.19-4        nlme_3.1-163       xfun_0.43         
+[69] zoo_1.8-12         pkgconfig_2.0.3   </code></pre>
 </div>
 </div>
 </section>
