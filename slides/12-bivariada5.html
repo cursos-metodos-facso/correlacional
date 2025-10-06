@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
@@ -6,14 +5,6 @@
     <meta charset="utf-8" />
     <meta name="author" content=".small[Juan Carlos Castillo    Departamento de Sociología - UCH / COES   ]" />
     <script src="libs/header-attrs-2.28/header-attrs.js"></script>
-    <link href="libs/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
-    <link href="libs/animate.css-xaringan-3.7.2/animate.fade.css" rel="stylesheet" />
-    <script src="libs/fabric-4.3.1/fabric.min.js"></script>
-    <link href="libs/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
-    <script src="libs/xaringanExtra-scribble-0.0.1/scribble.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
-    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
-    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
     <script src="libs/mark.js-8.11.1/mark.min.js"></script>
     <link href="libs/xaringanExtra-search-0.0.1/search.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-search-0.0.1/search.js"></script>
@@ -42,9 +33,9 @@ class: front
 ----
 .pull-left[
 
-## Juan Carlos Castillo
+## Kevin Carrasco
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -147,7 +138,7 @@ Pensemos en la siguiente pregunta de investigación:
 .pull-left-narrow[
 .small[
 
-``` r
+```r
 pacman::p_load(sjPlot)
 casen2022_chi %&gt;%
   sjtab(educ_sup,
@@ -189,7 +180,7 @@ casen2022_chi %&gt;%
 &lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;168759&lt;/span&gt;&lt;/td&gt;
 &lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;202231&lt;/span&gt;&lt;/td&gt; 
 &lt;/tr&gt;
-&lt;td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4"&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=247.461 &amp;middot; df=1 &amp;middot; &amp;phi=0.035 &amp;middot; p=0.000&lt;/td&gt; 
+&lt;td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4"&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=247.461 &amp;middot; df=1 &amp;middot; &amp;phi;=0.035 &amp;middot; p=0.000&lt;/td&gt; 
 &lt;/tr&gt;
  
 &lt;/table&gt;
@@ -202,7 +193,7 @@ casen2022_chi %&gt;%
 Con ambos porcentajes:
 .small[
 
-``` r
+```r
 casen2022_chi %&gt;%
   sjtab(educ_sup,
         discrim,
@@ -246,7 +237,7 @@ casen2022_chi %&gt;%
 &lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;168759&lt;/span&gt;&lt;br&gt;&lt;span style="color:#333399;"&gt;83.4&amp;nbsp;&amp;#37;&lt;/span&gt;&lt;br&gt;&lt;span style="color:#339933;"&gt;100&amp;nbsp;&amp;#37;&lt;/span&gt;&lt;/td&gt;
 &lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;202231&lt;/span&gt;&lt;br&gt;&lt;span style="color:#333399;"&gt;100&amp;nbsp;&amp;#37;&lt;/span&gt;&lt;br&gt;&lt;span style="color:#339933;"&gt;100&amp;nbsp;&amp;#37;&lt;/span&gt;&lt;/td&gt; 
 &lt;/tr&gt;
-&lt;td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4"&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=247.461 &amp;middot; df=1 &amp;middot; &amp;phi=0.035 &amp;middot; p=0.000&lt;/td&gt; 
+&lt;td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4"&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=247.461 &amp;middot; df=1 &amp;middot; &amp;phi;=0.035 &amp;middot; p=0.000&lt;/td&gt; 
 &lt;/tr&gt;
  
 &lt;/table&gt;
@@ -289,7 +280,7 @@ casen2022_chi %&gt;%
 &lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;168759&lt;/span&gt;&lt;br&gt;&lt;span style="color:#333399;"&gt;83.4&amp;nbsp;&amp;#37;&lt;/span&gt;&lt;br&gt;&lt;span style="color:#339933;"&gt;100&amp;nbsp;&amp;#37;&lt;/span&gt;&lt;/td&gt;
 &lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;202231&lt;/span&gt;&lt;br&gt;&lt;span style="color:#333399;"&gt;100&amp;nbsp;&amp;#37;&lt;/span&gt;&lt;br&gt;&lt;span style="color:#339933;"&gt;100&amp;nbsp;&amp;#37;&lt;/span&gt;&lt;/td&gt; 
 &lt;/tr&gt;
-&lt;td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4"&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=247.461 &amp;middot; df=1 &amp;middot; &amp;phi=0.035 &amp;middot; p=0.000&lt;/td&gt; 
+&lt;td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4"&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=247.461 &amp;middot; df=1 &amp;middot; &amp;phi;=0.035 &amp;middot; p=0.000&lt;/td&gt; 
 &lt;/tr&gt;
  
 &lt;/table&gt;
@@ -436,7 +427,7 @@ class: center
 En este caso, las frecuencias esperadas serán distintas para cada celda, ej:
 
 `$$(a)=f_{e_{a}}=\frac{(a+b)(a+c)}{N}=\frac{60*55}{100}=\frac{3300}{100}=33$$`
-`$$(b)=f_{e_{b}}=\frac{(a+b)(a+c)}{N}=\frac{60*45}{100}=\frac{2700}{100}=27$$`
+`$$(b)=f_{e_{b}}=\frac{(a+b)(b+d)}{N}=\frac{60*45}{100}=\frac{2700}{100}=27$$`
 
 
 
@@ -531,7 +522,7 @@ Cálculo de frecuencias esperadas para ejemplo con CASEN
 &lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;168759&lt;/span&gt;&lt;/td&gt;
 &lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;202231&lt;/span&gt;&lt;/td&gt; 
 &lt;/tr&gt;
-&lt;td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4"&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=247.461 &amp;middot; df=1 &amp;middot; &amp;phi=0.035 &amp;middot; p=0.000&lt;/td&gt; 
+&lt;td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4"&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=247.461 &amp;middot; df=1 &amp;middot; &amp;phi;=0.035 &amp;middot; p=0.000&lt;/td&gt; 
 &lt;/tr&gt;
  
 &lt;/table&gt;
@@ -551,7 +542,7 @@ Cálculo de frecuencias esperadas para ejemplo con CASEN
 En R también es posible obtener las frecuencias esperadas por celda con la función `CrossTable` de la librería `gmodels`
 
 
-``` r
+```r
 gmodels::CrossTable(casen2022_chi$educ_sup,
                     casen2022_chi$discrim, 
                     expected=TRUE,
@@ -566,43 +557,43 @@ gmodels::CrossTable(casen2022_chi$educ_sup,
 .small[
 
 ```
-## 
-##  
-##    Cell Contents
-## |-------------------------|
-## |                       N |
-## |              Expected N |
-## |-------------------------|
-## 
-##  
-## Total Observations in Table:  202231 
-## 
-##  
-##                        | casen2022_chi$discrim 
-## casen2022_chi$educ_sup |         0 |         1 | Row Total | 
-## -----------------------|-----------|-----------|-----------|
-##                      0 |     26996 |    141998 |    168994 | 
-##                        | 27970.821 | 141023.179 |           | 
-## -----------------------|-----------|-----------|-----------|
-##                      1 |      6476 |     26761 |     33237 | 
-##                        |  5501.179 | 27735.821 |           | 
-## -----------------------|-----------|-----------|-----------|
-##           Column Total |     33472 |    168759 |    202231 | 
-## -----------------------|-----------|-----------|-----------|
-## 
-##  
-## Statistics for All Table Factors
-## 
-## 
-## Pearson's Chi-squared test 
-## ------------------------------------------------------------
-## Chi^2 =  247.7146     d.f. =  1     p =  8.178928e-56 
-## 
-## Pearson's Chi-squared test with Yates' continuity correction 
-## ------------------------------------------------------------
-## Chi^2 =  247.4605     d.f. =  1     p =  9.291443e-56 
-## 
-## 
+
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+|              Expected N |
+|-------------------------|
+
+ 
+Total Observations in Table:  202231 
+
+ 
+                       | casen2022_chi$discrim 
+casen2022_chi$educ_sup |         0 |         1 | Row Total | 
+-----------------------|-----------|-----------|-----------|
+                     0 |     26996 |    141998 |    168994 | 
+                       | 27970.821 | 141023.179 |           | 
+-----------------------|-----------|-----------|-----------|
+                     1 |      6476 |     26761 |     33237 | 
+                       |  5501.179 | 27735.821 |           | 
+-----------------------|-----------|-----------|-----------|
+          Column Total |     33472 |    168759 |    202231 | 
+-----------------------|-----------|-----------|-----------|
+
+ 
+Statistics for All Table Factors
+
+
+Pearson's Chi-squared test 
+------------------------------------------------------------
+Chi^2 =  247.7146     d.f. =  1     p =  8.178928e-56 
+
+Pearson's Chi-squared test with Yates' continuity correction 
+------------------------------------------------------------
+Chi^2 =  247.4605     d.f. =  1     p =  9.291443e-56 
+
+ 
 ```
 ]
 
@@ -658,17 +649,17 @@ La función es  `chisq.test()`
 
 
 
-``` r
+```r
 chisq.test(table(casen2022_chi$educ_sup,
                  casen2022_chi$discrim))
 ```
 
 ```
-## 
-## 	Pearson's Chi-squared test with Yates' continuity correction
-## 
-## data:  table(casen2022_chi$educ_sup, casen2022_chi$discrim)
-## X-squared = 247.46, df = 1, p-value &lt; 2.2e-16
+
+	Pearson's Chi-squared test with Yates' continuity correction
+
+data:  table(casen2022_chi$educ_sup, casen2022_chi$discrim)
+X-squared = 247.46, df = 1, p-value &lt; 2.2e-16
 ```
 
 ---
@@ -678,7 +669,7 @@ chisq.test(table(casen2022_chi$educ_sup,
 De todas maneras, aparece directamente en varios outputs de tablas de contingencia en R, como la generada antes con `sjtab`, de librería `sjPlot`:
 
 
-``` r
+```r
 casen2022_chi %&gt;%
   sjtab(educ_sup,
         discrim,
@@ -722,10 +713,33 @@ casen2022_chi %&gt;%
 &lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;168759&lt;/span&gt;&lt;br&gt;&lt;span style="color:#333399;"&gt;83.4&amp;nbsp;&amp;#37;&lt;/span&gt;&lt;/td&gt;
 &lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;202231&lt;/span&gt;&lt;br&gt;&lt;span style="color:#333399;"&gt;100&amp;nbsp;&amp;#37;&lt;/span&gt;&lt;/td&gt; 
 &lt;/tr&gt;
-&lt;td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4"&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=247.461 &amp;middot; df=1 &amp;middot; &amp;phi=0.035 &amp;middot; p=0.000&lt;/td&gt; 
+&lt;td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4"&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=247.461 &amp;middot; df=1 &amp;middot; &amp;phi;=0.035 &amp;middot; p=0.000&lt;/td&gt; 
 &lt;/tr&gt;
  
 &lt;/table&gt;
+]
+]
+
+---
+
+.pull-left-narrow[
+.medium[
+También se puede visualizar el resultado con la función `ggchisqtest`, de librería `gginference`:
+
+
+```r
+chi_results &lt;- chisq.test(table(casen2022_chi$educ_sup,
+                 casen2022_chi$discrim))
+
+ggchisqtest(chi_results)
+```
+]
+]
+
+.pull-right-wide[
+&lt;br&gt;
+.small[
+![](12-bivariada5_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
 ]
 ]
 
@@ -779,25 +793,25 @@ class: inverse bottom right
 
 .pull-left-wide[
 
-``` r
+```r
 tabla &lt;- matrix(c(30, 20, 20, 30), 
         nrow = 2, byrow = TRUE)
 print(tabla)
 ```
 
 ```
-##      [,1] [,2]
-## [1,]   30   20
-## [2,]   20   30
+     [,1] [,2]
+[1,]   30   20
+[2,]   20   30
 ```
 
-``` r
+```r
 coef_phi &lt;-psych::phi(tabla)
 print(coef_phi)
 ```
 
 ```
-## [1] 0.2
+[1] 0.2
 ```
 ]
 
@@ -842,7 +856,7 @@ Donde:
 
 Por lo tanto, existe una asociación débil entre las variables
 
----
+
 ---
 # Medidas de asociación según nivel de medición
 ----
@@ -859,6 +873,92 @@ Por lo tanto, existe una asociación débil entre las variables
 ]
 
 ---
+
+
+
+# Ejercicio de aplicación 1
+
+**¿Existe una asociación entre la pobreza multidimensional y el sexo?**
+
+&lt;table style="border-collapse:collapse; border:none;"&gt;
+ &lt;tr&gt;
+ &lt;th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; border-bottom:1px solid;" rowspan="2"&gt;Sexo&lt;/th&gt;
+ &lt;th style="border-top:double; text-align:center; font-style:italic; font-weight:normal;" colspan="2"&gt;Pobreza&lt;br&gt;multidimensional&lt;/th&gt;
+ &lt;th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; font-weight:bolder; font-style:italic; border-bottom:1px solid; " rowspan="2"&gt;Total&lt;/th&gt;
+ &lt;/tr&gt;
+ 
+&lt;tr&gt;
+ &lt;td style="border-bottom:1px solid; text-align:center; padding:0.2cm;"&gt;No pobreza&lt;/td&gt;
+ &lt;td style="border-bottom:1px solid; text-align:center; padding:0.2cm;"&gt;Pobreza&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+&lt;tr&gt; 
+&lt;td style="padding:0.2cm;  text-align:left; vertical-align:middle;"&gt;1. Hombre&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center; "&gt;&lt;span style="color:black;"&gt;76056&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center; "&gt;&lt;span style="color:black;"&gt;18114&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center;  "&gt;&lt;span style="color:black;"&gt;94170&lt;/span&gt;&lt;/td&gt; 
+&lt;/tr&gt;
+ 
+&lt;tr&gt; 
+&lt;td style="padding:0.2cm;  text-align:left; vertical-align:middle;"&gt;2. Mujer&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center; "&gt;&lt;span style="color:black;"&gt;85615&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center; "&gt;&lt;span style="color:black;"&gt;19140&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center;  "&gt;&lt;span style="color:black;"&gt;104755&lt;/span&gt;&lt;/td&gt; 
+&lt;/tr&gt;
+ 
+&lt;tr&gt; 
+&lt;td style="padding:0.2cm;  border-bottom:double; font-weight:bolder; font-style:italic; text-align:left; vertical-align:middle;"&gt;Total&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;161671&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;37254&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;198925&lt;/span&gt;&lt;/td&gt; 
+&lt;/tr&gt;
+ 
+&lt;/table&gt;
+
+
+---
+
+# Ejercicio de aplicación 2
+
+**¿Existe una asociación entre la situación laboral y el sexo?**
+
+&lt;table style="border-collapse:collapse; border:none;"&gt;
+ &lt;tr&gt;
+ &lt;th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; border-bottom:1px solid;" rowspan="2"&gt;Sexo&lt;/th&gt;
+ &lt;th style="border-top:double; text-align:center; font-style:italic; font-weight:normal;" colspan="2"&gt;Ocupado (si/no)&lt;/th&gt;
+ &lt;th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; font-weight:bolder; font-style:italic; border-bottom:1px solid; " rowspan="2"&gt;Total&lt;/th&gt;
+ &lt;/tr&gt;
+ 
+&lt;tr&gt;
+ &lt;td style="border-bottom:1px solid; text-align:center; padding:0.2cm;"&gt;0&lt;/td&gt;
+ &lt;td style="border-bottom:1px solid; text-align:center; padding:0.2cm;"&gt;1&lt;/td&gt;
+ &lt;/tr&gt;
+ 
+&lt;tr&gt; 
+&lt;td style="padding:0.2cm;  text-align:left; vertical-align:middle;"&gt;1. Hombre&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center; "&gt;&lt;span style="color:black;"&gt;29288&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center; "&gt;&lt;span style="color:black;"&gt;48105&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center;  "&gt;&lt;span style="color:black;"&gt;77393&lt;/span&gt;&lt;/td&gt; 
+&lt;/tr&gt;
+ 
+&lt;tr&gt; 
+&lt;td style="padding:0.2cm;  text-align:left; vertical-align:middle;"&gt;2. Mujer&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center; "&gt;&lt;span style="color:black;"&gt;51394&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center; "&gt;&lt;span style="color:black;"&gt;37488&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center;  "&gt;&lt;span style="color:black;"&gt;88882&lt;/span&gt;&lt;/td&gt; 
+&lt;/tr&gt;
+ 
+&lt;tr&gt; 
+&lt;td style="padding:0.2cm;  border-bottom:double; font-weight:bolder; font-style:italic; text-align:left; vertical-align:middle;"&gt;Total&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;80682&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;85593&lt;/span&gt;&lt;/td&gt;
+&lt;td style="padding:0.2cm; text-align:center;   border-bottom:double;"&gt;&lt;span style="color:black;"&gt;166275&lt;/span&gt;&lt;/td&gt; 
+&lt;/tr&gt;
+ 
+&lt;/table&gt;
+
+
+---
 class: front
 
 .pull-left-wide[
@@ -873,7 +973,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.com]](https://encuestas-sociales.netlify.com)
 ]
     

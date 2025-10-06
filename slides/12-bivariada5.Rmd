@@ -1,7 +1,7 @@
 ---
 title: "Estadística Correlacional"
 author: ".small[Juan Carlos Castillo <br><br> Departamento de Sociología - UCH / COES <br><br>]"
-date: "2do Sem 2024"
+date: "2do Sem 2025"
 output:
   xaringan::moon_reader:
     css: "css/custom_2020.css"
@@ -26,7 +26,7 @@ opts_chunk$set(warning=FALSE,
              echo=TRUE,
              comment = "",
              cache = TRUE, fig.width=10, fig.height=8)
-pacman::p_load(tidyverse, kableExtra, sjlabelled)
+pacman::p_load(tidyverse, kableExtra, sjlabelled, sjmisc, gginference)
 ```
 
 
@@ -49,9 +49,9 @@ xaringanExtra::use_search(show_icon = TRUE)
 ----
 .pull-left[
 
-## Juan Carlos Castillo
+## Kevin Carrasco
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -542,6 +542,32 @@ casen2022_chi %>%
 ]
 
 ---
+
+.pull-left-narrow[
+.medium[
+También se puede visualizar el resultado con la función `ggchisqtest`, de librería `gginference`:
+
+```{r eval=FALSE}
+chi_results <- chisq.test(table(casen2022_chi$educ_sup,
+                 casen2022_chi$discrim))
+
+ggchisqtest(chi_results)
+```
+]
+]
+
+.pull-right-wide[
+<br>
+.small[
+```{r echo=FALSE, warning=FALSE}
+chi_results <- chisq.test(table(casen2022_chi$educ_sup,
+                 casen2022_chi$discrim))
+ggchisqtest(chi_results)
+```
+]
+]
+
+---
 # Resumen: 5 pasos inferencia para tablas cruzadas
 
 1. Establecer las hipótesis 
@@ -640,7 +666,7 @@ $V = \sqrt{\frac{5.35} {180 * (2 - 1)}}=\sqrt{\frac{5.35}{180}}=0.173$
 
 Por lo tanto, existe una asociación débil entre las variables
 
----
+
 ---
 # Medidas de asociación según nivel de medición
 ----
@@ -657,6 +683,40 @@ Por lo tanto, existe una asociación débil entre las variables
 ]
 
 ---
+```{r echo=FALSE, results='hide'}
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/proc_casen.RData")) #Cargar base de datos
+
+proc_casen$educ_sup <- rec(proc_casen$educ, rec = "0:8=0;9:12=1",val.labels = c("Menos que universitaria", "Universitaria o más"))
+proc_casen$pobreza_multi_5d <- set_label(x = proc_casen$pobreza_multi_5d,label = "Pobreza multidimensional") 
+```
+
+
+# Ejercicio de aplicación 1
+
+**¿Existe una asociación entre la pobreza multidimensional y el sexo?**
+
+```{r echo=FALSE}
+proc_casen %>%
+  sjtab(sexo,pobreza_multi_5d,
+        encoding="UTF-8",
+        show.summary = FALSE)
+```
+
+
+---
+
+# Ejercicio de aplicación 2
+
+**¿Existe una asociación entre la situación laboral y el sexo?**
+
+```{r echo=FALSE}
+proc_casen %>%
+  sjtab(sexo,ocupado,
+        show.summary = FALSE)
+```
+
+
+---
 class: front
 
 .pull-left-wide[
@@ -671,7 +731,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.com]](https://encuestas-sociales.netlify.com)
 ]
     

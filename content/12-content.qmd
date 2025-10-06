@@ -1,6 +1,6 @@
 ---
 title: "Asociación con categóricas 2: Chi 2"
-date: "2024-10-14"
+date: "2025-10-05"
 lang: es
 execute:
   freeze: auto 
