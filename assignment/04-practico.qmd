@@ -1,6 +1,6 @@
 ---
 title: "Práctico 4: Matrices de correlación, casos pérdidos e índices"
-date: "2024-10-08"
+date: "2025-10-08"
 lang: es
 bibliography: "bib/correlacional.bib"
 csl: "bib/apa.csl"
@@ -34,9 +34,7 @@ En esta guía utilizaremos un ejemplo que desarrollaremos progresivamente para e
 
 El aumento de la desigualdad económica y la concentración de la riqueza se han vinculado al resurgimiento de diversos conflictos sociales a nivel global. En este contexto, varios estudios han explorado en qué medida los individuos perciben conflictos sociales entre grupos, especialmente aquellos organizados verticalmente en la estructura social, como ricos-pobres o trabajadores-empresarios [@edlundDemocraticClassStruggle2015a; @hadlerSocialConflictPerception2017a].
 
-La investigación ha demostrado que las percepciones de conflicto social se asocian tanto a desigualdades objetivas como subjetivas. Por un lado, en países más desiguales y entre personas de menor estatus socioeconómico, estas percepciones tienden a ser mayores [@edlundDemocraticClassStruggle2015a]. Por otro lado, quienes se auto-ubican en las posiciones más bajas de la estructura social perciben más conflictos, a la vez que las creencias de vivir en una sociedad de clase media o mayormente igualitaria mediatiza el efecto que tienen diferentes factores tanto objetivos como subjetivos [@hadlerSocialConflictPerception2017a; @hertelConflictPerceptions272019a] .
-
-Sin embargo, en la literatura aún no se ha analizado cómo la percepción de desigualdad afecta las percepciones de conflicto social ni se ha examinado la consistencia de los indicadores utilizados para medirlas. Estas preguntas las responderemos estudiando el caso de Chile, un país que se caracteriza por sus altos niveles de desigualdad económica y concentración de la riqueza [@chancelWorldInequalityReport2022]. 
+Sin embargo, en la literatura existe poca evidencia sobre cómo la percepción de desigualdad afecta las percepciones de conflicto social ni se ha examinado la consistencia de los indicadores utilizados para medirlas. Estas preguntas las responderemos estudiando el caso de Chile, un país que se caracteriza por sus altos niveles de desigualdad económica y concentración de la riqueza [@chancelWorldInequalityReport2022]. 
 
 
 **Pregunta 1**: _¿En qué medida se relacionan la percepción de desigualdad y la percepción de conflictos sociales en Chile?_
@@ -95,8 +93,10 @@ Ahora, realizaremos un pequeño procesamiento de nuestros datos con `dplyr`, tod
 ```{r proc, echo=TRUE, }
 
 proc_issp <- issp %>% # seleccionamos
-    dplyr::select(educyrs,
+    dplyr::select(age,
+                  educyrs,
                   income,
+                  topbot,
                   perc_ineq,
                   starts_with("conflict")) 
 
@@ -113,7 +113,6 @@ proc_issp %>%
 ```
 
 # 3. Análisis
-
 
 La manera en que se miden las variables de percepción de conflictos y percepción de desigualdad en la [ISSP 2009](https://www.gesis.org/en/issp/data-and-documentation/social-inequality/2009) para Chile es la siguiente:
 
@@ -166,11 +165,6 @@ Todas estas variables fueron recodificadas inversamente para este ejercicio.
 
 ### 3.1.1 Coeficiente de correlación de Spearman
 
-Cuando queremos conocer la asociación entre variables que son ordinales y/o cuando nuestras variables no cumplen con los supuestos de distribución normal, podemos utilizar la correlación de Spearman.
-
-- Emplea rangos en lugar de valores numéricos para evaluar la relación.
-- Es alta cuando las observaciones tienen un ranking similar.
-
 En R calcularlo es sencillo, pero debemos tener en cuenta que las variables que relacionemos tengan un orden de rango similar: por ejemplo, que el valor más bajo sea el rango más bajo y que el valor más alto sea el rango más alto.
 
 Observemos las frecuencias de las variables `conflict_rp` (conflictos ricos-pobres) y `perc_ineq` (percepción desigualdad) 
@@ -200,34 +194,11 @@ Ahora, calculemos el coeficiente de correlación Tau de Kendall con cor.test.
 cor.test(proc_issp$conflict_rp, proc_issp$perc_ineq, method = "kendall") #especificamos metodo kendall
 ```
 
-El valor del coeficiente de Kendall mediante al argumento `tau`, es igual a 0.1, siendo positivo y muy pequeño según los criterios de Cohen (1988).
+El valor del coeficiente de Kendall mediante al argumento `tau`, es igual a 0.1, siendo positivo y pequeño según los criterios de Cohen (1988).
 
-**¿PERO QUÉ HACER CON LOS CASOS PÉRDIDOS?**
+**¿PERO QUÉ HACER CON LOS CASOS PERDIDOS?**
 
 ## 3.2 Tratamiento de casos perdidos 
-
-Trabajar con datos a menudo implica enfrentar valores perdidos (`NA`), lo que puede ser un gran desafío. Estos valores _indican la ausencia de un valor en una base de datos_. Los valores perdidos pueden originarse por diversas razones, como el sesgo de no respuesta en encuestas, errores en la entrada de datos o simplemente la falta de información para ciertas variables.
-
-
-```{r, echo=FALSE}
-
-data.frame(
-  X1 = c(NA, 7, 8, 9, 3),
-  X2 = c(4, 1, NA, NA, 3),
-  X3 = c(1, 4, 2, 9, 6),
-  X4 = c("Hola", "No soy un NA", NA, "Amo R", NA)
-) %>% 
-  kable(format = "html", align = 'r') %>% 
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T) %>% 
-  kableExtra::kable_styling(latex_options = "hold_position", position = "center") %>% 
-  row_spec(0, bold = T, color = "white", background = "#ce0200") %>% 
-  column_spec(4, width = "4cm")
-
-
-
-```
-
-La presencia de valores perdidos puede tener un impacto considerable en la precisión y confiabilidad de los análisis estadísticos, lo que a su vez puede conducir a resultados sesgados y conclusiones incorrectas. 
 
 Existen varias formas de tratar valores perdidos, que van desde enfoques simples hasta métodos más complejos, como la imputación. En esta ocasión, nos centraremos en las dos estrategias más comunes: 
 
@@ -281,8 +252,6 @@ Siempre hay que intentar rescatar la mayor cantidad de casos posibles. Por lo ta
 
 ### 3.2.2 Retener pero excluir: pairwise deletion
 
-A diferencia del anterior, este es un enfoque en el que las observaciones se utilizan para el análisis siempre que tengan datos disponibles para las variables específicas que se están analizando. En lugar de eliminar toda una fila si falta un valor, se eliminan solo los valores faltantes en las variables que se están analizando en ese momento. 
-
 Para hacer esto en R debemos siempre verificar e indicar en nuestro código si queremos (o no) remover los `NA` para realizar los análisis.
 
 ```{r, echo=TRUE, message=FALSE, warning=FALSE, collapse=FALSE}
@@ -297,8 +266,6 @@ Con el primer código no obtuvimos información sustantiva en ciertas variables,
 
 ## 3.3 Matrices de correlación
 
-La correlación es una estimación de asociación de dos variables. Sin embargo, en los análisis de bases de datos usualmente se exploran asociaciones entre múltiples pares de variables, lo que genera una matriz de correlación. En una matriz, las variables se presentan en las filas y las columnas, y en las celdas donde se cruzan los pares de variables se muestra su coeficiente de correlación.
-
 En su forma simple en R se aplica la función `cor` a la base de datos, y la guardamos en un objeto que le damos el nombre M para futuras operaciones:
 
 
@@ -307,16 +274,16 @@ M <- cor(proc_issp_original, use = "complete.obs")
 M
 ```
 
-Este es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la funcion `tab_corr`. 
+Este es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la función `tab_corr`. 
 
 ```{r cor2, echo=TRUE, message=FALSE, warning=FALSE}
 sjPlot::tab_corr(proc_issp_original, 
                  triangle = "lower")
 ```
 
-La **distinción** entre **listwise y pairwise es relevante al momento de estimar matricies de correlación**, donde esta decisión debe estar claramente explicitada y fundamentada. En ejemplo de tabla anterior usamos _listwise_ que es el argumento por defecto (y nos lo indica al final de la tabla). 
+La **distinción** entre **listwise y pairwise es relevante al momento de estimar matrices de correlación**, donde esta decisión debe estar claramente explicitada y fundamentada. En el ejemplo de tabla anterior usamos _listwise_ que es el argumento por defecto (y nos lo indica al final de la tabla). 
 
-Veamos como hacerlo con _pairwise_:
+Veamos cómo hacerlo con _pairwise_:
 
 ```{r cor2_1, echo=TRUE, message=FALSE, warning=FALSE}
 sjPlot::tab_corr(proc_issp_original, 
@@ -398,7 +365,7 @@ cor.test(proc_issp$psci, proc_issp$perc_ineq, method = "pearson", use = "complet
 
 ```
 
-De acuerdo a este resultado, la correlación de Pearson entre la percepción de conflicto social y la percepción de desigualdad es positiva, muy pequeña y estadisticamente significativa ($r$ = 0.07, $p$ < 0.05). 
+De acuerdo a este resultado, la correlación de Pearson entre la percepción de conflicto social y la percepción de desigualdad es positiva, muy pequeña y estadísticamente significativa ($r$ = 0.07, $p$ < 0.05). 
 
 ### Pregunta 2
 
@@ -409,69 +376,12 @@ De acuerdo al resultado de la matriz de correlaciones y del alpha de Cronbach, l
 
 # Ejercicio autónomo
 
-A partir de la base de datos de `proc_issp` responda la siguiente pregunta _¿en qué medida la percepción de conflictos se asocia con el estatus socioeconomico de las personas?_ Para responder esta pregunta siga los siguientes pasos:
+A partir de la base de datos de `proc_issp` responda la siguiente pregunta _¿en qué medida la percepción de conflictos se asocia con el estatus socioeconómico de las personas?_ Para responder esta pregunta siga los siguientes pasos:
 
-1. Estime y reporte una matriz de correlación con las variables `income` y `educyrs`. Considere el tratamiento de casos perdidos.
+1. Estime y reporte una matriz de correlación con las variables `income`, `educyrs` y `topbot`. Considere el tratamiento de casos perdidos.
 2. Calcule el alpha de cronbach de la matriz del punto anterior.
-3. Genere un índice promedio de estatus socioeconomico a partir de las variables `income` y `educyrs`, y llámelo `ses`.
+3. Genere un índice promedio de estatus socioeconómico a partir de las variables utilizadas en la matriz y llámelo `ses`.
 4. Calcule el coeficiente de correlación de Pearson ($r$) entre las variables `psci` y `ses`. Reporte e interprete sus resultados.
-
-
-# Resolución ejercicio autónomo
-
-1. Para estimar y reportar una matriz de correlación con las variables `income` y `educyrs`, primero crearemos un objeto `M_ej` en donde almacenaremos solo estas dos variables.
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-M_ej <- proc_issp %>% 
-  dplyr::select(income, educyrs)
-
-head(M_ej) # verificamos mirando los primeros 6 casos
-```
-
-Luego, calculamos la matriz de correlación sobre el objeto `M_ej`. En este caso, lo haremos con `tab_corr` para que nos entregue una tabla de calidad. Además, debemos tener claro el método de tratamiento de casos pérdidos. Una opción es utilizar listwise y trabajar solo con casos completos, considerando que tenemos un **N** lo suficientemente grande incluso eliminando dichos casos.
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-sjPlot::tab_corr(M_ej,
-                 na.deletion = "listwise", # espeficicamos tratamiento NA
-                 triangle = "lower")
-```
-
-A partir de esta matriz, podemos afirmar que la correlación de Pearson entre el ingreso y el nivel educativo es positiva, moderada y estadísticamente significativa ($r$ = 0.4, $p$ < 0.05).
-
-2. Para calcular el alpha de Cronbach de esta matriz, usaremos la función `alpha` del paquete `psych`.
-
-```{r  echo=TRUE, message=FALSE, warning=FALSE}
-psych::alpha(M_ej)$total$raw_alpha
-```
-
-El alpha de Cronbach entre el ingreso y el nivel educativo es de 0.6 (aproximado), estando justo dentro del estándar minímo en ciencias sociales. Por tanto, ambas variables son consistentes y podemos utilizarlas para generar un índice de estatus socioeconómico.
-
-3. Para crear este índice, haremos un promedio entre `income` y `educyrs` con el comando `rowMeans`.
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-proc_issp <- cbind(proc_issp, "ses" = rowMeans(proc_issp %>% select(income, educyrs), na.rm=TRUE))
-
-head(proc_issp) # verificamos
-```
-
-4. Finalmente, estimamos una prueba de correlación entre la percepción de conflictos (`psci`) y el estatus socioeconómico (`ses`).
-
-Las hipótesis formales serían: 
-
-- $H_{0}$: $cor(psci, ses)$ $=$ $0$
-- $H_{A}$: $cor(psci, ses)$ $\neq$ $0$
-
-Y la estimación en R:
-
-```{r, echo=TRUE, message=FALSE, warning=FALSE}
-cor.test(proc_issp$psci, proc_issp$ses, method = "pearson", 
-         use = "complete.obs")
-```
-
-Con este output podemos sostener lo siguiente:
-
-> El coeficiente de correlación de Pearson entre el conflicto social percibido y el estatus socioeconómico es negativo, muy pequeño y estadísticamente significativo  ($r$ = -0.08, $p$ < 0.05). Por tanto, con un 95% de confianza se puede rechazar la $H_{0}$ de no asociación entre variables, existiendo evidencia a favor de la $H_{A}$ sobre una asociación significativa entre la percepción de conflictos y el estatus socioeconómico de las personas. Sustantivamente, esto sugiere que a mayor estatus socioeconómico, menor tiende a ser el conflicto percibido. 
-
 
 
 #### Referencias
