@@ -381,8 +381,8 @@ A partir de la base de datos de `proc_issp` responda la siguiente pregunta _¿en
 1. Estime y reporte una matriz de correlación con las variables `income`, `educyrs` y `topbot`. Considere el tratamiento de casos perdidos.
 2. Calcule el alpha de cronbach de la matriz del punto anterior.
 3. Genere un índice promedio de estatus socioeconómico a partir de las variables utilizadas en la matriz y llámelo `ses`.
-4. Calcule el coeficiente de correlación de Pearson ($r$) entre las variables `psci` y `ses`. Reporte e interprete sus resultados.
-
+4. Calcule el coeficiente de correlación de Pearson ($r$) entre las variables `psci` y `ses`. Reporte e interprete sus resultados. _¿en qué medida la percepción de conflictos se asocia con el estatus socioeconómico de las personas?_
+5. Estime y reporte una matriz de correlación con las variables `psci`, `ses`, `age` y `perc_ineq`. Interprete sentido, tamaño de efecto y significancia de las principales asociaciones 
 
 #### Referencias
 
