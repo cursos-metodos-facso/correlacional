@@ -93,8 +93,8 @@ website:
               file: content/10-content.qmd
             - text: "Bivariada 4"
               file: content/11-content.qmd
-            # - text: "Bivariada 5"
-            #   file: content/12-content.qmd
+            - text: "Bivariada 5"
+              file: content/12-content.qmd
             # - text: "Documentos dinámicos"
             #   file: content/13-content.qmd
         - text: "Foro Clases"
