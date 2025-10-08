@@ -373,6 +373,14 @@ _¿Cómo se relacionan los distintos indicadores utilizados para medir la percep
 
 De acuerdo al resultado de la matriz de correlaciones y del alpha de Cronbach, los indicadores utilizados para medir la percepción de conflictos se relacionan positiva y significativamente ($p$ < 0.05), además de demostrar un nivel de consistencia interna aceptable ($\alpha$ = 0.8).
 
+## Video de la sesión
+
+<iframe width="560" height="315" src="https://youtu.be/jGdganP1kvg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Acá [link directo a youtube.](https://youtu.be/jGdganP1kvg)
+
+
+
 
 # Ejercicio autónomo
 

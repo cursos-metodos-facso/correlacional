@@ -1383,5 +1383,17 @@
     "title": "Programa",
     "section": "Programación de sesiones",
     "text": "Programación de sesiones\nVisitar la página de Planificación."
+  },
+  {
+    "objectID": "assignment/04-practico.html#video-de-la-sesión",
+    "href": "assignment/04-practico.html#video-de-la-sesión",
+    "title": "Práctico 4: Matrices de correlación, casos pérdidos e índices",
+    "section": "Video de la sesión",
+    "text": "Video de la sesión\n\n\nAcá link directo a youtube.",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "4- Matrices de correlación, casos perdidos e índices"
+    ]
   }
 ]
