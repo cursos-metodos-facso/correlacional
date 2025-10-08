@@ -375,12 +375,9 @@ De acuerdo al resultado de la matriz de correlaciones y del alpha de Cronbach, l
 
 ## Video de la sesión
 
-<iframe width="560" height="315" src="https://youtu.be/jGdganP1kvg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jGdganP1kvg?si=NaWI8654Oswhk07k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Acá [link directo a youtube.](https://youtu.be/jGdganP1kvg)
-
-
-
 
 # Ejercicio autónomo
 
