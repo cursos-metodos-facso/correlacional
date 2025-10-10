@@ -105,9 +105,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Buscar"
   }
 }</script>
-<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
 
-<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="../site_libs/tabwid-1.1.3/tabwid.js"></script>
 
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -216,10 +216,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#objetivo-de-la-práctica" id="toc-objetivo-de-la-práctica" class="nav-link active" data-scroll-target="#objetivo-de-la-práctica">Objetivo de la práctica</a></li>
-  <li><a href="#pregunta-de-investigación" id="toc-pregunta-de-investigación" class="nav-link" data-scroll-target="#pregunta-de-investigación">1. Pregunta de investigación</a>
-  <ul class="collapse">
-  <li><a href="#recursos-de-la-práctica" id="toc-recursos-de-la-práctica" class="nav-link" data-scroll-target="#recursos-de-la-práctica">Recursos de la práctica</a></li>
-  </ul></li>
+  <li><a href="#pregunta-de-investigación" id="toc-pregunta-de-investigación" class="nav-link" data-scroll-target="#pregunta-de-investigación">1. Pregunta de investigación</a></li>
   <li><a href="#datos-y-librerías" id="toc-datos-y-librerías" class="nav-link" data-scroll-target="#datos-y-librerías">2. Datos y librerías</a></li>
   <li><a href="#análisis" id="toc-análisis" class="nav-link" data-scroll-target="#análisis">3. Análisis</a>
   <ul class="collapse">
@@ -227,15 +224,16 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#correlación-punto-biserial" id="toc-correlación-punto-biserial" class="nav-link" data-scroll-target="#correlación-punto-biserial">3.1.1 Correlación punto biserial</a></li>
   <li><a href="#correlación-tetracorica" id="toc-correlación-tetracorica" class="nav-link" data-scroll-target="#correlación-tetracorica">3.1.2 Correlación tetracorica</a></li>
+  <li><a href="#correlación-policórica" id="toc-correlación-policórica" class="nav-link" data-scroll-target="#correlación-policórica">3.1.3. Correlación Policórica</a></li>
   </ul></li>
   <li><a href="#tablas-de-contingencia" id="toc-tablas-de-contingencia" class="nav-link" data-scroll-target="#tablas-de-contingencia">3.2 Tablas de contingencia</a></li>
   <li><a href="#prueba-de-hipótesis-con-chi-cuadrado-x2" id="toc-prueba-de-hipótesis-con-chi-cuadrado-x2" class="nav-link" data-scroll-target="#prueba-de-hipótesis-con-chi-cuadrado-x2">3.3. Prueba de hipótesis con Chi cuadrado (<span class="math inline">\(X^2\)</span>)</a></li>
-  <li><a href="#tamaño-de-efecto-con-phi-y-v-de-cramer" id="toc-tamaño-de-efecto-con-phi-y-v-de-cramer" class="nav-link" data-scroll-target="#tamaño-de-efecto-con-phi-y-v-de-cramer">3.4. Tamaño de efecto con Phi y V de Cramer</a></li>
+  <li><a href="#tamaño-de-efecto-con-phi-y-v-de-cramer" id="toc-tamaño-de-efecto-con-phi-y-v-de-cramer" class="nav-link" data-scroll-target="#tamaño-de-efecto-con-phi-y-v-de-cramer">3.4. Tamaño de efecto con Phi y V de Cramer</a>
+  <ul class="collapse">
   <li><a href="#estadístico-phi-φ" id="toc-estadístico-phi-φ" class="nav-link" data-scroll-target="#estadístico-phi-φ">Estadístico Phi (Φ)</a></li>
   <li><a href="#v-de-cramer" id="toc-v-de-cramer" class="nav-link" data-scroll-target="#v-de-cramer">V de Cramer</a></li>
   </ul></li>
-  <li><a href="#test-de-proporciones" id="toc-test-de-proporciones" class="nav-link" data-scroll-target="#test-de-proporciones">3.5 Test de proporciones</a></li>
-  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">4. Conclusiones</a></li>
+  </ul></li>
   <li><a href="#ejercicio-autónomo" id="toc-ejercicio-autónomo" class="nav-link" data-scroll-target="#ejercicio-autónomo">Ejercicio autónomo</a></li>
   </ul>
 </nav>
@@ -247,7 +245,7 @@ window.Quarto = {
 
 
 <div class="date-block bg-assignment text-white p-2">
-  <p class="date">Sesión del martes, 15 de octubre de 2024</p>
+  <p class="date">Sesión del lunes, 13 de octubre de 2025</p>
 </div>
 </header>
 
@@ -267,88 +265,517 @@ window.Quarto = {
 </section>
 <section id="pregunta-de-investigación" class="level1">
 <h1>1. Pregunta de investigación</h1>
-<p>La violencia es un fenómeno con el que se debe coexistir, estableciendo límites para su uso. Las movilizaciones de 2019 en Chile representan un ejemplo de un evento que aumentó la justificación de la violencia como protesta y redujo la justificación de la violencia policial, lo que plantea preguntas sobre quiénes y por qué justifican la violencia.</p>
-<p>El estudio de las justificaciones de la violencia distingue si esta se ejerce por el cambio social o por el control social. La violencia por el cambio social refiere a acciones que tengan por objetivo generar cambios en las estructuras jerarquicas de la sociedad, en tanto, la violencia por el control social refiere a aquellas acciones que tienen por objetivo mantener estas estructuras.</p>
-<p>En la literatura, uno de los principales hallazgos es que personas que pertenecen a grupos desavantejados (ej. nivel socioeconómico) suelen justificar más la violencia por el cambio social y menos por el control social.</p>
-<p>Considerando estos antecedentes, plantearemos dos preguntas de investigación:</p>
-<p><strong>Pregunta 1</strong>: <em>¿En qué medida se relacionan los ingresos con la justificación de la violencia por el <strong>cambio social</strong> en Chile al año 2019?</em></p>
-<blockquote class="blockquote">
-<p>H1: A mayores ingresos, menor es la justificación de la violencia por el cambio social</p>
-</blockquote>
-<p><strong>Pregunta 2</strong>: <em>¿En qué medida se relacionan el el nivel educacional con la justificación de la violencia por el <strong>control social</strong> en Chile al año 2019?</em></p>
-<blockquote class="blockquote">
-<p>H2: A mayor nivel educacional, mayor es la justificación de la violencia por el control social</p>
-</blockquote>
-<section id="recursos-de-la-práctica" class="level2">
-<h2 class="anchored" data-anchor-id="recursos-de-la-práctica">Recursos de la práctica</h2>
-<p>En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la <a href="https://coes.cl/encuesta-panel/">Encuesta Social Longitudinal de Chile (ELSOC)</a> para Chile del año 2019. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también es posible acceder a la misma información a través del siguiente enlace: <a href="https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/elsoc2019_jv.RData"><i class="fa-solid fa-table" aria-label="table"></i> <code>ELSOC 2019</code></a>. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos ELSOC 2019.</p>
-</section>
+<p>En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el <a href="https://observatorio.ministeriodesarrollosocial.gob.cl/">Ministerio de Desarrollo Social y Familia</a>. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienen la opción de acceder a la misma información a través del siguiente enlace: <a href="https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/proc_casen.RData"><i class="fa-solid fa-table" aria-label="table"></i> <code>CASEN 20222</code></a>. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.</p>
 </section>
 <section id="datos-y-librerías" class="level1">
 <h1>2. Datos y librerías</h1>
 <p>Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    tidyverse, <span class="co"># Manipulacion datos</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    dplyr, <span class="co"># Manipulacion datos</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    sjPlot, <span class="co"># Graficos y tablas</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    sjmisc, <span class="co"># Descriptivos</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    kableExtra, <span class="co"># Tablas</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    psych, <span class="co"># Estadísticos</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    broom</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>) <span class="co"># Varios</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    broom,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    rempsyc,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    sjstats,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    gginference</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>) <span class="co"># Varios</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Cargamos los datos directamente desde internet.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar bbdd desde internet</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/elsoc2019_jv.RData"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/casen_proc.RData"</span>)) <span class="co">#Cargar base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>A continuación, exploramos el subset de datos <code>elsoc</code>.</p>
+<p>A continuación, exploramos el subset de datos <code>proc_casen</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(elsoc) <span class="co"># Nombre de columnas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(proc_casen) <span class="co"># Nombre de columnas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "jv_control"                "jv_cambio"                
- [3] "salario_perc_ceo"          "salario_perc_obrero"      
- [5] "salario_just_ceo"          "salario_just_obrero"      
- [7] "ingreso_justo"             "ingreso"                  
- [9] "ingreso_tramos"            "educ"                     
-[11] "ingreso_satisfact"         "sexo"                     
-[13] "indigena"                  "sdo_soc_ideal"            
-[15] "sdo_grupos_inferiores"     "sdo_oportunidades_iguales"
-[17] "sdo_condiciones_iguales"   "rwa_gobierno_firme"       
-[19] "rwa_mandatario_fuerte"     "rwa_valores_ninos"        
-[21] "rwa_obediencia_discplina"  "trato_carab"              
-[23] "edad"                      "pos_pol"                  
-[25] "frec_marcha"               "conf_carab"               
-[27] "sj_gerente"                "sj_gerente_rec"           
-[29] "jv_cambio_rec"             "jv_control_rec"           
-[31] "ingreso_rec"               "educ_rec"                 </code></pre>
+<pre><code> [1] "id_vivienda"      "folio"            "id_persona"       "hogar"           
+ [5] "nucleo"           "varunit"          "varstrat"         "expr"            
+ [9] "edad"             "sexo"             "educ"             "activ"           
+[13] "y1"               "ytrabajocor"      "pobreza_multi_5d" "o15"             
+[17] "qaut"             "fdt"              "ocupado"          "desocupado"      
+[21] "inact"            "hijo"             "n_educ"           "universitaria"   
+[25] "tipo_ocup"        "ss_salud"         "ayuda_moverse"    "ayuda_thogar"    
+[29] "disc_fisica"     </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(elsoc) <span class="co"># Dimensiones</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(proc_casen) <span class="co"># Dimensiones</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3417   32</code></pre>
+<pre><code>[1] 3000   29</code></pre>
 </div>
 </div>
-<p>Contamos con 32 variables (columnas) y 3417 observaciones (filas).</p>
-<p>Ahora, realizaremos un pequeño procesamiento de nuestros datos con <code>dplyr</code>, todo de una vez mediante el uso de pipes <code>%&gt;%</code>. Para recordar los pasos para el procesamiento de datos, revisar la guía práctica del <a href="https://descriptiva-facso.netlify.app/assignment/03-practico">curso de estadística descriptiva</a>.</p>
+<p>Contamos con 29 variables (columnas) y 3000 observaciones (filas).</p>
+</section>
+<section id="análisis" class="level1">
+<h1>3. Análisis</h1>
+<section id="correlación-para-variables-nominales" class="level2">
+<h2 class="anchored" data-anchor-id="correlación-para-variables-nominales">3.1 Correlación para variables nominales</h2>
+<p>Al igual que otros coeficientes de correlación, las correlaciones entre categóricas:</p>
+<ul>
+<li>Oscila entre -1 y 1.</li>
+<li>Indica la dirección y fuerza de asociación entre variables.</li>
+<li>Su tamaño de efecto se puede interpretar a partir de ciertos estándares.</li>
+<li>Se interpreta de la misma forma que otros coeficientes de correlación.</li>
+</ul>
+<section id="correlación-punto-biserial" class="level3">
+<h3 class="anchored" data-anchor-id="correlación-punto-biserial">3.1.1 Correlación punto biserial</h3>
+<p>La correlación punto biserial se utiliza para calcular la correlación entre una variable categórica dicotómica y una variable continua.</p>
+<p>Veamos la frecuencia de <code>sexo</code> y la media de ingresos <code>y1</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> elsoc <span class="sc">%&gt;%</span> <span class="co"># seleccionamos</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        ingreso,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        ingreso_rec,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        educ,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        educ_rec,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">starts_with</span>(<span class="st">"jv"</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_casen<span class="sc">$</span>sexo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sexo (x) &lt;numeric&gt; 
+# total N=3000 valid N=3000 mean=1.53 sd=0.50
+
+Value |     Label |    N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+    1 | 1. Hombre | 1404 | 46.80 |   46.80 |  46.80
+    2 |  2. Mujer | 1596 | 53.20 |   53.20 | 100.00
+ &lt;NA&gt; |      &lt;NA&gt; |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
 </div>
-<p>Ahora, exploremos estadísticos descriptivos de nuestra base procesada <code>proc_elsoc</code></p>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(proc_casen<span class="sc">$</span>y1, <span class="at">na.rm =</span> T)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 619435.3</code></pre>
+</div>
+</div>
+<p>Obtengamos la correlación punto biserial entre sexo e ingresos.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(ingreso, ingreso_rec, educ, educ_rec, jv_cambio, jv_cambio_rec, jv_control, jv_control_rec) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    sjmisc<span class="sc">::</span><span class="fu">descr</span>(<span class="at">show =</span> <span class="fu">c</span>(<span class="st">"label"</span>, <span class="st">"range"</span>, <span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"NA.prc"</span>, <span class="st">"n"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(., <span class="st">"markdown"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(proc_casen<span class="sc">$</span>sexo, proc_casen<span class="sc">$</span>y1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  proc_casen$sexo and proc_casen$y1
+t = -4.0718, df = 912, p-value = 0.00005069
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.19676351 -0.06937883
+sample estimates:
+       cor 
+-0.1336231 </code></pre>
+</div>
+</div>
+</section>
+<section id="correlación-tetracorica" class="level3">
+<h3 class="anchored" data-anchor-id="correlación-tetracorica">3.1.2 Correlación tetracorica</h3>
+<p>La correlación tetracórica se utiliza para calcular la correlación entre dos variables binarias categóricas, es decir, variables nominales dicómoticas (solo dos posibles valores).</p>
+<p>Veamos las frecuencias de <code>sexo</code> y <code>disc_fisica</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_casen<span class="sc">$</span>sexo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sexo (x) &lt;numeric&gt; 
+# total N=3000 valid N=3000 mean=1.53 sd=0.50
+
+Value |     Label |    N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+    1 | 1. Hombre | 1404 | 46.80 |   46.80 |  46.80
+    2 |  2. Mujer | 1596 | 53.20 |   53.20 | 100.00
+ &lt;NA&gt; |      &lt;NA&gt; |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_casen<span class="sc">$</span>disc_fisica)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Discriminado por su apariencia física (x) &lt;numeric&gt; 
+# total N=3000 valid N=3000 mean=1.03 sd=0.17
+
+Value |    N | Raw % | Valid % | Cum. %
+---------------------------------------
+    1 | 2916 | 97.20 |   97.20 |  97.20
+    2 |   84 |  2.80 |    2.80 | 100.00
+ &lt;NA&gt; |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
+<p>Obtengamos la correlación tetrácorica entre sexo y discriminación por apariencia física.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>matriz <span class="ot">&lt;-</span> proc_casen <span class="sc">%&gt;%</span> <span class="fu">select</span>(sexo, disc_fisica) <span class="co"># creamos matriz con var de interes</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">tetrachoric</span>(matriz, <span class="at">na.rm =</span> T)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: psych::tetrachoric(x = matriz, na.rm = T)
+tetrachoric correlation 
+            sexo  dsc_f
+sexo         1.00      
+disc_fisica -0.05  1.00
+
+ with tau of 
+       sexo disc_fisica 
+      -0.08        1.91 </code></pre>
+</div>
+</div>
+</section>
+<section id="correlación-policórica" class="level3">
+<h3 class="anchored" data-anchor-id="correlación-policórica">3.1.3. Correlación Policórica</h3>
+<p>La correlación policórica se utiliza para calcular la correlación entre dos variables ordinales categóricas, es decir, variables ordinales cuyos posibles valores siguen un orden (por ejemplo, variables tipo Likert).</p>
+<p>Veamos las frecuencias de <code>ayuda_moverse</code> y <code>ayuda_thogar</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_casen<span class="sc">$</span>ayuda_moverse)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>s33c. Últ. 30 días, ayuda de otra persona para: Moverse dentro de la casa (x) &lt;numeric&gt; 
+# total N=3000 valid N=68 mean=3.21 sd=1.49
+
+Value |            Label |    N | Raw % | Valid % | Cum. %
+----------------------------------------------------------
+  -99 |      No responde |    0 |  0.00 |    0.00 |   0.00
+  -88 |          No sabe |    0 |  0.00 |    0.00 |   0.00
+    1 |         1. Nunca |   13 |  0.43 |   19.12 |  19.12
+    2 |    2. Casi nunca |    9 |  0.30 |   13.24 |  32.35
+    3 | 3. Algunas veces |   18 |  0.60 |   26.47 |  58.82
+    4 |  4. Muchas veces |    7 |  0.23 |   10.29 |  69.12
+    5 |       5. Siempre |   21 |  0.70 |   30.88 | 100.00
+ &lt;NA&gt; |             &lt;NA&gt; | 2932 | 97.73 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_casen<span class="sc">$</span>ayuda_thogar)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>s33h. Últ. 30 días, ayuda de otra persona para: Realizar sus tareas del hogar (x) &lt;numeric&gt; 
+# total N=3000 valid N=80 mean=3.80 sd=1.39
+
+Value |            Label |    N | Raw % | Valid % | Cum. %
+----------------------------------------------------------
+  -99 |      No responde |    0 |  0.00 |    0.00 |   0.00
+  -88 |          No sabe |    0 |  0.00 |    0.00 |   0.00
+    1 |         1. Nunca |   10 |  0.33 |   12.50 |  12.50
+    2 |    2. Casi nunca |    3 |  0.10 |    3.75 |  16.25
+    3 | 3. Algunas veces |   17 |  0.57 |   21.25 |  37.50
+    4 |  4. Muchas veces |   13 |  0.43 |   16.25 |  53.75
+    5 |       5. Siempre |   37 |  1.23 |   46.25 | 100.00
+ &lt;NA&gt; |             &lt;NA&gt; | 2920 | 97.33 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
+<p>Obtengamos la correlación policórica entre si la persona necesitó ayuda para moverse dentro de la casa y si necesitó ayuda para realizar tareas dentro del hogar, en los últimos 30 días.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>matriz <span class="ot">&lt;-</span> proc_casen <span class="sc">%&gt;%</span> <span class="fu">select</span>(ayuda_moverse, ayuda_thogar) <span class="co"># creamos matriz con var de interes</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">polychoric</span>(matriz, <span class="at">na.rm =</span> T)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: psych::polychoric(x = matriz, na.rm = T)
+Polychoric correlations 
+              ayd_m ayd_t
+ayuda_moverse 1.00       
+ayuda_thogar  0.82  1.00 
+
+ with tau of 
+                  1     2     3     4
+ayuda_moverse -0.87 -0.46  0.22 0.499
+ayuda_thogar  -1.15 -0.98 -0.32 0.094</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="tablas-de-contingencia" class="level2">
+<h2 class="anchored" data-anchor-id="tablas-de-contingencia">3.2 Tablas de contingencia</h2>
+<p>Una tabla de contingencia es una de las maneras más simples y útiles para representar el cruce entre dos variables categóricas.</p>
+<p>Con ella, podemos obtener en las celdas las frecuencias <strong>conjuntas</strong> entre ambas variables, es decir, cuántos casos de una determinada categoría de la variable <code>Y</code> ocurren conjuntamente con una determinada categoría de la variable <code>X</code>.</p>
+<p>Además, podemos presentar los totales de cada fila y columna al exterior de la tabla, también conocidas como frecuencias <strong>marginales</strong>.</p>
+<p>Veamos un ejemplo con <code>ss_salud</code> y <code>universitaria</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">sjt.xtab</span>(<span class="at">var.row =</span> proc_casen<span class="sc">$</span>ss_salud, <span class="at">var.col =</span> proc_casen<span class="sc">$</span>universitaria, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">show.summary =</span> F, <span class="at">emph.total =</span> T)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td rowspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: italic; font-weight: normal; border-bottom: 1px solid;">s13. ¿A qué sistema<br>
+previsional de salud<br>
+pertenece?</td>
+<td colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: italic; font-weight: normal;">Educación superior<br>
+alcanzada (si/no)</td>
+<td rowspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: italic; font-weight: normal; font-weight: bolder; font-style: italic; border-bottom: 1px solid; background-color: #f8f8f8;">Total</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; border-bottom: 1px solid; padding: 0.2cm;">No</td>
+<td style="text-align: center; border-bottom: 1px solid; padding: 0.2cm;">Sí</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: middle;">1. Sistema Público<br>
+FONASA</td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">2027</span></td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">524</span></td>
+<td style="text-align: center; padding: 0.2cm; background-color: #f8f8f8;"><span style="color:black;">2551</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: middle;">2. Isapre</td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">111</span></td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">167</span></td>
+<td style="text-align: center; padding: 0.2cm; background-color: #f8f8f8;"><span style="color:black;">278</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: middle;">3. FF.AA. y del<br>
+Orden</td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">37</span></td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">22</span></td>
+<td style="text-align: center; padding: 0.2cm; background-color: #f8f8f8;"><span style="color:black;">59</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: middle;">4. Ninguno<br>
+(particular)</td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">61</span></td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">15</span></td>
+<td style="text-align: center; padding: 0.2cm; background-color: #f8f8f8;"><span style="color:black;">76</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; border-bottom: double; background-color: #f8f8f8; font-weight: bolder; font-style: italic; vertical-align: middle;">Total</td>
+<td style="text-align: center; padding: 0.2cm; border-bottom: double; background-color: #f8f8f8;"><span style="color:black;">2236</span></td>
+<td style="text-align: center; padding: 0.2cm; border-bottom: double; background-color: #f8f8f8;"><span style="color:black;">728</span></td>
+<td style="text-align: center; padding: 0.2cm; border-bottom: double; background-color: #f8f8f8;"><span style="color:black;">2964</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Veamos cómo incorporar el porcentaje fila y columna en la tabla.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">sjt.xtab</span>(<span class="at">var.row =</span> proc_casen<span class="sc">$</span>ss_salud, </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">var.col =</span> proc_casen<span class="sc">$</span>universitaria, </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">show.summary =</span> F, </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">emph.total =</span> T, </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">show.row.prc =</span> T, <span class="co"># porcentaje fila</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">show.col.prc =</span> T <span class="co"># porcentaje columna</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>                 )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td rowspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: italic; font-weight: normal; border-bottom: 1px solid;">s13. ¿A qué sistema<br>
+previsional de salud<br>
+pertenece?</td>
+<td colspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: italic; font-weight: normal;">Educación superior<br>
+alcanzada (si/no)</td>
+<td rowspan="2" data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: italic; font-weight: normal; font-weight: bolder; font-style: italic; border-bottom: 1px solid; background-color: #f8f8f8;">Total</td>
+</tr>
+<tr class="even">
+<td style="text-align: center; border-bottom: 1px solid; padding: 0.2cm;">No</td>
+<td style="text-align: center; border-bottom: 1px solid; padding: 0.2cm;">Sí</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: middle;">1. Sistema Público<br>
+FONASA</td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">2027</span><br>
+<span style="color:#333399;">79.5&nbsp;%</span><br>
+<span style="color:#339933;">90.7&nbsp;%</span></td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">524</span><br>
+<span style="color:#333399;">20.5&nbsp;%</span><br>
+<span style="color:#339933;">72&nbsp;%</span></td>
+<td style="text-align: center; padding: 0.2cm; background-color: #f8f8f8;"><span style="color:black;">2551</span><br>
+<span style="color:#333399;">100&nbsp;%</span><br>
+<span style="color:#339933;">86.1&nbsp;%</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: middle;">2. Isapre</td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">111</span><br>
+<span style="color:#333399;">39.9&nbsp;%</span><br>
+<span style="color:#339933;">5&nbsp;%</span></td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">167</span><br>
+<span style="color:#333399;">60.1&nbsp;%</span><br>
+<span style="color:#339933;">22.9&nbsp;%</span></td>
+<td style="text-align: center; padding: 0.2cm; background-color: #f8f8f8;"><span style="color:black;">278</span><br>
+<span style="color:#333399;">100&nbsp;%</span><br>
+<span style="color:#339933;">9.4&nbsp;%</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: middle;">3. FF.AA. y del<br>
+Orden</td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">37</span><br>
+<span style="color:#333399;">62.7&nbsp;%</span><br>
+<span style="color:#339933;">1.7&nbsp;%</span></td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">22</span><br>
+<span style="color:#333399;">37.3&nbsp;%</span><br>
+<span style="color:#339933;">3&nbsp;%</span></td>
+<td style="text-align: center; padding: 0.2cm; background-color: #f8f8f8;"><span style="color:black;">59</span><br>
+<span style="color:#333399;">100&nbsp;%</span><br>
+<span style="color:#339933;">2&nbsp;%</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: middle;">4. Ninguno<br>
+(particular)</td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">61</span><br>
+<span style="color:#333399;">80.3&nbsp;%</span><br>
+<span style="color:#339933;">2.7&nbsp;%</span></td>
+<td style="text-align: center; padding: 0.2cm;"><span style="color:black;">15</span><br>
+<span style="color:#333399;">19.7&nbsp;%</span><br>
+<span style="color:#339933;">2.1&nbsp;%</span></td>
+<td style="text-align: center; padding: 0.2cm; background-color: #f8f8f8;"><span style="color:black;">76</span><br>
+<span style="color:#333399;">100&nbsp;%</span><br>
+<span style="color:#339933;">2.6&nbsp;%</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; border-bottom: double; background-color: #f8f8f8; font-weight: bolder; font-style: italic; vertical-align: middle;">Total</td>
+<td style="text-align: center; padding: 0.2cm; border-bottom: double; background-color: #f8f8f8;"><span style="color:black;">2236</span><br>
+<span style="color:#333399;">75.4&nbsp;%</span><br>
+<span style="color:#339933;">100&nbsp;%</span></td>
+<td style="text-align: center; padding: 0.2cm; border-bottom: double; background-color: #f8f8f8;"><span style="color:black;">728</span><br>
+<span style="color:#333399;">24.6&nbsp;%</span><br>
+<span style="color:#339933;">100&nbsp;%</span></td>
+<td style="text-align: center; padding: 0.2cm; border-bottom: double; background-color: #f8f8f8;"><span style="color:black;">2964</span><br>
+<span style="color:#333399;">100&nbsp;%</span><br>
+<span style="color:#339933;">100&nbsp;%</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Aquí, los porcentajes fila aparecen en azul y los porcentajes columna en verde.</p>
+</section>
+<section id="prueba-de-hipótesis-con-chi-cuadrado-x2" class="level2">
+<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-con-chi-cuadrado-x2">3.3. Prueba de hipótesis con Chi cuadrado (<span class="math inline">\(X^2\)</span>)</h2>
+<p>Para determinar si existe una asociación significativa entre dos variables categóricas se utiliza la prueba de Chi-cudrado (<span class="math inline">\(X^2\)</span>). Esta se basa en un test de diferencia, donde se compara nuestra tabla de contingencia y una tabla donde no existe asociación entre variables (<span class="math inline">\(H_0\)</span>), que representa la hipótesis nula. <strong>La lógica detrás es que si nuestra tabla es significativamente distinta de una tabla sin asociación, entonces podemos rechazar la hipóteis nula</strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prueba de Chi-cuadrado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Contrastamos la <em>hipótesis nula</em> (o de trabajo) de que las variables son independientes entre ellas: <span class="math display">\[  H_{0}: \pi_{fc} =  \pi_{f}\pi_{c} \]</span></p>
+<p>En relación a una <em>hipótesis alternativa</em> sobre que las variables están relacionadas: <span class="math display">\[  H_{A}:  \pi_{fc} \neq  \pi_{f}\pi_{c} \]</span></p>
+</div>
+</div>
+<p>Veamos un ejemplo con nuestros datos. Evaluemos si el nivel educacional se relaciona con el tipo de sistema de salud al que pertenecen las personas en Chile durante el 2022.</p>
+<p>En R, utilizamos la función <code>chisq.test()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>chi_results <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(<span class="fu">table</span>(proc_casen<span class="sc">$</span>ss_salud, proc_casen<span class="sc">$</span>universitaria))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>chi_results</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  table(proc_casen$ss_salud, proc_casen$universitaria)
+X-squared = 217.56, df = 3, p-value &lt; 0.00000000000000022</code></pre>
+</div>
+</div>
+<p>Obtuvimos nuestro resultado, pero no es muy amigable a la vista. Generemos una tabla de calidad para que sea reportable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(chi_results, <span class="at">conf_int =</span> T)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nice_table</span>(stats.table)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-chi" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-chi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;1
+</figcaption>
+<div aria-describedby="tbl-chi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-edcf5a16{table-layout:auto;}.cl-edbf1ffc{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-edbf2010{font-family:'Times New Roman';font-size:12pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-edc5d0ea{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-edc5d0f4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-edc8c700{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-edc8c714{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-edc8c715{background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-edcf5a16"><thead><tr style="overflow-wrap:break-word;"><th class="cl-edc8c700"><p class="cl-edc5d0ea"><span class="cl-edbf1ffc">statistic</span></p></th><th class="cl-edc8c700"><p class="cl-edc5d0ea"><span class="cl-edbf2010">p</span></p></th><th class="cl-edc8c700"><p class="cl-edc5d0ea"><span class="cl-edbf1ffc">parameter</span></p></th><th class="cl-edc8c700"><p class="cl-edc5d0ea"><span class="cl-edbf1ffc">Method</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-edc8c714"><p class="cl-edc5d0f4"><span class="cl-edbf1ffc">217.56</span></p></td><td class="cl-edc8c715"><p class="cl-edc5d0ea"><span class="cl-edbf1ffc">&lt; .001***</span></p></td><td class="cl-edc8c715"><p class="cl-edc5d0ea"><span class="cl-edbf1ffc">3</span></p></td><td class="cl-edc8c715"><p class="cl-edc5d0ea"><span class="cl-edbf1ffc">Pearson's Chi-squared test</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Visualicemos la distribución de esta prueba y su zona de rechazo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggchisqtest</span>(chi_results)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-practico_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A partir de estos resultados, podemos reportar lo siguiente:</p>
+<blockquote class="blockquote">
+<p>A raíz de la prueba de <span class="math inline">\(X^2\)</span>, vemos que existe evidencia para rechazar la hipótesis nula sobre no asociación. Por ende, la asociación entre el nivel educacional y el tipo de sistema de salud al que pertenecen las personas en Chile es estadísticamente significativa (<span class="math inline">\(X^2\)</span> = 217, <em>p &lt; 0.05</em>)</p>
+</blockquote>
+</section>
+<section id="tamaño-de-efecto-con-phi-y-v-de-cramer" class="level2">
+<h2 class="anchored" data-anchor-id="tamaño-de-efecto-con-phi-y-v-de-cramer">3.4. Tamaño de efecto con Phi y V de Cramer</h2>
+<section id="estadístico-phi-φ" class="level3">
+<h3 class="anchored" data-anchor-id="estadístico-phi-φ">Estadístico Phi (Φ)</h3>
+<p>El estadístico Phi mide la asociación entre dos variables categóricas en una tabla de contingencia de 2x2. La fórmula es:</p>
+<p><span class="math display">\[
+\Phi = \sqrt{\frac{\chi^2}{n}}
+\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(\chi^2\)</span> es el valor del estadístico chi-cuadrado,</li>
+<li><span class="math inline">\(n\)</span> es el tamaño total de la muestra.</li>
+</ul>
+<p>El valor de <span class="math inline">\(\Phi\)</span> varía entre -1 y 1. Un valor de 0 indica ausencia de asociación, mientras que valores cercanos a -1 o 1 indican una asociación más fuerte.</p>
+</section>
+<section id="v-de-cramer" class="level3">
+<h3 class="anchored" data-anchor-id="v-de-cramer">V de Cramer</h3>
+<p>El V de Cramer es una extensión del estadístico Phi para tablas de contingencia mayores de 2x2. Su fórmula es:</p>
+<p><span class="math display">\[
+V = \sqrt{\frac{\chi^2}{n(k-1)}}
+\]</span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(\chi^2\)</span> es el valor del chi-cuadrado,</li>
+<li><span class="math inline">\(n\)</span> es el tamaño de la muestra,</li>
+<li><span class="math inline">\(k\)</span> es el número de filas o columnas, el que sea menor.</li>
+</ul>
+<p>Los valores de <span class="math inline">\(V\)</span> también varían entre 0 y 1, donde 0 indica ausencia de asociación, y valores cercanos a 1 indican una asociación más fuerte.</p>
+<p>En nuestro ejemplo, nuestra tabla de contingencia es de 4x2, por ende, debemos usar el estadístico V de Cramer. En R lo podemos calcular directamente siguiendo la formula:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el test de chi cuadrado</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>chi_result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(<span class="fu">table</span>(proc_casen<span class="sc">$</span>ss_salud, proc_casen<span class="sc">$</span>universitaria))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(proc_casen <span class="sc">%&gt;%</span> <span class="fu">select</span>(ss_salud, universitaria)) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo de V de Cramer</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>cramer <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(chi_result<span class="sc">$</span>statistic <span class="sc">/</span> n<span class="sc">*</span>(<span class="dv">2-1</span>))</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>cramer</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>X-squared 
+0.2709275 </code></pre>
+</div>
+</div>
+<p>o directamente con sjstats</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sjstats<span class="sc">::</span><span class="fu">cramer</span>(<span class="fu">table</span>(proc_casen<span class="sc">$</span>ss_salud, proc_casen<span class="sc">$</span>universitaria))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2709275</code></pre>
+</div>
+</div>
+<p>Con un valor de 0.271, vemos que la magnitud de la asociación entre las variables es moderada.</p>
+</section>
+</section>
+</section>
+<section id="ejercicio-autónomo" class="level1">
+<h1>Ejercicio autónomo</h1>
+<p>A partir de la base de datos de <code>proc_elsoc</code> responda las siguientes preguntas:</p>
+<ol type="a">
+<li><p><em>¿En qué medida se relacionan los ingresos con la justificación de la violencia por el cambio social en Chile al año 2019?</em></p></li>
+<li><p><em>¿En qué medida se relacionan el nivel educacional y la justificación de la violencia por el <strong>control social</strong> en Chile al año 2019?</em></p></li>
+</ol>
+<p>Para eso, descargue la siguiente base de datos <code>proc_elsoc</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar bbdd desde internet</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/elsoc2019_jv.RData"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>seleccione las siguientes variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="ot">&lt;-</span> elsoc <span class="sc">%&gt;%</span> <span class="co"># seleccionamos</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>        ingreso,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>        ingreso_rec,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>        educ,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>        educ_rec,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">starts_with</span>(<span class="st">"jv"</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>y explore los estadísticos descriptivos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(ingreso, ingreso_rec, educ, educ_rec, jv_cambio, jv_cambio_rec, jv_control, jv_control_rec) <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    sjmisc<span class="sc">::</span><span class="fu">descr</span>(<span class="at">show =</span> <span class="fu">c</span>(<span class="st">"label"</span>, <span class="st">"range"</span>, <span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"NA.prc"</span>, <span class="st">"n"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(., <span class="st">"markdown"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -458,607 +885,20 @@ window.Quarto = {
 </table>
 </div>
 </div>
-</section>
-<section id="análisis" class="level1">
-<h1>3. Análisis</h1>
-<p>En <a href="https://www.gesis.org/en/issp/data-and-documentation/social-inequality/2009">ELSOC 2019</a> la justificación de la violencia se mide con una escala que incluye distintas situaciones de violencia. Nosotros tomaremos dos items:</p>
-<style>
-  table {
-    margin-left: auto; /* Ajustamos el margen izquierdo a automático */
-    margin-right: auto; /* Ajustamos el margen derecho a automático */
-    border-collapse: collapse;
-    width: 60%;
-    border: 2px solid black;
-  }
-  
-  th, td {
-    border: 1px solid #D3D3D3;
-    padding: 8px;
-    text-align: center;
-  }
-</style>
-<p><strong>Justificación de la violencia</strong>: <em>F05 ¿En qué medida cree usted que se justifican o no se justifican las siguientes situaciones?</em></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Ítem</th>
-<th style="text-align: center;">Categorías de respuesta</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">F05_03 Que Carabineros use la fuerza para reprimir una manifestación pacífica</td>
-<td style="text-align: center;">Nunca se justifica (1); Pocas veces se justifica (2); Algunas veces de justifica (3); Muchas veces se justifica (4); Siempre se justifica (5)</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">F05_07 Que estudiantes tiren piedras a Carabineros en una marcha por la educación del país</td>
-<td style="text-align: center;">Nunca se justifica (1); Pocas veces se justifica (2); Algunas veces de justifica (3); Muchas veces se justifica (4); Siempre se justifica (5)</td>
-</tr>
-</tbody>
-</table>
-<p>Veamos sus frecuencias:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> sjPlot<span class="sc">::</span><span class="fu">plot_frq</span>(proc_elsoc<span class="sc">$</span>jv_cambio) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> sjPlot<span class="sc">::</span><span class="fu">plot_frq</span>(proc_elsoc<span class="sc">$</span>jv_control) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plot1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="05-practico_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plot2</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="05-practico_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Originalmente, esta variable es ordinal, sin embargo, para efectos del ejemplo de este práctico, trabajaremos con la variable recodificada de la siguiente manera:</p>
-<ul>
-<li><strong>Justifica (1)</strong> = Pocas veces se justifica (2); Algunas veces de justifica (3); Muchas veces se justifica (4); Siempre se justifica (5)</li>
-<li><strong>No justifica (0)</strong> = Nunca se justifica (1)</li>
-</ul>
-<section id="correlación-para-variables-nominales" class="level2">
-<h2 class="anchored" data-anchor-id="correlación-para-variables-nominales">3.1 Correlación para variables nominales</h2>
-<section id="correlación-punto-biserial" class="level3">
-<h3 class="anchored" data-anchor-id="correlación-punto-biserial">3.1.1 Correlación punto biserial</h3>
-<p>La correlación punto biserial es una extensión del coeficiente de correlación de Pearson y se utiliza cuando una de las variables de estudio tienen un nivel de medición intervalar y la otra un nivel de medición nominal.</p>
-<ul>
-<li>El nombre de <em>punto biserial</em> es una forma de diferenciarla de la correlación de Pearson</li>
-<li>Esta diferenciación es importante ya que nos prevee de que hay que tener consideraciones con su interpretación, particularmente en lo que refiere al <em>sentido</em></li>
-<li>En lo que respecta a la <em>magnitud/tamaño</em> y la <em>inferencia</em>, sigue la misma lógica que hemos visto con la correlación de Pearson</li>
-</ul>
-<p>Para calcular este coeficiente en R utilizamos una función ya conocida: <code>cor.test()</code>. Probemoslo con las variables <code>jv_cambio_rec</code> e <code>ingreso</code>.</p>
-<p>Primero, veamos la frecuencia de <code>jv_cambio_rec</code> e <code>ingreso</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Justificación de la violencia por el cambio social (binario) (x) &lt;numeric&gt; </span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="do">## # total N=3417 valid N=3405 mean=0.25 sd=0.43</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Value |        Label |    N | Raw % | Valid % | Cum. %</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="do">##     0 | No justifica | 2554 | 74.74 |   75.01 |  75.01</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="do">##     1 |    Justifica |  851 | 24.90 |   24.99 | 100.00</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  &lt;NA&gt; |         &lt;NA&gt; |   12 |  0.35 |    &lt;NA&gt; |   &lt;NA&gt;</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(proc_elsoc<span class="sc">$</span>ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 537927.2</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Obtengamos la correlación punto biserial entre el ingreso y la justificación de la violencia por el cambio social.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(proc_elsoc<span class="sc">$</span>jv_cambio_rec, proc_elsoc<span class="sc">$</span>ingreso)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Pearson's product-moment correlation
-
-data:  proc_elsoc$jv_cambio_rec and proc_elsoc$ingreso
-t = -0.51503, df = 2010, p-value = 0.6066
-alternative hypothesis: true correlation is not equal to 0
-95 percent confidence interval:
- -0.05515929  0.03222920
-sample estimates:
-        cor 
--0.01148698 </code></pre>
-</div>
-</div>
-<p>Vemos que la correlación entre el ingreso (<code>ingreso</code>) y la justificación de la violencia por el cambio social (<code>jv_cambio_rec</code>) es negativa, muy pequeña y no es estadísticamente significativa (<span class="math inline">\(r\)</span> = -0.01; <em>p &gt; 0.05</em>).</p>
-</section>
-<section id="correlación-tetracorica" class="level3">
-<h3 class="anchored" data-anchor-id="correlación-tetracorica">3.1.2 Correlación tetracorica</h3>
-<p>La correlación tetracórica también es una extensión del coeficiente de correlación de Pearson, con la diferencia de que se usa cuando ambas variables de estudio son nominales dicotomicas (2 valores).</p>
-<ul>
-<li>Se calcula en base a la frecuencias de cada combinación de valores (00,01,10,11).</li>
-<li>Supone que ambas variables son continuas y normalmente distribuidas antes de la categorización</li>
-</ul>
-<p>Veamos como vería una correlación tetracórica entre nuestras variables de estudio. En este caso, vamos a usar <code>jv_cambio_rec</code> que ya es dicotomica (1 = Justifica, 0 = No justifica) y una versión recodificada del ingreso <code>ingreso_rec</code>, la cual identifica aquellos entrevistados que tienen un ingreso mayor o menor a 800.000 pesos (1 = Mayor a 800k, 0 = Menor a 800k)</p>
-<p>Primero, veamos las frecuencias entre <code>jv_cambio_rec</code> e <code>ingreso_rec</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Justificación de la violencia por el cambio social (binario) (x) &lt;numeric&gt; </span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="do">## # total N=3417 valid N=3405 mean=0.25 sd=0.43</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Value |        Label |    N | Raw % | Valid % | Cum. %</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="do">##     0 | No justifica | 2554 | 74.74 |   75.01 |  75.01</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="do">##     1 |    Justifica |  851 | 24.90 |   24.99 | 100.00</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  &lt;NA&gt; |         &lt;NA&gt; |   12 |  0.35 |    &lt;NA&gt; |   &lt;NA&gt;</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(proc_elsoc<span class="sc">$</span>ingreso_rec)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Ingresos mayores a 800.000 (binario) (x) &lt;numeric&gt; </span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="do">## # total N=3417 valid N=2018 mean=0.14 sd=0.34</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Value |        Label |    N | Raw % | Valid % | Cum. %</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="do">##     0 | Menor a 800k | 1742 | 50.98 |   86.32 |  86.32</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="do">##     1 | Mayor a 800k |  276 |  8.08 |   13.68 | 100.00</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="do">##  &lt;NA&gt; |         &lt;NA&gt; | 1399 | 40.94 |    &lt;NA&gt; |   &lt;NA&gt;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Obtengamos la correlación tetracórica entre <code>jv_cambio_rec</code> e <code>ingreso_rec</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>matriz <span class="ot">&lt;-</span> proc_elsoc <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(jv_cambio_rec, ingreso_rec) <span class="co"># creamos matriz con var de interes</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">tetrachoric</span>(matriz, <span class="at">na.rm =</span> T)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Call: psych::tetrachoric(x = matriz, na.rm = T)
-tetrachoric correlation 
-              jv_c_ ingr_
-jv_cambio_rec 1.00       
-ingreso_rec   0.02  1.00 
-
- with tau of 
-jv_cambio_rec   ingreso_rec 
-         0.67          1.09 </code></pre>
-</div>
-</div>
-<p>Vemos que la correlación entre los ingresos recodificados (<code>ingreso_rec</code>) y la justificación de la violencia por el cambio social (<code>jv_cambio_rec</code>) es positiva y muy pequeña (<span class="math inline">\(r\)</span> = 0.02).</p>
-</section>
-</section>
-<section id="tablas-de-contingencia" class="level2">
-<h2 class="anchored" data-anchor-id="tablas-de-contingencia">3.2 Tablas de contingencia</h2>
-<p>Las tablas de contingencia son herramientas estadísticas utilizadas para resumir y analizar la relación entre dos o más variables categóricas. Estas tablas muestran la frecuencia de diferentes combinaciones de categorías de las variables, facilitando la visualización de patrones o asociaciones.</p>
-<p>Dicho de otra manera, podemos saber cuántos casos de una determinada categoría de la variable <span class="math inline">\(Y\)</span> ocurren conjuntamente con una determinada categoría de la variable <span class="math inline">\(X\)</span>.</p>
-<p>Veamos una tabla con nuestro ejemplo usando el comando <code>sjtab</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>proc_elsoc <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    sjPlot<span class="sc">::</span><span class="fu">sjtab</span>(ingreso_rec,</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        jv_cambio_rec,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">show.row.prc =</span> <span class="cn">TRUE</span>, <span class="co"># porcentaje fila</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">show.col.prc =</span> <span class="cn">TRUE</span> <span class="co"># porcentaje columna</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table style="border-collapse:collapse; border:none;">
- <tbody><tr>
- <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; border-bottom:1px solid;" rowspan="2">Ingresos mayores a<br>800.000 (binario)</th>
- <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal;" colspan="2">Justificación de la<br>violencia por el<br>cambio social<br>(binario)</th>
- <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; font-weight:bolder; font-style:italic; border-bottom:1px solid; " rowspan="2">Total</th>
- </tr>
- 
-<tr>
- <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">No justifica</td>
- <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">Justifica</td>
- </tr>
- 
-<tr> 
-<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">Menor a 800k</td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">1273</span><br><span style="color:#333399;">73.3&nbsp;%</span><br><span style="color:#339933;">86.5&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">463</span><br><span style="color:#333399;">26.7&nbsp;%</span><br><span style="color:#339933;">85.7&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">1736</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">86.3&nbsp;%</span></td> 
-</tr>
- 
-<tr> 
-<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">Mayor a 800k</td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">199</span><br><span style="color:#333399;">72.1&nbsp;%</span><br><span style="color:#339933;">13.5&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">77</span><br><span style="color:#333399;">27.9&nbsp;%</span><br><span style="color:#339933;">14.3&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">276</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">13.7&nbsp;%</span></td> 
-</tr>
- 
-<tr> 
-<td style="padding:0.2cm;  border-bottom:double; font-weight:bolder; font-style:italic; text-align:left; vertical-align:middle;">Total</td>
-<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">1472</span><br><span style="color:#333399;">73.2&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">540</span><br><span style="color:#333399;">26.8&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">2012</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td> 
-</tr>
-<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4">χ<sup>2</sup>=0.126 · df=1 · φ=0.010 · p=0.723</td> 
-</tr>
- 
-</tbody></table>
-</div>
-</div>
-<p>En esta tabla vemos que los porcentajes coloreados en azul corresponde a las filas y el verde el porcentaje que corresponde a las columnas. Utilizando esta información podemos decir, por ejemplo:</p>
-<ul>
-<li><p><span style="color: #3F51B5;"> El 72.1% de quienes ganan más de 800k no justifica la violencia por el cambio social </span></p></li>
-<li><p><span style="color: #4CAF50;"> El 13.5% de quienes no justifican la violencia por el cambio social ganan más de 800k </span></p></li>
-</ul>
-<p>Ahora, ¿cómo sabemos si hay asociación? Repliquemos el ejemplo que vimos en clases, utilizando nuestras variables. Imaginemos que tenemos una base de datos con <em>N = 100</em>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de asociación perfecta</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"."</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Menor a 800k"</span>, <span class="st">"Mayor a 800k"</span>, <span class="st">"Total"</span>),</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">No justifica</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">50</span>),</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Justifica"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">0</span>, <span class="dv">50</span>),</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>, <span class="dv">100</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de no asociación</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"."</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Menor a 800k"</span>, <span class="st">"Mayor a 800k"</span>, <span class="st">"Total"</span>),</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">No justifica</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">50</span>),</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Justifica"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">50</span>),</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>, <span class="dv">100</span>)</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Una distribución con evidencia “perfecta” para nuestra hipótesis alternativa se puede ver en la siguiente tabla:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="sc">%&gt;%</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>, <span class="at">align =</span> <span class="st">"r"</span>, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Ingreso"</span>, <span class="st">"No justifica violencia"</span>, <span class="st">"Justifica violencia"</span>, <span class="st">"Total"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> T) <span class="sc">%&gt;%</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">"hold_position"</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="table-responsive">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">Ingreso</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">No justifica violencia</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Justifica violencia</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Menor a 800k</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">50</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Mayor a 800k</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">50</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">Total</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">100</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<p>En contraste, una distribución que representaría un caso perfecto de no asociación, se puede ver en la siguiente tabla:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tab2 <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>, <span class="at">align =</span> <span class="st">"r"</span>, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Ingreso"</span>, <span class="st">"No justifica violencia"</span>, <span class="st">"Justifica violencia"</span>, <span class="st">"Total"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>), <span class="at">full_width =</span> T) <span class="sc">%&gt;%</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">"hold_position"</span>, <span class="at">position =</span> <span class="st">"center"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="table-responsive">
-<table class="table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">Ingreso</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">No justifica violencia</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Justifica violencia</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Menor a 800k</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">50</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Mayor a 800k</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">50</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">Total</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">100</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<section id="prueba-de-hipótesis-con-chi-cuadrado-x2" class="level2">
-<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-con-chi-cuadrado-x2">3.3. Prueba de hipótesis con Chi cuadrado (<span class="math inline">\(X^2\)</span>)</h2>
-<p>Para determinar si existe una asociación significativa entre dos variables categóricas se utiliza la prueba de Chi-cudrado (<span class="math inline">\(X^2\)</span>). Esta se basa en un test de diferencia, donde se compara nuestra tabla de contingencia y una tabla donde no existe asociación entre variables (<span class="math inline">\(H_0\)</span>), que representa la hipótesis nula. <strong>La lógica detrás es que si nuestra tabla es significativamente distinta de una tabla sin asociación, entonces podemos rechazar la hipóteis nula</strong>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Prueba de Chi-cuadrado
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Contrastamos la <em>hipótesis nula</em> (o de trabajo) de que las variables son independientes entre ellas: <span class="math display">\[  H_{0}: \pi_{fc} =  \pi_{f}\pi_{c} \]</span></p>
-<p>En relación a una <em>hipótesis alternativa</em> sobre que las variables están relacionadas: <span class="math display">\[  H_{A}:  \pi_{fc} \neq  \pi_{f}\pi_{c} \]</span></p>
-</div>
-</div>
-<p>En R, utilizamos la función <code>chisq.test()</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>chi_results <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(proc_elsoc<span class="sc">$</span>ingreso_rec, proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>chi_results</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Pearson's Chi-squared test with Yates' continuity correction
-
-data:  proc_elsoc$ingreso_rec and proc_elsoc$jv_cambio_rec
-X-squared = 0.1257, df = 1, p-value = 0.7229</code></pre>
-</div>
-</div>
-<p>Obtuvimos nuestro resultado, pero no es muy amigable a la vista. Generemos una tabla de calidad para que sea reportable.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>stats.table <span class="ot">&lt;-</span> <span class="fu">tidy</span>(chi_results)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>stats.table <span class="sc">%&gt;%</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">statistic =</span> <span class="fu">round</span>(statistic, <span class="dv">2</span>),</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">p_value =</span> <span class="fu">case_when</span>(</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> p.value <span class="sc">&gt;</span> <span class="fl">0.01</span> <span class="sc">~</span> <span class="st">"&lt; 0.05*"</span>,</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.01</span> <span class="sc">&amp;</span> p.value <span class="sc">&gt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"&lt; 0.01**"</span>,</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>            p.value <span class="sc">&lt;</span> <span class="fl">0.001</span> <span class="sc">~</span> <span class="st">"&lt; 0.001***"</span>,</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>            <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">""</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">select</span>(statistic, p_value, parameter, method) <span class="sc">%&gt;%</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">format =</span> <span class="st">"html"</span>,</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"X2"</span>, <span class="st">"p-value"</span>, <span class="st">"df"</span>, <span class="st">"Método"</span>),</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">booktabs =</span> T,</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">"Prueba de Chi-cuadrado entre justificación de la violencia por cambio social e injusticia distributiva"</span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>),</span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">full_width =</span> T,</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">latex_options =</span> <span class="st">"hold_position"</span>,</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">position =</span> <span class="st">"center"</span></span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">width =</span> <span class="st">"8cm"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-chi" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-chi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;1: Prueba de Chi-cuadrado entre justificación de la violencia por cambio social e injusticia distributiva
-</figcaption>
-<div aria-describedby="tbl-chi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<div class="table-responsive">
-<table class="table table-striped table-hover table-condensed do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">X2</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">p-value</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">df</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Método</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0.13</td>
-<td style="text-align: left;"></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left; width: 8cm;">Pearson's Chi-squared test with Yates' continuity correction</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<p>A partir de estos resultados, podemos reportar lo siguiente:</p>
-<blockquote class="blockquote">
-<p>A raíz de la prueba de <span class="math inline">\(X^2\)</span>, vemos que no existe evidencia para rechazar la hipótesis nula sobre no asociación. Por ende, la asociación entre los ingresos y la justificación de la violencia por el cambio social no es estadísticamente significativa (<span class="math inline">\(X^2\)</span> = 0.126, <em>p &gt; 0.05</em>)</p>
-</blockquote>
-</section>
-<section id="tamaño-de-efecto-con-phi-y-v-de-cramer" class="level2">
-<h2 class="anchored" data-anchor-id="tamaño-de-efecto-con-phi-y-v-de-cramer">3.4. Tamaño de efecto con Phi y V de Cramer</h2>
-</section>
-<section id="estadístico-phi-φ" class="level2">
-<h2 class="anchored" data-anchor-id="estadístico-phi-φ">Estadístico Phi (Φ)</h2>
-<p>El estadístico Phi mide la asociación entre dos variables categóricas en una tabla de contingencia de 2x2. La fórmula es:</p>
-<p><span class="math display">\[
-\Phi = \sqrt{\frac{\chi^2}{n}}
-\]</span></p>
-<p>donde:</p>
-<ul>
-<li><span class="math inline">\(\chi^2\)</span> es el valor del estadístico chi-cuadrado,</li>
-<li><span class="math inline">\(n\)</span> es el tamaño total de la muestra.</li>
-</ul>
-<p>El valor de <span class="math inline">\(\Phi\)</span> varía entre -1 y 1. Un valor de 0 indica ausencia de asociación, mientras que valores cercanos a -1 o 1 indican una asociación más fuerte.</p>
-</section>
-<section id="v-de-cramer" class="level2">
-<h2 class="anchored" data-anchor-id="v-de-cramer">V de Cramer</h2>
-<p>El V de Cramer es una extensión del estadístico Phi para tablas de contingencia mayores de 2x2. Su fórmula es:</p>
-<p><span class="math display">\[
-V = \sqrt{\frac{\chi^2}{n(k-1)}}
-\]</span></p>
-<p>donde:</p>
-<ul>
-<li><span class="math inline">\(\chi^2\)</span> es el valor del chi-cuadrado,</li>
-<li><span class="math inline">\(n\)</span> es el tamaño de la muestra,</li>
-<li><span class="math inline">\(k\)</span> es el número de filas o columnas, el que sea menor.</li>
-</ul>
-<p>Los valores de <span class="math inline">\(V\)</span> también varían entre 0 y 1, donde 0 indica ausencia de asociación, y valores cercanos a 1 indican una asociación más fuerte.</p>
-<p>En nuestro ejemplo, nuestra tabla de contingencia es de 2x2, por ende, debemos usar el estadístico Phi. En R lo podemos calcular directamente siguiendo la formula:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el test de chi cuadrado</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>chi_result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(proc_elsoc<span class="sc">$</span>ingreso_rec, proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(proc_elsoc <span class="sc">%&gt;%</span> <span class="fu">select</span>(ingreso_rec, jv_cambio_rec)) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo de Phi</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>phi <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(chi_result<span class="sc">$</span>statistic <span class="sc">/</span> n)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>phi</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  X-squared 
-0.007904267 </code></pre>
-</div>
-</div>
-<p>Con un valor de 0.008, vemos que la magnitud de la asociación entre las variables es muy baja.</p>
-</section>
-</section>
-<section id="test-de-proporciones" class="level1">
-<h1>3.5 Test de proporciones</h1>
-<p>El test de proporciones es una prueba estadística que se utiliza para comparar las proporciones de éxito (o cualquier categoría de interés) entre dos o más grupos. Es especialmente útil cuando se trabaja con variables categóricas binarias (por ejemplo, sí/no, éxito/fallo) y queremos verificar si las proporciones de estas categorías son significativamente diferentes entre los grupos.</p>
-<p>Este test evalúa la hipótesis nula de que las proporciones en diferentes grupos son iguales frente a la hipótesis alternativa de que al menos una de las proporciones es diferente.</p>
-<p>En este caso, nos puede ser de utilidad si queremos conocer si la proporción de personas que justifican la violencia por el cambio social es estadísticamente diferente entre quienes tienen ingresos mayores a 800k y quienes tienen ingresos menores a 800k.</p>
-<p>Esto se prueba en R de la siguiente manera:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veamos el conteo por categorías</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(proc_elsoc<span class="sc">$</span>ingreso_rec, proc_elsoc<span class="sc">$</span>jv_cambio_rec)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   
-       0    1
-  0 1273  463
-  1  199   77</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertemos los datos a mano</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">463</span>, <span class="dv">77</span>), <span class="co"># Conteo de exitos por grupo (Justifica x Menor a 800k y Justifica x Mayor a 800k)</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>((<span class="dv">1273</span> <span class="sc">+</span> <span class="dv">463</span>), (<span class="dv">199</span> <span class="sc">+</span> <span class="dv">77</span>)) <span class="co"># Suma por grupo (Menor a 800k y Mayor a 800k)</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    2-sample test for equality of proportions with continuity correction
-
-data:  c(463, 77) out of c((1273 + 463), (199 + 77))
-X-squared = 0.1257, df = 1, p-value = 0.7229
-alternative hypothesis: two.sided
-95 percent confidence interval:
- -0.07123493  0.04667405
-sample estimates:
-   prop 1    prop 2 
-0.2667051 0.2789855 </code></pre>
-</div>
-</div>
-<p>A raíz de la prueba de hipótesis de proporciones, podemos reportar lo siguiente:</p>
-<blockquote class="blockquote">
-<p>Al 95% de confianza, no existe evidencia para rechazar la hipótesis nula de no diferencia en la proporción de personas que justifican la violencia por el cambio social entre ambas categorías de ingreso (<em>p &gt; 0.05</em>). Es decir, no existen diferencias estadísticamente significativas en la proporción de personas que justifican la violencia por el cambio social entre quienes ganan más de 800k y menos de 800k.</p>
-</blockquote>
-</section>
-<section id="conclusiones" class="level1">
-<h1>4. Conclusiones</h1>
-<p>En el presente ejercicio indagamos en la <em>relación entre los ingresos de las personas y las justificaciones de la violencia por el cambio social en Chile al año 2019</em>. Considerando que las variables de estudio tenían un nivel de medición categórico nominal, utilizamos la técnica de Chi-cuadrado <span class="math inline">\(X^2\)</span> para el contraste de hipótesis.</p>
-<p>La hipótesis planteada inicialmente sugería que los ingresos podrían estar asociados con las actitudes hacia la justificación de la violencia como una forma de cambio social. Sin embargo, los resultados de la prueba <span class="math inline">\(X^2\)</span>, como se muestra en la <a href="#tbl-chi" class="quarto-xref">Tabla&nbsp;1</a>, indican que <strong>no</strong> existe una asociación estadísticamente significativa entre estas variables (<span class="math inline">\(X^2\)</span> = 0.126, <em>p &gt; 0.05</em>).</p>
-<p>Esto significa que, según los datos analizados, los ingresos no parecen ser un factor que influya en la justificación de la violencia para el cambio social. En otras palabras, las personas con diferentes niveles de ingresos no muestran diferenciasen sus actitudes hacia la justificación de la violencia. Por lo tanto, no podemos concluir que los ingresos estén relacionados con la justificación de la violencia en el contexto del cambio social en Chile en 2019.</p>
-</section>
-<section id="ejercicio-autónomo" class="level1">
-<h1>Ejercicio autónomo</h1>
-<p>A partir de la base de datos de <code>proc_elsoc</code> responda la pregunta 2 planteada al inicio de este ejercicio. Es decir: <em>¿En qué medida se relacionan el nivel educacional y la justificación de la violencia por el <strong>control social</strong> en Chile al año 2019?</em></p>
+<p>Para la pregunta a)</p>
 <ol type="1">
-<li>Estime la correlación adecuada para <code>educ</code> y <code>jv_control_rec</code>.</li>
+<li><p>Estime la correlación adecuada para <code>ingreso_rec</code> y <code>jv_control_rec</code>.</p></li>
+<li><p>Presente en una tabla de contingencia entre las variables <code>ingreso_rec</code> y <code>jv_control_rec</code>.</p></li>
+<li><p>Calcule el estadístico de Chi cuadrado (<span class="math inline">\(X^2\)</span>) entre las variables <code>ingreso_rec</code> y <code>jv_control_rec</code>.</p></li>
+<li><p>Interprete los resultados obtenidos. Responda la pregunta de investigación a raíz de los calculos desarrollados.</p></li>
 </ol>
-<p>Para determinar cuál es la correlación adecuada entre <code>educ</code> y <code>jv_control_rec</code> tenemos que tener en consideración el nivel de medición de estas variables. Vemos que <code>educ</code> es continua y <code>jv_control_rec</code> es una variable categorica nominal binaria. Para estos casos, una buena alternativa es la <em>correlación punto biserial</em>. Estimemosla en R:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(proc_elsoc<span class="sc">$</span>educ, proc_elsoc<span class="sc">$</span>jv_control_rec)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Pearson's product-moment correlation
-
-data:  proc_elsoc$educ and proc_elsoc$jv_control_rec
-t = -3.3769, df = 3401, p-value = 0.0007414
-alternative hypothesis: true correlation is not equal to 0
-95 percent confidence interval:
- -0.09123086 -0.02425427
-sample estimates:
-        cor 
--0.05780761 </code></pre>
-</div>
-</div>
-<p>Vemos que la correlación entre el nivel educacional (<code>educ</code>) y la justificación de la violencia por el control social (<code>jv_control_rec</code>) es negativa, muy pequeña y es estadísticamente significativa (<span class="math inline">\(r\)</span> = -0.06; <em>p &lt; 0.05</em>).</p>
-<ol start="2" type="1">
-<li>Presente en una tabla de contingencia entre las variables <code>educ_rec</code> y <code>jv_control_rec</code>.</li>
+<p>Para la pregunta b)</p>
+<ol type="1">
+<li><p>Estime la correlación adecuada para <code>educ</code> y <code>jv_control_rec</code>.</p></li>
+<li><p>Presente en una tabla de contingencia entre las variables <code>educ_rec</code> y <code>jv_control_rec</code>.</p></li>
+<li><p>Calcule el estadístico de Chi cuadrado (<span class="math inline">\(X^2\)</span>) entre las variables <code>educ_rec</code> y <code>jv_control_rec</code>.</p></li>
+<li><p>Interprete los resultados obtenidos. Responda la pregunta de investigación a raíz de los calculos desarrollados.</p></li>
 </ol>
-<p>Seguimos trabajando con <code>jv_control_rec</code>, pero ahora con <code>educ_rec</code> que corresponde al nivel educacional recodificado en dos categorías: 1 = Universitario o más y 0 = No universitario. Una tabla de contingencia la podemos realizar con la función <code>sjtab()</code> del paquete <code>sjPlot</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">sjtab</span>(proc_elsoc, educ_rec, jv_control_rec, <span class="at">show.row.prc =</span> <span class="cn">TRUE</span>, <span class="at">show.col.prc =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table style="border-collapse:collapse; border:none;">
- <tbody><tr>
- <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; border-bottom:1px solid;" rowspan="2">Educación<br>universitaria o más<br>(binario)</th>
- <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal;" colspan="2">Justificación de la<br>violencia por el<br>control social<br>(binario)</th>
- <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; font-weight:bolder; font-style:italic; border-bottom:1px solid; " rowspan="2">Total</th>
- </tr>
- 
-<tr>
- <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">No justifica</td>
- <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">Justifica</td>
- </tr>
- 
-<tr> 
-<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">No universitaria</td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">2315</span><br><span style="color:#333399;">77.8&nbsp;%</span><br><span style="color:#339933;">87&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">661</span><br><span style="color:#333399;">22.2&nbsp;%</span><br><span style="color:#339933;">89.2&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">2976</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">87.5&nbsp;%</span></td> 
-</tr>
- 
-<tr> 
-<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">Universitaria o más</td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">347</span><br><span style="color:#333399;">81.3&nbsp;%</span><br><span style="color:#339933;">13&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">80</span><br><span style="color:#333399;">18.7&nbsp;%</span><br><span style="color:#339933;">10.8&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">427</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">12.5&nbsp;%</span></td> 
-</tr>
- 
-<tr> 
-<td style="padding:0.2cm;  border-bottom:double; font-weight:bolder; font-style:italic; text-align:left; vertical-align:middle;">Total</td>
-<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">2662</span><br><span style="color:#333399;">78.2&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">741</span><br><span style="color:#333399;">21.8&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">3403</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td> 
-</tr>
-<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4">χ<sup>2</sup>=2.448 · df=1 · φ=0.028 · p=0.118</td> 
-</tr>
- 
-</tbody></table>
-</div>
-</div>
-<ol start="3" type="1">
-<li>Calcule el estadístico de Chi cuadrado (<span class="math inline">\(X^2\)</span>) entre las variables <code>educ_rec</code> y <code>jv_control_rec</code>.</li>
-</ol>
-<p>El Chi cuadrado (<span class="math inline">\(X^2\)</span>) entre las variables <code>educ_rec</code> y <code>jv_control_rec</code> los podemos obtener a partir de la función <code>chisq.test()</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(proc_elsoc<span class="sc">$</span>educ_rec, proc_elsoc<span class="sc">$</span>jv_control_rec)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Pearson's Chi-squared test with Yates' continuity correction
-
-data:  proc_elsoc$educ_rec and proc_elsoc$jv_control_rec
-X-squared = 2.4482, df = 1, p-value = 0.1177</code></pre>
-</div>
-</div>
-<p>A partir de estos resultados, podemos reportar lo siguiente:</p>
-<blockquote class="blockquote">
-<p>A raíz de la prueba de <span class="math inline">\(X^2\)</span>, vemos que no existe evidencia para rechazar la hipótesis nula sobre no asociación. Por ende, la asociación entre el nivel educacional y la justificación de la violencia por el control social no es estadísticamente significativa (<span class="math inline">\(X^2\)</span> = 2.448, <em>p &gt; 0.05</em>)</p>
-</blockquote>
-<ol start="4" type="1">
-<li>Interprete los resultados obtenidos. Responda la pregunta de investigación a raíz de los calculos desarrollados.</li>
-</ol>
-<p>En el presente ejercicio indagamos en la <em>relación entre el nivel educacional de las personas y las justificaciones de la violencia por el control social en Chile al año 2019</em>. Considerando que las variables de estudio tenían un nivel de medición categórico nominal, utilizamos la técnica de Chi-cuadrado <span class="math inline">\(X^2\)</span> para el contraste de hipótesis.</p>
-<p>La hipótesis planteada inicialmente sugería que el nivel educacional podría estar asociado con las actitudes hacia la justificación de la violencia como una forma de control social. Sin embargo, los resultados de la prueba <span class="math inline">\(X^2\)</span>, indican que <strong>no</strong> existe una asociación estadísticamente significativa entre estas variables (<span class="math inline">\(X^2\)</span> = 2.448, <em>p &gt; 0.05</em>).</p>
-<p>Esto significa que, según los datos analizados, el nivel educacional no parecen ser un factor que influya en la justificación de la violencia para el control social, por lo tanto, no podemos concluir que el nivel educacional estén relacionados con la justificación de la violencia en el contexto del cambio social en Chile en 2019.</p>
 
 
 </section>
