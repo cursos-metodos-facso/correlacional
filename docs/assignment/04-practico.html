@@ -277,6 +277,12 @@ window.Quarto = {
  <span class="menu-text">4- Matrices de correlación, casos perdidos e índices</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/05-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: Asociación entre categóricas</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -326,6 +332,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#pregunta-1" id="toc-pregunta-1" class="nav-link" data-scroll-target="#pregunta-1">Pregunta 1</a></li>
   <li><a href="#pregunta-2" id="toc-pregunta-2" class="nav-link" data-scroll-target="#pregunta-2">Pregunta 2</a></li>
+  <li><a href="#video-de-la-sesión" id="toc-video-de-la-sesión" class="nav-link" data-scroll-target="#video-de-la-sesión">Video de la sesión</a></li>
   </ul></li>
   <li><a href="#ejercicio-autónomo" id="toc-ejercicio-autónomo" class="nav-link" data-scroll-target="#ejercicio-autónomo">Ejercicio autónomo</a></li>
   </ul>
@@ -1263,132 +1270,23 @@ sample estimates:
 <p><em>¿Cómo se relacionan los distintos indicadores utilizados para medir la percepción de conflictos sociales?</em></p>
 <p>De acuerdo al resultado de la matriz de correlaciones y del alpha de Cronbach, los indicadores utilizados para medir la percepción de conflictos se relacionan positiva y significativamente (<span class="math inline">\(p\)</span> &lt; 0.05), además de demostrar un nivel de consistencia interna aceptable (<span class="math inline">\(\alpha\)</span> = 0.8).</p>
 </section>
+<section id="video-de-la-sesión" class="level2">
+<h2 class="anchored" data-anchor-id="video-de-la-sesión">Video de la sesión</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jGdganP1kvg?si=NaWI8654Oswhk07k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<p>Acá <a href="https://youtu.be/jGdganP1kvg">link directo a youtube.</a></p>
+</section>
 </section>
 <section id="ejercicio-autónomo" class="level1">
 <h1>Ejercicio autónomo</h1>
 <p>A partir de la base de datos de <code>proc_issp</code> responda la siguiente pregunta <em>¿en qué medida la percepción de conflictos se asocia con el estatus socioeconómico de las personas?</em> Para responder esta pregunta siga los siguientes pasos:</p>
 <ol type="1">
 <li>Estime y reporte una matriz de correlación con las variables <code>income</code>, <code>educyrs</code> y <code>topbot</code>. Considere el tratamiento de casos perdidos.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>proc_issp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(income, educyrs, topbot) <span class="sc">%&gt;%</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  sjPlot<span class="sc">::</span><span class="fu">tab_corr</span>(, </span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.deletion =</span> <span class="st">"listwise"</span>, <span class="co"># espeficicamos tratamiento NA</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">triangle =</span> <span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">&nbsp;</td>
-<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Decil ingreso</td>
-<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Nivel educativo</td>
-<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Estatus social subjetivo</td>
-</tr>
-<tr class="even">
-<td style="font-style: italic">Decil ingreso</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-</tr>
-<tr class="odd">
-<td style="font-style: italic">Nivel educativo</td>
-<td style="text-align: center; padding: 0.2cm;">0.430<span style="vertical-align:super;font-size:0.8em;">***</span></td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-</tr>
-<tr class="even">
-<td style="font-style: italic">Estatus social subjetivo</td>
-<td style="text-align: center; padding: 0.2cm;">0.319<span style="vertical-align:super;font-size:0.8em;">***</span></td>
-<td style="text-align: center; padding: 0.2cm;">0.405<span style="vertical-align:super;font-size:0.8em;">***</span></td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-</tr>
-<tr class="odd">
-<td colspan="4" style="text-align: right; border-bottom: double black; border-top: 1px solid black; font-style: italic; font-size: 0.9em;">Computed correlation used pearson-method with listwise-deletion.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<ol start="2" type="1">
 <li>Calcule el alpha de cronbach de la matriz del punto anterior.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>alpha_ses <span class="ot">&lt;-</span> proc_issp <span class="sc">%&gt;%</span> </span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>            dplyr<span class="sc">::</span><span class="fu">select</span>(income, educyrs, topbot) <span class="sc">%&gt;%</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>            psych<span class="sc">::</span><span class="fu">alpha</span>()</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>alpha_ses<span class="sc">$</span>total<span class="sc">$</span>raw_alpha</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.592009</code></pre>
-</div>
-</div>
-<ol start="3" type="1">
 <li>Genere un índice promedio de estatus socioeconómico a partir de las variables utilizadas en la matriz y llámelo <code>ses</code>.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>proc_issp <span class="ot">&lt;-</span> <span class="fu">cbind</span>(proc_issp, <span class="st">"ses"</span> <span class="ot">=</span> <span class="fu">rowMeans</span>(proc_issp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(income, educyrs, topbot), <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="1">
 <li>Calcule el coeficiente de correlación de Pearson (<span class="math inline">\(r\)</span>) entre las variables <code>psci</code> y <code>ses</code>. Reporte e interprete sus resultados. <em>¿en qué medida la percepción de conflictos se asocia con el estatus socioeconómico de las personas?</em></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(proc_issp<span class="sc">$</span>psci, proc_issp<span class="sc">$</span>ses)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.1009905</code></pre>
-</div>
-</div>
-<ol start="5" type="1">
 <li>Estime y reporte una matriz de correlación con las variables <code>psci</code>, <code>ses</code>, <code>age</code> y <code>perc_ineq</code>. Interprete sentido, tamaño de efecto y significancia de las principales asociaciones</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>proc_issp <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(psci, ses, age, perc_ineq) <span class="sc">%&gt;%</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  sjPlot<span class="sc">::</span><span class="fu">tab_corr</span>(, </span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.deletion =</span> <span class="st">"listwise"</span>, <span class="co"># espeficicamos tratamiento NA</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">triangle =</span> <span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">&nbsp;</td>
-<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">psci</td>
-<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">ses</td>
-<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Edad</td>
-<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Percepción desigualdad</td>
-</tr>
-<tr class="even">
-<td style="font-style: italic">psci</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-</tr>
-<tr class="odd">
-<td style="font-style: italic">ses</td>
-<td style="text-align: center; padding: 0.2cm;">-0.101<span style="vertical-align:super;font-size:0.8em;">**</span></td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-</tr>
-<tr class="even">
-<td style="font-style: italic">Edad</td>
-<td style="text-align: center; padding: 0.2cm; color: #999999;">-0.006<span style="vertical-align:super;font-size:0.8em;"></span></td>
-<td style="text-align: center; padding: 0.2cm;">-0.284<span style="vertical-align:super;font-size:0.8em;">***</span></td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-</tr>
-<tr class="odd">
-<td style="font-style: italic">Percepción desigualdad</td>
-<td style="text-align: center; padding: 0.2cm;">0.076<span style="vertical-align:super;font-size:0.8em;">*</span></td>
-<td style="text-align: center; padding: 0.2cm; color: #999999;">0.045<span style="vertical-align:super;font-size:0.8em;"></span></td>
-<td style="text-align: center; padding: 0.2cm; color: #999999;">-0.059<span style="vertical-align:super;font-size:0.8em;"></span></td>
-<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
-</tr>
-<tr class="even">
-<td colspan="5" style="text-align: right; border-bottom: double black; border-top: 1px solid black; font-style: italic; font-size: 0.9em;">Computed correlation used pearson-method with listwise-deletion.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <section id="referencias" class="level4">
 <h4 class="anchored" data-anchor-id="referencias">Referencias</h4>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">

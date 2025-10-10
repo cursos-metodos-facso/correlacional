@@ -373,49 +373,21 @@ _¿Cómo se relacionan los distintos indicadores utilizados para medir la percep
 
 De acuerdo al resultado de la matriz de correlaciones y del alpha de Cronbach, los indicadores utilizados para medir la percepción de conflictos se relacionan positiva y significativamente ($p$ < 0.05), además de demostrar un nivel de consistencia interna aceptable ($\alpha$ = 0.8).
 
+## Video de la sesión
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jGdganP1kvg?si=NaWI8654Oswhk07k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Acá [link directo a youtube.](https://youtu.be/jGdganP1kvg)
 
 # Ejercicio autónomo
 
 A partir de la base de datos de `proc_issp` responda la siguiente pregunta _¿en qué medida la percepción de conflictos se asocia con el estatus socioeconómico de las personas?_ Para responder esta pregunta siga los siguientes pasos:
 
 1. Estime y reporte una matriz de correlación con las variables `income`, `educyrs` y `topbot`. Considere el tratamiento de casos perdidos.
-
-```{r}
-proc_issp %>% dplyr::select(income, educyrs, topbot) %>%
-  sjPlot::tab_corr(, 
-                 na.deletion = "listwise", # espeficicamos tratamiento NA
-                 triangle = "lower")
-```
-
 2. Calcule el alpha de cronbach de la matriz del punto anterior.
-
-```{r}
-alpha_ses <- proc_issp %>% 
-            dplyr::select(income, educyrs, topbot) %>%
-            psych::alpha()
-alpha_ses$total$raw_alpha
-```
-
 3. Genere un índice promedio de estatus socioeconómico a partir de las variables utilizadas en la matriz y llámelo `ses`.
-
-```{r}
-proc_issp <- cbind(proc_issp, "ses" = rowMeans(proc_issp %>% dplyr::select(income, educyrs, topbot), na.rm=TRUE))
-```
-
 4. Calcule el coeficiente de correlación de Pearson ($r$) entre las variables `psci` y `ses`. Reporte e interprete sus resultados. _¿en qué medida la percepción de conflictos se asocia con el estatus socioeconómico de las personas?_
-
-```{r}
-cor(proc_issp$psci, proc_issp$ses)
-```
-
 5. Estime y reporte una matriz de correlación con las variables `psci`, `ses`, `age` y `perc_ineq`. Interprete sentido, tamaño de efecto y significancia de las principales asociaciones 
-
-```{r}
-proc_issp %>% dplyr::select(psci, ses, age, perc_ineq) %>%
-  sjPlot::tab_corr(, 
-                 na.deletion = "listwise", # espeficicamos tratamiento NA
-                 triangle = "lower")
-```
 
 #### Referencias
 
