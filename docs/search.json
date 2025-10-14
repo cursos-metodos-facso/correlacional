@@ -1134,7 +1134,7 @@
     "href": "index.html#últimas-informaciones",
     "title": "\n            Estadística Correlacional\n        ",
     "section": "Últimas informaciones",
-    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\nReporte Evaluación 1\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
+    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\nPreparación Evaluación 2\n\n\n\n\n\n\n\n\n\nOct 14, 2025\n\n\n\n\n\n\n\n\n\n\n\nReporte Evaluación 1\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
   },
   {
     "objectID": "news/2025-08-12_padlet.html",
@@ -1411,5 +1411,33 @@
       "Guías",
       "5: Asociación entre categóricas"
     ]
+  },
+  {
+    "objectID": "news/2025-10-14_prep_evaluacion2.html",
+    "href": "news/2025-10-14_prep_evaluacion2.html",
+    "title": "Preparación Evaluación 2",
+    "section": "",
+    "text": "← News\nMañana miércoles 15 en lugar de clases regulares vamos a realizar una sesión de preparación de la Evaluación 2 (próximo lunes 20). En la sesión de mañana no se tomará asistencia y la actividad será de carácter voluntario para quienes consideren que requieren preparación.\nComo se puede ver en la página del programa del curso, la Evaluación de la Unidad 2 vale un 40% de la nota del curso."
+  },
+  {
+    "objectID": "news/2025-10-14_prep_evaluacion2.html#consideraciones",
+    "href": "news/2025-10-14_prep_evaluacion2.html#consideraciones",
+    "title": "Preparación Evaluación 2",
+    "section": "Consideraciones:",
+    "text": "Consideraciones:\n\nLa prueba será frente al computador, para así poder realizar las preguntas de análisis de datos.\nLas preguntas conceptuales también se responderán en el computador\nLas respuestas tanto de análisis como conceptuales se responderán en un formulario habilitado en UCursos"
+  },
+  {
+    "objectID": "news/2025-10-14_prep_evaluacion2.html#cómo-será-la-evaluación",
+    "href": "news/2025-10-14_prep_evaluacion2.html#cómo-será-la-evaluación",
+    "title": "Preparación Evaluación 2",
+    "section": "¿Cómo será la evaluación?",
+    "text": "¿Cómo será la evaluación?\n\nHabrá preguntas en tres temas:\n\ncorrelación\nmatrices de correlación y casos perdidos\nasociación en tablas de contingencia\n\nSerán preguntas puntuales de análisis e interpretación, y se calcula que cada pregunta requiere una dedicación de no más de 20 min, por lo que la prueba se puede contestar en aproximadamente una hora. De todas maneras, quienes requieran tiempo adicional, la prueba se podrá entregar hasta las 10:00\nCada tema tiene 4 puntos, 1 punto será por análisis de datos, y 3 por temas conceptuales/interpretación\nSe permitirá acceso a apuntes y a la página del curso online, no se permite el uso de otras plataformas como whatsapp o IA."
+  },
+  {
+    "objectID": "news/2025-10-14_prep_evaluacion2.html#cómo-prepararse",
+    "href": "news/2025-10-14_prep_evaluacion2.html#cómo-prepararse",
+    "title": "Preparación Evaluación 2",
+    "section": "¿Cómo prepararse?",
+    "text": "¿Cómo prepararse?\n\nEn los prácticos de la Unidad 2 hay una sección de ejercicio autónomo, el realizar estos ejercicios y luego corregirlos (aparecen también desarrollados en la misma página) es la mejor forma de prepararse, tanto en términos de análisis como de interpretación\nEstán también arriba los videos de los últimos dos prácticos\nRevisar el material de las presentaciones y lecturas sugeridas\nAsistir a la sesión de preparación de la prueba (es voluntario)\nSoftware: revisar que los ejercicios de los prácticos los puedan desarrollar bien en el computador que traerán a la evaluación. Quienes no pueden traer computador podrán realizar la evaluación en la sala de computación.\nSe realizará un ensayo de la evaluación el día lunes 21 (tal como en el caso de la evaluación anterior)"
   }
 ]
