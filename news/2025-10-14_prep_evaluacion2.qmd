@@ -1,0 +1,50 @@
+---
+title: "Preparación Evaluación 2"
+date: 10-14-2025
+categories: [info, mail-UCursos]
+lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+![](/news/images/evaluacion.png)
+
+Mañana miércoles 15 en lugar de clases regulares vamos a realizar una sesión de preparación de la Evaluación 2 (próximo lunes 20). En la sesión de mañana no se tomará asistencia y la actividad será de carácter voluntario para quienes consideren que  requieren preparación.
+
+Como se puede ver en la [página del programa del curso](/syllabus.html), la Evaluación de la Unidad 2 vale un 40% de la nota del curso.
+
+## Consideraciones:
+
+- La prueba será frente al computador, para así poder realizar las preguntas de análisis de datos. 
+- Las preguntas conceptuales también se responderán en el computador
+- Las respuestas tanto de análisis como conceptuales se responderán en un formulario habilitado en UCursos
+
+## ¿Cómo será la evaluación?
+
+- Habrá preguntas en tres temas:
+  - correlación
+  - matrices de correlación y casos perdidos
+  - asociación en tablas de contingencia
+- Serán preguntas puntuales de análisis e interpretación, y se calcula que cada pregunta requiere una dedicación de no más de 20 min, por lo que la prueba se puede contestar en aproximadamente una hora. De todas maneras, quienes requieran tiempo adicional, la prueba se podrá entregar hasta las 10:00
+- Cada tema tiene 4 puntos, 1 punto será por análisis de datos, y 3 por temas conceptuales/interpretación
+- Se permitirá  acceso a apuntes y a la página del curso online, no se permite el uso de otras plataformas como whatsapp o IA.
+
+## ¿Cómo prepararse?
+
+- En los prácticos de la Unidad 2 hay una sección de ejercicio autónomo, el realizar estos ejercicios y luego corregirlos (aparecen también desarrollados en la misma página) es la mejor forma de prepararse, tanto en términos de análisis como de interpretación
+- Están también arriba los videos de los últimos dos prácticos
+- Revisar el material de las presentaciones y lecturas sugeridas
+- Asistir a la sesión de preparación de la prueba (es voluntario)
+- Software: revisar que los ejercicios de los prácticos los puedan desarrollar bien en el computador que traerán a la evaluación. Quienes no pueden traer computador podrán realizar la evaluación en la sala de computación. 
+- Se realizará un ensayo de la evaluación el día lunes 21 (tal como en el caso de la evaluación anterior)
+
