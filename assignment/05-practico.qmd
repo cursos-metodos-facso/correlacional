@@ -317,9 +317,32 @@ Para la pregunta a)
 
 1. Estime la correlación adecuada para `ingreso_rec` y `jv_control_rec`.
 
+```{r}
+matriz <- proc_elsoc %>%
+    dplyr::select(jv_cambio_rec, ingreso_rec) # creamos matriz con var de interes
+
+psych::tetrachoric(matriz, na.rm = T)
+```
+
 2. Presente en una tabla de contingencia entre las variables `ingreso_rec` y `jv_control_rec`.
 
+```{r}
+proc_elsoc %>%
+    sjPlot::sjtab(ingreso_rec,
+        jv_cambio_rec,
+        show.row.prc = TRUE, # porcentaje fila
+        show.col.prc = TRUE # porcentaje columna
+    )
+```
+
 3. Calcule el estadístico de Chi cuadrado ($X^2$) entre las variables `ingreso_rec` y `jv_control_rec`.
+
+```{r}
+chi_results <- chisq.test(proc_elsoc$ingreso_rec, proc_elsoc$jv_cambio_rec)
+
+stats.table <- tidy(chi_results, conf_int = T)
+nice_table(stats.table)
+```
 
 4. Interprete los resultados obtenidos. Responda la pregunta de investigación a raíz de los calculos desarrollados.
 
@@ -328,8 +351,54 @@ Para la pregunta b)
 
 1. Estime la correlación adecuada para `educ` y `jv_control_rec`.
 
+Para determinar cuál es la correlación adecuada entre `educ` y `jv_control_rec` tenemos que tener en consideración el nivel de medición de estas variables. Vemos que `educ` es continua y `jv_control_rec` es una variable categorica nominal binaria. Para estos casos, una buena alternativa es la _correlación punto biserial_. Estimemosla en R:
+
+```{r}
+cor.test(proc_elsoc$educ, proc_elsoc$jv_control_rec)
+```
+
+```{r, warning=FALSE, include=FALSE}
+rpb2 <- round(cor.test(proc_elsoc$educ, proc_elsoc$jv_control_rec)$estimate, 2)
+```
+
+Vemos que la correlación entre el nivel educacional (`educ`) y la justificación de la violencia por el control social (`jv_control_rec`) es negativa, muy pequeña y es estadísticamente significativa ($r$ = `r rpb2`; _p < 0.05_).
+
 2. Presente en una tabla de contingencia entre las variables `educ_rec` y `jv_control_rec`.
+
+Seguimos trabajando con `jv_control_rec`, pero ahora con `educ_rec` que corresponde al nivel educacional recodificado en dos categorías: 1 = Universitario o más y 0 = No universitario. Una tabla de contingencia la podemos realizar con la función `sjtab()` del paquete `sjPlot`.
+
+```{r}
+sjPlot::sjtab(proc_elsoc, educ_rec, jv_control_rec, show.row.prc = TRUE, show.col.prc = TRUE)
+```
 
 3. Calcule el estadístico de Chi cuadrado ($X^2$) entre las variables `educ_rec` y `jv_control_rec`.
 
+El Chi cuadrado ($X^2$) entre las variables `educ_rec` y `jv_control_rec` los podemos obtener a partir de la función `chisq.test()`:
+
+```{r}
+chisq.test(proc_elsoc$educ_rec, proc_elsoc$jv_control_rec)
+```
+
+```{r include = FALSE}
+xi2 <- round(chisq.test(proc_elsoc$educ_rec, proc_elsoc$jv_control_rec)$statistic[[1]], 3)
+```
+
+A partir de estos resultados, podemos reportar lo siguiente:
+
+> A raíz de la prueba de $X^2$, vemos que no existe evidencia para rechazar la hipótesis nula sobre no asociación. Por ende, la asociación entre el nivel educacional y la justificación de la violencia por el control social no es estadísticamente significativa ($X^2$ = `r xi2`, _p > 0.05_)
+
 4. Interprete los resultados obtenidos. Responda la pregunta de investigación a raíz de los calculos desarrollados.
+
+En el presente ejercicio indagamos en la _relación entre el nivel educacional de las personas y las justificaciones de la violencia por el control social en Chile al año 2019_. Considerando que las variables de estudio tenían un nivel de medición categórico nominal, utilizamos la técnica de Chi-cuadrado $X^2$ para el contraste de hipótesis.
+
+La hipótesis planteada inicialmente sugería que el nivel educacional podría estar asociado con las actitudes hacia la justificación de la violencia como una forma de control social. Sin embargo, los resultados de la prueba $X^2$, indican que **no** existe una asociación estadísticamente significativa entre estas variables ($X^2$ = `r xi2`, _p > 0.05_).
+
+Esto significa que, según los datos analizados, el nivel educacional no parecen ser un factor que influya en la justificación de la violencia para el control social, por lo tanto, no podemos concluir que el nivel educacional estén relacionados con la justificación de la violencia en el contexto del cambio social en Chile en 2019.
+
+
+## Video de la sesión
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EQlI0XQFCP4?si=1_uPc9LDZnY9LxyC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Acá [link directo a youtube.](https://youtu.be/EQlI0XQFCP4)
+
