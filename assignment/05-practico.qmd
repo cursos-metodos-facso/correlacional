@@ -394,3 +394,11 @@ En el presente ejercicio indagamos en la _relación entre el nivel educacional d
 La hipótesis planteada inicialmente sugería que el nivel educacional podría estar asociado con las actitudes hacia la justificación de la violencia como una forma de control social. Sin embargo, los resultados de la prueba $X^2$, indican que **no** existe una asociación estadísticamente significativa entre estas variables ($X^2$ = `r xi2`, _p > 0.05_).
 
 Esto significa que, según los datos analizados, el nivel educacional no parecen ser un factor que influya en la justificación de la violencia para el control social, por lo tanto, no podemos concluir que el nivel educacional estén relacionados con la justificación de la violencia en el contexto del cambio social en Chile en 2019.
+
+
+## Video de la sesión
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EQlI0XQFCP4?si=1_uPc9LDZnY9LxyC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Acá [link directo a youtube.](https://youtu.be/EQlI0XQFCP4)
+
