@@ -384,10 +384,73 @@ Acá [link directo a youtube.](https://youtu.be/jGdganP1kvg)
 A partir de la base de datos de `proc_issp` responda la siguiente pregunta _¿en qué medida la percepción de conflictos se asocia con el estatus socioeconómico de las personas?_ Para responder esta pregunta siga los siguientes pasos:
 
 1. Estime y reporte una matriz de correlación con las variables `income`, `educyrs` y `topbot`. Considere el tratamiento de casos perdidos.
+
+```{r}
+proc_issp %>% dplyr::select(income, educyrs, topbot) %>%
+  sjPlot::tab_corr(, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
 2. Calcule el alpha de cronbach de la matriz del punto anterior.
+
+```{r}
+alpha_ses <- proc_issp %>% 
+            dplyr::select(income, educyrs, topbot) %>%
+            psych::alpha()
+alpha_ses$total$raw_alpha
+```
+
 3. Genere un índice promedio de estatus socioeconómico a partir de las variables utilizadas en la matriz y llámelo `ses`.
+
+```{r}
+proc_issp <- cbind(proc_issp, "ses" = rowMeans(proc_issp %>% dplyr::select(income, educyrs, topbot), na.rm=TRUE))
+```
+
 4. Calcule el coeficiente de correlación de Pearson ($r$) entre las variables `psci` y `ses`. Reporte e interprete sus resultados. _¿en qué medida la percepción de conflictos se asocia con el estatus socioeconómico de las personas?_
+
+```{r}
+cor(proc_issp$psci, proc_issp$ses)
+```
+
 5. Estime y reporte una matriz de correlación con las variables `psci`, `ses`, `age` y `perc_ineq`. Interprete sentido, tamaño de efecto y significancia de las principales asociaciones 
+
+```{r}
+proc_issp %>% dplyr::select(psci, ses, age, perc_ineq) %>%
+  sjPlot::tab_corr(, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+* psci × ses (r = -0.101, p < .01)
+
+Sentido: negativa — a mayor nivel socioeconómico, menor puntaje en psci.
+
+Tamaño del efecto: pequeño (Cohen, 1988).
+
+Significancia: estadísticamente significativa con un 99% de confianza (p < .01).
+
+Interpretación: quienes tienen un nivel socioeconómico más alto tienden a mostrar ligeramente menores niveles de percepción de conflictos sociales (psci).
+
+* edad × ses (r = -0.284, p < .001)
+
+Sentido: negativa — personas de mayor edad tienden a tener menor ses.
+
+Tamaño del efecto: moderado.
+
+Significancia: estadísticamente significativa con un 99.9% de confianza (p < .001).
+
+* psci × percepción de desigualdad (r = 0.076, p < .05)
+
+Sentido: positiva — mayor psci se asocia con mayor percepción de desigualdad.
+
+Tamaño del efecto: pequeño.
+
+Significancia: estadísticamente significativa con un 95% de confianza (p < .05).
+
+* Asociaciones no significativas:
+
+edad × percepción de desigualdad (r = -0.059) y ses × percepción de desigualdad (r = 0.045) no son estadísticamente significativas, por lo que no hay evidencia suficiente de asociación en estos pares.
 
 #### Referencias
 
