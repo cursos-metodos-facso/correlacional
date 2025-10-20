@@ -1,0 +1,303 @@
+---
+title: "Práctico resumen: Asociación categóricas, matrices de correlación y chi-cuadrado"
+date: "2025-10-20"
+lang: es
+bibliography: "bib/correlacional.bib"
+csl: "bib/apa.csl"
+execute:
+  freeze: auto
+  cache: false 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    warning = F,
+    error = F,
+    message = F
+)
+```
+
+# Objetivo de la práctica
+
+El objetivo de esta guía práctica es repasar los últimos dos prácticos del curso (4 y 5)
+
+En detalle, aprenderemos a:
+
+1. Estimar e interpretar coeficientes de correlación de Spearman y Kendall
+2. Generar y reportar matrices de correlación
+3. Aplicar coeficientes de correlación entre variables categóricas (nominales-ordinales)
+4. Estimar e interpretar la prueba de Chi-cuadrado ($X^2$)
+
+En esta guía utilizaremos un ejemplo que desarrollaremos progresivamente para exponer los contenidos. Al final de esta guía se proporciona un ejercicio autónomo que deberá resolver de manera individual o grupal tomando como referencia el ejemplo aquí expuesto.
+
+# 2. Datos y librerías
+
+Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.
+
+```{r librerias, echo=TRUE, collapse=TRUE}
+pacman::p_load(tidyverse, # Manipulacion datos
+               sjPlot, # Graficos y tablas
+               sjmisc, # Descriptivos
+               corrplot, # Correlaciones
+               psych, # Test estadísticos
+               kableExtra, # Tablas
+               rempsyc,
+               broom,
+               sjstats,
+               gginference)
+
+options(scipen = 999) # para desactivar notacion cientifica
+rm(list = ls()) # para limpiar el entorno de trabajo
+```
+
+Cargamos los datos directamente desde internet.
+
+```{r datos, echo=TRUE}
+
+# Cargar bbdd desde internet
+load(url("https://github.com/Kevin-carrasco/R-data-analisis/raw/main/practicos/files/elsoc2016_proc.RData"))
+
+proc_data <- proc_data %>%
+  mutate(educacion=car::recode(m01, "c(1,2,3,4,5)=1; c(6,7,8,9,10)=2")) %>%
+  select(-cohesion_barrial, -m01)
+```
+
+A continuación, exploramos el subset de datos `proc_data`.
+
+```{r exploracion, echo=TRUE}
+
+names(proc_data) # Nombre de columnas
+dim(proc_data) # Dimensiones
+
+```
+
+```{r include = F}
+rows <- NROW(proc_data)
+cols <- NCOL(proc_data)
+```
+
+Contamos con `r cols` variables (columnas) y `r rows` observaciones (filas).
+
+
+Ahora, exploremos estadísticos descriptivos de nuestra base procesada `proc_data`
+
+```{r descr, echo=TRUE}
+
+proc_data %>% 
+  sjmisc::descr(show = c("label","range", "mean", "sd", "NA.prc", "n")) %>%
+  kable(.,"markdown")
+
+```
+
+# 3. Análisis
+
+## 3.1 Correlación para variables ordinales
+
+### 3.1.1 Coeficiente de correlación de Spearman
+
+En R calcularlo es sencillo, pero debemos tener en cuenta que las variables que relacionemos tengan un orden de rango similar: por ejemplo, que el valor más bajo sea el rango más bajo y que el valor más alto sea el rango más alto.
+
+Observemos las frecuencias de las variables `ideal` (Estebarrio es ideal para mi) e `integracion` (Me siento integrado en este barrio) 
+
+```{r frq, echo=TRUE, split=TRUE}
+sjmisc::frq(proc_data$ideal)
+
+sjmisc::frq(proc_data$integracion)
+
+```
+
+Ahora, calculemos el coeficiente de correlación de Spearman con cor.test.
+
+```{r ex0_cor, warning=FALSE}
+cor.test(proc_data$ideal, proc_data$integracion, method = "spearman") #especificamos metodo spearman
+```
+
+Ahora conocemos el valor del coeficiente de Spearman mediante al argumento `rho`, que es igual a 0.6, siendo positivo y gramde según los criterios de Cohen (1988).
+
+### 3.1.2 Coeficiente de correlación Tau de Kendall
+
+Recomendado cuando hay un set de datos pequeños y/o cuando hay mucha repetición de observaciones en el mismo ranking. Se basa en una comparación de pares de observaciones concordantes y discordantes.
+
+Ahora, calculemos el coeficiente de correlación Tau de Kendall con cor.test.
+
+```{r ex1_cor, warning=FALSE}
+cor.test(proc_data$ideal, proc_data$integracion, method = "kendall") #especificamos metodo kendall
+```
+
+El valor del coeficiente de Kendall mediante al argumento `tau`, es igual a 0.56, siendo positivo y grande según los criterios de Cohen (1988).
+
+## 3.3 Matrices de correlación
+
+En su forma simple en R se aplica la función `cor` a la base de datos, y la guardamos en un objeto que le damos el nombre M para futuras operaciones:
+
+
+```{r cor1, echo=TRUE, message=FALSE, warning=FALSE}
+M <- cor(proc_data, use = "complete.obs") 
+M
+```
+
+Este es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la función `tab_corr`. 
+
+```{r cor2, echo=TRUE, message=FALSE, warning=FALSE}
+sjPlot::tab_corr(proc_data, 
+                 triangle = "lower")
+```
+
+La **distinción** entre **listwise y pairwise es relevante al momento de estimar matrices de correlación**, donde esta decisión debe estar claramente explicitada y fundamentada. En el ejemplo de tabla anterior usamos _listwise_ que es el argumento por defecto (y nos lo indica al final de la tabla). 
+
+Veamos cómo hacerlo con _pairwise_:
+
+```{r cor2_1, echo=TRUE, message=FALSE, warning=FALSE}
+sjPlot::tab_corr(proc_data, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+
+Otra manera de presentar matrices de correlación es mediante gráficos. Veamos un ejemplo con la función `corrplot` de la librería `corrplot` sobre nuestra matriz `M` ya creada.
+
+```{r cor3, echo=TRUE, message=FALSE, warning=FALSE}
+
+diag(M) <- NA
+corrplot::corrplot(M,
+                   method = "color",
+                   addCoef.col = "black",
+                   type = "upper",
+                   tl.col = "black",
+                   col = colorRampPalette(c("#E16462", "white", "#0D0887"))(12),
+                   bg = "white",
+                   na.label = "-") 
+```
+
+## 3.4 Baterías e índices
+
+En la literatura sobre cohesión barrial se suele utilizar un índice sumativo o promedio entre los distintos indicadores sobre cohesión barrial: `ideal`,`integracion`,`identificacion`,`pertenencia`.
+
+
+```{r matriz_psci, echo=TRUE}
+ 
+M_cohesion <- proc_data %>% 
+  dplyr::select(ideal, integracion, identificacion, pertenencia)
+
+sjPlot::tab_corr(M_cohesion, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+Los ítems se correlacionan de manera positiva y con tamaños de efecto moderados y altos para las ciencias sociales. Con ello, podemos pasar a evaluar sus relaciones tienen consistencia interna.
+
+```{r alpha, echo=TRUE}
+
+alpha_psci <- psych::alpha(M_cohesion)
+alpha_psci$total$raw_alpha
+```
+
+
+De acuerdo con este resultado, el alpha de Cronbach reflejado en el `raw_alpha` del output es superior al estandar de 0.6 en ciencias sociales, por lo que se sostiene su consistencia.
+
+Ahora, generemos el índice `cohesion`
+
+```{r echo=TRUE}
+
+proc_data <- cbind(proc_data, "cohesion" = rowMeans(proc_data %>% select(ideal, integracion, identificacion, pertenencia), na.rm=TRUE))
+
+proc_data <- proc_data %>%
+  mutate(
+    cohesion_dic = case_when(
+      cohesion >= mean(cohesion, na.rm = TRUE) ~ 1,
+      cohesion <  mean(cohesion, na.rm = TRUE) ~ 0,
+      TRUE ~ NA_real_
+    )
+  )
+
+proc_data %>% select(cohesion, cohesion_dic) %>%
+  sjmisc::descr(, show = c("range", "mean", "sd", "NA.prc", "n")) %>%
+  kable(.,"markdown")
+```
+
+
+### 3.5 Correlación punto biserial
+
+La correlación punto biserial se utiliza para calcular la correlación entre una variable categórica dicotómica y una variable continua.
+
+Veamos la frecuencia de `sexo` y la media de ingresos `y1`.
+
+```{r}
+sjmisc::frq(proc_data$m0_sexo)
+
+mean(proc_data$cohesion, na.rm = T)
+```
+
+Obtengamos la correlación punto biserial entre sexo e ingresos.
+
+```{r}
+cor.test(proc_data$m0_sexo, proc_data$cohesion)
+```
+
+### 3.6 Correlación tetracorica
+
+La correlación tetracórica se utiliza para calcular la correlación entre dos variables binarias categóricas, es decir, variables nominales dicómoticas (solo dos posibles valores).
+
+Obtengamos la correlación tetrácorica entre sexo y educacion.
+
+```{r}
+matriz <- proc_data %>% select(m0_sexo, educacion) # creamos matriz con var de interes
+
+psych::tetrachoric(matriz, na.rm = T)
+```
+
+# 4. Prueba de hipótesis con Chi cuadrado ($X^2$)
+
+## 4.1. Tablas de contingencia
+
+```{r}
+sjPlot::sjt.xtab(var.row = proc_data$m0_sexo, 
+                 var.col = proc_data$educacion, 
+                 show.summary = F, 
+                 emph.total = T, 
+                 show.row.prc = T, # porcentaje fila
+                 show.col.prc = T # porcentaje columna
+                 )
+```
+
+## 4.2 Prueba de Chi-cuadrado
+
+En R, utilizamos la función `chisq.test()`:
+
+```{r, warning=FALSE}
+chi_results <- chisq.test(table(proc_data$m0_sexo, proc_data$educacion))
+
+chi_results
+```
+
+Obtuvimos nuestro resultado, pero no es muy amigable a la vista. Generemos una tabla de calidad para que sea reportable.
+
+```{r}
+#| label: tbl-chi
+#| echo: true
+#| warning: false
+
+stats.table <- tidy(chi_results, conf_int = T)
+nice_table(stats.table)
+```
+
+
+
+# Ejercicio autónomo
+
+A partir de la base de datos de `proc_data` responda las siguientes preguntas:
+
+1. Calcule el coeficiente de correlación adecuado entre las variables `identificacion` y `pertenencia`. Reporte e interprete sus resultados.
+
+2. Calcule el coeficiente de correlación adecuado entre las variables `educacion` y `m0_edad`. Reporte e interprete sus resultados.
+
+3. Calcule el coeficiente de correlación adecuado entre las variables `cohesion_dic` y `m0_sexo`. Reporte e interprete sus resultados.
+
+4. Estime y reporte una matriz de correlación con las variables `cohesion`, `m0_edad` y `educacion`. Considere el tratamiento de casos perdidos.
+
+5. Presente en una tabla de contingencia entre las variables `cohesion_dic` y `m0_sexo`.
+
+6. Calcule el estadístico de Chi cuadrado ($X^2$) entre las variables `cohesion_dic` y `m0_sexo`.
+
+7. Interprete los resultados obtenidos.
+
