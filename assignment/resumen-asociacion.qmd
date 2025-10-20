@@ -289,15 +289,50 @@ A partir de la base de datos de `proc_data` responda las siguientes preguntas:
 
 1. Calcule el coeficiente de correlación adecuado entre las variables `identificacion` y `pertenencia`. Reporte e interprete sus resultados.
 
+```{r}
+cor.test(proc_data$identificacion, proc_data$pertenencia, method='spearman')
+```
+
 2. Calcule el coeficiente de correlación adecuado entre las variables `educacion` y `m0_edad`. Reporte e interprete sus resultados.
+
+```{r}
+cor.test(proc_data$educacion, proc_data$m0_edad)
+```
 
 3. Calcule el coeficiente de correlación adecuado entre las variables `cohesion_dic` y `m0_sexo`. Reporte e interprete sus resultados.
 
+```{r}
+cor.test(proc_data$cohesion_dic, proc_data$m0_sexo)
+```
+
 4. Estime y reporte una matriz de correlación con las variables `cohesion`, `m0_edad` y `educacion`. Considere el tratamiento de casos perdidos.
+
+```{r}
+matriz_cohesion <- proc_data %>% dplyr::select(cohesion, m0_edad, educacion)
+```
+
+```{r cor5, echo=TRUE, message=FALSE, warning=FALSE}
+sjPlot::tab_corr(matriz_cohesion, 
+                 triangle = "lower")
+```
 
 5. Presente en una tabla de contingencia entre las variables `cohesion_dic` y `m0_sexo`.
 
+```{r}
+sjPlot::sjt.xtab(var.row = proc_data$cohesion_dic, 
+                 var.col = proc_data$m0_sexo, 
+                 show.summary = F, 
+                 emph.total = T, 
+                 show.row.prc = T, # porcentaje fila
+                 show.col.prc = T # porcentaje columna
+                 )
+```
+
 6. Calcule el estadístico de Chi cuadrado ($X^2$) entre las variables `cohesion_dic` y `m0_sexo`.
+
+```{r}
+chisq.test(table(proc_data$cohesion_dic, proc_data$m0_sexo))
+```
 
 7. Interprete los resultados obtenidos.
 
