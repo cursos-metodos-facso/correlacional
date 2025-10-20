@@ -289,15 +289,75 @@ A partir de la base de datos de `proc_data` responda las siguientes preguntas:
 
 1. Calcule el coeficiente de correlación adecuado entre las variables `identificacion` y `pertenencia`. Reporte e interprete sus resultados.
 
+```{r}
+cor.test(proc_data$identificacion, proc_data$pertenencia, method='spearman')
+```
+
+La correlación es alta, positiva y estadísticamente significativa con un 99,9% de confianza (p<0.001)
+
 2. Calcule el coeficiente de correlación adecuado entre las variables `educacion` y `m0_edad`. Reporte e interprete sus resultados.
+
+```{r}
+cor.test(proc_data$educacion, proc_data$m0_edad)
+```
+
+La correlación es moderada, negativa y estadísticamente significativa con un 99,9% de confianza (p<0.001) 
 
 3. Calcule el coeficiente de correlación adecuado entre las variables `cohesion_dic` y `m0_sexo`. Reporte e interprete sus resultados.
 
+```{r}
+cor_cohesion <- proc_data %>% dplyr::select(cohesion_dic, m0_sexo)
+
+tetrachoric(cor_cohesion)
+
+```
+
+La correlación es negativa y muy baja.
+
 4. Estime y reporte una matriz de correlación con las variables `cohesion`, `m0_edad` y `educacion`. Considere el tratamiento de casos perdidos.
+
+```{r}
+matriz_cohesion <- proc_data %>% dplyr::select(cohesion, m0_edad, educacion)
+```
+
+```{r cor5, echo=TRUE, message=FALSE, warning=FALSE}
+sjPlot::tab_corr(matriz_cohesion, 
+                 triangle = "lower")
+```
+
+El tratamiento mediante listwise-deletion elimina todos aquellos casos en que hay NA en al menos una de las respuestas.
+
+La asociación entre cohesión barrial y edad es positiva, moderada y estadísticamente significativa (p<0.001). La asociación entre educación y edad es negativa, moderada y estadísticamente significativa (p<0.001). La asoicación entre cohesión barrial y educación negativa, muy baja y no es estadísticamente significativa (p>0.05).
 
 5. Presente en una tabla de contingencia entre las variables `cohesion_dic` y `m0_sexo`.
 
+```{r}
+sjPlot::sjt.xtab(var.row = proc_data$cohesion_dic, 
+                 var.col = proc_data$m0_sexo, 
+                 show.summary = F, 
+                 emph.total = T, 
+                 show.row.prc = T, # porcentaje fila
+                 show.col.prc = T # porcentaje columna
+                 )
+```
+
 6. Calcule el estadístico de Chi cuadrado ($X^2$) entre las variables `cohesion_dic` y `m0_sexo`.
+
+```{r}
+chisq.test(table(proc_data$cohesion_dic, proc_data$m0_sexo))
+```
+
+```{r}
+#| label: tbl-chi2
+#| echo: true
+#| warning: false
+
+stats.table <- tidy(chi_results, conf_int = T)
+nice_table(stats.table)
+```
 
 7. Interprete los resultados obtenidos.
 
+Los resultados de la prueba $X^2$, indican que existe una asociación estadísticamente significativa entre estas variables ($X^2$ = 6.34, _p < 0.05_).
+
+Esto significa que, según los datos analizados, el sexo es un factor que influye en la cohesión barrial.
