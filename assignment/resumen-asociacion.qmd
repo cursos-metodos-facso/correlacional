@@ -302,7 +302,10 @@ cor.test(proc_data$educacion, proc_data$m0_edad)
 3. Calcule el coeficiente de correlación adecuado entre las variables `cohesion_dic` y `m0_sexo`. Reporte e interprete sus resultados.
 
 ```{r}
-cor.test(proc_data$cohesion_dic, proc_data$m0_sexo)
+cor_cohesion <- proc_data %>% dplyr::select(cohesion_dic, m0_sexo)
+
+tetrachoric(cor_cohesion)
+
 ```
 
 4. Estime y reporte una matriz de correlación con las variables `cohesion`, `m0_edad` y `educacion`. Considere el tratamiento de casos perdidos.
