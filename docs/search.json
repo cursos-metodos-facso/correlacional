@@ -225,267 +225,266 @@
     "href": "news/index.html",
     "title": "Informaciones",
     "section": "",
-    "text": "Acá las principales informaciones y actualizaciones del curso.\n\n\n   \n    \n    \n      Ordenar por\n      Por defecto\n      \n        Fecha - Menos reciente\n      \n      \n        Fecha - Más reciente\n      \n      \n        Título\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nFecha\n\n\n\nTítulo\n\n\n\nCategorías\n\n\n\n\n\n\n\n\nmiércoles septiembre 24, 2025 at 12:00 AM\n\n\nReporte Evaluación 1\n\n\ninfo, mail-UCursos\n\n\n\n\n\n\nmartes agosto 19, 2025 at 12:00 AM\n\n\nInicio practicos\n\n\ninfo\n\n\n\n\n\n\nmiércoles agosto 13, 2025 at 12:00 AM\n\n\nPadlet\n\n\ninfo\n\n\n\n\n\n\nlunes agosto 19, 2024 at 12:00 AM\n\n\nInformaciones por acá\n\n\ninfo\n\n\n\n\n\n\nNo hay resultados\n\n\n\n\n\n\n\nSuscribirse!\n\n\n\nPuedes usar un lector de feeds como Feedly o un servicio RSS-to-email como Blogtrottr para suscribirte a cualquiera de estos mensajes.\n\n\n\n\n\n RSS"
+    "text": "Acá las principales informaciones y actualizaciones del curso.\n\n\n   \n    \n    \n      Ordenar por\n      Por defecto\n      \n        Fecha - Menos reciente\n      \n      \n        Fecha - Más reciente\n      \n      \n        Título\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nFecha\n\n\n\nTítulo\n\n\n\nCategorías\n\n\n\n\n\n\n\n\nmartes octubre 14, 2025 at 12:00 AM\n\n\nPreparación Evaluación 2\n\n\ninfo, mail-UCursos\n\n\n\n\n\n\nmiércoles septiembre 24, 2025 at 12:00 AM\n\n\nReporte Evaluación 1\n\n\ninfo, mail-UCursos\n\n\n\n\n\n\nmartes agosto 19, 2025 at 12:00 AM\n\n\nInicio practicos\n\n\ninfo\n\n\n\n\n\n\nmiércoles agosto 13, 2025 at 12:00 AM\n\n\nPadlet\n\n\ninfo\n\n\n\n\n\n\nlunes agosto 19, 2024 at 12:00 AM\n\n\nInformaciones por acá\n\n\ninfo\n\n\n\n\n\n\nNo hay resultados\n\n\n\n\n\n\n\nSuscribirse!\n\n\n\nPuedes usar un lector de feeds como Feedly o un servicio RSS-to-email como Blogtrottr para suscribirte a cualquiera de estos mensajes.\n\n\n\n\n\n RSS"
   },
   {
-    "objectID": "news/2025-08-19_practicos.html",
-    "href": "news/2025-08-19_practicos.html",
-    "title": "Inicio practicos",
+    "objectID": "news/2025-09-25_reporte-notas1.html",
+    "href": "news/2025-09-25_reporte-notas1.html",
+    "title": "Reporte Evaluación 1",
     "section": "",
-    "text": "← News\n\n\n\n\n\nEl día Miércoles 20 de agosto vamos a comenzar con la realización de los talleres prácticos de R.\nLos talleres prácticos consisten en guías de trabajo con énfasis en la aplicación práctica de los contenidos mediante el uso de R.\nLa estructura de la sesión será la siguiente:\n\n8:30 en la sala B1 comenzamos con la revisión del taller práctico correspondiente (30min aprox.)\n9:00 tendremos una sección de trabajo autónomo donde podrán aplicar los contenidos vistos en el taller. Para esto, es necesario que cada estudiante asista con su computador personal:\n\nSi asiste con su propio computador, deben traer instalado R (versión 4.5.1), RStudio (versión 2025.05.1+513) y las librerías pacman, dplyr y Publish.\nSi no pueden asistir con su propio computador, tenemos 30 cupos disponibles en la sala 45 del edificio antiguo de FACSO. Para asistir a esta sala deben inscribirse en el siguiente formulario: https://forms.gle/jsFdiWNkjLmCAP5D6"
+    "text": "← News\nEste reporte realiza un análisis de la Evaluación 1 sobre la Unidad 1: Inferencia estadística"
   },
   {
-    "objectID": "news/2025-08-04_inicio.html",
-    "href": "news/2025-08-04_inicio.html",
-    "title": "Informaciones por acá",
+    "objectID": "news/2025-09-25_reporte-notas1.html#solicitudes-de-recorrección",
+    "href": "news/2025-09-25_reporte-notas1.html#solicitudes-de-recorrección",
+    "title": "Reporte Evaluación 1",
+    "section": "Solicitudes de recorrección",
+    "text": "Solicitudes de recorrección\n\nEnviar correo a apoyo docente Kevin Carrasco, kevin.carrasco@uchile.cl, quien estará coordinando estas solicitudes\nEn el correo:\n\nmencionar pregunta a corregir\nargumento y puntaje esperado\nfoto de la pregunta\n\n\nSolicitudes hasta el miércoles 1 de Octubre 23:59, las solicitudes se responderán en un plazo máximo el lunes 6 de Octubre."
+  },
+  {
+    "objectID": "news/2025-09-25_reporte-notas1.html#etiquetados",
+    "href": "news/2025-09-25_reporte-notas1.html#etiquetados",
+    "title": "Reporte Evaluación 1",
+    "section": "Etiquetados",
+    "text": "Etiquetados\n\n# Label variables\n\nprueba1$p1a &lt;- set_label(x = prueba1$p1a, \n                         label = \"Error tipo II\")\nprueba1$p1b &lt;- set_label(x = prueba1$p1b, \n                         label = \"Significancia\")\nprueba1$p1c &lt;- set_label(x = prueba1$p1c, \n                         label = \"Rechazo H0 valor p\")\nprueba1$p2a &lt;- set_label(x = prueba1$p2a, \n                         label = \"Formulación hipótesis\")\nprueba1$p2b &lt;- set_label(x = prueba1$p2b, \n                         label = \"Contraste de prueba t\")\nprueba1$p2c &lt;- set_label(x = prueba1$p2c, \n                         label = \"Intervalo confianza de prueba t\")\nprueba1$nota &lt;- set_label(x = prueba1$nota, \n                         label = \"Nota final\")\nprueba1$asistencia &lt;- set_label(x = prueba1$asistencia, \n                         label = \"Asistencia \")\nprueba1$grupo &lt;- set_label(x = prueba1$grupo, \n                         label = \"Grupo u-cursos\")"
+  },
+  {
+    "objectID": "news/2025-09-25_reporte-notas1.html#tabla-descriptiva",
+    "href": "news/2025-09-25_reporte-notas1.html#tabla-descriptiva",
+    "title": "Reporte Evaluación 1",
+    "section": "Tabla descriptiva",
+    "text": "Tabla descriptiva\n\nprueba1 %&gt;% descr(., show = c(\"label\",\"range\", \"mean\", \"sd\", \"n\"))%&gt;% kable(.,\"markdown\", digits=2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar\nlabel\nn\nmean\nsd\nrange\n\n\n\n\n3\np1a\nError tipo II\n75\n0.53\n0.45\n1 (0-1)\n\n\n4\np1b\nSignificancia\n75\n0.30\n0.43\n1 (0-1)\n\n\n5\np1c\nRechazo H0 valor p\n75\n0.27\n0.49\n2 (0-2)\n\n\n6\np2a\nFormulación hipótesis\n75\n1.69\n0.60\n2 (0-2)\n\n\n7\np2b\nContraste de prueba t\n75\n2.82\n1.40\n4 (0-4)\n\n\n8\np2c\nIntervalo confianza de prueba t\n75\n1.32\n0.81\n2 (0-2)\n\n\n9\npuntaje\npuntaje\n75\n6.94\n2.58\n11 (0-11)\n\n\n2\nnota\nNota final\n75\n44.91\n12.93\n55 (10-65)\n\n\n1\nasistencia\nAsistencia\n75\n52.86\n19.86\n71.4 (14.3-85.7)"
+  },
+  {
+    "objectID": "news/2025-09-25_reporte-notas1.html#gráficos-descriptivos",
+    "href": "news/2025-09-25_reporte-notas1.html#gráficos-descriptivos",
+    "title": "Reporte Evaluación 1",
+    "section": "Gráficos descriptivos",
+    "text": "Gráficos descriptivos\n\nhist(prueba1$nota)\n\n\n\n\n\n\n\nplot_frq(data = prueba1$nota,type = \"hist\",show.mean = T)\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(notas_cat=cut(nota, breaks=c(-Inf,40,50,60, Inf), labels=c(\"Menor a 4.0\",\"4.0-5.0\",\"5.0-6.0\",\"6.0-7.0\")))\n\nfrq(prueba1$notas_cat, out=\"browser\", show.na = FALSE, title = \"Rangos de notas\")\n\n\nRangos de notas\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenor a 4.0\n22\n29.33\n29.33\n29.33\n\n\n\n4.0-5.0\n26\n34.67\n34.67\n64.00\n\n\n\n5.0-6.0\n24\n32.00\n32.00\n96.00\n\n\n\n6.0-7.0\n3\n4.00\n4.00\n100.00\n\n\n\ntotal N=75 · valid N=72 · x̄=2.11 · σ=0.88\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-notas_cat)"
+  },
+  {
+    "objectID": "news/2025-08-12_padlet.html",
+    "href": "news/2025-08-12_padlet.html",
+    "title": "Padlet",
     "section": "",
-    "text": "← News\n\n\n\n\nEstimad_s estudiantes, acá en esta pestaña quedará registro de las informaciones y actualizaciones del curso. De todas maneras se enviará link por correo a UCursos cuando haya noticias relevantes."
+    "text": "← News\n\n\n\n\n\nVamos a probar Padlet para realizar preguntas sobre los contenidos del curso, se pueden hacer durante o después de clases, pueden ser anónimas.\nLink: https://padlet.com/juancarloscastillo/correlacional\nY acá disponible (con QR):"
   },
   {
-    "objectID": "files/reporte_notas/reporte_notas.html",
-    "href": "files/reporte_notas/reporte_notas.html",
-    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\n            Estadística Correlacional\n        ",
     "section": "",
-    "text": "pacman::p_load(tidyverse, sjmisc, sjPlot, kableExtra, sjlabelled, readxl, here)\n\n\n\n [1] \"Nº\"          \"Persona\"     \"1a\"          \"1b\"          \"1c\"         \n [6] \"2a\"          \"2b\"          \"2c\"          \"Puntos\"      \"Nota\"       \n[11] \"Asistida\"    \"Justificada\" \"asist_total\"\n\n\n\n\n\n\n# Label variables\n\nprueba1$p1a &lt;- set_label(x = prueba1$p1a, \n                         label = \"Intervalo de Confianza\")\nprueba1$p1b &lt;- set_label(x = prueba1$p1b, \n                         label = \"Error tipo II\")\nprueba1$p1c &lt;- set_label(x = prueba1$p1c, \n                         label = \"Rechazo H0 valor p\")\nprueba1$p2a &lt;- set_label(x = prueba1$p2a, \n                         label = \"Formulación hipótesis\")\nprueba1$p2b &lt;- set_label(x = prueba1$p2b, \n                         label = \"Contraste de prueba t\")\nprueba1$p2c &lt;- set_label(x = prueba1$p2c, \n                         label = \"Intervalo confianza de prueba t\")\nprueba1$nota &lt;- set_label(x = prueba1$nota, \n                         label = \"Nota final\")\nprueba1$asistida &lt;- set_label(x = prueba1$asistida, \n                         label = \"Asistencia Efectiva\")\nprueba1$asist_total &lt;- set_label(x = prueba1$asist_total, \n                         label = \"Asistencia Registrada\")\n\n\n\n\n\nprueba1 %&gt;% descr(., show = c(\"label\",\"range\", \"mean\", \"sd\", \"n\"))%&gt;% kable(.,\"markdown\", digits=2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar\nlabel\nn\nmean\nsd\nrange\n\n\n\n\n4\np1a\nIntervalo de Confianza\n70\n0.55\n0.30\n1 (0-1)\n\n\n5\np1b\nError tipo II\n70\n0.31\n0.45\n1 (0-1)\n\n\n6\np1c\nRechazo H0 valor p\n70\n0.81\n0.70\n2 (0-2)\n\n\n7\np2a\nFormulación hipótesis\n70\n1.47\n0.69\n2 (0-2)\n\n\n8\np2b\nContraste de prueba t\n70\n2.59\n1.32\n4 (0-4)\n\n\n9\np2c\nIntervalo confianza de prueba t\n70\n1.26\n0.74\n2 (0-2)\n\n\n3\nnota\nNota final\n70\n4.50\n1.43\n6 (1-7)\n\n\n2\nasistida\nAsistencia Efectiva\n70\n10.16\n1.86\n8 (4-12)\n\n\n1\nasist_total\nAsistencia Registrada\n70\n10.24\n1.81\n8 (4-12)\n\n\n\n\n\n\n\n\n\nhist(prueba1$nota)\n\n\n\n\n\n\n\nplot_frq(data = prueba1$nota,type = \"hist\",show.mean = T)\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(notas_cat=cut(nota, breaks=c(-Inf,4,5,6, Inf), labels=c(\"Menor a 4.0\",\"4.0-5.0\",\"5.0-6.0\",\"6.0-7.0\")))\n\nfrq(prueba1$notas_cat, out=\"browser\", show.na = FALSE, title = \"Rangos de notas\")\n\n\nRangos de notas\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenor a 4.0\n25\n35.71\n35.71\n35.71\n\n\n\n4.0-5.0\n14\n20.00\n20.00\n55.71\n\n\n\n5.0-6.0\n24\n34.29\n34.29\n90.00\n\n\n\n6.0-7.0\n7\n10.00\n10.00\n100.00\n\n\n\ntotal N=70 · valid N=63 · x̄=2.19 · σ=1.04\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-notas_cat)\n\n\n\n\n\ntab_corr(prueba1,\n         triangle = \"lower\")\n\n\n\n\n \nIntervalo de Confianza\nError tipo II\nRechazo H0 valor p\nFormulación hipótesis\nContraste de prueba t\nIntervalo confianza de prueba t\nNota final\nAsistencia Efectiva\nAsistencia Registrada\n\n\nIntervalo de Confianza\n \n \n \n \n \n \n \n \n \n\n\nError tipo II\n0.337**\n \n \n \n \n \n \n \n \n\n\nRechazo H0 valor p\n0.271*\n0.399***\n \n \n \n \n \n \n \n\n\nFormulación hipótesis\n0.180\n0.202\n0.014\n \n \n \n \n \n \n\n\nContraste de prueba t\n0.243*\n0.244*\n0.214\n0.485***\n \n \n \n \n \n\n\nIntervalo confianza de prueba t\n0.275*\n0.280*\n0.405***\n0.281*\n0.590***\n \n \n \n \n\n\nNota final\n0.453***\n0.525***\n0.544***\n0.592***\n0.849***\n0.772***\n \n \n \n\n\nAsistencia Efectiva\n0.278*\n-0.048\n0.117\n0.355**\n0.352**\n0.382**\n0.398***\n \n \n\n\nAsistencia Registrada\n0.316**\n0.006\n0.106\n0.380**\n0.382**\n0.377**\n0.427***\n0.980***\n \n\n\nComputed correlation used pearson-method with listwise-deletion.\n\n\n\n\n\n\nggplot(prueba1, aes(x = asist_total, y = nota)) + \n  geom_jitter(width = 0.2, color = \"red\", size = 4) + \n  labs(title = \"Relación entre asistencia y notas en Evaluación 1 (r=0.43)\") + \n  labs(x = \"Asistencia\", y = \"Nota\") + \n  theme(axis.title = element_text(size = 12),        # Tamaño de las etiquetas de los ejes\n        axis.text = element_text(size = 12)) +       # Tamaño del texto de los ejes\n  theme(aspect.ratio = 1/1.5) +\n  theme(plot.title = element_text(size = 12,         # Tamaño del título\n                                  face = \"bold\",     # Tipo de letra (negrita)\n                                  hjust = 0.5)) +\n  scale_x_continuous(breaks = seq(1, 12, by = 1), limits = c(1, 12)) +   # Ajuste del eje de asistencia\n  scale_y_continuous(breaks = seq(1, 7, by = 1), limits = c(1, 7))       # Ajuste del eje de notas de 1 a 7\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(asist_total_cat=cut(asist_total, breaks=c(-Inf,7,8,9,10,11,Inf), labels=c(\"Menos de 8\",\"8\",\"9\",\"10\",\"11\",\"12\")))\n\nfrq(prueba1$asist_total_cat, out=\"browser\", show.na = FALSE, title = \"Asistencia\")\n\n\nAsistencia\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenos de 8\n6\n8.57\n8.57\n8.57\n\n\n\n8\n4\n5.71\n5.71\n14.29\n\n\n\n9\n10\n14.29\n14.29\n28.57\n\n\n\n10\n11\n15.71\n15.71\n44.29\n\n\n\n11\n19\n27.14\n27.14\n71.43\n\n\n\n12\n20\n28.57\n28.57\n100.00\n\n\n\ntotal N=70 · valid N=50 · x̄=4.33 · σ=1.58\n\n\n\n\nprueba1 %&gt;% # se especifica la base de datos\n  dplyr::select(asist_total_cat, nota)  %&gt;% # se seleccionan las variables\n  dplyr::group_by(Asistencia=sjlabelled::as_label(asist_total_cat)) %&gt;% # se agrupan por la variable categórica y se usan sus etiquetas con as_label\n  dplyr::summarise(Obs.=n(),Promedio=round(mean(nota),2),SD=round(sd(nota),2)) %&gt;% # se agregan las operaciones a presentar en la tabla\n  kable(, format = \"markdown\") # se genera la tabla\n\n\n\n\nAsistencia\nObs.\nPromedio\nSD\n\n\n\n\nMenos de 8\n6\n2.98\n1.63\n\n\n8\n4\n3.40\n0.20\n\n\n9\n10\n4.33\n1.46\n\n\n10\n11\n4.46\n1.56\n\n\n11\n19\n4.62\n1.44\n\n\n12\n20\n5.16\n0.98\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-asist_total_cat)\n\nConsistencia interna\n\npacman::p_load(ltm)\n\npreguntas &lt;- prueba1 %&gt;% dplyr::select(-nota)\ncronbach.alpha(na.omit(preguntas))\n\n\nCronbach's alpha for the 'na.omit(preguntas)' data-set\n\nItems: 8\nSample units: 70\nalpha: 0.753"
+    "text": "Inferencia, asociación y reporte\n        \n        \n            SOC01019 • Segundo Semestre 2025Departamento de Sociología, Facultad de Ciencias SocialesUniversidad de Chile"
   },
   {
-    "objectID": "files/reporte_notas/reporte_notas.html#librerías-datos",
-    "href": "files/reporte_notas/reporte_notas.html#librerías-datos",
-    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "objectID": "index.html#últimas-informaciones",
+    "href": "index.html#últimas-informaciones",
+    "title": "\n            Estadística Correlacional\n        ",
+    "section": "Últimas informaciones",
+    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\nPreparación Evaluación 2\n\n\n\n\n\n\n\n\n\nOct 14, 2025\n\n\n\n\n\n\n\n\n\n\n\nReporte Evaluación 1\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
+  },
+  {
+    "objectID": "example/index.html",
+    "href": "example/index.html",
+    "title": "Code examples",
     "section": "",
-    "text": "pacman::p_load(tidyverse, sjmisc, sjPlot, kableExtra, sjlabelled, readxl, here)\n\n\n\n [1] \"Nº\"          \"Persona\"     \"1a\"          \"1b\"          \"1c\"         \n [6] \"2a\"          \"2b\"          \"2c\"          \"Puntos\"      \"Nota\"       \n[11] \"Asistida\"    \"Justificada\" \"asist_total\""
+    "text": "Visit this section after you have finished the readings and lecture videos. It contains fully annotated R code and other supplementary information and it will be indispensable as you work on your problem sets and project.\nMany sections also contain videos of me live coding the examples so you can see what it looks like to work with R in real time. You’ll notice me make all sorts of little errors, which is totally normal—everyone does!"
   },
   {
-    "objectID": "files/reporte_notas/reporte_notas.html#etiquetados",
-    "href": "files/reporte_notas/reporte_notas.html#etiquetados",
-    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "objectID": "evaluations/prueba2.html",
+    "href": "evaluations/prueba2.html",
+    "title": "Evaluación 2 - Estadística Correlacional 2024",
     "section": "",
-    "text": "# Label variables\n\nprueba1$p1a &lt;- set_label(x = prueba1$p1a, \n                         label = \"Intervalo de Confianza\")\nprueba1$p1b &lt;- set_label(x = prueba1$p1b, \n                         label = \"Error tipo II\")\nprueba1$p1c &lt;- set_label(x = prueba1$p1c, \n                         label = \"Rechazo H0 valor p\")\nprueba1$p2a &lt;- set_label(x = prueba1$p2a, \n                         label = \"Formulación hipótesis\")\nprueba1$p2b &lt;- set_label(x = prueba1$p2b, \n                         label = \"Contraste de prueba t\")\nprueba1$p2c &lt;- set_label(x = prueba1$p2c, \n                         label = \"Intervalo confianza de prueba t\")\nprueba1$nota &lt;- set_label(x = prueba1$nota, \n                         label = \"Nota final\")\nprueba1$asistida &lt;- set_label(x = prueba1$asistida, \n                         label = \"Asistencia Efectiva\")\nprueba1$asist_total &lt;- set_label(x = prueba1$asist_total, \n                         label = \"Asistencia Registrada\")"
+    "text": "Usted es parte de un equipo de investigación en un centro de estudios que se encuentra analizando cómo ciertos factores sociales se asocian con actitudes políticas. El centro realizó una encuesta y cuenta con una base de datos con las siguientes variables:\nLa base de datos se encuentra aquí: link"
   },
   {
-    "objectID": "files/reporte_notas/reporte_notas.html#tabla-descriptiva",
-    "href": "files/reporte_notas/reporte_notas.html#tabla-descriptiva",
-    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "objectID": "evaluations/prueba2.html#pregunta-1-en-qué-medida-se-relacionan-los-ingresos-de-las-personas-con-sus-niveles-de-autoritarismo",
+    "href": "evaluations/prueba2.html#pregunta-1-en-qué-medida-se-relacionan-los-ingresos-de-las-personas-con-sus-niveles-de-autoritarismo",
+    "title": "Evaluación 2 - Estadística Correlacional 2024",
+    "section": "Pregunta 1 ¿En qué medida se relacionan los ingresos de las personas con sus niveles de autoritarismo?",
+    "text": "Pregunta 1 ¿En qué medida se relacionan los ingresos de las personas con sus niveles de autoritarismo?\n1.1 Estime la asociación entre ambas variables utilizando R y genere un diagrama de dispersión (nube de puntos/scatterplot). Corte y pegue el código en el recuadro de abajo. (1p)\n1.2 Interprete el coeficiente de correlación (considerando inferencia estadística, magnitud y sentido del efecto). (3p)"
+  },
+  {
+    "objectID": "evaluations/prueba2.html#pregunta-2-cómo-se-relacionan-el-nivel-educacional-autoritarismo-y-los-ingresos",
+    "href": "evaluations/prueba2.html#pregunta-2-cómo-se-relacionan-el-nivel-educacional-autoritarismo-y-los-ingresos",
+    "title": "Evaluación 2 - Estadística Correlacional 2024",
+    "section": "Pregunta 2: ¿Cómo se relacionan el nivel educacional, autoritarismo y los ingresos?",
+    "text": "Pregunta 2: ¿Cómo se relacionan el nivel educacional, autoritarismo y los ingresos?\n2.1 Estime y reporte la matriz de correlaciones de las variables de nivel educacional, autoritarismo y los ingresos. (1p)\n2.2 Tomando en cuenta la Tabla 1 comente sobre el tratamiento de casos perdidos en el cálculo de las correlaciones, así como también del tipo de correlación calculada entre ingresos y educación. (3p)\n\n\n\n\nTabla 1: Distribución de casos perdidos por variable\n\n\n\n\n\n\n\nVariable\nEtiqueta\nn casos perdidos\n% casos perdidos\n\n\n\n\neduc_rec\nNivel educacional\n0\n0%\n\n\ningresos\nIngresos\n150\n15%\n\n\nautoritarismo\nAutoritarismo\n10\n1%"
+  },
+  {
+    "objectID": "evaluations/prueba2.html#pregunta-3-cómo-se-relaciona-el-nivel-educacional-con-los-ingresos",
+    "href": "evaluations/prueba2.html#pregunta-3-cómo-se-relaciona-el-nivel-educacional-con-los-ingresos",
+    "title": "Evaluación 2 - Estadística Correlacional 2024",
+    "section": "Pregunta 3: ¿Cómo se relaciona el nivel educacional con los ingresos?",
+    "text": "Pregunta 3: ¿Cómo se relaciona el nivel educacional con los ingresos?\nUtilizando la versión categórica de ingresos:\n3.1 Reporte tabla de contigencia y el calculo de Chi2 (corte y pegue el código). (1p)\n3.2 Interprete el Chi2 en términos de inferencia y magnitud del efecto. (3p)"
+  },
+  {
+    "objectID": "evaluations/index.html",
+    "href": "evaluations/index.html",
+    "title": "Evaluaciones",
     "section": "",
-    "text": "prueba1 %&gt;% descr(., show = c(\"label\",\"range\", \"mean\", \"sd\", \"n\"))%&gt;% kable(.,\"markdown\", digits=2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar\nlabel\nn\nmean\nsd\nrange\n\n\n\n\n4\np1a\nIntervalo de Confianza\n70\n0.55\n0.30\n1 (0-1)\n\n\n5\np1b\nError tipo II\n70\n0.31\n0.45\n1 (0-1)\n\n\n6\np1c\nRechazo H0 valor p\n70\n0.81\n0.70\n2 (0-2)\n\n\n7\np2a\nFormulación hipótesis\n70\n1.47\n0.69\n2 (0-2)\n\n\n8\np2b\nContraste de prueba t\n70\n2.59\n1.32\n4 (0-4)\n\n\n9\np2c\nIntervalo confianza de prueba t\n70\n1.26\n0.74\n2 (0-2)\n\n\n3\nnota\nNota final\n70\n4.50\n1.43\n6 (1-7)\n\n\n2\nasistida\nAsistencia Efectiva\n70\n10.16\n1.86\n8 (4-12)\n\n\n1\nasist_total\nAsistencia Registrada\n70\n10.24\n1.81\n8 (4-12)"
+    "text": "En esta sección se encuentran disponibles las evaluaciones vigentes del curso."
   },
   {
-    "objectID": "files/reporte_notas/reporte_notas.html#gráficos-descriptivos",
-    "href": "files/reporte_notas/reporte_notas.html#gráficos-descriptivos",
-    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "objectID": "evaluations/index.html#descripción",
+    "href": "evaluations/index.html#descripción",
+    "title": "Evaluaciones",
     "section": "",
-    "text": "hist(prueba1$nota)\n\n\n\n\n\n\n\nplot_frq(data = prueba1$nota,type = \"hist\",show.mean = T)\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(notas_cat=cut(nota, breaks=c(-Inf,4,5,6, Inf), labels=c(\"Menor a 4.0\",\"4.0-5.0\",\"5.0-6.0\",\"6.0-7.0\")))\n\nfrq(prueba1$notas_cat, out=\"browser\", show.na = FALSE, title = \"Rangos de notas\")\n\n\nRangos de notas\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenor a 4.0\n25\n35.71\n35.71\n35.71\n\n\n\n4.0-5.0\n14\n20.00\n20.00\n55.71\n\n\n\n5.0-6.0\n24\n34.29\n34.29\n90.00\n\n\n\n6.0-7.0\n7\n10.00\n10.00\n100.00\n\n\n\ntotal N=70 · valid N=63 · x̄=2.19 · σ=1.04\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-notas_cat)"
+    "text": "En esta sección se encuentran disponibles las evaluaciones vigentes del curso."
   },
   {
-    "objectID": "files/reporte_notas/reporte_notas.html#preguntas-y-asociaciones",
-    "href": "files/reporte_notas/reporte_notas.html#preguntas-y-asociaciones",
-    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "objectID": "content/foro-clases.html",
+    "href": "content/foro-clases.html",
+    "title": "Foro clases",
     "section": "",
-    "text": "tab_corr(prueba1,\n         triangle = \"lower\")\n\n\n\n\n \nIntervalo de Confianza\nError tipo II\nRechazo H0 valor p\nFormulación hipótesis\nContraste de prueba t\nIntervalo confianza de prueba t\nNota final\nAsistencia Efectiva\nAsistencia Registrada\n\n\nIntervalo de Confianza\n \n \n \n \n \n \n \n \n \n\n\nError tipo II\n0.337**\n \n \n \n \n \n \n \n \n\n\nRechazo H0 valor p\n0.271*\n0.399***\n \n \n \n \n \n \n \n\n\nFormulación hipótesis\n0.180\n0.202\n0.014\n \n \n \n \n \n \n\n\nContraste de prueba t\n0.243*\n0.244*\n0.214\n0.485***\n \n \n \n \n \n\n\nIntervalo confianza de prueba t\n0.275*\n0.280*\n0.405***\n0.281*\n0.590***\n \n \n \n \n\n\nNota final\n0.453***\n0.525***\n0.544***\n0.592***\n0.849***\n0.772***\n \n \n \n\n\nAsistencia Efectiva\n0.278*\n-0.048\n0.117\n0.355**\n0.352**\n0.382**\n0.398***\n \n \n\n\nAsistencia Registrada\n0.316**\n0.006\n0.106\n0.380**\n0.382**\n0.377**\n0.427***\n0.980***\n \n\n\nComputed correlation used pearson-method with listwise-deletion.\n\n\n\n\n\n\nggplot(prueba1, aes(x = asist_total, y = nota)) + \n  geom_jitter(width = 0.2, color = \"red\", size = 4) + \n  labs(title = \"Relación entre asistencia y notas en Evaluación 1 (r=0.43)\") + \n  labs(x = \"Asistencia\", y = \"Nota\") + \n  theme(axis.title = element_text(size = 12),        # Tamaño de las etiquetas de los ejes\n        axis.text = element_text(size = 12)) +       # Tamaño del texto de los ejes\n  theme(aspect.ratio = 1/1.5) +\n  theme(plot.title = element_text(size = 12,         # Tamaño del título\n                                  face = \"bold\",     # Tipo de letra (negrita)\n                                  hjust = 0.5)) +\n  scale_x_continuous(breaks = seq(1, 12, by = 1), limits = c(1, 12)) +   # Ajuste del eje de asistencia\n  scale_y_continuous(breaks = seq(1, 7, by = 1), limits = c(1, 7))       # Ajuste del eje de notas de 1 a 7\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(asist_total_cat=cut(asist_total, breaks=c(-Inf,7,8,9,10,11,Inf), labels=c(\"Menos de 8\",\"8\",\"9\",\"10\",\"11\",\"12\")))\n\nfrq(prueba1$asist_total_cat, out=\"browser\", show.na = FALSE, title = \"Asistencia\")\n\n\nAsistencia\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenos de 8\n6\n8.57\n8.57\n8.57\n\n\n\n8\n4\n5.71\n5.71\n14.29\n\n\n\n9\n10\n14.29\n14.29\n28.57\n\n\n\n10\n11\n15.71\n15.71\n44.29\n\n\n\n11\n19\n27.14\n27.14\n71.43\n\n\n\n12\n20\n28.57\n28.57\n100.00\n\n\n\ntotal N=70 · valid N=50 · x̄=4.33 · σ=1.58\n\n\n\n\nprueba1 %&gt;% # se especifica la base de datos\n  dplyr::select(asist_total_cat, nota)  %&gt;% # se seleccionan las variables\n  dplyr::group_by(Asistencia=sjlabelled::as_label(asist_total_cat)) %&gt;% # se agrupan por la variable categórica y se usan sus etiquetas con as_label\n  dplyr::summarise(Obs.=n(),Promedio=round(mean(nota),2),SD=round(sd(nota),2)) %&gt;% # se agregan las operaciones a presentar en la tabla\n  kable(, format = \"markdown\") # se genera la tabla\n\n\n\n\nAsistencia\nObs.\nPromedio\nSD\n\n\n\n\nMenos de 8\n6\n2.98\n1.63\n\n\n8\n4\n3.40\n0.20\n\n\n9\n10\n4.33\n1.46\n\n\n10\n11\n4.46\n1.56\n\n\n11\n19\n4.62\n1.44\n\n\n12\n20\n5.16\n0.98\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-asist_total_cat)\n\nConsistencia interna\n\npacman::p_load(ltm)\n\npreguntas &lt;- prueba1 %&gt;% dplyr::select(-nota)\ncronbach.alpha(na.omit(preguntas))\n\n\nCronbach's alpha for the 'na.omit(preguntas)' data-set\n\nItems: 8\nSample units: 70\nalpha: 0.753"
-  },
-  {
-    "objectID": "example/cace.html",
-    "href": "example/cace.html",
-    "title": "Complier average treatment effects",
-    "section": "",
-    "text": "Throughout this course, we’ve talked about the difference between the average treatment effect (ATE), or the average effect of a program for an entire population, and conditional average treatment effect (CATE), or the average effect of a program for some segment of the population. There are all sorts of CATEs: you can find the CATE for men vs. women, for people who are treated with the program (the average treatment on the treated, or ATT or TOT), for people who are not treated with the program (the average treatment on the untreated, or ATU), and so on.\nOne important type of CATE is the effect of a program on just those who comply with the program. We can call this the complier average treatment effect, but the acronym would be the same as conditional average treatment effect, so we’ll call it the complier average causal effect or CACE.\nThinking about compliance is important. You might randomly assign people to receive treatment or a program, but people might not do what you tell them. Additionally, people might do the program if assigned to do it, but they would have done it anyway. We can split the population into four types of people:\n\nCompliers: People who follow whatever their assignment is (if assigned to treatment, they do the program; if assigned to control, they don’t)\nAlways takers: People who will receive or seek out the program regardless of assignment (if assigned to treatment, they do the program; if assigned to control, they still do the program)\nNever takers: People who will not receive or seek out the program regardless of assignment (if assigned to treatment, they don’t do the program; if assigned to control, they also don’t do it)\nDefiers: People who will do the opposite of whatever their assignment is (if assigned to treatment, they don’t do the program; if assigned to control, they do the program)\n\nTo simplify things, evaluators and econometricians assume that defiers don’t exist based on the idea of monotonicity, which means that we can assume that the effect of being assigned to treatment only increases the likelihood of participating in the program (and doesn’t make it more likely).\nThe tricky part about trying to find who the compliers are in a sample is that we can’t know what people would have done in the absence of treatment. If we see that someone in the experiment was assigned to be in the treatment group and they then participated in the program, they could be a complier (since they did what they were assigned to do), or they could be an always taker (they did what they were assigned to do, but they would have done it anyway). Due to the fundamental problem of causal inference, we cannot know what each person would have done in a parallel world.\nWe can use data from a hypothetical program to see how these three types of compliers distort our outcomes, and more importantly, how we can disentangle compliers from their always- and never-taker counterparts.\nIf you want to follow along with this example, you can download these two datasets:\n\n bed_nets_time_machine.csv\n bed_nets_observed.csv"
-  },
-  {
-    "objectID": "example/cace.html#compliance-and-treatment-effects",
-    "href": "example/cace.html#compliance-and-treatment-effects",
-    "title": "Complier average treatment effects",
-    "section": "",
-    "text": "Throughout this course, we’ve talked about the difference between the average treatment effect (ATE), or the average effect of a program for an entire population, and conditional average treatment effect (CATE), or the average effect of a program for some segment of the population. There are all sorts of CATEs: you can find the CATE for men vs. women, for people who are treated with the program (the average treatment on the treated, or ATT or TOT), for people who are not treated with the program (the average treatment on the untreated, or ATU), and so on.\nOne important type of CATE is the effect of a program on just those who comply with the program. We can call this the complier average treatment effect, but the acronym would be the same as conditional average treatment effect, so we’ll call it the complier average causal effect or CACE.\nThinking about compliance is important. You might randomly assign people to receive treatment or a program, but people might not do what you tell them. Additionally, people might do the program if assigned to do it, but they would have done it anyway. We can split the population into four types of people:\n\nCompliers: People who follow whatever their assignment is (if assigned to treatment, they do the program; if assigned to control, they don’t)\nAlways takers: People who will receive or seek out the program regardless of assignment (if assigned to treatment, they do the program; if assigned to control, they still do the program)\nNever takers: People who will not receive or seek out the program regardless of assignment (if assigned to treatment, they don’t do the program; if assigned to control, they also don’t do it)\nDefiers: People who will do the opposite of whatever their assignment is (if assigned to treatment, they don’t do the program; if assigned to control, they do the program)\n\nTo simplify things, evaluators and econometricians assume that defiers don’t exist based on the idea of monotonicity, which means that we can assume that the effect of being assigned to treatment only increases the likelihood of participating in the program (and doesn’t make it more likely).\nThe tricky part about trying to find who the compliers are in a sample is that we can’t know what people would have done in the absence of treatment. If we see that someone in the experiment was assigned to be in the treatment group and they then participated in the program, they could be a complier (since they did what they were assigned to do), or they could be an always taker (they did what they were assigned to do, but they would have done it anyway). Due to the fundamental problem of causal inference, we cannot know what each person would have done in a parallel world.\nWe can use data from a hypothetical program to see how these three types of compliers distort our outcomes, and more importantly, how we can disentangle compliers from their always- and never-taker counterparts.\nIf you want to follow along with this example, you can download these two datasets:\n\n bed_nets_time_machine.csv\n bed_nets_observed.csv"
-  },
-  {
-    "objectID": "example/cace.html#finding-compliers-with-a-mind-reading-time-machine",
-    "href": "example/cace.html#finding-compliers-with-a-mind-reading-time-machine",
-    "title": "Complier average treatment effects",
-    "section": "Finding compliers with a mind-reading time machine",
-    "text": "Finding compliers with a mind-reading time machine\nFirst let’s load the data and reorder some of the categories:\n\n\nCode\nlibrary(tidyverse)  # ggplot(), %&gt;%, mutate(), and friends\nlibrary(broom)  # Convert models to data frames\nlibrary(estimatr)  # Run 2SLS models in one step with iv_robust()\n\nbed_nets &lt;- read_csv(\"data/bed_nets_observed.csv\") %&gt;%\n  # Make \"No bed net\" (control) come first\n  mutate(bed_net = fct_relevel(bed_net, \"No bed net\"))\n\nbed_nets_time_machine &lt;- read_csv(\"data/bed_nets_time_machine.csv\") %&gt;%\n  # Make \"No bed net\" come first and \"Complier\" come first\n  mutate(bed_net = fct_relevel(bed_net, \"No bed net\"),\n         status = fct_relevel(status, \"Complier\"))\n\n\nThis is what we would be able to see if we could read everyone’s minds. There are always takers who will use a bed net regardless of the program, and they’ll have higher health outcomes. However, those better outcomes are because of something endogenous—there’s something else that makes these people always pursue bed nets, and that’s likely related to health. We probably want to not consider them when looking for the program effect. There are never takers who won’t ever use a bed net, and they have worse health outcomes. Again, there’s endogeneity here—something is causing them to not use the bed nets, and it likely also causes their health level. We don’t want to look at them either.\nThe first group—the compliers—are the people we want to focus on. Here we see that the program had an effect when compared to a control group.\n\n\nCode\nset.seed(1234)  # Make the jittering the same every time\n\nggplot(bed_nets_time_machine, aes(y = health, x = treatment)) +\n  geom_point(aes(shape = bed_net, color = status),\n             position = position_jitter(height = NULL, width = 0.25)) +\n  facet_wrap(vars(status)) +\n  labs(color = \"Type of person\", shape = \"Compliance\",\n       x = NULL, y = \"Health status\") +\n  scale_color_viridis_d(option = \"plasma\", end = 0.85) +\n  theme_bw()"
-  },
-  {
-    "objectID": "example/cace.html#finding-compliers-in-actual-data",
-    "href": "example/cace.html#finding-compliers-in-actual-data",
-    "title": "Complier average treatment effects",
-    "section": "Finding compliers in actual data",
-    "text": "Finding compliers in actual data\nThis is what we actually see in the data, though. You can tell who some of the always takers are (those who used bed nets after being assigned to the control group) and who some of the never takers are (those who did not use a bed net after being assigned to the treatment group), but compliers are mixed up with the always and never takers. We have to somehow disentangle them!\n\n\nCode\nset.seed(1234)\nggplot(bed_nets_time_machine, aes(y = health, x = bed_net)) +\n  geom_point(aes(shape = bed_net, color = status),\n             position = position_jitter(height = NULL, width = 0.25)) +\n  facet_wrap(vars(treatment)) +\n  labs(color = \"Type of person\", shape = \"Compliance\",\n       x = NULL, y = \"Health status\") +\n  scale_color_viridis_d(option = \"plasma\", end = 0.85) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\nWe can do this by assuming the proportion of compliers, never takers, and always takers are equally spread across treatment and control (which we can assume through the magic of randomization). If that’s the case, we can calculate the intent to treat (ITT) effect, which is the CATE of being assigned treatment (or the effect of being assigned treatment on health status, regardless of actual compliance).\nThe ITT is actually composed of three different causal effects: the complier average causal effect (CACE), the always taker average causal effect (ATACE), and the never taker average causal effect (NTACE). In the formula below, \\(\\pi\\) stands for the proportion of people in each group. Formally, the ITT can be defined like this:\n\\[\n\\begin{aligned}\n\\text{ITT}\\ =\\ & \\color{#0D0887}{\\pi_\\text{compliers} \\times (\\text{T} - \\text{C})_\\text{compliers}} + \\\\\n&\\color{#B7318A}{\\pi_\\text{always takers} \\times (\\text{T} - \\text{C})_\\text{always takers}} + \\\\\n&\\color{#FEBA2C}{\\pi_\\text{never takers} \\times (\\text{T} - \\text{C})_\\text{never takers}}\n\\end{aligned}\n\\]\nWe can simplify this to this acronymized version:\n\\[\n\\text{ITT}\\ =\\ \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}} + \\color{#B7318A}{\\pi_\\text{A} \\text{ATACE}} + \\color{#FEBA2C}{\\pi_\\text{N} \\text{NTACE}}\n\\]\nThe number we care about the most here is the CACE, which is stuck in the middle of the equation. But we can rescue it with some fun logical and algebraic trickery!\nIf we assume that assignment to treatment doesn’t make someone more likely to be an always taker or a never taker, we can set the ATACE and NTACE to zero, leaving us with just three variables to worry about: ITT, \\(\\pi_\\text{c}\\), and CACE:\n\\[\n\\begin{aligned}\n\\text{ITT}\\ =\\ & \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}} + \\color{#B7318A}{\\pi_\\text{A} \\text{ATACE}} + \\color{#FEBA2C}{\\pi_\\text{N} \\text{NTACE}} \\\\[6pt]\n=\\ & \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}} + \\color{#B7318A}{\\pi_\\text{A} \\times 0} + \\color{#FEBA2C}{\\pi_\\text{N} \\times 0}\\\\[6pt]\n\\text{ITT}\\ =\\ & \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}}\n\\end{aligned}\n\\]\nWe can use algebra to rearrange this formula so that we’re left with an equation that starts with CACE (since that’s the value we care about):\n\\[\n\\text{CACE} = \\frac{\\text{ITT}}{\\pi_\\text{C}}\n\\]\nIf we can find the ITT and the proportion of compliers, we can find the complier average causal effect (CACE). Fortunately, both those pieces—ITT and \\(\\pi_\\text{C}\\)—are findable in the data we have!"
-  },
-  {
-    "objectID": "example/cace.html#finding-the-itt",
-    "href": "example/cace.html#finding-the-itt",
-    "title": "Complier average treatment effects",
-    "section": "Finding the ITT",
-    "text": "Finding the ITT\nThe ITT is easy to find with a simple OLS model:\n\n\nCode\nitt_model &lt;- lm(health ~ treatment, data = bed_nets)\n\ntidy(itt_model)\n## # A tibble: 2 × 5\n##   term               estimate std.error statistic  p.value\n##   &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n## 1 (Intercept)           40.9      0.444     92.1  0       \n## 2 treatmentTreatment     5.99     0.630      9.51 5.20e-21\n\nITT &lt;- tidy(itt_model) %&gt;%\n  filter(term == \"treatmentTreatment\") %&gt;%\n  pull(estimate)\n\n\nThe ITT here is ≈6—being assigned treatment increases average health status by 5.99 health points."
-  },
-  {
-    "objectID": "example/cace.html#finding-the-proportion-of-compliers",
-    "href": "example/cace.html#finding-the-proportion-of-compliers",
-    "title": "Complier average treatment effects",
-    "section": "Finding the proportion of compliers",
-    "text": "Finding the proportion of compliers\nThe proportion of compliers is a little trickier, but doable with some algebraic trickery. Recall from the graph above that the people who were in the treatment group and who complied are a combination of always takers and compliers. This means we can say:\n\\[\n\\begin{aligned}\n\\pi_\\text{A} + \\pi_\\text{C} =& \\text{% yes in treatment; or} \\\\\n\\pi_\\text{C} =& \\text{% yes in treatment} - \\pi_\\text{A}\n\\end{aligned}\n\\]\nWe actually know \\(\\pi_\\text{A}\\)—remember in the graph above that the people who were in the control group and who used bed nets are guaranteed to be always takers (none of them are compliers or never takers). If we assume that the proportion of always takers is the same in both treatment and control, we can use that percent here, giving us this final equation for \\(\\pi_\\text{C}\\):\n\\[\n\\begin{aligned}\n\\pi_\\text{C} =& \\text{% yes in treatment} - \\pi_\\text{A} \\\\\n=& \\text{% yes in treatment} - \\text{% yes in control}\n\\end{aligned}\n\\]\nSo, if we can find the percent of people assigned to treatment who used bed nets, find the percent of people assigned to control and used bed nets, and subtract the two percentages, we’ll have the proportion of compliers, or \\(\\pi_\\text{C}\\). We can do that with the data we have (61% - 19.5% = 41.5% compliers):\n\n\nCode\nbed_nets %&gt;%\n  group_by(treatment, bed_net) %&gt;%\n  summarize(n = n()) %&gt;%\n  mutate(prop = n / sum(n))\n## # A tibble: 4 × 4\n## # Groups:   treatment [2]\n##   treatment bed_net        n  prop\n##   &lt;chr&gt;     &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;\n## 1 Control   No bed net   808 0.805\n## 2 Control   Bed net      196 0.195\n## 3 Treatment No bed net   388 0.390\n## 4 Treatment Bed net      608 0.610\n\n# pi_c = prop yes in treatment - prop yes in control\npi_c &lt;- 0.6104418 - 0.1952191\n\n\nFinally, now that we know both the ITT and \\(\\pi_\\text{C}\\), we can find the CACE (or the LATE):\n\n\nCode\nCACE &lt;- ITT / pi_c\nCACE\n## [1] 14.43\n\n\nIt’s 14.4, which means that using bed nets increased health by 14 health points for compliers (which is a lot bigger than the 6 that we found before). We successfully filtered out the always takers and the never takers, and we have our complier-specific causal effect."
-  },
-  {
-    "objectID": "example/cace.html#finding-the-cacelate-with-iv2sls",
-    "href": "example/cace.html#finding-the-cacelate-with-iv2sls",
-    "title": "Complier average treatment effects",
-    "section": "Finding the CACE/LATE with IV/2SLS",
-    "text": "Finding the CACE/LATE with IV/2SLS\nDoing that is super tedious though! What if there was an easier way to find the effect of the bed net program for just the compliers? We can do this with IV/2SLS regression by using assignment to treatment as an instrument.\nAssignment to treatment works as an instrument because it’s (1) relevant, since being told to use bed nets is probably highly correlated with using bed nets, (2) exclusive, since the only way that being told to use bed nets can cause changes in health is through the actual use of the bed nets, and (3) exogenous, since being told to use bed nets probably isn’t related to other things that cause health.\nHere’s a 2SLS regression with assignment to treatment as the instrument:\n\n\nCode\nmodel_2sls &lt;- iv_robust(health ~ bed_net | treatment, data = bed_nets)\ntidy(model_2sls)\n##             term estimate std.error statistic   p.value conf.low conf.high   df outcome\n## 1    (Intercept)    38.12    0.5151     74.01 0.000e+00    37.11     39.13 1998  health\n## 2 bed_netBed net    14.43    1.2538     11.51 1.038e-29    11.97     16.89 1998  health\n\n\nThe coefficient for bed_net is identical to the CACE that we found manually! Instrumental variables are helpful for isolated program effects to only compliers when you’re dealing with noncompliance."
-  },
-  {
-    "objectID": "evaluations/plantilla_reporte/reporte.html",
-    "href": "evaluations/plantilla_reporte/reporte.html",
-    "title": "Título del trabajo grupal",
-    "section": "",
-    "text": "Definición de la problemática a abordar, su relevancia y principales conceptos.\nEn este apartado es importante considerar:\n\nRelevancia del tema de investigación.\nProblematización: señalar problema de investigación y principales antecedentes\nPrecisar los conceptos centrales a investigar: Ejemplo “vamos a analizar la participación informal, entendiendo por ello la frecuencia de participación en actividades como marchas, boycotts y en redes sociales” [cita que apoye la definición].\nMencionar el principal objetivo del trabajo y las hipótesis de investigación en el párrafo final de esta sección (ej: se espera que el nivel educacional sea mayor en zonas urbanas en relación a zonas rurales). Mencionar al menos tres hipótesis.\n\nEsta sección debe estar respaldada por al menos 5 referencias bibliográficas."
-  },
-  {
-    "objectID": "evaluations/plantilla_reporte/reporte.html#datos",
-    "href": "evaluations/plantilla_reporte/reporte.html#datos",
-    "title": "Título del trabajo grupal",
-    "section": "2.1 Datos",
-    "text": "2.1 Datos\nDescripción detallada de los datos a utilizar. Acá también se puede insertar el chunk para llamar los datos que se van a analizar:"
-  },
-  {
-    "objectID": "evaluations/plantilla_reporte/reporte.html#variables",
-    "href": "evaluations/plantilla_reporte/reporte.html#variables",
-    "title": "Título del trabajo grupal",
-    "section": "2.2 Variables",
-    "text": "2.2 Variables\nDescripción de cada una de las variables, su operacionalización y medición. Esta sección también incluye una tabla de descriptivos básicos.\n\n\n\n\n\n\nNota\n\n\n\nAtención sobre recodificación de variables\nEs importante que las variables sean recodificadas en el sentido del atributo que se está midiendo de menos a más, es decir, que el mayor valor exprese la mayor presencia del atributo.\n\nEjemplo 1: si lo que se está midiendo es apoyo al aborto libre en una escala donde 5 es totalmente en desacuerdo y 1 totalmente de acuerdo, se deben recodificar los valores para que un mayor puntaje exprese mayor apoyo al aborto libre. En concreto: 1=5, 2=4, 4=2, 5=1.\nEjemplo 2: variable dicotómica 0: si vota, 1: no vota, debe ser recodificada a 1: si vota, 0: no vota."
-  },
-  {
-    "objectID": "evaluations/plantilla_reporte/reporte.html#métodos",
-    "href": "evaluations/plantilla_reporte/reporte.html#métodos",
-    "title": "Título del trabajo grupal",
-    "section": "2.3 Métodos",
-    "text": "2.3 Métodos\nMencionar los métodos estadísticos a utilizar para el contraste de hipótesis y cálculo del tamaño de efecto."
-  },
-  {
-    "objectID": "evaluations/plantilla_reporte/reporte.html#análisis-descriptivo",
-    "href": "evaluations/plantilla_reporte/reporte.html#análisis-descriptivo",
-    "title": "Título del trabajo grupal",
-    "section": "3.1 Análisis descriptivo",
-    "text": "3.1 Análisis descriptivo\nTablas y/o gráficos comentados, univariados y bivariados según sea más pertinente. Para esto considere medidas de tendencia central, dispersión y frecuencias, siempre considerando el nivel de medición de sus variables. En los casos que sea atingente, incluya los intervalos de confianza al 95 %."
-  },
-  {
-    "objectID": "evaluations/plantilla_reporte/reporte.html#análisis-estadístico-bivariado",
-    "href": "evaluations/plantilla_reporte/reporte.html#análisis-estadístico-bivariado",
-    "title": "Título del trabajo grupal",
-    "section": "3.2 Análisis estadístico bivariado",
-    "text": "3.2 Análisis estadístico bivariado\nConsiderar la estimación de coeficientes de correlación y también medidas de asociación para variables categóricas. Esta parte del análisis se relaciona directamente con las hipótesis planteadas. Para esto realizar pruebas de hipótesis estadísticas, estadísticos de tamaño del efecto y tablas de contingencia / cruzadas, siempre considerando el nivel de medición de sus variables.\nAl final de esta sección también se realiza la discusión de resultados en relación a las hipótesis planteadas"
-  },
-  {
-    "objectID": "content/index.html",
-    "href": "content/index.html",
-    "title": "Clases",
-    "section": "",
-    "text": "En esta sección se encuentran disponibles los documentos de presentación que sirven de base a cada clase, en el menú de la izquierda Presentaciones. Los documentos son en formato html (no son ppt), producidos con Xaringan. Para verlos en pantalla completa presionar F sobre el documento, y para una vista general de todas las slides presionar O.\nTambién a la izquierda hay un link al Foro para hacer preguntas relacionadas con las clases.\nCada clase tiene como referencia lecturas que deben completarse antes de la sesión correspondiente.",
+    "text": "Foro para compartir dudas, aclaraciones, sugerencias sobre los contenidos del curso vistos en clases. Para poder participar en el foro hay que abir una cuenta en Github",
     "crumbs": [
       "Clases",
-      "Descripción"
+      "Foro Clases"
     ]
   },
   {
-    "objectID": "content/13-content.html",
-    "href": "content/13-content.html",
-    "title": "Documentos dinámicos",
+    "objectID": "content/12-content.html",
+    "href": "content/12-content.html",
+    "title": "Asociación con categóricas 2: Chi 2",
     "section": "",
-    "text": "Sesión del lunes, 11 de noviembre de 2024\n\n\n\n\n\nDocumento de presentación"
-  },
-  {
-    "objectID": "content/11-content.html",
-    "href": "content/11-content.html",
-    "title": "Asociación con categóricas 1",
-    "section": "",
-    "text": "Sesión del lunes, 29 de septiembre de 2025\n\n\n\n\n\nDocumento de presentación",
+    "text": "Sesión del domingo, 5 de octubre de 2025\n\n\n\n\n\nDocumento de presentación",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Bivariada 4"
+      "Bivariada 5"
     ]
   },
   {
-    "objectID": "content/09-content.html",
-    "href": "content/09-content.html",
-    "title": "Inferencia en correlación y magnitud del coeficiente",
+    "objectID": "content/10-content.html",
+    "href": "content/10-content.html",
+    "title": "Ordinales y matrices",
     "section": "",
-    "text": "Sesión del miércoles, 10 de septiembre de 2025\n\n\n\n\n\nDocumento de presentación",
+    "text": "Sesión del miércoles, 24 de septiembre de 2025\n\n\n\n\n\nDocumento de presentación",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Bivariada 2"
+      "Bivariada 3"
     ]
   },
   {
-    "objectID": "content/07-content.html",
-    "href": "content/07-content.html",
-    "title": "Ejercicio de repaso general Unidad 1",
+    "objectID": "content/08-content.html",
+    "href": "content/08-content.html",
+    "title": "Bivariada 1 - Asociación y covarianza",
     "section": "",
-    "text": "Sesión del lunes, 8 de septiembre de 2025",
+    "text": "Sesión del lunes, 8 de septiembre de 2025\n\n\n\n\n\nDocumento de presentación",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Ejercicio Inferencia"
+      "Bivariada 1"
     ]
   },
   {
-    "objectID": "content/07-content.html#a.-estimación-del-promedio-de-salarios-de-la-población",
-    "href": "content/07-content.html#a.-estimación-del-promedio-de-salarios-de-la-población",
-    "title": "Ejercicio de repaso general Unidad 1",
-    "section": "A. Estimación del promedio de salarios (de la población)",
-    "text": "A. Estimación del promedio de salarios (de la población)\n\nTengo que el promedio de salarios de la muestra es: 900.000\nPromedio de salarios de la población: \\(X\\)?\n\nNo podemos dar un valor certero para el promedio poblacional, pero si un rango probable de valores.\n\nTest de hipótesis a realizar\n¿Qué tipo de aproximación de test de hipótesis corresponde en este caso? Recordemos las dos aproximaciones principales para test de hipótesis: a) contraste con valor crítico, y b) generación de intervalo de confianza. En general se pueden aplicar siempre las dos, pero su pertinencia es distinta según lo que se esté estimando:\n\nen este caso (estimación del promedio) se podría realizar la alternativa de contraste con valor crítico, que nos permitiría rechazar (o no) la hipótesis nula de que el promedio es cero en la población.\nya que la alternativa anterior no es muy informativa en este caso, en la estimación puntual de parámetros (como el promedio) se prefiere utilizar un rango de probabilidad, expresado en un intervalo de confianza.\n\nPor lo tanto, en este caso lo que es más pertinente es la alternativa b: estimación de un intervalo de confianza\n\n\nConstrucción de intervalo y 5 pasos de la inferencia\nLos 5 pasos de la inferencia en esta caso son los siguientes:\n\n1. Formular hipótesis\nContrastamos la hipótesis nula (el promedio es igual a 0 en la población):\n\\[H_{0}: \\bar{X}_{salarios}=0\\]\nEn referencia a la siguiente hipótesis alternativa:\n\\[H_{a}: \\bar{X}_{salarios} \\neq 0\\]\n\n\n2.Obtener error estándar y estadístico de prueba empírico correspondiente (ej: Z o t)\nEl error estándar (SE, por Standard Error) del promedio es:\n\\[SE_{\\bar{X}}=\\frac{s\\ (desv.\\ estandar)}{\\sqrt{N} (tamaño\\ muestral)}\\]\nReemplazando:\n\\[SE_{\\bar{X}}=\\frac{300000}{\\sqrt{900}}=\\frac{300000}{30}=10000\\]\n\n\nCódigo\nerror_estandar &lt;- desviacion_estandar_salarios / sqrt(n)\nerror_estandar\n\n\n[1] 10000\n\n\n\n\n3. Establecer la probabilidad de error α y valor crítico (teórico) de la prueba correspondiente\nEsta informació fue proporcionada en el enunciado: \\(\\alpha=5%\\), valor crítico= 1,96\n\n\n4. Cálculo de intervalo de confianza\nRecordar fórmula del intervalo de 95% de confianza para el promedio:\n\\[\\begin{align*}\n\\bar{x} &\\pm Z_{\\alpha/2}*SE_{\\bar{x}} \\\\\\\\\n850000 &\\pm 1.96*10000 \\\\\\\\\n850000 &\\pm 19600 \\\\\\\\\nCI[830400&;869600]\n\\end{align*}\\]\nEn R:\n\n\nCódigo\n# Calcular el intervalo de confianza al 95%\nz_95 &lt;- 1.96  # Valor z para el 95% de confianza\nlimite_inferior &lt;- promedio_salarios - z_95 * error_estandar\nlimite_superior &lt;- promedio_salarios + z_95 * error_estandar\n\n# Mostrar los resultados\ncat(\"Intervalo de confianza al 95%: [\", round(limite_inferior, 2), \", \", round(limite_superior, 2), \"]\\n\")\n\n\nIntervalo de confianza al 95%: [ 830400 ,  869600 ]\n\n\n\n\n5. Interpretación\nUtilizando una muestra de 900 individuos, se estimó el promedio de ingresos en $850,000 con una desviación estándar de $300,000. El error estándar para esta estimación es $10,000, y el intervalo de confianza al 95%, calculado con estos parámetros, se extiende de $830,400 a $869,600. Este intervalo refleja que, con un 95% de confianza, se puede afirmar que el promedio verdadero de ingresos en la población se encuentra dentro de este rango, asumiendo una distribución normal de los ingresos.",
-    "crumbs": [
-      "Clases",
-      "Presentaciones",
-      "Ejercicio Inferencia"
-    ]
-  },
-  {
-    "objectID": "content/07-content.html#estimación-de-diferencia-de-medias",
-    "href": "content/07-content.html#estimación-de-diferencia-de-medias",
-    "title": "Ejercicio de repaso general Unidad 1",
-    "section": "2. Estimación de diferencia de medias",
-    "text": "2. Estimación de diferencia de medias\nPara este ejercicio consideramos la siguiente información proporcionada arriba:\n\nSalario promedio técnico-profesional: 1.200.000, desviación estandar 180.000\nSalario promedio universitario: 1.500.000, desviación estándar 270.000\nvalor crítico t para diferencia de medias con un \\(\\alpha\\) de 5% (0,05) y grados de libertad 898 (N-2)= 1,96\nerror estándar de la diferencia de medias= 15000\n\nCon esta información ya podemos calcular la diferencia de promedios de la muestra:\n\\(\\bar{X}_{salario-universitario}-\\bar{X}_{salario-técnico}=1500000-1200000=300000\\)\nLa pregunta ahora es: ¿existe esta diferencia de promedios en la población?\n\nTest de hipótesis a realizar\nPara el caso anterior de la estimación del promedio hablamos de dos aproximaciones: a) contraste con valor crítico, y b) intervalo de confianza. En este caso (estimación de diferencias de promedio) tradicionalmente se utiliza el contraste con valor crítico, ya que lo central es poder establecer si existen o no diferencias en la población. Complementariamente, también se puede entregar información del intervalo de confianza.\nPor lo tanto, en este caso lo que es más pertinente es la alternativa a: contraste con valor crítico, pero también es recomendable agregar la información del intervalo de confianza.\n\n\nContraste con valor crítico y 5 pasos de la inferencia\nLos 5 pasos de la inferencia en esta caso son los siguientes:\n\n1. Formular hipótesis\nContrastamos la hipótesis nula (no hay diferencias de promedios entre grupos):\n\\[H_{0}: \\bar{X}_{salariouniversidad} -  \\bar{X}_{salarioinstituto}= 0\\]\nEn referencia a la siguiente hipótesis alternativa:\n\\[H_{a}: \\bar{X}_{salariouniversidad} -  \\bar{X}_{salarioinstituto} \\neq 0\\]\n\n\n2. Obtener error estándar y estadístico de prueba empírico correspondiente (ej: Z o t)\nEl error estándar de la diferencias de promedios es:\n\\[SE=\\sqrt{\\frac{\\sigma_{diff}}{n_a}+\\frac{\\sigma_{diff}}{n_b}}\\]\nLa información sobre el resultado de este cálculo se nos entrega inicialmente y es igual a 15000\nCon esto podemos calcular el valor del t empírico:\n\\(t=\\frac{diferenciamedias}{se_{diferenciamedias}} \\frac{(\\bar{x}_1-\\bar{x}_2)}{se_{(\\bar{x}_1-\\bar{x}_2)}}\\)\nCon nuestros datos:\n\\(t=\\frac{300000}{15000}=20\\)\n\n\n3. Establecer la probabilidad de error α y valor crítico (teórico) de la prueba correspondiente\n\nProporcionado en el enunciado\n\n\n\n4. Contraste valores empírico/crítico (e intervalo de confianza)\nt empírico= 20 &gt; t critico=1,96\nIntervalo al 95% de confianza:\n\\[\\begin{align*}\n\\bar{x}_1-\\bar{x}_2 &\\pm t_{\\alpha/2}*SE_{\\bar{x_1}-\\bar{x_2}} \\\\\\\\\n300000 &\\pm 1.96*15000 \\\\\\\\\n300000 &\\pm 29400 \\\\\\\\\nCI[270600&\\ ;329400]\n\\end{align*}\\]\n\n\n5. Interpretación\nSe llevó a cabo una prueba t para evaluar las diferencias salariales entre graduados de institutos técnicos-profesionales y universidades, utilizando un tamaño de muestra de 900 para cada grupo. La diferencia de medias observada fue de $750,000, con un error estándar fijo de $15,000 para esta diferencia. El análisis resultó en un valor t de 50.00, indicando una diferencia estadísticamente significativa entre los dos grupos (p &lt; .01). Este valor t refleja que los graduados universitarios tienen un ingreso promedio significativamente mayor en comparación con los graduados de institutos técnicos-profesionales. Estos resultados sugieren una marcada disparidad salarial en función del nivel educativo alcanzado, subrayando la importancia de las decisiones educativas en las trayectorias de ingresos de los individuos.",
-    "crumbs": [
-      "Clases",
-      "Presentaciones",
-      "Ejercicio Inferencia"
-    ]
-  },
-  {
-    "objectID": "content/05-content.html",
-    "href": "content/05-content.html",
-    "title": "Inferencia 4 - Test de hipótesis",
+    "objectID": "content/06-content.html",
+    "href": "content/06-content.html",
+    "title": "Inferencia 5 - Prueba t + hipótesis direccionales",
     "section": "",
-    "text": "Sesión del lunes, 18 de agosto de 2025\n\n\n\n\n\nDocumento de presentación\n\n\n\n\nLink al Foro de Clases",
+    "text": "Sesión del lunes, 25 de agosto de 2025\n\n\n\n\n\nDocumento de presentación",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Inferencia 4"
+      "Inferencia 5"
     ]
   },
   {
-    "objectID": "content/03-content.html",
-    "href": "content/03-content.html",
-    "title": "Inferencia 2: Curva normal y error estándar",
+    "objectID": "content/04-content.html",
+    "href": "content/04-content.html",
+    "title": "Inferencia 3 - Intervalos de confianza",
     "section": "",
-    "text": "Sesión del lunes, 11 de agosto de 2025\n\n\n\n\n\nDocumento de presentación\n\n\n\n\nLink al Foro de Clases",
+    "text": "Sesión del martes, 20 de agosto de 2024\n\n\n\n\n\nDocumento de presentación\n\n\n\n\nLink al Foro de Clases",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Inferencia 2"
+      "Inferencia 3"
     ]
   },
   {
-    "objectID": "content/01-content.html",
-    "href": "content/01-content.html",
-    "title": "Presentación",
+    "objectID": "content/02-content.html",
+    "href": "content/02-content.html",
+    "title": "Inferencia 1: Datos, probabilidad y distribuciones muestrales",
     "section": "",
-    "text": "Sesión del lunes, 4 de agosto de 2025\n\n\n\n\n\nDocumento de presentación\n\n\n\n\nForo\nEn caso de preguntas sobre las clases hacerlas en Foro Clases",
+    "text": "Sesión del miércoles, 6 de agosto de 2025\n\n\n\n\n\nDocumento de presentación\n\n\n\n\nLink al Foro de Clases",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Introducción"
+      "Inferencia 1"
+    ]
+  },
+  {
+    "objectID": "assignment/resumen-asociacion.html",
+    "href": "assignment/resumen-asociacion.html",
+    "title": "Práctico resumen: Asociación categóricas, matrices de correlación y chi-cuadrado",
+    "section": "",
+    "text": "Sesión del lunes, 20 de octubre de 2025",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "Resumen asociación"
+    ]
+  },
+  {
+    "objectID": "assignment/resumen-asociacion.html#correlación-para-variables-ordinales",
+    "href": "assignment/resumen-asociacion.html#correlación-para-variables-ordinales",
+    "title": "Práctico resumen: Asociación categóricas, matrices de correlación y chi-cuadrado",
+    "section": "3.1 Correlación para variables ordinales",
+    "text": "3.1 Correlación para variables ordinales\n\n3.1.1 Coeficiente de correlación de Spearman\nEn R calcularlo es sencillo, pero debemos tener en cuenta que las variables que relacionemos tengan un orden de rango similar: por ejemplo, que el valor más bajo sea el rango más bajo y que el valor más alto sea el rango más alto.\nObservemos las frecuencias de las variables ideal (Estebarrio es ideal para mi) e integracion (Me siento integrado en este barrio)\n\nsjmisc::frq(proc_data$ideal)\n\nEste barrio es ideal para mi (x) &lt;numeric&gt; \n# total N=2927 valid N=2926 mean=2.62 sd=1.02\n\nValue |                          Label |    N | Raw % | Valid % | Cum. %\n------------------------------------------------------------------------\n    0 |       Totalmente en desacuerdo |  114 |  3.89 |    3.90 |   3.90\n    1 |                  En desacuerdo |  413 | 14.11 |   14.11 |  18.01\n    2 | Ni de acuerdo ni en desacuerdo |  379 | 12.95 |   12.95 |  30.96\n    3 |                     De acuerdo | 1599 | 54.63 |   54.65 |  85.61\n    4 |          Totalmente de acuerdo |  421 | 14.38 |   14.39 | 100.00\n &lt;NA&gt; |                           &lt;NA&gt; |    1 |  0.03 |    &lt;NA&gt; |   &lt;NA&gt;\n\nsjmisc::frq(proc_data$integracion)\n\nMe siento integrado en este barrio (x) &lt;numeric&gt; \n# total N=2927 valid N=2923 mean=2.57 sd=1.00\n\nValue |                          Label |    N | Raw % | Valid % | Cum. %\n------------------------------------------------------------------------\n    0 |       Totalmente en desacuerdo |  109 |  3.72 |    3.73 |   3.73\n    1 |                  En desacuerdo |  436 | 14.90 |   14.92 |  18.65\n    2 | Ni de acuerdo ni en desacuerdo |  408 | 13.94 |   13.96 |  32.60\n    3 |                     De acuerdo | 1633 | 55.79 |   55.87 |  88.47\n    4 |          Totalmente de acuerdo |  337 | 11.51 |   11.53 | 100.00\n &lt;NA&gt; |                           &lt;NA&gt; |    4 |  0.14 |    &lt;NA&gt; |   &lt;NA&gt;\n\n\nAhora, calculemos el coeficiente de correlación de Spearman con cor.test.\n\ncor.test(proc_data$ideal, proc_data$integracion, method = \"spearman\") #especificamos metodo spearman\n\n\n    Spearman's rank correlation rho\n\ndata:  proc_data$ideal and proc_data$integracion\nS = 1652768221, p-value &lt; 0.00000000000000022\nalternative hypothesis: true rho is not equal to 0\nsample estimates:\n      rho \n0.6025133 \n\n\nAhora conocemos el valor del coeficiente de Spearman mediante al argumento rho, que es igual a 0.6, siendo positivo y gramde según los criterios de Cohen (1988).\n\n\n3.1.2 Coeficiente de correlación Tau de Kendall\nRecomendado cuando hay un set de datos pequeños y/o cuando hay mucha repetición de observaciones en el mismo ranking. Se basa en una comparación de pares de observaciones concordantes y discordantes.\nAhora, calculemos el coeficiente de correlación Tau de Kendall con cor.test.\n\ncor.test(proc_data$ideal, proc_data$integracion, method = \"kendall\") #especificamos metodo kendall\n\n\n    Kendall's rank correlation tau\n\ndata:  proc_data$ideal and proc_data$integracion\nz = 34.923, p-value &lt; 0.00000000000000022\nalternative hypothesis: true tau is not equal to 0\nsample estimates:\n      tau \n0.5569015 \n\n\nEl valor del coeficiente de Kendall mediante al argumento tau, es igual a 0.56, siendo positivo y grande según los criterios de Cohen (1988).",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "Resumen asociación"
+    ]
+  },
+  {
+    "objectID": "assignment/resumen-asociacion.html#matrices-de-correlación",
+    "href": "assignment/resumen-asociacion.html#matrices-de-correlación",
+    "title": "Práctico resumen: Asociación categóricas, matrices de correlación y chi-cuadrado",
+    "section": "3.3 Matrices de correlación",
+    "text": "3.3 Matrices de correlación\nEn su forma simple en R se aplica la función cor a la base de datos, y la guardamos en un objeto que le damos el nombre M para futuras operaciones:\n\nM &lt;- cor(proc_data, use = \"complete.obs\") \nM\n\n                     ideal integracion identificacion pertenencia     m0_sexo\nideal           1.00000000  0.60986590     0.58426016  0.61435602 -0.05131174\nintegracion     0.60986590  1.00000000     0.65241440  0.63128010 -0.03532181\nidentificacion  0.58426016  0.65241440     1.00000000  0.68974639 -0.01999725\npertenencia     0.61435602  0.63128010     0.68974639  1.00000000 -0.02160000\nm0_sexo        -0.05131174 -0.03532181    -0.01999725 -0.02160000  1.00000000\nm0_edad         0.12402201  0.12674576     0.17855004  0.20642161  0.06180434\neducacion       0.02719214 -0.03236403    -0.07009810 -0.05085423 -0.04709029\n                   m0_edad   educacion\nideal           0.12402201  0.02719214\nintegracion     0.12674576 -0.03236403\nidentificacion  0.17855004 -0.07009810\npertenencia     0.20642161 -0.05085423\nm0_sexo         0.06180434 -0.04709029\nm0_edad         1.00000000 -0.27056315\neducacion      -0.27056315  1.00000000\n\n\nEste es el reporte simple, pero no muy amigable a la vista. Para una versión más reportable, utilizamos la función tab_corr.\n\nsjPlot::tab_corr(proc_data, \n                 triangle = \"lower\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \nEste barrio es ideal para mi\nMe siento integrado en este barrio\nMe identifico con la gente de este\nbarrio\nMe siento parte de este barrio\nSexo del entrevistado\nEdad del entrevistado\neducacion\n\n\nEste barrio es ideal para mi\n \n \n \n \n \n \n \n\n\nMe siento integrado en este barrio\n0.610***\n \n \n \n \n \n \n\n\nMe identifico con la gente de este\nbarrio\n0.584***\n0.652***\n \n \n \n \n \n\n\nMe siento parte de este barrio\n0.614***\n0.631***\n0.690***\n \n \n \n \n\n\nSexo del entrevistado\n-0.051**\n-0.035\n-0.020\n-0.022\n \n \n \n\n\nEdad del entrevistado\n0.124***\n0.127***\n0.179***\n0.206***\n0.062***\n \n \n\n\neducacion\n0.027\n-0.032\n-0.070***\n-0.051**\n-0.047*\n-0.271***\n \n\n\nComputed correlation used pearson-method with listwise-deletion.\n\n\n\n\n\nLa distinción entre listwise y pairwise es relevante al momento de estimar matrices de correlación, donde esta decisión debe estar claramente explicitada y fundamentada. En el ejemplo de tabla anterior usamos listwise que es el argumento por defecto (y nos lo indica al final de la tabla).\nVeamos cómo hacerlo con pairwise:\n\nsjPlot::tab_corr(proc_data, \n                 na.deletion = \"pairwise\", # espeficicamos tratamiento NA\n                 triangle = \"lower\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \nEste barrio es ideal para mi\nMe siento integrado en este barrio\nMe identifico con la gente de este\nbarrio\nMe siento parte de este barrio\nSexo del entrevistado\nEdad del entrevistado\neducacion\n\n\nEste barrio es ideal para mi\n \n \n \n \n \n \n \n\n\nMe siento integrado en este barrio\n0.610***\n \n \n \n \n \n \n\n\nMe identifico con la gente de este\nbarrio\n0.584***\n0.653***\n \n \n \n \n \n\n\nMe siento parte de este barrio\n0.614***\n0.632***\n0.690***\n \n \n \n \n\n\nSexo del entrevistado\n-0.052**\n-0.036\n-0.021\n-0.022\n \n \n \n\n\nEdad del entrevistado\n0.124***\n0.126***\n0.178***\n0.206***\n0.062***\n \n \n\n\neducacion\n0.028\n-0.032\n-0.069***\n-0.051**\n-0.047*\n-0.272***\n \n\n\nComputed correlation used pearson-method with pairwise-deletion.\n\n\n\n\n\nOtra manera de presentar matrices de correlación es mediante gráficos. Veamos un ejemplo con la función corrplot de la librería corrplot sobre nuestra matriz M ya creada.\n\ndiag(M) &lt;- NA\ncorrplot::corrplot(M,\n                   method = \"color\",\n                   addCoef.col = \"black\",\n                   type = \"upper\",\n                   tl.col = \"black\",\n                   col = colorRampPalette(c(\"#E16462\", \"white\", \"#0D0887\"))(12),\n                   bg = \"white\",\n                   na.label = \"-\")",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "Resumen asociación"
+    ]
+  },
+  {
+    "objectID": "assignment/resumen-asociacion.html#baterías-e-índices",
+    "href": "assignment/resumen-asociacion.html#baterías-e-índices",
+    "title": "Práctico resumen: Asociación categóricas, matrices de correlación y chi-cuadrado",
+    "section": "3.4 Baterías e índices",
+    "text": "3.4 Baterías e índices\nEn la literatura sobre cohesión barrial se suele utilizar un índice sumativo o promedio entre los distintos indicadores sobre cohesión barrial: ideal,integracion,identificacion,pertenencia.\n\nM_cohesion &lt;- proc_data %&gt;% \n  dplyr::select(ideal, integracion, identificacion, pertenencia)\n\nsjPlot::tab_corr(M_cohesion, \n                 na.deletion = \"listwise\", # espeficicamos tratamiento NA\n                 triangle = \"lower\")\n\n\n\n\n\n\n\n\n\n\n\n \nEste barrio es ideal para mi\nMe siento integrado en este barrio\nMe identifico con la gente de este\nbarrio\nMe siento parte de este barrio\n\n\nEste barrio es ideal para mi\n \n \n \n \n\n\nMe siento integrado en este barrio\n0.610***\n \n \n \n\n\nMe identifico con la gente de este\nbarrio\n0.584***\n0.653***\n \n \n\n\nMe siento parte de este barrio\n0.614***\n0.632***\n0.690***\n \n\n\nComputed correlation used pearson-method with listwise-deletion.\n\n\n\n\n\nLos ítems se correlacionan de manera positiva y con tamaños de efecto moderados y altos para las ciencias sociales. Con ello, podemos pasar a evaluar sus relaciones tienen consistencia interna.\n\nalpha_psci &lt;- psych::alpha(M_cohesion)\nalpha_psci$total$raw_alpha\n\n[1] 0.8720242\n\n\nDe acuerdo con este resultado, el alpha de Cronbach reflejado en el raw_alpha del output es superior al estandar de 0.6 en ciencias sociales, por lo que se sostiene su consistencia.\nAhora, generemos el índice cohesion\n\nproc_data &lt;- cbind(proc_data, \"cohesion\" = rowMeans(proc_data %&gt;% select(ideal, integracion, identificacion, pertenencia), na.rm=TRUE))\n\nproc_data &lt;- proc_data %&gt;%\n  mutate(\n    cohesion_dic = case_when(\n      cohesion &gt;= mean(cohesion, na.rm = TRUE) ~ 1,\n      cohesion &lt;  mean(cohesion, na.rm = TRUE) ~ 0,\n      TRUE ~ NA_real_\n    )\n  )\n\nproc_data %&gt;% select(cohesion, cohesion_dic) %&gt;%\n  sjmisc::descr(, show = c(\"range\", \"mean\", \"sd\", \"NA.prc\", \"n\")) %&gt;%\n  kable(.,\"markdown\")\n\n\n\n\nvar\nn\nNA.prc\nmean\nsd\nrange\n\n\n\n\ncohesion\n2927\n0\n2.5829917\n0.8491213\n4 (0-4)\n\n\ncohesion_dic\n2927\n0\n0.6026648\n0.4894300\n1 (0-1)\n\n\n\n\n\n\n3.5 Correlación punto biserial\nLa correlación punto biserial se utiliza para calcular la correlación entre una variable categórica dicotómica y una variable continua.\nVeamos la frecuencia de sexo y la media de ingresos y1.\n\nsjmisc::frq(proc_data$m0_sexo)\n\nSexo del entrevistado (x) &lt;numeric&gt; \n# total N=2927 valid N=2927 mean=1.60 sd=0.49\n\nValue |  Label |    N | Raw % | Valid % | Cum. %\n------------------------------------------------\n    1 | Hombre | 1163 | 39.73 |   39.73 |  39.73\n    2 |  Mujer | 1764 | 60.27 |   60.27 | 100.00\n &lt;NA&gt; |   &lt;NA&gt; |    0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;\n\nmean(proc_data$cohesion, na.rm = T)\n\n[1] 2.582992\n\n\nObtengamos la correlación punto biserial entre sexo e ingresos.\n\ncor.test(proc_data$m0_sexo, proc_data$cohesion)\n\n\n    Pearson's product-moment correlation\n\ndata:  proc_data$m0_sexo and proc_data$cohesion\nt = -2.1022, df = 2925, p-value = 0.03562\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n -0.074965499 -0.002614513\nsample estimates:\n        cor \n-0.03884091 \n\n\n\n\n3.6 Correlación tetracorica\nLa correlación tetracórica se utiliza para calcular la correlación entre dos variables binarias categóricas, es decir, variables nominales dicómoticas (solo dos posibles valores).\nObtengamos la correlación tetrácorica entre sexo y educacion.\n\nmatriz &lt;- proc_data %&gt;% select(m0_sexo, educacion) # creamos matriz con var de interes\n\npsych::tetrachoric(matriz, na.rm = T)\n\nCall: psych::tetrachoric(x = matriz, na.rm = T)\ntetrachoric correlation \n          m0_sx edccn\nm0_sexo    1.00      \neducacion -0.08  1.00\n\n with tau of \n  m0_sexo educacion \n    -0.26      0.39",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "Resumen asociación"
+    ]
+  },
+  {
+    "objectID": "assignment/resumen-asociacion.html#tablas-de-contingencia",
+    "href": "assignment/resumen-asociacion.html#tablas-de-contingencia",
+    "title": "Práctico resumen: Asociación categóricas, matrices de correlación y chi-cuadrado",
+    "section": "4.1. Tablas de contingencia",
+    "text": "4.1. Tablas de contingencia\n\nsjPlot::sjt.xtab(var.row = proc_data$m0_sexo, \n                 var.col = proc_data$educacion, \n                 show.summary = F, \n                 emph.total = T, \n                 show.row.prc = T, # porcentaje fila\n                 show.col.prc = T # porcentaje columna\n                 )\n\n\n\n\n\n\n\n\n\n\nSexo del\nentrevistado\neducacion\nTotal\n\n\n1\n2\n\n\nHombre\n726\n62.4 %\n38.1 %\n437\n37.6 %\n42.9 %\n1163\n100 %\n39.8 %\n\n\nMujer\n1181\n67 %\n61.9 %\n581\n33 %\n57.1 %\n1762\n100 %\n60.2 %\n\n\nTotal\n1907\n65.2 %\n100 %\n1018\n34.8 %\n100 %\n2925\n100 %\n100 %",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "Resumen asociación"
+    ]
+  },
+  {
+    "objectID": "assignment/resumen-asociacion.html#prueba-de-chi-cuadrado",
+    "href": "assignment/resumen-asociacion.html#prueba-de-chi-cuadrado",
+    "title": "Práctico resumen: Asociación categóricas, matrices de correlación y chi-cuadrado",
+    "section": "4.2 Prueba de Chi-cuadrado",
+    "text": "4.2 Prueba de Chi-cuadrado\nEn R, utilizamos la función chisq.test():\n\nchi_results &lt;- chisq.test(table(proc_data$m0_sexo, proc_data$educacion))\n\nchi_results\n\n\n    Pearson's Chi-squared test with Yates' continuity correction\n\ndata:  table(proc_data$m0_sexo, proc_data$educacion)\nX-squared = 6.3358, df = 1, p-value = 0.01183\n\n\nObtuvimos nuestro resultado, pero no es muy amigable a la vista. Generemos una tabla de calidad para que sea reportable.\n\nstats.table &lt;- tidy(chi_results, conf_int = T)\nnice_table(stats.table)\n\n\n\nTabla 1\n\n\n\nstatisticpparameterMethod6.34.012*1Pearson's Chi-squared test with Yates' continuity correction",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "Resumen asociación"
     ]
   },
   {
@@ -937,6 +936,18 @@
     ]
   },
   {
+    "objectID": "assignment/05-practico.html#video-de-la-sesión",
+    "href": "assignment/05-practico.html#video-de-la-sesión",
+    "title": "Práctico 5: Asociación entre categóricas",
+    "section": "Video de la sesión",
+    "text": "Video de la sesión\n\n\nAcá link directo a youtube.",
+    "crumbs": [
+      "Prácticos",
+      "Guías",
+      "5: Asociación entre categóricas"
+    ]
+  },
+  {
     "objectID": "assignment/07-practico.html",
     "href": "assignment/07-practico.html",
     "title": "Práctico 7: Gráficos bivariados en reportes dinámicos",
@@ -991,192 +1002,293 @@
     ]
   },
   {
-    "objectID": "content/02-content.html",
-    "href": "content/02-content.html",
-    "title": "Inferencia 1: Datos, probabilidad y distribuciones muestrales",
+    "objectID": "content/01-content.html",
+    "href": "content/01-content.html",
+    "title": "Presentación",
     "section": "",
-    "text": "Sesión del miércoles, 6 de agosto de 2025\n\n\n\n\n\nDocumento de presentación\n\n\n\n\nLink al Foro de Clases",
+    "text": "Sesión del lunes, 4 de agosto de 2025\n\n\n\n\n\nDocumento de presentación\n\n\n\n\nForo\nEn caso de preguntas sobre las clases hacerlas en Foro Clases",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Inferencia 1"
+      "Introducción"
     ]
   },
   {
-    "objectID": "content/04-content.html",
-    "href": "content/04-content.html",
-    "title": "Inferencia 3 - Intervalos de confianza",
+    "objectID": "content/03-content.html",
+    "href": "content/03-content.html",
+    "title": "Inferencia 2: Curva normal y error estándar",
     "section": "",
-    "text": "Sesión del martes, 20 de agosto de 2024\n\n\n\n\n\nDocumento de presentación\n\n\n\n\nLink al Foro de Clases",
+    "text": "Sesión del lunes, 11 de agosto de 2025\n\n\n\n\n\nDocumento de presentación\n\n\n\n\nLink al Foro de Clases",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Inferencia 3"
+      "Inferencia 2"
     ]
   },
   {
-    "objectID": "content/06-content.html",
-    "href": "content/06-content.html",
-    "title": "Inferencia 5 - Prueba t + hipótesis direccionales",
+    "objectID": "content/05-content.html",
+    "href": "content/05-content.html",
+    "title": "Inferencia 4 - Test de hipótesis",
     "section": "",
-    "text": "Sesión del lunes, 25 de agosto de 2025\n\n\n\n\n\nDocumento de presentación",
+    "text": "Sesión del lunes, 18 de agosto de 2025\n\n\n\n\n\nDocumento de presentación\n\n\n\n\nLink al Foro de Clases",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Inferencia 5"
+      "Inferencia 4"
     ]
   },
   {
-    "objectID": "content/08-content.html",
-    "href": "content/08-content.html",
-    "title": "Bivariada 1 - Asociación y covarianza",
+    "objectID": "content/07-content.html",
+    "href": "content/07-content.html",
+    "title": "Ejercicio de repaso general Unidad 1",
     "section": "",
-    "text": "Sesión del lunes, 8 de septiembre de 2025\n\n\n\n\n\nDocumento de presentación",
+    "text": "Sesión del lunes, 8 de septiembre de 2025",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Bivariada 1"
+      "Ejercicio Inferencia"
     ]
   },
   {
-    "objectID": "content/10-content.html",
-    "href": "content/10-content.html",
-    "title": "Ordinales y matrices",
-    "section": "",
-    "text": "Sesión del miércoles, 24 de septiembre de 2025\n\n\n\n\n\nDocumento de presentación",
+    "objectID": "content/07-content.html#a.-estimación-del-promedio-de-salarios-de-la-población",
+    "href": "content/07-content.html#a.-estimación-del-promedio-de-salarios-de-la-población",
+    "title": "Ejercicio de repaso general Unidad 1",
+    "section": "A. Estimación del promedio de salarios (de la población)",
+    "text": "A. Estimación del promedio de salarios (de la población)\n\nTengo que el promedio de salarios de la muestra es: 900.000\nPromedio de salarios de la población: \\(X\\)?\n\nNo podemos dar un valor certero para el promedio poblacional, pero si un rango probable de valores.\n\nTest de hipótesis a realizar\n¿Qué tipo de aproximación de test de hipótesis corresponde en este caso? Recordemos las dos aproximaciones principales para test de hipótesis: a) contraste con valor crítico, y b) generación de intervalo de confianza. En general se pueden aplicar siempre las dos, pero su pertinencia es distinta según lo que se esté estimando:\n\nen este caso (estimación del promedio) se podría realizar la alternativa de contraste con valor crítico, que nos permitiría rechazar (o no) la hipótesis nula de que el promedio es cero en la población.\nya que la alternativa anterior no es muy informativa en este caso, en la estimación puntual de parámetros (como el promedio) se prefiere utilizar un rango de probabilidad, expresado en un intervalo de confianza.\n\nPor lo tanto, en este caso lo que es más pertinente es la alternativa b: estimación de un intervalo de confianza\n\n\nConstrucción de intervalo y 5 pasos de la inferencia\nLos 5 pasos de la inferencia en esta caso son los siguientes:\n\n1. Formular hipótesis\nContrastamos la hipótesis nula (el promedio es igual a 0 en la población):\n\\[H_{0}: \\bar{X}_{salarios}=0\\]\nEn referencia a la siguiente hipótesis alternativa:\n\\[H_{a}: \\bar{X}_{salarios} \\neq 0\\]\n\n\n2.Obtener error estándar y estadístico de prueba empírico correspondiente (ej: Z o t)\nEl error estándar (SE, por Standard Error) del promedio es:\n\\[SE_{\\bar{X}}=\\frac{s\\ (desv.\\ estandar)}{\\sqrt{N} (tamaño\\ muestral)}\\]\nReemplazando:\n\\[SE_{\\bar{X}}=\\frac{300000}{\\sqrt{900}}=\\frac{300000}{30}=10000\\]\n\n\nCódigo\nerror_estandar &lt;- desviacion_estandar_salarios / sqrt(n)\nerror_estandar\n\n\n[1] 10000\n\n\n\n\n3. Establecer la probabilidad de error α y valor crítico (teórico) de la prueba correspondiente\nEsta informació fue proporcionada en el enunciado: \\(\\alpha=5%\\), valor crítico= 1,96\n\n\n4. Cálculo de intervalo de confianza\nRecordar fórmula del intervalo de 95% de confianza para el promedio:\n\\[\\begin{align*}\n\\bar{x} &\\pm Z_{\\alpha/2}*SE_{\\bar{x}} \\\\\\\\\n850000 &\\pm 1.96*10000 \\\\\\\\\n850000 &\\pm 19600 \\\\\\\\\nCI[830400&;869600]\n\\end{align*}\\]\nEn R:\n\n\nCódigo\n# Calcular el intervalo de confianza al 95%\nz_95 &lt;- 1.96  # Valor z para el 95% de confianza\nlimite_inferior &lt;- promedio_salarios - z_95 * error_estandar\nlimite_superior &lt;- promedio_salarios + z_95 * error_estandar\n\n# Mostrar los resultados\ncat(\"Intervalo de confianza al 95%: [\", round(limite_inferior, 2), \", \", round(limite_superior, 2), \"]\\n\")\n\n\nIntervalo de confianza al 95%: [ 830400 ,  869600 ]\n\n\n\n\n5. Interpretación\nUtilizando una muestra de 900 individuos, se estimó el promedio de ingresos en $850,000 con una desviación estándar de $300,000. El error estándar para esta estimación es $10,000, y el intervalo de confianza al 95%, calculado con estos parámetros, se extiende de $830,400 a $869,600. Este intervalo refleja que, con un 95% de confianza, se puede afirmar que el promedio verdadero de ingresos en la población se encuentra dentro de este rango, asumiendo una distribución normal de los ingresos.",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Bivariada 3"
+      "Ejercicio Inferencia"
     ]
   },
   {
-    "objectID": "content/12-content.html",
-    "href": "content/12-content.html",
-    "title": "Asociación con categóricas 2: Chi 2",
-    "section": "",
-    "text": "Sesión del domingo, 5 de octubre de 2025\n\n\n\n\n\nDocumento de presentación",
+    "objectID": "content/07-content.html#estimación-de-diferencia-de-medias",
+    "href": "content/07-content.html#estimación-de-diferencia-de-medias",
+    "title": "Ejercicio de repaso general Unidad 1",
+    "section": "2. Estimación de diferencia de medias",
+    "text": "2. Estimación de diferencia de medias\nPara este ejercicio consideramos la siguiente información proporcionada arriba:\n\nSalario promedio técnico-profesional: 1.200.000, desviación estandar 180.000\nSalario promedio universitario: 1.500.000, desviación estándar 270.000\nvalor crítico t para diferencia de medias con un \\(\\alpha\\) de 5% (0,05) y grados de libertad 898 (N-2)= 1,96\nerror estándar de la diferencia de medias= 15000\n\nCon esta información ya podemos calcular la diferencia de promedios de la muestra:\n\\(\\bar{X}_{salario-universitario}-\\bar{X}_{salario-técnico}=1500000-1200000=300000\\)\nLa pregunta ahora es: ¿existe esta diferencia de promedios en la población?\n\nTest de hipótesis a realizar\nPara el caso anterior de la estimación del promedio hablamos de dos aproximaciones: a) contraste con valor crítico, y b) intervalo de confianza. En este caso (estimación de diferencias de promedio) tradicionalmente se utiliza el contraste con valor crítico, ya que lo central es poder establecer si existen o no diferencias en la población. Complementariamente, también se puede entregar información del intervalo de confianza.\nPor lo tanto, en este caso lo que es más pertinente es la alternativa a: contraste con valor crítico, pero también es recomendable agregar la información del intervalo de confianza.\n\n\nContraste con valor crítico y 5 pasos de la inferencia\nLos 5 pasos de la inferencia en esta caso son los siguientes:\n\n1. Formular hipótesis\nContrastamos la hipótesis nula (no hay diferencias de promedios entre grupos):\n\\[H_{0}: \\bar{X}_{salariouniversidad} -  \\bar{X}_{salarioinstituto}= 0\\]\nEn referencia a la siguiente hipótesis alternativa:\n\\[H_{a}: \\bar{X}_{salariouniversidad} -  \\bar{X}_{salarioinstituto} \\neq 0\\]\n\n\n2. Obtener error estándar y estadístico de prueba empírico correspondiente (ej: Z o t)\nEl error estándar de la diferencias de promedios es:\n\\[SE=\\sqrt{\\frac{\\sigma_{diff}}{n_a}+\\frac{\\sigma_{diff}}{n_b}}\\]\nLa información sobre el resultado de este cálculo se nos entrega inicialmente y es igual a 15000\nCon esto podemos calcular el valor del t empírico:\n\\(t=\\frac{diferenciamedias}{se_{diferenciamedias}} \\frac{(\\bar{x}_1-\\bar{x}_2)}{se_{(\\bar{x}_1-\\bar{x}_2)}}\\)\nCon nuestros datos:\n\\(t=\\frac{300000}{15000}=20\\)\n\n\n3. Establecer la probabilidad de error α y valor crítico (teórico) de la prueba correspondiente\n\nProporcionado en el enunciado\n\n\n\n4. Contraste valores empírico/crítico (e intervalo de confianza)\nt empírico= 20 &gt; t critico=1,96\nIntervalo al 95% de confianza:\n\\[\\begin{align*}\n\\bar{x}_1-\\bar{x}_2 &\\pm t_{\\alpha/2}*SE_{\\bar{x_1}-\\bar{x_2}} \\\\\\\\\n300000 &\\pm 1.96*15000 \\\\\\\\\n300000 &\\pm 29400 \\\\\\\\\nCI[270600&\\ ;329400]\n\\end{align*}\\]\n\n\n5. Interpretación\nSe llevó a cabo una prueba t para evaluar las diferencias salariales entre graduados de institutos técnicos-profesionales y universidades, utilizando un tamaño de muestra de 900 para cada grupo. La diferencia de medias observada fue de $750,000, con un error estándar fijo de $15,000 para esta diferencia. El análisis resultó en un valor t de 50.00, indicando una diferencia estadísticamente significativa entre los dos grupos (p &lt; .01). Este valor t refleja que los graduados universitarios tienen un ingreso promedio significativamente mayor en comparación con los graduados de institutos técnicos-profesionales. Estos resultados sugieren una marcada disparidad salarial en función del nivel educativo alcanzado, subrayando la importancia de las decisiones educativas en las trayectorias de ingresos de los individuos.",
     "crumbs": [
       "Clases",
       "Presentaciones",
-      "Bivariada 5"
+      "Ejercicio Inferencia"
     ]
   },
   {
-    "objectID": "content/foro-clases.html",
-    "href": "content/foro-clases.html",
-    "title": "Foro clases",
+    "objectID": "content/09-content.html",
+    "href": "content/09-content.html",
+    "title": "Inferencia en correlación y magnitud del coeficiente",
     "section": "",
-    "text": "Foro para compartir dudas, aclaraciones, sugerencias sobre los contenidos del curso vistos en clases. Para poder participar en el foro hay que abir una cuenta en Github",
+    "text": "Sesión del miércoles, 10 de septiembre de 2025\n\n\n\n\n\nDocumento de presentación",
     "crumbs": [
       "Clases",
-      "Foro Clases"
+      "Presentaciones",
+      "Bivariada 2"
     ]
   },
   {
-    "objectID": "evaluations/index.html",
-    "href": "evaluations/index.html",
-    "title": "Evaluaciones",
+    "objectID": "content/11-content.html",
+    "href": "content/11-content.html",
+    "title": "Asociación con categóricas 1",
     "section": "",
-    "text": "En esta sección se encuentran disponibles las evaluaciones vigentes del curso."
+    "text": "Sesión del lunes, 29 de septiembre de 2025\n\n\n\n\n\nDocumento de presentación",
+    "crumbs": [
+      "Clases",
+      "Presentaciones",
+      "Bivariada 4"
+    ]
   },
   {
-    "objectID": "evaluations/index.html#descripción",
-    "href": "evaluations/index.html#descripción",
-    "title": "Evaluaciones",
+    "objectID": "content/13-content.html",
+    "href": "content/13-content.html",
+    "title": "Documentos dinámicos",
     "section": "",
-    "text": "En esta sección se encuentran disponibles las evaluaciones vigentes del curso."
+    "text": "Sesión del lunes, 11 de noviembre de 2024\n\n\n\n\n\nDocumento de presentación"
   },
   {
-    "objectID": "evaluations/prueba2.html",
-    "href": "evaluations/prueba2.html",
-    "title": "Evaluación 2 - Estadística Correlacional 2024",
+    "objectID": "content/index.html",
+    "href": "content/index.html",
+    "title": "Clases",
     "section": "",
-    "text": "Usted es parte de un equipo de investigación en un centro de estudios que se encuentra analizando cómo ciertos factores sociales se asocian con actitudes políticas. El centro realizó una encuesta y cuenta con una base de datos con las siguientes variables:\nLa base de datos se encuentra aquí: link"
+    "text": "En esta sección se encuentran disponibles los documentos de presentación que sirven de base a cada clase, en el menú de la izquierda Presentaciones. Los documentos son en formato html (no son ppt), producidos con Xaringan. Para verlos en pantalla completa presionar F sobre el documento, y para una vista general de todas las slides presionar O.\nTambién a la izquierda hay un link al Foro para hacer preguntas relacionadas con las clases.\nCada clase tiene como referencia lecturas que deben completarse antes de la sesión correspondiente.",
+    "crumbs": [
+      "Clases",
+      "Descripción"
+    ]
   },
   {
-    "objectID": "evaluations/prueba2.html#pregunta-1-en-qué-medida-se-relacionan-los-ingresos-de-las-personas-con-sus-niveles-de-autoritarismo",
-    "href": "evaluations/prueba2.html#pregunta-1-en-qué-medida-se-relacionan-los-ingresos-de-las-personas-con-sus-niveles-de-autoritarismo",
-    "title": "Evaluación 2 - Estadística Correlacional 2024",
-    "section": "Pregunta 1 ¿En qué medida se relacionan los ingresos de las personas con sus niveles de autoritarismo?",
-    "text": "Pregunta 1 ¿En qué medida se relacionan los ingresos de las personas con sus niveles de autoritarismo?\n1.1 Estime la asociación entre ambas variables utilizando R y genere un diagrama de dispersión (nube de puntos/scatterplot). Corte y pegue el código en el recuadro de abajo. (1p)\n1.2 Interprete el coeficiente de correlación (considerando inferencia estadística, magnitud y sentido del efecto). (3p)"
-  },
-  {
-    "objectID": "evaluations/prueba2.html#pregunta-2-cómo-se-relacionan-el-nivel-educacional-autoritarismo-y-los-ingresos",
-    "href": "evaluations/prueba2.html#pregunta-2-cómo-se-relacionan-el-nivel-educacional-autoritarismo-y-los-ingresos",
-    "title": "Evaluación 2 - Estadística Correlacional 2024",
-    "section": "Pregunta 2: ¿Cómo se relacionan el nivel educacional, autoritarismo y los ingresos?",
-    "text": "Pregunta 2: ¿Cómo se relacionan el nivel educacional, autoritarismo y los ingresos?\n2.1 Estime y reporte la matriz de correlaciones de las variables de nivel educacional, autoritarismo y los ingresos. (1p)\n2.2 Tomando en cuenta la Tabla 1 comente sobre el tratamiento de casos perdidos en el cálculo de las correlaciones, así como también del tipo de correlación calculada entre ingresos y educación. (3p)\n\n\n\n\nTabla 1: Distribución de casos perdidos por variable\n\n\n\n\n\n\n\nVariable\nEtiqueta\nn casos perdidos\n% casos perdidos\n\n\n\n\neduc_rec\nNivel educacional\n0\n0%\n\n\ningresos\nIngresos\n150\n15%\n\n\nautoritarismo\nAutoritarismo\n10\n1%"
-  },
-  {
-    "objectID": "evaluations/prueba2.html#pregunta-3-cómo-se-relaciona-el-nivel-educacional-con-los-ingresos",
-    "href": "evaluations/prueba2.html#pregunta-3-cómo-se-relaciona-el-nivel-educacional-con-los-ingresos",
-    "title": "Evaluación 2 - Estadística Correlacional 2024",
-    "section": "Pregunta 3: ¿Cómo se relaciona el nivel educacional con los ingresos?",
-    "text": "Pregunta 3: ¿Cómo se relaciona el nivel educacional con los ingresos?\nUtilizando la versión categórica de ingresos:\n3.1 Reporte tabla de contigencia y el calculo de Chi2 (corte y pegue el código). (1p)\n3.2 Interprete el Chi2 en términos de inferencia y magnitud del efecto. (3p)"
-  },
-  {
-    "objectID": "example/index.html",
-    "href": "example/index.html",
-    "title": "Code examples",
+    "objectID": "evaluations/plantilla_reporte/reporte.html",
+    "href": "evaluations/plantilla_reporte/reporte.html",
+    "title": "Título del trabajo grupal",
     "section": "",
-    "text": "Visit this section after you have finished the readings and lecture videos. It contains fully annotated R code and other supplementary information and it will be indispensable as you work on your problem sets and project.\nMany sections also contain videos of me live coding the examples so you can see what it looks like to work with R in real time. You’ll notice me make all sorts of little errors, which is totally normal—everyone does!"
+    "text": "Definición de la problemática a abordar, su relevancia y principales conceptos.\nEn este apartado es importante considerar:\n\nRelevancia del tema de investigación.\nProblematización: señalar problema de investigación y principales antecedentes\nPrecisar los conceptos centrales a investigar: Ejemplo “vamos a analizar la participación informal, entendiendo por ello la frecuencia de participación en actividades como marchas, boycotts y en redes sociales” [cita que apoye la definición].\nMencionar el principal objetivo del trabajo y las hipótesis de investigación en el párrafo final de esta sección (ej: se espera que el nivel educacional sea mayor en zonas urbanas en relación a zonas rurales). Mencionar al menos tres hipótesis.\n\nEsta sección debe estar respaldada por al menos 5 referencias bibliográficas."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "\n            Estadística Correlacional\n        ",
+    "objectID": "evaluations/plantilla_reporte/reporte.html#datos",
+    "href": "evaluations/plantilla_reporte/reporte.html#datos",
+    "title": "Título del trabajo grupal",
+    "section": "2.1 Datos",
+    "text": "2.1 Datos\nDescripción detallada de los datos a utilizar. Acá también se puede insertar el chunk para llamar los datos que se van a analizar:"
+  },
+  {
+    "objectID": "evaluations/plantilla_reporte/reporte.html#variables",
+    "href": "evaluations/plantilla_reporte/reporte.html#variables",
+    "title": "Título del trabajo grupal",
+    "section": "2.2 Variables",
+    "text": "2.2 Variables\nDescripción de cada una de las variables, su operacionalización y medición. Esta sección también incluye una tabla de descriptivos básicos.\n\n\n\n\n\n\nNota\n\n\n\nAtención sobre recodificación de variables\nEs importante que las variables sean recodificadas en el sentido del atributo que se está midiendo de menos a más, es decir, que el mayor valor exprese la mayor presencia del atributo.\n\nEjemplo 1: si lo que se está midiendo es apoyo al aborto libre en una escala donde 5 es totalmente en desacuerdo y 1 totalmente de acuerdo, se deben recodificar los valores para que un mayor puntaje exprese mayor apoyo al aborto libre. En concreto: 1=5, 2=4, 4=2, 5=1.\nEjemplo 2: variable dicotómica 0: si vota, 1: no vota, debe ser recodificada a 1: si vota, 0: no vota."
+  },
+  {
+    "objectID": "evaluations/plantilla_reporte/reporte.html#métodos",
+    "href": "evaluations/plantilla_reporte/reporte.html#métodos",
+    "title": "Título del trabajo grupal",
+    "section": "2.3 Métodos",
+    "text": "2.3 Métodos\nMencionar los métodos estadísticos a utilizar para el contraste de hipótesis y cálculo del tamaño de efecto."
+  },
+  {
+    "objectID": "evaluations/plantilla_reporte/reporte.html#análisis-descriptivo",
+    "href": "evaluations/plantilla_reporte/reporte.html#análisis-descriptivo",
+    "title": "Título del trabajo grupal",
+    "section": "3.1 Análisis descriptivo",
+    "text": "3.1 Análisis descriptivo\nTablas y/o gráficos comentados, univariados y bivariados según sea más pertinente. Para esto considere medidas de tendencia central, dispersión y frecuencias, siempre considerando el nivel de medición de sus variables. En los casos que sea atingente, incluya los intervalos de confianza al 95 %."
+  },
+  {
+    "objectID": "evaluations/plantilla_reporte/reporte.html#análisis-estadístico-bivariado",
+    "href": "evaluations/plantilla_reporte/reporte.html#análisis-estadístico-bivariado",
+    "title": "Título del trabajo grupal",
+    "section": "3.2 Análisis estadístico bivariado",
+    "text": "3.2 Análisis estadístico bivariado\nConsiderar la estimación de coeficientes de correlación y también medidas de asociación para variables categóricas. Esta parte del análisis se relaciona directamente con las hipótesis planteadas. Para esto realizar pruebas de hipótesis estadísticas, estadísticos de tamaño del efecto y tablas de contingencia / cruzadas, siempre considerando el nivel de medición de sus variables.\nAl final de esta sección también se realiza la discusión de resultados en relación a las hipótesis planteadas"
+  },
+  {
+    "objectID": "example/cace.html",
+    "href": "example/cace.html",
+    "title": "Complier average treatment effects",
     "section": "",
-    "text": "Inferencia, asociación y reporte\n        \n        \n            SOC01019 • Segundo Semestre 2025Departamento de Sociología, Facultad de Ciencias SocialesUniversidad de Chile"
+    "text": "Throughout this course, we’ve talked about the difference between the average treatment effect (ATE), or the average effect of a program for an entire population, and conditional average treatment effect (CATE), or the average effect of a program for some segment of the population. There are all sorts of CATEs: you can find the CATE for men vs. women, for people who are treated with the program (the average treatment on the treated, or ATT or TOT), for people who are not treated with the program (the average treatment on the untreated, or ATU), and so on.\nOne important type of CATE is the effect of a program on just those who comply with the program. We can call this the complier average treatment effect, but the acronym would be the same as conditional average treatment effect, so we’ll call it the complier average causal effect or CACE.\nThinking about compliance is important. You might randomly assign people to receive treatment or a program, but people might not do what you tell them. Additionally, people might do the program if assigned to do it, but they would have done it anyway. We can split the population into four types of people:\n\nCompliers: People who follow whatever their assignment is (if assigned to treatment, they do the program; if assigned to control, they don’t)\nAlways takers: People who will receive or seek out the program regardless of assignment (if assigned to treatment, they do the program; if assigned to control, they still do the program)\nNever takers: People who will not receive or seek out the program regardless of assignment (if assigned to treatment, they don’t do the program; if assigned to control, they also don’t do it)\nDefiers: People who will do the opposite of whatever their assignment is (if assigned to treatment, they don’t do the program; if assigned to control, they do the program)\n\nTo simplify things, evaluators and econometricians assume that defiers don’t exist based on the idea of monotonicity, which means that we can assume that the effect of being assigned to treatment only increases the likelihood of participating in the program (and doesn’t make it more likely).\nThe tricky part about trying to find who the compliers are in a sample is that we can’t know what people would have done in the absence of treatment. If we see that someone in the experiment was assigned to be in the treatment group and they then participated in the program, they could be a complier (since they did what they were assigned to do), or they could be an always taker (they did what they were assigned to do, but they would have done it anyway). Due to the fundamental problem of causal inference, we cannot know what each person would have done in a parallel world.\nWe can use data from a hypothetical program to see how these three types of compliers distort our outcomes, and more importantly, how we can disentangle compliers from their always- and never-taker counterparts.\nIf you want to follow along with this example, you can download these two datasets:\n\n bed_nets_time_machine.csv\n bed_nets_observed.csv"
   },
   {
-    "objectID": "index.html#últimas-informaciones",
-    "href": "index.html#últimas-informaciones",
-    "title": "\n            Estadística Correlacional\n        ",
-    "section": "Últimas informaciones",
-    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\nPreparación Evaluación 2\n\n\n\n\n\n\n\n\n\nOct 14, 2025\n\n\n\n\n\n\n\n\n\n\n\nReporte Evaluación 1\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
-  },
-  {
-    "objectID": "news/2025-08-12_padlet.html",
-    "href": "news/2025-08-12_padlet.html",
-    "title": "Padlet",
+    "objectID": "example/cace.html#compliance-and-treatment-effects",
+    "href": "example/cace.html#compliance-and-treatment-effects",
+    "title": "Complier average treatment effects",
     "section": "",
-    "text": "← News\n\n\n\n\n\nVamos a probar Padlet para realizar preguntas sobre los contenidos del curso, se pueden hacer durante o después de clases, pueden ser anónimas.\nLink: https://padlet.com/juancarloscastillo/correlacional\nY acá disponible (con QR):"
+    "text": "Throughout this course, we’ve talked about the difference between the average treatment effect (ATE), or the average effect of a program for an entire population, and conditional average treatment effect (CATE), or the average effect of a program for some segment of the population. There are all sorts of CATEs: you can find the CATE for men vs. women, for people who are treated with the program (the average treatment on the treated, or ATT or TOT), for people who are not treated with the program (the average treatment on the untreated, or ATU), and so on.\nOne important type of CATE is the effect of a program on just those who comply with the program. We can call this the complier average treatment effect, but the acronym would be the same as conditional average treatment effect, so we’ll call it the complier average causal effect or CACE.\nThinking about compliance is important. You might randomly assign people to receive treatment or a program, but people might not do what you tell them. Additionally, people might do the program if assigned to do it, but they would have done it anyway. We can split the population into four types of people:\n\nCompliers: People who follow whatever their assignment is (if assigned to treatment, they do the program; if assigned to control, they don’t)\nAlways takers: People who will receive or seek out the program regardless of assignment (if assigned to treatment, they do the program; if assigned to control, they still do the program)\nNever takers: People who will not receive or seek out the program regardless of assignment (if assigned to treatment, they don’t do the program; if assigned to control, they also don’t do it)\nDefiers: People who will do the opposite of whatever their assignment is (if assigned to treatment, they don’t do the program; if assigned to control, they do the program)\n\nTo simplify things, evaluators and econometricians assume that defiers don’t exist based on the idea of monotonicity, which means that we can assume that the effect of being assigned to treatment only increases the likelihood of participating in the program (and doesn’t make it more likely).\nThe tricky part about trying to find who the compliers are in a sample is that we can’t know what people would have done in the absence of treatment. If we see that someone in the experiment was assigned to be in the treatment group and they then participated in the program, they could be a complier (since they did what they were assigned to do), or they could be an always taker (they did what they were assigned to do, but they would have done it anyway). Due to the fundamental problem of causal inference, we cannot know what each person would have done in a parallel world.\nWe can use data from a hypothetical program to see how these three types of compliers distort our outcomes, and more importantly, how we can disentangle compliers from their always- and never-taker counterparts.\nIf you want to follow along with this example, you can download these two datasets:\n\n bed_nets_time_machine.csv\n bed_nets_observed.csv"
   },
   {
-    "objectID": "news/2025-09-25_reporte-notas1.html",
-    "href": "news/2025-09-25_reporte-notas1.html",
-    "title": "Reporte Evaluación 1",
+    "objectID": "example/cace.html#finding-compliers-with-a-mind-reading-time-machine",
+    "href": "example/cace.html#finding-compliers-with-a-mind-reading-time-machine",
+    "title": "Complier average treatment effects",
+    "section": "Finding compliers with a mind-reading time machine",
+    "text": "Finding compliers with a mind-reading time machine\nFirst let’s load the data and reorder some of the categories:\n\n\nCode\nlibrary(tidyverse)  # ggplot(), %&gt;%, mutate(), and friends\nlibrary(broom)  # Convert models to data frames\nlibrary(estimatr)  # Run 2SLS models in one step with iv_robust()\n\nbed_nets &lt;- read_csv(\"data/bed_nets_observed.csv\") %&gt;%\n  # Make \"No bed net\" (control) come first\n  mutate(bed_net = fct_relevel(bed_net, \"No bed net\"))\n\nbed_nets_time_machine &lt;- read_csv(\"data/bed_nets_time_machine.csv\") %&gt;%\n  # Make \"No bed net\" come first and \"Complier\" come first\n  mutate(bed_net = fct_relevel(bed_net, \"No bed net\"),\n         status = fct_relevel(status, \"Complier\"))\n\n\nThis is what we would be able to see if we could read everyone’s minds. There are always takers who will use a bed net regardless of the program, and they’ll have higher health outcomes. However, those better outcomes are because of something endogenous—there’s something else that makes these people always pursue bed nets, and that’s likely related to health. We probably want to not consider them when looking for the program effect. There are never takers who won’t ever use a bed net, and they have worse health outcomes. Again, there’s endogeneity here—something is causing them to not use the bed nets, and it likely also causes their health level. We don’t want to look at them either.\nThe first group—the compliers—are the people we want to focus on. Here we see that the program had an effect when compared to a control group.\n\n\nCode\nset.seed(1234)  # Make the jittering the same every time\n\nggplot(bed_nets_time_machine, aes(y = health, x = treatment)) +\n  geom_point(aes(shape = bed_net, color = status),\n             position = position_jitter(height = NULL, width = 0.25)) +\n  facet_wrap(vars(status)) +\n  labs(color = \"Type of person\", shape = \"Compliance\",\n       x = NULL, y = \"Health status\") +\n  scale_color_viridis_d(option = \"plasma\", end = 0.85) +\n  theme_bw()"
+  },
+  {
+    "objectID": "example/cace.html#finding-compliers-in-actual-data",
+    "href": "example/cace.html#finding-compliers-in-actual-data",
+    "title": "Complier average treatment effects",
+    "section": "Finding compliers in actual data",
+    "text": "Finding compliers in actual data\nThis is what we actually see in the data, though. You can tell who some of the always takers are (those who used bed nets after being assigned to the control group) and who some of the never takers are (those who did not use a bed net after being assigned to the treatment group), but compliers are mixed up with the always and never takers. We have to somehow disentangle them!\n\n\nCode\nset.seed(1234)\nggplot(bed_nets_time_machine, aes(y = health, x = bed_net)) +\n  geom_point(aes(shape = bed_net, color = status),\n             position = position_jitter(height = NULL, width = 0.25)) +\n  facet_wrap(vars(treatment)) +\n  labs(color = \"Type of person\", shape = \"Compliance\",\n       x = NULL, y = \"Health status\") +\n  scale_color_viridis_d(option = \"plasma\", end = 0.85) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\nWe can do this by assuming the proportion of compliers, never takers, and always takers are equally spread across treatment and control (which we can assume through the magic of randomization). If that’s the case, we can calculate the intent to treat (ITT) effect, which is the CATE of being assigned treatment (or the effect of being assigned treatment on health status, regardless of actual compliance).\nThe ITT is actually composed of three different causal effects: the complier average causal effect (CACE), the always taker average causal effect (ATACE), and the never taker average causal effect (NTACE). In the formula below, \\(\\pi\\) stands for the proportion of people in each group. Formally, the ITT can be defined like this:\n\\[\n\\begin{aligned}\n\\text{ITT}\\ =\\ & \\color{#0D0887}{\\pi_\\text{compliers} \\times (\\text{T} - \\text{C})_\\text{compliers}} + \\\\\n&\\color{#B7318A}{\\pi_\\text{always takers} \\times (\\text{T} - \\text{C})_\\text{always takers}} + \\\\\n&\\color{#FEBA2C}{\\pi_\\text{never takers} \\times (\\text{T} - \\text{C})_\\text{never takers}}\n\\end{aligned}\n\\]\nWe can simplify this to this acronymized version:\n\\[\n\\text{ITT}\\ =\\ \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}} + \\color{#B7318A}{\\pi_\\text{A} \\text{ATACE}} + \\color{#FEBA2C}{\\pi_\\text{N} \\text{NTACE}}\n\\]\nThe number we care about the most here is the CACE, which is stuck in the middle of the equation. But we can rescue it with some fun logical and algebraic trickery!\nIf we assume that assignment to treatment doesn’t make someone more likely to be an always taker or a never taker, we can set the ATACE and NTACE to zero, leaving us with just three variables to worry about: ITT, \\(\\pi_\\text{c}\\), and CACE:\n\\[\n\\begin{aligned}\n\\text{ITT}\\ =\\ & \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}} + \\color{#B7318A}{\\pi_\\text{A} \\text{ATACE}} + \\color{#FEBA2C}{\\pi_\\text{N} \\text{NTACE}} \\\\[6pt]\n=\\ & \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}} + \\color{#B7318A}{\\pi_\\text{A} \\times 0} + \\color{#FEBA2C}{\\pi_\\text{N} \\times 0}\\\\[6pt]\n\\text{ITT}\\ =\\ & \\color{#0D0887}{\\pi_\\text{C} \\text{CACE}}\n\\end{aligned}\n\\]\nWe can use algebra to rearrange this formula so that we’re left with an equation that starts with CACE (since that’s the value we care about):\n\\[\n\\text{CACE} = \\frac{\\text{ITT}}{\\pi_\\text{C}}\n\\]\nIf we can find the ITT and the proportion of compliers, we can find the complier average causal effect (CACE). Fortunately, both those pieces—ITT and \\(\\pi_\\text{C}\\)—are findable in the data we have!"
+  },
+  {
+    "objectID": "example/cace.html#finding-the-itt",
+    "href": "example/cace.html#finding-the-itt",
+    "title": "Complier average treatment effects",
+    "section": "Finding the ITT",
+    "text": "Finding the ITT\nThe ITT is easy to find with a simple OLS model:\n\n\nCode\nitt_model &lt;- lm(health ~ treatment, data = bed_nets)\n\ntidy(itt_model)\n## # A tibble: 2 × 5\n##   term               estimate std.error statistic  p.value\n##   &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n## 1 (Intercept)           40.9      0.444     92.1  0       \n## 2 treatmentTreatment     5.99     0.630      9.51 5.20e-21\n\nITT &lt;- tidy(itt_model) %&gt;%\n  filter(term == \"treatmentTreatment\") %&gt;%\n  pull(estimate)\n\n\nThe ITT here is ≈6—being assigned treatment increases average health status by 5.99 health points."
+  },
+  {
+    "objectID": "example/cace.html#finding-the-proportion-of-compliers",
+    "href": "example/cace.html#finding-the-proportion-of-compliers",
+    "title": "Complier average treatment effects",
+    "section": "Finding the proportion of compliers",
+    "text": "Finding the proportion of compliers\nThe proportion of compliers is a little trickier, but doable with some algebraic trickery. Recall from the graph above that the people who were in the treatment group and who complied are a combination of always takers and compliers. This means we can say:\n\\[\n\\begin{aligned}\n\\pi_\\text{A} + \\pi_\\text{C} =& \\text{% yes in treatment; or} \\\\\n\\pi_\\text{C} =& \\text{% yes in treatment} - \\pi_\\text{A}\n\\end{aligned}\n\\]\nWe actually know \\(\\pi_\\text{A}\\)—remember in the graph above that the people who were in the control group and who used bed nets are guaranteed to be always takers (none of them are compliers or never takers). If we assume that the proportion of always takers is the same in both treatment and control, we can use that percent here, giving us this final equation for \\(\\pi_\\text{C}\\):\n\\[\n\\begin{aligned}\n\\pi_\\text{C} =& \\text{% yes in treatment} - \\pi_\\text{A} \\\\\n=& \\text{% yes in treatment} - \\text{% yes in control}\n\\end{aligned}\n\\]\nSo, if we can find the percent of people assigned to treatment who used bed nets, find the percent of people assigned to control and used bed nets, and subtract the two percentages, we’ll have the proportion of compliers, or \\(\\pi_\\text{C}\\). We can do that with the data we have (61% - 19.5% = 41.5% compliers):\n\n\nCode\nbed_nets %&gt;%\n  group_by(treatment, bed_net) %&gt;%\n  summarize(n = n()) %&gt;%\n  mutate(prop = n / sum(n))\n## # A tibble: 4 × 4\n## # Groups:   treatment [2]\n##   treatment bed_net        n  prop\n##   &lt;chr&gt;     &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;\n## 1 Control   No bed net   808 0.805\n## 2 Control   Bed net      196 0.195\n## 3 Treatment No bed net   388 0.390\n## 4 Treatment Bed net      608 0.610\n\n# pi_c = prop yes in treatment - prop yes in control\npi_c &lt;- 0.6104418 - 0.1952191\n\n\nFinally, now that we know both the ITT and \\(\\pi_\\text{C}\\), we can find the CACE (or the LATE):\n\n\nCode\nCACE &lt;- ITT / pi_c\nCACE\n## [1] 14.43\n\n\nIt’s 14.4, which means that using bed nets increased health by 14 health points for compliers (which is a lot bigger than the 6 that we found before). We successfully filtered out the always takers and the never takers, and we have our complier-specific causal effect."
+  },
+  {
+    "objectID": "example/cace.html#finding-the-cacelate-with-iv2sls",
+    "href": "example/cace.html#finding-the-cacelate-with-iv2sls",
+    "title": "Complier average treatment effects",
+    "section": "Finding the CACE/LATE with IV/2SLS",
+    "text": "Finding the CACE/LATE with IV/2SLS\nDoing that is super tedious though! What if there was an easier way to find the effect of the bed net program for just the compliers? We can do this with IV/2SLS regression by using assignment to treatment as an instrument.\nAssignment to treatment works as an instrument because it’s (1) relevant, since being told to use bed nets is probably highly correlated with using bed nets, (2) exclusive, since the only way that being told to use bed nets can cause changes in health is through the actual use of the bed nets, and (3) exogenous, since being told to use bed nets probably isn’t related to other things that cause health.\nHere’s a 2SLS regression with assignment to treatment as the instrument:\n\n\nCode\nmodel_2sls &lt;- iv_robust(health ~ bed_net | treatment, data = bed_nets)\ntidy(model_2sls)\n##             term estimate std.error statistic   p.value conf.low conf.high   df outcome\n## 1    (Intercept)    38.12    0.5151     74.01 0.000e+00    37.11     39.13 1998  health\n## 2 bed_netBed net    14.43    1.2538     11.51 1.038e-29    11.97     16.89 1998  health\n\n\nThe coefficient for bed_net is identical to the CACE that we found manually! Instrumental variables are helpful for isolated program effects to only compliers when you’re dealing with noncompliance."
+  },
+  {
+    "objectID": "files/reporte_notas/reporte_notas.html",
+    "href": "files/reporte_notas/reporte_notas.html",
+    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
     "section": "",
-    "text": "← News\nEste reporte realiza un análisis de la Evaluación 1 sobre la Unidad 1: Inferencia estadística"
+    "text": "pacman::p_load(tidyverse, sjmisc, sjPlot, kableExtra, sjlabelled, readxl, here)\n\n\n\n [1] \"Nº\"          \"Persona\"     \"1a\"          \"1b\"          \"1c\"         \n [6] \"2a\"          \"2b\"          \"2c\"          \"Puntos\"      \"Nota\"       \n[11] \"Asistida\"    \"Justificada\" \"asist_total\"\n\n\n\n\n\n\n# Label variables\n\nprueba1$p1a &lt;- set_label(x = prueba1$p1a, \n                         label = \"Intervalo de Confianza\")\nprueba1$p1b &lt;- set_label(x = prueba1$p1b, \n                         label = \"Error tipo II\")\nprueba1$p1c &lt;- set_label(x = prueba1$p1c, \n                         label = \"Rechazo H0 valor p\")\nprueba1$p2a &lt;- set_label(x = prueba1$p2a, \n                         label = \"Formulación hipótesis\")\nprueba1$p2b &lt;- set_label(x = prueba1$p2b, \n                         label = \"Contraste de prueba t\")\nprueba1$p2c &lt;- set_label(x = prueba1$p2c, \n                         label = \"Intervalo confianza de prueba t\")\nprueba1$nota &lt;- set_label(x = prueba1$nota, \n                         label = \"Nota final\")\nprueba1$asistida &lt;- set_label(x = prueba1$asistida, \n                         label = \"Asistencia Efectiva\")\nprueba1$asist_total &lt;- set_label(x = prueba1$asist_total, \n                         label = \"Asistencia Registrada\")\n\n\n\n\n\nprueba1 %&gt;% descr(., show = c(\"label\",\"range\", \"mean\", \"sd\", \"n\"))%&gt;% kable(.,\"markdown\", digits=2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar\nlabel\nn\nmean\nsd\nrange\n\n\n\n\n4\np1a\nIntervalo de Confianza\n70\n0.55\n0.30\n1 (0-1)\n\n\n5\np1b\nError tipo II\n70\n0.31\n0.45\n1 (0-1)\n\n\n6\np1c\nRechazo H0 valor p\n70\n0.81\n0.70\n2 (0-2)\n\n\n7\np2a\nFormulación hipótesis\n70\n1.47\n0.69\n2 (0-2)\n\n\n8\np2b\nContraste de prueba t\n70\n2.59\n1.32\n4 (0-4)\n\n\n9\np2c\nIntervalo confianza de prueba t\n70\n1.26\n0.74\n2 (0-2)\n\n\n3\nnota\nNota final\n70\n4.50\n1.43\n6 (1-7)\n\n\n2\nasistida\nAsistencia Efectiva\n70\n10.16\n1.86\n8 (4-12)\n\n\n1\nasist_total\nAsistencia Registrada\n70\n10.24\n1.81\n8 (4-12)\n\n\n\n\n\n\n\n\n\nhist(prueba1$nota)\n\n\n\n\n\n\n\nplot_frq(data = prueba1$nota,type = \"hist\",show.mean = T)\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(notas_cat=cut(nota, breaks=c(-Inf,4,5,6, Inf), labels=c(\"Menor a 4.0\",\"4.0-5.0\",\"5.0-6.0\",\"6.0-7.0\")))\n\nfrq(prueba1$notas_cat, out=\"browser\", show.na = FALSE, title = \"Rangos de notas\")\n\n\nRangos de notas\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenor a 4.0\n25\n35.71\n35.71\n35.71\n\n\n\n4.0-5.0\n14\n20.00\n20.00\n55.71\n\n\n\n5.0-6.0\n24\n34.29\n34.29\n90.00\n\n\n\n6.0-7.0\n7\n10.00\n10.00\n100.00\n\n\n\ntotal N=70 · valid N=63 · x̄=2.19 · σ=1.04\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-notas_cat)\n\n\n\n\n\ntab_corr(prueba1,\n         triangle = \"lower\")\n\n\n\n\n \nIntervalo de Confianza\nError tipo II\nRechazo H0 valor p\nFormulación hipótesis\nContraste de prueba t\nIntervalo confianza de prueba t\nNota final\nAsistencia Efectiva\nAsistencia Registrada\n\n\nIntervalo de Confianza\n \n \n \n \n \n \n \n \n \n\n\nError tipo II\n0.337**\n \n \n \n \n \n \n \n \n\n\nRechazo H0 valor p\n0.271*\n0.399***\n \n \n \n \n \n \n \n\n\nFormulación hipótesis\n0.180\n0.202\n0.014\n \n \n \n \n \n \n\n\nContraste de prueba t\n0.243*\n0.244*\n0.214\n0.485***\n \n \n \n \n \n\n\nIntervalo confianza de prueba t\n0.275*\n0.280*\n0.405***\n0.281*\n0.590***\n \n \n \n \n\n\nNota final\n0.453***\n0.525***\n0.544***\n0.592***\n0.849***\n0.772***\n \n \n \n\n\nAsistencia Efectiva\n0.278*\n-0.048\n0.117\n0.355**\n0.352**\n0.382**\n0.398***\n \n \n\n\nAsistencia Registrada\n0.316**\n0.006\n0.106\n0.380**\n0.382**\n0.377**\n0.427***\n0.980***\n \n\n\nComputed correlation used pearson-method with listwise-deletion.\n\n\n\n\n\n\nggplot(prueba1, aes(x = asist_total, y = nota)) + \n  geom_jitter(width = 0.2, color = \"red\", size = 4) + \n  labs(title = \"Relación entre asistencia y notas en Evaluación 1 (r=0.43)\") + \n  labs(x = \"Asistencia\", y = \"Nota\") + \n  theme(axis.title = element_text(size = 12),        # Tamaño de las etiquetas de los ejes\n        axis.text = element_text(size = 12)) +       # Tamaño del texto de los ejes\n  theme(aspect.ratio = 1/1.5) +\n  theme(plot.title = element_text(size = 12,         # Tamaño del título\n                                  face = \"bold\",     # Tipo de letra (negrita)\n                                  hjust = 0.5)) +\n  scale_x_continuous(breaks = seq(1, 12, by = 1), limits = c(1, 12)) +   # Ajuste del eje de asistencia\n  scale_y_continuous(breaks = seq(1, 7, by = 1), limits = c(1, 7))       # Ajuste del eje de notas de 1 a 7\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(asist_total_cat=cut(asist_total, breaks=c(-Inf,7,8,9,10,11,Inf), labels=c(\"Menos de 8\",\"8\",\"9\",\"10\",\"11\",\"12\")))\n\nfrq(prueba1$asist_total_cat, out=\"browser\", show.na = FALSE, title = \"Asistencia\")\n\n\nAsistencia\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenos de 8\n6\n8.57\n8.57\n8.57\n\n\n\n8\n4\n5.71\n5.71\n14.29\n\n\n\n9\n10\n14.29\n14.29\n28.57\n\n\n\n10\n11\n15.71\n15.71\n44.29\n\n\n\n11\n19\n27.14\n27.14\n71.43\n\n\n\n12\n20\n28.57\n28.57\n100.00\n\n\n\ntotal N=70 · valid N=50 · x̄=4.33 · σ=1.58\n\n\n\n\nprueba1 %&gt;% # se especifica la base de datos\n  dplyr::select(asist_total_cat, nota)  %&gt;% # se seleccionan las variables\n  dplyr::group_by(Asistencia=sjlabelled::as_label(asist_total_cat)) %&gt;% # se agrupan por la variable categórica y se usan sus etiquetas con as_label\n  dplyr::summarise(Obs.=n(),Promedio=round(mean(nota),2),SD=round(sd(nota),2)) %&gt;% # se agregan las operaciones a presentar en la tabla\n  kable(, format = \"markdown\") # se genera la tabla\n\n\n\n\nAsistencia\nObs.\nPromedio\nSD\n\n\n\n\nMenos de 8\n6\n2.98\n1.63\n\n\n8\n4\n3.40\n0.20\n\n\n9\n10\n4.33\n1.46\n\n\n10\n11\n4.46\n1.56\n\n\n11\n19\n4.62\n1.44\n\n\n12\n20\n5.16\n0.98\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-asist_total_cat)\n\nConsistencia interna\n\npacman::p_load(ltm)\n\npreguntas &lt;- prueba1 %&gt;% dplyr::select(-nota)\ncronbach.alpha(na.omit(preguntas))\n\n\nCronbach's alpha for the 'na.omit(preguntas)' data-set\n\nItems: 8\nSample units: 70\nalpha: 0.753"
   },
   {
-    "objectID": "news/2025-09-25_reporte-notas1.html#solicitudes-de-recorrección",
-    "href": "news/2025-09-25_reporte-notas1.html#solicitudes-de-recorrección",
-    "title": "Reporte Evaluación 1",
-    "section": "Solicitudes de recorrección",
-    "text": "Solicitudes de recorrección\n\nEnviar correo a apoyo docente Kevin Carrasco, kevin.carrasco@uchile.cl, quien estará coordinando estas solicitudes\nEn el correo:\n\nmencionar pregunta a corregir\nargumento y puntaje esperado\nfoto de la pregunta\n\n\nSolicitudes hasta el miércoles 1 de Octubre 23:59, las solicitudes se responderán en un plazo máximo el lunes 6 de Octubre."
+    "objectID": "files/reporte_notas/reporte_notas.html#librerías-datos",
+    "href": "files/reporte_notas/reporte_notas.html#librerías-datos",
+    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "section": "",
+    "text": "pacman::p_load(tidyverse, sjmisc, sjPlot, kableExtra, sjlabelled, readxl, here)\n\n\n\n [1] \"Nº\"          \"Persona\"     \"1a\"          \"1b\"          \"1c\"         \n [6] \"2a\"          \"2b\"          \"2c\"          \"Puntos\"      \"Nota\"       \n[11] \"Asistida\"    \"Justificada\" \"asist_total\""
   },
   {
-    "objectID": "news/2025-09-25_reporte-notas1.html#etiquetados",
-    "href": "news/2025-09-25_reporte-notas1.html#etiquetados",
-    "title": "Reporte Evaluación 1",
-    "section": "Etiquetados",
-    "text": "Etiquetados\n\n# Label variables\n\nprueba1$p1a &lt;- set_label(x = prueba1$p1a, \n                         label = \"Error tipo II\")\nprueba1$p1b &lt;- set_label(x = prueba1$p1b, \n                         label = \"Significancia\")\nprueba1$p1c &lt;- set_label(x = prueba1$p1c, \n                         label = \"Rechazo H0 valor p\")\nprueba1$p2a &lt;- set_label(x = prueba1$p2a, \n                         label = \"Formulación hipótesis\")\nprueba1$p2b &lt;- set_label(x = prueba1$p2b, \n                         label = \"Contraste de prueba t\")\nprueba1$p2c &lt;- set_label(x = prueba1$p2c, \n                         label = \"Intervalo confianza de prueba t\")\nprueba1$nota &lt;- set_label(x = prueba1$nota, \n                         label = \"Nota final\")\nprueba1$asistencia &lt;- set_label(x = prueba1$asistencia, \n                         label = \"Asistencia \")\nprueba1$grupo &lt;- set_label(x = prueba1$grupo, \n                         label = \"Grupo u-cursos\")"
+    "objectID": "files/reporte_notas/reporte_notas.html#etiquetados",
+    "href": "files/reporte_notas/reporte_notas.html#etiquetados",
+    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "section": "",
+    "text": "# Label variables\n\nprueba1$p1a &lt;- set_label(x = prueba1$p1a, \n                         label = \"Intervalo de Confianza\")\nprueba1$p1b &lt;- set_label(x = prueba1$p1b, \n                         label = \"Error tipo II\")\nprueba1$p1c &lt;- set_label(x = prueba1$p1c, \n                         label = \"Rechazo H0 valor p\")\nprueba1$p2a &lt;- set_label(x = prueba1$p2a, \n                         label = \"Formulación hipótesis\")\nprueba1$p2b &lt;- set_label(x = prueba1$p2b, \n                         label = \"Contraste de prueba t\")\nprueba1$p2c &lt;- set_label(x = prueba1$p2c, \n                         label = \"Intervalo confianza de prueba t\")\nprueba1$nota &lt;- set_label(x = prueba1$nota, \n                         label = \"Nota final\")\nprueba1$asistida &lt;- set_label(x = prueba1$asistida, \n                         label = \"Asistencia Efectiva\")\nprueba1$asist_total &lt;- set_label(x = prueba1$asist_total, \n                         label = \"Asistencia Registrada\")"
   },
   {
-    "objectID": "news/2025-09-25_reporte-notas1.html#tabla-descriptiva",
-    "href": "news/2025-09-25_reporte-notas1.html#tabla-descriptiva",
-    "title": "Reporte Evaluación 1",
-    "section": "Tabla descriptiva",
-    "text": "Tabla descriptiva\n\nprueba1 %&gt;% descr(., show = c(\"label\",\"range\", \"mean\", \"sd\", \"n\"))%&gt;% kable(.,\"markdown\", digits=2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar\nlabel\nn\nmean\nsd\nrange\n\n\n\n\n3\np1a\nError tipo II\n75\n0.53\n0.45\n1 (0-1)\n\n\n4\np1b\nSignificancia\n75\n0.30\n0.43\n1 (0-1)\n\n\n5\np1c\nRechazo H0 valor p\n75\n0.27\n0.49\n2 (0-2)\n\n\n6\np2a\nFormulación hipótesis\n75\n1.69\n0.60\n2 (0-2)\n\n\n7\np2b\nContraste de prueba t\n75\n2.82\n1.40\n4 (0-4)\n\n\n8\np2c\nIntervalo confianza de prueba t\n75\n1.32\n0.81\n2 (0-2)\n\n\n9\npuntaje\npuntaje\n75\n6.94\n2.58\n11 (0-11)\n\n\n2\nnota\nNota final\n75\n44.91\n12.93\n55 (10-65)\n\n\n1\nasistencia\nAsistencia\n75\n52.86\n19.86\n71.4 (14.3-85.7)"
+    "objectID": "files/reporte_notas/reporte_notas.html#tabla-descriptiva",
+    "href": "files/reporte_notas/reporte_notas.html#tabla-descriptiva",
+    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "section": "",
+    "text": "prueba1 %&gt;% descr(., show = c(\"label\",\"range\", \"mean\", \"sd\", \"n\"))%&gt;% kable(.,\"markdown\", digits=2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar\nlabel\nn\nmean\nsd\nrange\n\n\n\n\n4\np1a\nIntervalo de Confianza\n70\n0.55\n0.30\n1 (0-1)\n\n\n5\np1b\nError tipo II\n70\n0.31\n0.45\n1 (0-1)\n\n\n6\np1c\nRechazo H0 valor p\n70\n0.81\n0.70\n2 (0-2)\n\n\n7\np2a\nFormulación hipótesis\n70\n1.47\n0.69\n2 (0-2)\n\n\n8\np2b\nContraste de prueba t\n70\n2.59\n1.32\n4 (0-4)\n\n\n9\np2c\nIntervalo confianza de prueba t\n70\n1.26\n0.74\n2 (0-2)\n\n\n3\nnota\nNota final\n70\n4.50\n1.43\n6 (1-7)\n\n\n2\nasistida\nAsistencia Efectiva\n70\n10.16\n1.86\n8 (4-12)\n\n\n1\nasist_total\nAsistencia Registrada\n70\n10.24\n1.81\n8 (4-12)"
   },
   {
-    "objectID": "news/2025-09-25_reporte-notas1.html#gráficos-descriptivos",
-    "href": "news/2025-09-25_reporte-notas1.html#gráficos-descriptivos",
-    "title": "Reporte Evaluación 1",
-    "section": "Gráficos descriptivos",
-    "text": "Gráficos descriptivos\n\nhist(prueba1$nota)\n\n\n\n\n\n\n\nplot_frq(data = prueba1$nota,type = \"hist\",show.mean = T)\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(notas_cat=cut(nota, breaks=c(-Inf,40,50,60, Inf), labels=c(\"Menor a 4.0\",\"4.0-5.0\",\"5.0-6.0\",\"6.0-7.0\")))\n\nfrq(prueba1$notas_cat, out=\"browser\", show.na = FALSE, title = \"Rangos de notas\")\n\n\nRangos de notas\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenor a 4.0\n22\n29.33\n29.33\n29.33\n\n\n\n4.0-5.0\n26\n34.67\n34.67\n64.00\n\n\n\n5.0-6.0\n24\n32.00\n32.00\n96.00\n\n\n\n6.0-7.0\n3\n4.00\n4.00\n100.00\n\n\n\ntotal N=75 · valid N=72 · x̄=2.11 · σ=0.88\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-notas_cat)"
+    "objectID": "files/reporte_notas/reporte_notas.html#gráficos-descriptivos",
+    "href": "files/reporte_notas/reporte_notas.html#gráficos-descriptivos",
+    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "section": "",
+    "text": "hist(prueba1$nota)\n\n\n\n\n\n\n\nplot_frq(data = prueba1$nota,type = \"hist\",show.mean = T)\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(notas_cat=cut(nota, breaks=c(-Inf,4,5,6, Inf), labels=c(\"Menor a 4.0\",\"4.0-5.0\",\"5.0-6.0\",\"6.0-7.0\")))\n\nfrq(prueba1$notas_cat, out=\"browser\", show.na = FALSE, title = \"Rangos de notas\")\n\n\nRangos de notas\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenor a 4.0\n25\n35.71\n35.71\n35.71\n\n\n\n4.0-5.0\n14\n20.00\n20.00\n55.71\n\n\n\n5.0-6.0\n24\n34.29\n34.29\n90.00\n\n\n\n6.0-7.0\n7\n10.00\n10.00\n100.00\n\n\n\ntotal N=70 · valid N=63 · x̄=2.19 · σ=1.04\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-notas_cat)"
+  },
+  {
+    "objectID": "files/reporte_notas/reporte_notas.html#preguntas-y-asociaciones",
+    "href": "files/reporte_notas/reporte_notas.html#preguntas-y-asociaciones",
+    "title": "Reporte Notas Prueba 1 - Estadística Correlacional 2024",
+    "section": "",
+    "text": "tab_corr(prueba1,\n         triangle = \"lower\")\n\n\n\n\n \nIntervalo de Confianza\nError tipo II\nRechazo H0 valor p\nFormulación hipótesis\nContraste de prueba t\nIntervalo confianza de prueba t\nNota final\nAsistencia Efectiva\nAsistencia Registrada\n\n\nIntervalo de Confianza\n \n \n \n \n \n \n \n \n \n\n\nError tipo II\n0.337**\n \n \n \n \n \n \n \n \n\n\nRechazo H0 valor p\n0.271*\n0.399***\n \n \n \n \n \n \n \n\n\nFormulación hipótesis\n0.180\n0.202\n0.014\n \n \n \n \n \n \n\n\nContraste de prueba t\n0.243*\n0.244*\n0.214\n0.485***\n \n \n \n \n \n\n\nIntervalo confianza de prueba t\n0.275*\n0.280*\n0.405***\n0.281*\n0.590***\n \n \n \n \n\n\nNota final\n0.453***\n0.525***\n0.544***\n0.592***\n0.849***\n0.772***\n \n \n \n\n\nAsistencia Efectiva\n0.278*\n-0.048\n0.117\n0.355**\n0.352**\n0.382**\n0.398***\n \n \n\n\nAsistencia Registrada\n0.316**\n0.006\n0.106\n0.380**\n0.382**\n0.377**\n0.427***\n0.980***\n \n\n\nComputed correlation used pearson-method with listwise-deletion.\n\n\n\n\n\n\nggplot(prueba1, aes(x = asist_total, y = nota)) + \n  geom_jitter(width = 0.2, color = \"red\", size = 4) + \n  labs(title = \"Relación entre asistencia y notas en Evaluación 1 (r=0.43)\") + \n  labs(x = \"Asistencia\", y = \"Nota\") + \n  theme(axis.title = element_text(size = 12),        # Tamaño de las etiquetas de los ejes\n        axis.text = element_text(size = 12)) +       # Tamaño del texto de los ejes\n  theme(aspect.ratio = 1/1.5) +\n  theme(plot.title = element_text(size = 12,         # Tamaño del título\n                                  face = \"bold\",     # Tipo de letra (negrita)\n                                  hjust = 0.5)) +\n  scale_x_continuous(breaks = seq(1, 12, by = 1), limits = c(1, 12)) +   # Ajuste del eje de asistencia\n  scale_y_continuous(breaks = seq(1, 7, by = 1), limits = c(1, 7))       # Ajuste del eje de notas de 1 a 7\n\n\n\n\n\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;%  mutate(asist_total_cat=cut(asist_total, breaks=c(-Inf,7,8,9,10,11,Inf), labels=c(\"Menos de 8\",\"8\",\"9\",\"10\",\"11\",\"12\")))\n\nfrq(prueba1$asist_total_cat, out=\"browser\", show.na = FALSE, title = \"Asistencia\")\n\n\nAsistencia\n\n\nval\nfrq\nraw.prc\nvalid.prc\ncum.prc\n\n\n\nMenos de 8\n6\n8.57\n8.57\n8.57\n\n\n\n8\n4\n5.71\n5.71\n14.29\n\n\n\n9\n10\n14.29\n14.29\n28.57\n\n\n\n10\n11\n15.71\n15.71\n44.29\n\n\n\n11\n19\n27.14\n27.14\n71.43\n\n\n\n12\n20\n28.57\n28.57\n100.00\n\n\n\ntotal N=70 · valid N=50 · x̄=4.33 · σ=1.58\n\n\n\n\nprueba1 %&gt;% # se especifica la base de datos\n  dplyr::select(asist_total_cat, nota)  %&gt;% # se seleccionan las variables\n  dplyr::group_by(Asistencia=sjlabelled::as_label(asist_total_cat)) %&gt;% # se agrupan por la variable categórica y se usan sus etiquetas con as_label\n  dplyr::summarise(Obs.=n(),Promedio=round(mean(nota),2),SD=round(sd(nota),2)) %&gt;% # se agregan las operaciones a presentar en la tabla\n  kable(, format = \"markdown\") # se genera la tabla\n\n\n\n\nAsistencia\nObs.\nPromedio\nSD\n\n\n\n\nMenos de 8\n6\n2.98\n1.63\n\n\n8\n4\n3.40\n0.20\n\n\n9\n10\n4.33\n1.46\n\n\n10\n11\n4.46\n1.56\n\n\n11\n19\n4.62\n1.44\n\n\n12\n20\n5.16\n0.98\n\n\n\n\nprueba1 &lt;- prueba1 %&gt;% dplyr::select(-asist_total_cat)\n\nConsistencia interna\n\npacman::p_load(ltm)\n\npreguntas &lt;- prueba1 %&gt;% dplyr::select(-nota)\ncronbach.alpha(na.omit(preguntas))\n\n\nCronbach's alpha for the 'na.omit(preguntas)' data-set\n\nItems: 8\nSample units: 70\nalpha: 0.753"
+  },
+  {
+    "objectID": "news/2025-08-04_inicio.html",
+    "href": "news/2025-08-04_inicio.html",
+    "title": "Informaciones por acá",
+    "section": "",
+    "text": "← News\n\n\n\n\nEstimad_s estudiantes, acá en esta pestaña quedará registro de las informaciones y actualizaciones del curso. De todas maneras se enviará link por correo a UCursos cuando haya noticias relevantes."
+  },
+  {
+    "objectID": "news/2025-08-19_practicos.html",
+    "href": "news/2025-08-19_practicos.html",
+    "title": "Inicio practicos",
+    "section": "",
+    "text": "← News\n\n\n\n\n\nEl día Miércoles 20 de agosto vamos a comenzar con la realización de los talleres prácticos de R.\nLos talleres prácticos consisten en guías de trabajo con énfasis en la aplicación práctica de los contenidos mediante el uso de R.\nLa estructura de la sesión será la siguiente:\n\n8:30 en la sala B1 comenzamos con la revisión del taller práctico correspondiente (30min aprox.)\n9:00 tendremos una sección de trabajo autónomo donde podrán aplicar los contenidos vistos en el taller. Para esto, es necesario que cada estudiante asista con su computador personal:\n\nSi asiste con su propio computador, deben traer instalado R (versión 4.5.1), RStudio (versión 2025.05.1+513) y las librerías pacman, dplyr y Publish.\nSi no pueden asistir con su propio computador, tenemos 30 cupos disponibles en la sala 45 del edificio antiguo de FACSO. Para asistir a esta sala deben inscribirse en el siguiente formulario: https://forms.gle/jsFdiWNkjLmCAP5D6"
+  },
+  {
+    "objectID": "news/2025-10-14_prep_evaluacion2.html",
+    "href": "news/2025-10-14_prep_evaluacion2.html",
+    "title": "Preparación Evaluación 2",
+    "section": "",
+    "text": "← News\nMañana miércoles 15 en lugar de clases regulares vamos a realizar una sesión de preparación de la Evaluación 2 (próximo lunes 20). En la sesión de mañana no se tomará asistencia y la actividad será de carácter voluntario para quienes consideren que requieren preparación.\nComo se puede ver en la página del programa del curso, la Evaluación de la Unidad 2 vale un 40% de la nota del curso."
+  },
+  {
+    "objectID": "news/2025-10-14_prep_evaluacion2.html#consideraciones",
+    "href": "news/2025-10-14_prep_evaluacion2.html#consideraciones",
+    "title": "Preparación Evaluación 2",
+    "section": "Consideraciones:",
+    "text": "Consideraciones:\n\nLa prueba será frente al computador, para así poder realizar las preguntas de análisis de datos.\nLas preguntas conceptuales también se responderán en el computador\nLas respuestas tanto de análisis como conceptuales se responderán en un formulario habilitado en UCursos"
+  },
+  {
+    "objectID": "news/2025-10-14_prep_evaluacion2.html#cómo-será-la-evaluación",
+    "href": "news/2025-10-14_prep_evaluacion2.html#cómo-será-la-evaluación",
+    "title": "Preparación Evaluación 2",
+    "section": "¿Cómo será la evaluación?",
+    "text": "¿Cómo será la evaluación?\n\nHabrá preguntas en tres temas:\n\ncorrelación\nmatrices de correlación y casos perdidos\nasociación en tablas de contingencia\n\nSerán preguntas puntuales de análisis e interpretación, y se calcula que cada pregunta requiere una dedicación de no más de 20 min, por lo que la prueba se puede contestar en aproximadamente una hora. De todas maneras, quienes requieran tiempo adicional, la prueba se podrá entregar hasta las 10:00\nCada tema tiene 4 puntos, 1 punto será por análisis de datos, y 3 por temas conceptuales/interpretación\nSe permitirá acceso a apuntes y a la página del curso online, no se permite el uso de otras plataformas como whatsapp o IA."
+  },
+  {
+    "objectID": "news/2025-10-14_prep_evaluacion2.html#cómo-prepararse",
+    "href": "news/2025-10-14_prep_evaluacion2.html#cómo-prepararse",
+    "title": "Preparación Evaluación 2",
+    "section": "¿Cómo prepararse?",
+    "text": "¿Cómo prepararse?\n\nEn los prácticos de la Unidad 2 hay una sección de ejercicio autónomo, el realizar estos ejercicios y luego corregirlos (aparecen también desarrollados en la misma página) es la mejor forma de prepararse, tanto en términos de análisis como de interpretación\nEstán también arriba los videos de los últimos dos prácticos\nRevisar el material de las presentaciones y lecturas sugeridas\nAsistir a la sesión de preparación/ensayo de la prueba miércoles 15 (es voluntario)\nSoftware: revisar que los ejercicios de los prácticos los puedan desarrollar bien en el computador que traerán a la evaluación. Quienes no pueden traer computador podrán realizar la evaluación en la sala de computación."
   },
   {
     "objectID": "resource/glosario.html",
@@ -1399,45 +1511,5 @@
     "title": "Programa",
     "section": "Programación de sesiones",
     "text": "Programación de sesiones\nVisitar la página de Planificación."
-  },
-  {
-    "objectID": "assignment/05-practico.html#video-de-la-sesión",
-    "href": "assignment/05-practico.html#video-de-la-sesión",
-    "title": "Práctico 5: Asociación entre categóricas",
-    "section": "Video de la sesión",
-    "text": "Video de la sesión\n\n\nAcá link directo a youtube.",
-    "crumbs": [
-      "Prácticos",
-      "Guías",
-      "5: Asociación entre categóricas"
-    ]
-  },
-  {
-    "objectID": "news/2025-10-14_prep_evaluacion2.html",
-    "href": "news/2025-10-14_prep_evaluacion2.html",
-    "title": "Preparación Evaluación 2",
-    "section": "",
-    "text": "← News\nMañana miércoles 15 en lugar de clases regulares vamos a realizar una sesión de preparación de la Evaluación 2 (próximo lunes 20). En la sesión de mañana no se tomará asistencia y la actividad será de carácter voluntario para quienes consideren que requieren preparación.\nComo se puede ver en la página del programa del curso, la Evaluación de la Unidad 2 vale un 40% de la nota del curso."
-  },
-  {
-    "objectID": "news/2025-10-14_prep_evaluacion2.html#consideraciones",
-    "href": "news/2025-10-14_prep_evaluacion2.html#consideraciones",
-    "title": "Preparación Evaluación 2",
-    "section": "Consideraciones:",
-    "text": "Consideraciones:\n\nLa prueba será frente al computador, para así poder realizar las preguntas de análisis de datos.\nLas preguntas conceptuales también se responderán en el computador\nLas respuestas tanto de análisis como conceptuales se responderán en un formulario habilitado en UCursos"
-  },
-  {
-    "objectID": "news/2025-10-14_prep_evaluacion2.html#cómo-será-la-evaluación",
-    "href": "news/2025-10-14_prep_evaluacion2.html#cómo-será-la-evaluación",
-    "title": "Preparación Evaluación 2",
-    "section": "¿Cómo será la evaluación?",
-    "text": "¿Cómo será la evaluación?\n\nHabrá preguntas en tres temas:\n\ncorrelación\nmatrices de correlación y casos perdidos\nasociación en tablas de contingencia\n\nSerán preguntas puntuales de análisis e interpretación, y se calcula que cada pregunta requiere una dedicación de no más de 20 min, por lo que la prueba se puede contestar en aproximadamente una hora. De todas maneras, quienes requieran tiempo adicional, la prueba se podrá entregar hasta las 10:00\nCada tema tiene 4 puntos, 1 punto será por análisis de datos, y 3 por temas conceptuales/interpretación\nSe permitirá acceso a apuntes y a la página del curso online, no se permite el uso de otras plataformas como whatsapp o IA."
-  },
-  {
-    "objectID": "news/2025-10-14_prep_evaluacion2.html#cómo-prepararse",
-    "href": "news/2025-10-14_prep_evaluacion2.html#cómo-prepararse",
-    "title": "Preparación Evaluación 2",
-    "section": "¿Cómo prepararse?",
-    "text": "¿Cómo prepararse?\n\nEn los prácticos de la Unidad 2 hay una sección de ejercicio autónomo, el realizar estos ejercicios y luego corregirlos (aparecen también desarrollados en la misma página) es la mejor forma de prepararse, tanto en términos de análisis como de interpretación\nEstán también arriba los videos de los últimos dos prácticos\nRevisar el material de las presentaciones y lecturas sugeridas\nAsistir a la sesión de preparación/ensayo de la prueba miércoles 15 (es voluntario)\nSoftware: revisar que los ejercicios de los prácticos los puedan desarrollar bien en el computador que traerán a la evaluación. Quienes no pueden traer computador podrán realizar la evaluación en la sala de computación."
   }
 ]

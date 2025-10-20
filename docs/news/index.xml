@@ -10,7 +10,61 @@
 <atom:link href="https://correlacional.netlify.app/news/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.7.33</generator>
-<lastBuildDate>Wed, 24 Sep 2025 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 14 Oct 2025 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Preparación Evaluación 2</title>
+  <link>https://correlacional.netlify.app/news/2025-10-14_prep_evaluacion2.html</link>
+  <description><![CDATA[ 
+
+<div class="back-nav"><a href="../news/">← News</a></div>
+
+
+
+
+<p><img src="https://correlacional.netlify.app/news/images/evaluacion.png" class="img-fluid"></p>
+<p>Mañana miércoles 15 en lugar de clases regulares vamos a realizar una sesión de preparación de la Evaluación 2 (próximo lunes 20). En la sesión de mañana no se tomará asistencia y la actividad será de carácter voluntario para quienes consideren que requieren preparación.</p>
+<p>Como se puede ver en la <a href="..\syllabus.html">página del programa del curso</a>, la Evaluación de la Unidad 2 vale un 40% de la nota del curso.</p>
+<section id="consideraciones" class="level2">
+<h2 class="anchored" data-anchor-id="consideraciones">Consideraciones:</h2>
+<ul>
+<li>La prueba será frente al computador, para así poder realizar las preguntas de análisis de datos.</li>
+<li>Las preguntas conceptuales también se responderán en el computador</li>
+<li>Las respuestas tanto de análisis como conceptuales se responderán en un formulario habilitado en UCursos</li>
+</ul>
+</section>
+<section id="cómo-será-la-evaluación" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-será-la-evaluación">¿Cómo será la evaluación?</h2>
+<ul>
+<li>Habrá preguntas en tres temas:
+<ul>
+<li>correlación</li>
+<li>matrices de correlación y casos perdidos</li>
+<li>asociación en tablas de contingencia</li>
+</ul></li>
+<li>Serán preguntas puntuales de análisis e interpretación, y se calcula que cada pregunta requiere una dedicación de no más de 20 min, por lo que la prueba se puede contestar en aproximadamente una hora. De todas maneras, quienes requieran tiempo adicional, la prueba se podrá entregar hasta las 10:00</li>
+<li>Cada tema tiene 4 puntos, 1 punto será por análisis de datos, y 3 por temas conceptuales/interpretación</li>
+<li>Se permitirá acceso a apuntes y a la página del curso online, no se permite el uso de otras plataformas como whatsapp o IA.</li>
+</ul>
+</section>
+<section id="cómo-prepararse" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-prepararse">¿Cómo prepararse?</h2>
+<ul>
+<li>En los prácticos de la Unidad 2 hay una sección de ejercicio autónomo, el realizar estos ejercicios y luego corregirlos (aparecen también desarrollados en la misma página) es la mejor forma de prepararse, tanto en términos de análisis como de interpretación</li>
+<li>Están también arriba los videos de los últimos dos prácticos</li>
+<li>Revisar el material de las presentaciones y lecturas sugeridas</li>
+<li>Asistir a la sesión de preparación/ensayo de la prueba miércoles 15 (es voluntario)</li>
+<li>Software: revisar que los ejercicios de los prácticos los puedan desarrollar bien en el computador que traerán a la evaluación. Quienes no pueden traer computador podrán realizar la evaluación en la sala de computación.</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>info</category>
+  <category>mail-UCursos</category>
+  <guid>https://correlacional.netlify.app/news/2025-10-14_prep_evaluacion2.html</guid>
+  <pubDate>Tue, 14 Oct 2025 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Reporte Evaluación 1</title>
   <link>https://correlacional.netlify.app/news/2025-09-25_reporte-notas1.html</link>
