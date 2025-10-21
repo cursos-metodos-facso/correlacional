@@ -281,7 +281,7 @@
     "href": "index.html#últimas-informaciones",
     "title": "\n            Estadística Correlacional\n        ",
     "section": "Últimas informaciones",
-    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\nPreparación Evaluación 2\n\n\n\n\n\n\n\n\n\nOct 14, 2025\n\n\n\n\n\n\n\n\n\n\n\nReporte Evaluación 1\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
+    "text": "Últimas informaciones\n\n\n\n\n\n\n\n\nInformaciones Evaluación 2\n\n\n\n\n\n\n\n\n\nOct 21, 2025\n\n\n\n\n\n\n\n\n\n\n\nPreparación Evaluación 2\n\n\n\n\n\n\n\n\n\nOct 14, 2025\n\n\n\n\n\n\n\n\n\n\n\nReporte Evaluación 1\n\n\n\n\n\n\n\n\n\nSep 24, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInicio practicos\n\n\n\n\n\n\n\n\n\nAug 19, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nPadlet\n\n\n\n\n\n\n\n\n\nAug 13, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nInformaciones por acá\n\n\n\n\n\n\n\n\n\nAug 19, 2024\n\n\n\n\n\n\nNo matching items\n\n-&gt; ir a la página de Informaciones del sitio."
   },
   {
     "objectID": "example/index.html",
@@ -1511,5 +1511,40 @@
     "title": "Programa",
     "section": "Programación de sesiones",
     "text": "Programación de sesiones\nVisitar la página de Planificación."
+  },
+  {
+    "objectID": "news/2025-10-21_info_evaluacion2.html",
+    "href": "news/2025-10-21_info_evaluacion2.html",
+    "title": "Informaciones Evaluación 2",
+    "section": "",
+    "text": "← News\nMañana miércoles 22 tendremos la segunda prueba del curso, al respecto, algunas informaciones relevantes:"
+  },
+  {
+    "objectID": "news/2025-10-21_info_evaluacion2.html#consideraciones",
+    "href": "news/2025-10-21_info_evaluacion2.html#consideraciones",
+    "title": "Informaciones Evaluación 2",
+    "section": "Consideraciones:",
+    "text": "Consideraciones:\n\nComo se puede ver en la página del programa del curso, la Evaluación de la Unidad 2 vale un 40% de la nota del curso.\nLa prueba combina aspectos prácticos de análisis en R y también interpretación de resultados.\nLa prueba será frente al computador vía test de u-cursos, para así poder realizar las preguntas de análisis de datos.\nLas preguntas conceptuales también se responderán en el computador.\nRecomendamos que cada estudiante asista con su propio computador, ya que esto permite una mayor personalización y familiarización con sus espacios de trabajo. Sobre todo, en lo que respecta a la configuración de RStudio y la carga de paquetes en R.\nSi no puede asistir con su propio computador, debe inscribirse en el siguiente enlace (cupos limitados): https://forms.gle/tvwmrc4CRvMhPrV76 este formulario estará habilitado hasta hoy a las 15:00 ya que eventualmente necesitaremos reservar una segunda sala"
+  },
+  {
+    "objectID": "news/2025-10-21_info_evaluacion2.html#recomendaciones",
+    "href": "news/2025-10-21_info_evaluacion2.html#recomendaciones",
+    "title": "Informaciones Evaluación 2",
+    "section": "Recomendaciones",
+    "text": "Recomendaciones\n\nRecomendamos llegar unos minutos antes del inicio de la prueba (8:30) para prender su computador, abrir Rstudio, u-cursos, etc. y así aprovechar al máximo el tiempo disponible para la prueba.\nSe sugiere responder las preguntas de la prueba en un archivo de código de R, y al final cortar y pegar las respuestas en este mismo formulario.\nSe sugiere guardar sus respuestas en un documento aparte para tenerlo como respaldo."
+  },
+  {
+    "objectID": "news/2025-10-21_info_evaluacion2.html#cómo-será-la-evaluación",
+    "href": "news/2025-10-21_info_evaluacion2.html#cómo-será-la-evaluación",
+    "title": "Informaciones Evaluación 2",
+    "section": "¿Cómo será la evaluación?",
+    "text": "¿Cómo será la evaluación?\n\nHabrá preguntas en tres temas:\n\ncorrelación\nmatrices de correlación y casos perdidos\nasociación en tablas de contingencia\n\nSerán preguntas puntuales de análisis e interpretación, y se calcula que cada pregunta requiere una dedicación de no más de 20 min, por lo que la prueba se puede contestar en aproximadamente una hora. De todas maneras, quienes requieran tiempo adicional, la prueba se podrá entregar hasta las 10:00.\nRecuerde que la prueba se cerrará automáticamente a las 10:00 y no se podrá agregar información adicional.\nCada tema tiene 4 puntos, 1 punto será por análisis de datos, y 3 por temas conceptuales/interpretación.\nPueden utilizar apuntes de clases, los recursos de la página del curso o cualquier otro material que estimen conveniente. No se pueden utilizar plataformas de comunicación (WhatsApp, redes sociales, Telegram, etc.) ni inteligencia artificial (ChatGPT, Gemini AI, etc.)."
+  },
+  {
+    "objectID": "news/2025-10-21_info_evaluacion2.html#cómo-prepararse",
+    "href": "news/2025-10-21_info_evaluacion2.html#cómo-prepararse",
+    "title": "Informaciones Evaluación 2",
+    "section": "¿Cómo prepararse?",
+    "text": "¿Cómo prepararse?\n\nEn los prácticos de la Unidad 2 hay una sección de ejercicio autónomo, el realizar estos ejercicios y luego corregirlos (aparecen también desarrollados en la misma página) es la mejor forma de prepararse, tanto en términos de análisis como de interpretación\nEstán también arriba los videos de los últimos dos prácticos realizados durante la reciente movilización y también la resolución del ejercicio autónomo del práctico de resumen realizado el lunes 20 de octubre.\nRevisar el material de las presentaciones y lecturas sugeridas\nSoftware: revisar que los ejercicios de los prácticos los puedan desarrollar bien en el computador que traerán a la evaluación. Quienes no pueden traer computador podrán realizar la evaluación en la sala de computación."
   }
 ]
