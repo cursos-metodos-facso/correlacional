@@ -29,7 +29,7 @@ Mañana miércoles 22 tendremos la segunda prueba del curso, al respecto, alguna
 - La prueba será frente al computador vía test de u-cursos, para así poder realizar las preguntas de análisis de datos. 
 - Las preguntas conceptuales también se responderán en el computador.
 - Recomendamos que cada estudiante asista con su propio computador, ya que esto permite una mayor personalización y familiarización con sus espacios de trabajo. Sobre todo, en lo que respecta a la configuración de RStudio y la carga de paquetes en R.
-- Si no puede asistir con su propio computador, debe inscribirse en el siguiente enlace (cupos limitados): [https://forms.gle/tvwmrc4CRvMhPrV76](https://forms.gle/tvwmrc4CRvMhPrV76) **este formulario estará habilitado hasta hoy a las 15:00 ya que eventualmente necesitaremos reservar una segunda sala**
+- Si no puede asistir con su propio computador, debe inscribirse en el siguiente enlace (cupos limitados): [https://forms.gle/tvwmrc4CRvMhPrV76](https://forms.gle/tvwmrc4CRvMhPrV76) **este formulario estará habilitado hasta hoy a las 17:00 ya que eventualmente necesitaremos reservar una segunda sala**
 
 ## Recomendaciones
 
