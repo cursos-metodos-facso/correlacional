@@ -27,10 +27,12 @@ Para la elaboración de los trabajos se utilizarán bases de datos secundarias d
 - [ Encuesta de Bienestar Social EBS 2023](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-bienestar-social-2023).
 - [ELSOC](https://conferencias.coes.cl/encuesta-panel/)
 - [SIMCE](https://informacionestadistica.agenciaeducacion.cl/#/bases) (evt. subset)
+- PISA (Programa internacional de evaluación escolar): [documentos en español](https://www.agenciaeducacion.cl/estudios-internacionales/pisa/) y [base de datos original](https://www.oecd.org/en/data/datasets/pisa-2022-database.html) 
 - [LAPOP](https://www.vanderbilt.edu/lapop/raw-data.php)
 - [CEP: varios temas/preguntas para encuestas desde 1990 en adelante, muy buen buscador!](https://www.cepchile.cl/opinion-publica/encuesta-cep/)
 - [ISSP (International Social Survey Programme)](https://issp.org/data-download/by-topic/)
 - [ENUT](https://www.ine.gob.cl/enut)
+- [ESI](https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) 
 
 # Temas y análisis
 
