@@ -28,7 +28,6 @@ Para la elaboración de los trabajos se utilizarán bases de datos secundarias d
 - [ELSOC](https://conferencias.coes.cl/encuesta-panel/)
 - [SIMCE](https://informacionestadistica.agenciaeducacion.cl/#/bases) (evt. subset)
 - [LAPOP](https://www.vanderbilt.edu/lapop/raw-data.php)
-desigualdades-economicas-y-sociales-desiguales-2016/)
 - [CEP: varios temas/preguntas para encuestas desde 1990 en adelante, muy buen buscador!](https://www.cepchile.cl/opinion-publica/encuesta-cep/)
 - [ISSP (International Social Survey Programme)](https://issp.org/data-download/by-topic/)
 - [ENUT](https://www.ine.gob.cl/enut)
@@ -157,8 +156,8 @@ Hay 4 semanas para realizar el trabajo. Durante este tiempo los horarios de clas
 
 - Semana 1: definición de grupos, temas y base de datos
 - Semana 2: análisis descriptivos univariados, chequeo de nivel de medición de variables, varianza y casos perdidos
-- Semana 3: escritura de introducción y análisis bivariados. Diseño de póster.
-- Semana 4: conclusiones y redacción final, presentación de póster y entrega de reporte.
+- Semana 3: escritura de introducción y análisis bivariados. Diseño de cápsula de difusión.
+- Semana 4: conclusiones y redacción final, presentación de resultados y entrega de reporte.
 
 ## Escritura académica
 
