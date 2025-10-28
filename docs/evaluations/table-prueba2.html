@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.33">
@@ -8,7 +8,7 @@
 
 <meta name="description" content="Estadística Correlacional - Inferencia, asociación y reporte">
 
-<title>Seminario de encuestas – Estadística Correlacional</title>
+<title>Untitled – Estadística Correlacional</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,22 +57,51 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
-    "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
-    "search-clear-button-title": "Borrar",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Seminario de encuestas – Estadística Correlacional">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Untitled – Estadística Correlacional">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://correlacional.netlify.app/files/logo-correlacional.png">
 <meta property="og:site_name" content="Estadística Correlacional">
@@ -92,8 +121,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Estadística Correlacional</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Buscar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -142,41 +171,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">En esta página</h2>
-   
-  <ul>
-  <li><a href="#martín-venegas" id="toc-martín-venegas" class="nav-link active" data-scroll-target="#martín-venegas">Martín Venegas</a></li>
-  <li><a href="#víctor-jiménez" id="toc-víctor-jiménez" class="nav-link" data-scroll-target="#víctor-jiménez">Víctor Jiménez</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<div class="back-nav"><a href="../news/">← News</a></div>
-
-<header id="title-block-header" class="news quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Seminario de encuestas</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">info</div>
-    <div class="quarto-category">mail-UCursos</div>
-  </div>
-  </div>
+<h1 class="title">Untitled</h1>
+</div>
 
 
 
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Posted</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">martes octubre 28, 2025 at 12:00 AM</p>
-    </div>
-  </div>
   
     
   </div>
@@ -186,46 +196,46 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img src="..\news/images/encuestas.png" class="img-fluid"></p>
-<p>Mañana miércoles 29 tendremos el seminario de encuestas planificado en el curso, al respecto, dos egresados de sociología de FACSO nos presentarán sobre las encuestas que han estado trabajando en el Instituto Nacional de Estadísticas <a href="https://www.ine.gob.cl/">INE</a>. Ambos fueron ayudantes de cursos cuantitativos, y Martín Venegas fue además apoyo docente de correlacional 2024. Las encuestas que van a presentar en detalle son una muy buena fuente de datos para los trabajos. Además, podrán tener la oportunidad de conversar con ellos sobre experiencia en el mercado laboral luego de terminar la carrera.</p>
-<section id="martín-venegas" class="level2">
-<h2 class="anchored" data-anchor-id="martín-venegas">Martín Venegas</h2>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="..\news/images/martin.jpg" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<ul>
-<li>Analista Socioeconómico de la Encuesta Nacional de Uso del Tiempo (ENUT) en el Instituto Nacional de Estadísticas (INE).</li>
-</ul>
-</div>
-</div>
-</div>
-<ul>
-<li>Sociólogo de la Universidad de Chile con foco en estadística aplicada, diseño de encuestas, procesamiento y análisis de datos. A lo largo de su trayectoria ha desarrollado competencias en el uso de R, Quarto, Git y métodos cuantitativos robustos para abordar problemas complejos. Le interesa especialmente el uso de datos para comprender y transformar realidades sociales, con un fuerte compromiso con la accesibilidad del conocimiento y la investigación reproducible. Busco participar en proyectos que combinen rigurosidad técnica con impacto social positivo.</li>
-</ul>
-</section>
-<section id="víctor-jiménez" class="level2">
-<h2 class="anchored" data-anchor-id="víctor-jiménez">Víctor Jiménez</h2>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="..\news/images/victor.jpg" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<ul>
-<li>Analista Socioeconómico en Encuesta Suplementaria de Ingresos (ESI) en el Instituto Nacional de Estadísticas (INE).</li>
-</ul>
-</div>
-</div>
-</div>
-<ul>
-<li>Titulado en Sociología de la Universidad de Chile, egresado del Magister y Políticas Publicas del departamento de Ingeniería Industrial de la Universidad de Chile. Integrante e investigador de NUDESOC (Núcleo de Sociología Contingente). Ex-investigador en CEFECH (Centro de Estudios, Federación Universidad de Chile). Ha trabajado como asistente de investigación en CIAE y consultor asociado en Consultora Inclusión y Equidad. Áreas de Interés: Educación, Políticas Publicas, Economía, Movimientos Sociales, Salud, Trabajo, vivienda digna, entre otras.</li>
-</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 18%">
+<col style="width: 19%">
+<col style="width: 14%">
+<col style="width: 16%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pregunta</th>
+<th>Respuesta esperada</th>
+<th>Respuesta estudiante</th>
+<th>Puntaje máximo</th>
+<th>Puntaje asignado</th>
+<th>Justificación puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Estime la correlación entre ambas variables utilizando R y genere un diagrama de dispersión (nube de puntos/scatterplot). Corte y pegue el código en el recuadro de abajo. (1p)</td>
+<td><code>cor.test(dataset1$ingresos, dataset1$apoyo_dem, complete.obs = TRUE, method = "pearson")</code><br><code>sjPlot::plot_scatter(data = dataset1, x = ingresos, y = apoyo_dem)</code></td>
+<td>```r</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>pacman::p_load( tidyverse, sjPlot, rstatix, labelled, broom, kableExtra )</p>
+<p>options(scipen = 999) rm(list = ls())</p>
+<p>load(url(“https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/dataset1.RData”)) names(dataset1)</p>
+<p>proc_base &lt;- dataset1 %&gt;% dplyr::select( id, apoyodem = apoyo_dem, ing = ingresos, Nivel_ing = ingresos_rec, sex = sexo ) %&gt;% dplyr::mutate( across(apoyodem:sex, ~ if_else(. %in% c(-666, -777, -888, -999), NA, .)) )</p>
+<p>head(proc_base)</p>
+<p>cor( x = proc_base<span class="math inline">\(ing,
+  y = proc_base\)</span>apoyodem, use = “complete.obs” )</p>
+<p>sjPlot::plot_scatter( data = proc_base, x = ing, y = apoyodem ) ``<code>| - 0.5 por código de correlación&lt;br&gt;- 0.5 por gráfico de dispersión | | | | Justifique la elección del coeficiente de correlación seleccionado e interprete el resultado considerando visualización, inferencia estadística, magnitud y sentido del efecto. (3p) | Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto</code>ingresos<code>y</code>apoyo_dem<code>corresponden a variables numéricas de razón. El coeficiente da cuenta de una relación positiva y grande, siguiendo los criterios de Cohen (1988) (r = 0.80). Es decir, a medida que aumentan los ingresos de las personas, también aumentan sus niveles de</code>apoyo_dem`. La relación es estadísticamente significativa (p &lt; 0.001), por ende es posible rechazar H₀ sobre no asociación entre variables, entregando evidencia a favor de una relación entre ambas variables con un 99.9% de confianza. | a partir del coheficiente de parson podemos indicar que la correlacion es positiva y grande, esto se observa tambien visulmente teniendo los putos relativamente cerca y en forma ascendente. Visualmente tambien podemos indicar que se poseen desviaciones. | - 1pt por coeficiente de correlación seleccionado<br>- 1pt por inferencia<br>- 1pt por magnitud y sentido del efecto | | |</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -253,12 +263,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copiado");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copiado");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

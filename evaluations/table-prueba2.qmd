@@ -1,0 +1,50 @@
+---
+title: "Untitled"
+format: html
+---
+
+| Pregunta | Respuesta esperada | Respuesta estudiante | Puntaje máximo | Puntaje asignado | Justificación puntaje |
+|-----------|--------------------|----------------------|----------------|------------------|------------------------|
+| Estime la correlación entre ambas variables utilizando R y genere un diagrama de dispersión (nube de puntos/scatterplot). Corte y pegue el código en el recuadro de abajo. (1p) | `cor.test(dataset1$ingresos, dataset1$apoyo_dem, complete.obs = TRUE, method = "pearson")`<br>`sjPlot::plot_scatter(data = dataset1, x = ingresos, y = apoyo_dem)` | ```r
+pacman::p_load(
+  tidyverse,
+  sjPlot,
+  rstatix,
+  labelled,
+  broom,
+  kableExtra
+)
+
+options(scipen = 999)
+rm(list = ls())
+
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/dataset1.RData"))
+names(dataset1)
+
+proc_base <- dataset1 %>%
+  dplyr::select(
+    id,
+    apoyodem = apoyo_dem,
+    ing = ingresos,
+    Nivel_ing = ingresos_rec,
+    sex = sexo
+  ) %>%
+  dplyr::mutate(
+    across(apoyodem:sex, ~ if_else(. %in% c(-666, -777, -888, -999), NA, .))
+  )
+
+head(proc_base)
+
+cor(
+  x = proc_base$ing,
+  y = proc_base$apoyodem,
+  use = "complete.obs"
+)
+
+sjPlot::plot_scatter(
+  data = proc_base,
+  x = ing,
+  y = apoyodem
+)
+``` | - 0.5 por código de correlación<br>- 0.5 por gráfico de dispersión | | |
+| Justifique la elección del coeficiente de correlación seleccionado e interprete el resultado considerando visualización, inferencia estadística, magnitud y sentido del efecto. (3p) | Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `apoyo_dem` corresponden a variables numéricas de razón. El coeficiente da cuenta de una relación positiva y grande, siguiendo los criterios de Cohen (1988) (r = 0.80). Es decir, a medida que aumentan los ingresos de las personas, también aumentan sus niveles de `apoyo_dem`. La relación es estadísticamente significativa (p < 0.001), por ende es posible rechazar H₀ sobre no asociación entre variables, entregando evidencia a favor de una relación entre ambas variables con un 99.9% de confianza. | a partir del coheficiente de parson podemos indicar que la correlacion es positiva y grande, esto se observa tambien visulmente teniendo los putos relativamente cerca y en forma ascendente. Visualmente tambien podemos indicar que se poseen desviaciones. | - 1pt por coeficiente de correlación seleccionado<br>- 1pt por inferencia<br>- 1pt por magnitud y sentido del efecto | | |

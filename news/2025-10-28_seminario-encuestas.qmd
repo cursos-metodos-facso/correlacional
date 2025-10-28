@@ -19,9 +19,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ![](/news/images/encuestas.png)
 
-Mañana miércoles 29 tendremos el seminario de encuestas planificado en el curso, al respecto, dos ex-estudiantes del curso nos presentarán sobre las encuestas que han estado trabajando en el Instituto Nacional de Estadísticas [INE](https://www.ine.gob.cl/).
-
-Ellos son egresados del departamento de sociología, y fueron ayudantes algún tiempo atrás (Martín Venegas apoyo docente de correlacional 2024). Las encuestas que van a presentar en detalle son una muy buena fuente de datos para los trabajos. Además, podrán tener la oportunidad de conversar con ellos sobre experiencia en el mercado laboral luego de terminar la carrera.
+Mañana miércoles 29 tendremos el seminario de encuestas planificado en el curso, al respecto, dos egresados de sociología de FACSO nos presentarán sobre las encuestas que han estado trabajando en el Instituto Nacional de Estadísticas [INE](https://www.ine.gob.cl/). Ambos fueron ayudantes de cursos cuantitativos, y Martín Venegas fue además apoyo docente de correlacional 2024. Las encuestas que van a presentar en detalle son una muy buena fuente de datos para los trabajos. Además, podrán tener la oportunidad de conversar con ellos sobre experiencia en el mercado laboral luego de terminar la carrera.
 
 
 ## Martín Venegas
@@ -32,7 +30,7 @@ Ellos son egresados del departamento de sociología, y fueron ayudantes algún t
 - Analista Socioeconómico de la Encuesta Nacional de Uso del Tiempo (ENUT) en el Instituto Nacional de Estadísticas (INE).
 :::
 
-- Sociólogo con foco en estadística aplicada, diseño de encuestas, procesamiento y análisis de datos. A lo largo de su trayectoria ha desarrollado competencias en el uso de R, Quarto, Git y métodos cuantitativos robustos para abordar problemas complejos. Le interesa especialmente el uso de datos para comprender y transformar realidades sociales, con un fuerte compromiso con la accesibilidad del conocimiento y la investigación reproducible. Busco participar en proyectos que combinen rigurosidad técnica con impacto social positivo.
+- Sociólogo de la Universidad de Chile con foco en estadística aplicada, diseño de encuestas, procesamiento y análisis de datos. A lo largo de su trayectoria ha desarrollado competencias en el uso de R, Quarto, Git y métodos cuantitativos robustos para abordar problemas complejos. Le interesa especialmente el uso de datos para comprender y transformar realidades sociales, con un fuerte compromiso con la accesibilidad del conocimiento y la investigación reproducible. Busco participar en proyectos que combinen rigurosidad técnica con impacto social positivo.
 
 
 ## Víctor Jiménez
