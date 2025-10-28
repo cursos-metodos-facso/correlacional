@@ -23,6 +23,9 @@ load("data/dataset4.RData")
 
 1.1 Estime la correlación entre ambas variables utilizando R y genere un diagrama de dispersión (nube de puntos/scatterplot). Corte y pegue el código en el recuadro de abajo. (1p)
 
+  - 0.5 por código de correlación
+  - 0.5 por gráfico de dispersión
+
 Forma A
 ```{r}
 cor.test(dataset1$ingresos, dataset1$apoyo_dem, complete.obs = TRUE, method = "pearson")
@@ -48,6 +51,10 @@ sjPlot::plot_scatter(data = dataset4, x = ingresos, y = apoyo_dem)
 ```
 
 1.2 Justifique la elección del coeficiente de correlación seleccionado e interprete el resultado considerando inferencia estadística, magnitud y sentido del efecto. (3p)
+
+  * 1pt por coeficiente de correlación seleccionado
+  * 1pt por inferencia
+  * 1pt por magnitud y sentido del efecto
 
 - **Forma A:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `apoyo_dem` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion positiva y grande, siguiendo los criterios de Cohen (1988) ($r$ = 0.80). Es decir, a medida que aumentan los ingresos de las personas, también aumentan sus niveles de apoyo_dem. La relación es estadísticamente significativa ($p$ < 0.001), por ende es posible rechazar $H_0$ sobre no asociación entre variables, entregando evidencia a favor de una relación entre ambas variables con un 99.9% de confianza.
 
@@ -113,71 +120,60 @@ sjPlot::tab_corr(cormat,
 ```
 
 
-2.2a ¿Qué correlaciones de la matriz son estadísticamente significativas? (1p)
+2.2a ¿Qué correlaciones de la matriz son estadísticamente significativas?¿Con qué nivel de confianza se puede rechazar la hipótesis nula en estos casos? (1p)
 
-- Forma A: 
+- Forma A: (0,5 por cada correlación significativa)
       
-    * **Pairwaise**: La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva, estadísticamente significativa ($r$ = 0.809, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
-    * **Listwise**: La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva, estadísticamente significativa ($r$ = 0.809, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+    * **Pairwise**: La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva y estadísticamente significativa ($r$ = 0.809, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+    * **Listwise**: La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva y estadísticamente significativa ($r$ = 0.809, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
 
-- Forma B:
+- Forma B: (1pt por correlación significativa en pairwise, 0.5 por c/u en listwise)
 
-    * **Pairwaise**: La correlación de Pearson entre _ingresos_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.837, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+    * **Pairwise**: La correlación de Pearson entre _ingresos_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.837, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
     * **Listwise**: 
-        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.078, $p$ < 0.05) y débil según los criteriores de Cohen (1988).
-       ii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva, estadísticamente significativa ($r$ = 0.837, $p$ < 0.05) y fuerte según los criteriores de Cohen (1988).
+        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.078, $p$ < 0.05). La hipótesis nula se puede rechazar con un 95% de confianza.
+       ii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva y estadísticamente significativa ($r$ = 0.837, $p$ < 0.05). La hipótesis nula se puede rechazar con un 95% de confianza.
 
 
-- Forma C:
+- Forma C: (1pt por no haber asociaciones significativas)
     
-    * **Pairwaise**: No hay asociaciones estadísticamente significativas ($p$ < 0.05) entre las variables.
-    * **Listwise**: No hay asociaciones estadísticamente significativas ($p$ < 0.05) entre las variables.
+    * **Pairwise**: No hay asociaciones estadísticamente significativas ($p$ < 0.05) entre las variables. No se puede rechazar la hipótesis nula.
+    * **Listwise**: No hay asociaciones estadísticamente significativas ($p$ < 0.05) entre las variables. No se puede rechazar la hipótesis nula.
 
-- Forma D:
+- Forma D: (1pt por las tres asociaciones significativas)
 
-     * **Pairwaise**: 
-        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.523, $p$ < 0.001) y moderada según los criteriores de Cohen (1988).  
-        ii. La correlación de Pearson entre _ingresos_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.831, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
-        iii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva, estadísticamente significativa ($r$ = 0.795, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+     * **Pairwise**: 
+        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.523, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+        ii. La correlación de Pearson entre _ingresos_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.831, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+        iii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva y estadísticamente significativa ($r$ = 0.795, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
      
      * **Listwise**: 
-        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.517, $p$ < 0.001) y moderada según los criteriores de Cohen (1988).  
-         ii. La correlación de Pearson entre _ingresos_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.830, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
-         iii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva, estadísticamente significativa ($r$ = 0.795, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.517, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza. 
+        ii. La correlación de Pearson entre _ingresos_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.830, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+        iii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva y estadísticamente significativa ($r$ = 0.795, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
   
 
-2.2b ¿Qué decisión tomó sobre los casos perdidos en el cálculo de la matriz? (1p)
+2.2b ¿Qué decisión tomó sobre los casos perdidos en el cálculo de la matriz?¿Por qué? (1p)
 
-- Forma A: 
 
-     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
-     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
+   * **Pairwise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular los coeficientes de correlación.
+   * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos con el fin de mantener el mismo número de casos para todas las correlaciones.
      
-- Forma B:
-
-     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
-     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
+  * **bonus**: Si mencionan que la variable ingresos es la que tiene gran porcentaje de NA, se le asignarán dos décimas extra en la nota final.
      
-- Forma C:
 
-     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
-     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
-     
-- Forma D:
-
-     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
-     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
 
 2.2c ¿Cómo se denomina el tipo de correlación que se calcula entre sexo e ingreso? (1p)
 
-- Forma A: La correlación entre la variable dummy sexo (0="Hombre"; 1="Mujer") y la variable continúa ingresos se denomina correlación punto biserial.
-- Forma B: La correlación entre la variable dummy sexo (0="Hombre"; 1="Mujer") y la variable continúa ingresos se denomina correlación punto biserial.
-- Forma C: La correlación entre la variable dummy sexo (0="Hombre"; 1="Mujer") y la variable continúa ingresos se denomina correlación punto biserial.
-- Forma D: La correlación entre la variable dummy sexo (0="Hombre"; 1="Mujer") y la variable continúa ingresos se denomina correlación punto biserial.
+- La correlación entre la variable dummy sexo (0="Hombre"; 1="Mujer") y la variable continúa ingresos se denomina correlación punto biserial.
+
+- Si utilizan la variable de ingresos recodificada, entonces la correlación es policórica
 
 # Pregunta 3: ¿Cómo se relaciona el sexo con los ingresos?
 
 3.1 Reporte tabla de contigencia y el cálculo de Chi2. Corte y pegue el código abajo. (1p)
+
+- 1pt por el código de sjPlot::sjtab
 
 - Forma A:
 ```{r}
@@ -223,14 +219,39 @@ chisq.test(dataset4$sexo, dataset4$ingresos_rec) # adicional, ya que el Chi2 apa
 3.2 Interprete el Chi2 en términos de inferencia y magnitud del efecto. (3p)
 
 - Forma A: χ2=3.292 · df=2 · Cramer's V=0.062 · p=0.193
-Chi cuadrado no es estadísticamente significativo (p > 0.05), tamaño de efecto pequeño/débil según la V de Cramer
+
+**Chi cuadrado no es estadísticamente significativo** (1pt)
+
+(p > 0.05) (1pt) 
+
+tamaño de efecto pequeño/débil según la V de Cramer (1pt)
 
 - Forma B: χ2=393.623 · df=2 · Cramer's V=0.681 · p=0.000
-Chi cuadrado estadísticamente significativo (p < 0.001), tamaño de efecto grande/fuerte según la V de Cramer
+
+**Chi cuadrado estadísticamente significativo** (1pt)
+
+(p < 0.001), 99,9% de confianza (1pt)
+
+tamaño de efecto grande/fuerte según la V de Cramer (1pt)
 
 - Forma C: χ2=1.405 · df=2 · Cramer's V=0.041 · p=0.495
-Chi cuadrado no es estadísticamente significativo (p > 0.05), tamaño de efecto pequeño/débil según la V de Cramer
+
+**Chi cuadrado no es estadísticamente significativo** (1pt)
+
+(p > 0.05) (1pt)
+
+tamaño de efecto pequeño/débil según la V de Cramer  (1pt)
 
 - Forma D: χ2=379.824 · df=2 · Cramer's V=0.668 · p=0.000
-Chi cuadrado estadísticamente significativo (p < 0.001), tamaño de efecto grande/fuerte según la V de Cramer
 
+**Chi cuadrado estadísticamente significativo** (1pt)
+
+(p < 0.001), 99,9% de confianza (1pt)
+
+tamaño de efecto grande/fuerte según la V de Cramer  (1pt)
+
+3.3 A Chi2 también se le denomina "test de diferencia", ¿Qué es lo que se compara para hacer esta diferencia? (1p)
+
+En el test Chi-cuadrado se comparan las frecuencias observadas en cada categoría de una tabla de contingencia con las frecuencias esperadas bajo la hipótesis nula de independencia o no asociación.
+
+En otras palabras, se mide la diferencia entre lo que efectivamente se observa en los datos y lo que se esperaría si no existiera relación entre las variables. Cuanto mayores sean esas diferencias (ajustadas al tamaño de la muestra), mayor será el valor de χ2.
