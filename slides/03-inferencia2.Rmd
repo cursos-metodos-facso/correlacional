@@ -1,7 +1,7 @@
 ---
 title: "Estadística Correlacional"
 author: ".small[Juan Carlos Castillo <br><br> Departamento de Sociología - UCH / COES <br><br>]"
-date: "2do Sem 2024"
+date: "2do Sem 2025"
 output:
   xaringan::moon_reader:
     css: "css/custom_2020.css"
@@ -49,8 +49,8 @@ xaringanExtra::use_scribble()
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
-## [.orange[correlacional.netlify.com]](https:/correlacional.netlify.com)
+## 2do Sem 2025
+## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
 
@@ -547,8 +547,20 @@ background-size: cover
 
 - Establece áreas bajo la curva en base a desviaciones estándar del promedio
 
+
 ---
-class: middle
+class: center
+
+![](https://jc-castillo.com/images/albums/gallery/not-normal.png)
+
+---
+## Distribución normal, desviaciones estándar y áreas bajo la curva
+.center[
+![:scale 75%](img/norm2.png)
+]
+
+
+---
 
 .pull-left-narrow[
 # ¿Por qué es importante la distribución normal en estadística?
@@ -569,11 +581,6 @@ class: middle
 
 
 
----
-## Distribución normal, desviaciones estándar y áreas bajo la curva
-.center[
-![:scale 75%](img/norm2.png)
-]
 
 
 ---
@@ -743,7 +750,7 @@ class: roja
 
 ---
 class: inverse bottom right
-# Error estándar y teorema central del límite
+# Error estándar y Teorema Central del Límite (TCL)
 ---
 
 .pull-left-narrow[
@@ -794,9 +801,20 @@ $$\sigma_{\bar{X}}=SE(error estándar)=\frac{s}{\sqrt{N}}$$
 ---
 class: inverse middle right
 
-## Basados en el .orange[teorema del límite central], es posible calcular la desviación estándar de los promedios (error estándar) con 
+## Basados en el .orange[Teorema Central del Límite], es posible calcular la desviación estándar de los promedios (error estándar) con 
 
 #.yellow[una sola muestra]
+
+---
+class: roja middle
+.center[
+# UNA SOLA MUESTRA 
+]
+
+![:scale 30%](img/emoji-o.png)
+
+
+
 
 ---
 ### Demostración: 10 muestras, 5 casos c/u
@@ -840,6 +858,8 @@ class: inverse
 
 ### - Curva normal y puntajes Z
 
+### - Teorema Central del Límite
+
 ### - Error estándar
 
 
@@ -858,8 +878,8 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
-## [.orange[correlacional.netlify.com]](https://encuestas-sociales.netlify.com)
+## 2do Sem 2025
+## [.orange[correlacional.netlify.app]](https://correlacional.netlify.app)
 ]
     
 

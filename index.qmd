@@ -34,11 +34,8 @@ withr::with_dir(here::here(), {
 
 ::: {.grid .course-details}
 
-
-
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
 ### Profesor
-
 
 <div class="image-cropper">
   <img src="https://ucampus.uchile.cl/d/r/usuario/ff/ffd4a9d15a5239c0a425a58a798889c8/perfil/3f226cddefb67f6a7d4c047fec39097f.jpg" alt="avatar" class="profile-pic" width= "100" height= "auto">
@@ -49,7 +46,10 @@ withr::with_dir(here::here(), {
 - {{< fa envelope >}} &nbsp; <a href="mailto:juancastillov@uchile.cl">juancastillov@uchile.cl</a>
 - {{< fa calendar-check >}} &nbsp; [Agendar reunión]({{< var instructor.appointment_url >}})
 
-#### Apoyo Docente
+:::
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+### Apoyo Docente
 
 <div class="image-cropper">
   <img src="https://ucampus.uchile.cl/d/r/usuario/f1/f102fdb482bd26aa12d41abfa8054b0b/perfil/75bf44ba76242207373e3bda4ea0733f.jpg" alt="avatar" class="profile-pic"   width= "10" height= "auto">
@@ -59,26 +59,137 @@ withr::with_dir(here::here(), {
 - {{< fa envelope >}} &nbsp; <a href="mailto:kevinkevin.carrasco@ug.uchile.cl ">kevin.carrasco@ug.uchile.cl </a>
 - {{< fa calendar-check >}} &nbsp; Agendar reunión
 
-
 :::
 
-::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+::: {.g-col-12 .g-col-md-4 .contact-policy}
 ### Actividades
 
 - {{< fa clock >}} &nbsp; **Lunes 08:30-10:00** - Aulario C Sala 6
 
 - {{< fa clock >}} &nbsp; **Miércoles 08:30-10:00** - Aulario B Sala 1
 
-:::
-
-::: {.g-col-12 .g-col-md-4 .contact-policy}
-### Contacto
-
-{{< var instructor.contact_policy >}}
-:::
 
 :::
 :::
+:::
+
+### Ayudantes
+
+::: {.home}
+
+::: {.grid .course-details}
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+
+::: {.avatar-container}
+::: {.avatar-photo}
+![](images/ayudantes/bastian.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Bastián Martin**
+:::
+:::
+
+::: {.avatar-container}
+::: {.avatar-photo}
+![](images/ayudantes/felipe.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Felipe Vega**
+:::
+:::
+
+::: {.avatar-container}
+::: {.avatar-photo}
+![](images/ayudantes/isidora.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Isidora Valencia**
+:::
+:::
+
+::: {.avatar-container}
+::: {.avatar-photo}
+![](images/ayudantes/javiera.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Javiera Álvarez**
+:::
+:::
+
+::: 
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+::: {.avatar-container}
+::: {.avatar-photo}
+![](images/ayudantes/katherine.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Katherine Aravena**
+:::
+:::
+
+::: {.avatar-container}
+::: {.avatar-photo}
+![](images/ayudantes/martinab.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Martina Buzio**
+:::
+:::
+
+::: {.avatar-container}
+::: {.avatar-photo}
+![](images/ayudantes/martinaj.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Martina Lagos**
+:::
+:::
+
+::: {.avatar-container}
+::: {.avatar-photo}
+![](https://res.cloudinary.com/sitegurus/image/upload/v1624100887/profile_pictures/default_qrqg0b.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Nicolás Outerbridge**
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
+::: {.avatar-container}
+::: {.avatar-photo}
+![](images/ayudantes/rodrigo.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Rodrigo Huerta**
+:::
+:::
+
+::: {.avatar-container}
+::: {.avatar-photo}
+![](images/ayudantes/tomas.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Tomás Urzúa**
+:::
+:::
+
+::: {.avatar-container}
+::: {.avatar-photo}
+![](images/ayudantes/valentina.png){.profile-pic}
+:::
+::: {.avatar-text}
+**Valentina Montencinos**
+:::
+:::
+
+
+:::
+:::
+
+
 
 ## Últimas informaciones
 

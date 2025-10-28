@@ -4,7 +4,7 @@
     <title>Estadística Correlacional</title>
     <meta charset="utf-8" />
     <meta name="author" content=".small[Juan Carlos Castillo    Departamento de Sociología - UCH / COES   ]" />
-    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <script src="libs/mark.js-8.11.1/mark.min.js"></script>
     <link href="libs/xaringanExtra-search-0.0.1/search.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-search-0.0.1/search.js"></script>
@@ -37,7 +37,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -139,6 +139,7 @@ data &lt;-data.frame(educ,ing)
 .small[
 
 ``` r
+pacman::p_load(kableExtra)
 kableExtra::kbl(data)
 ```
 
@@ -1111,7 +1112,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.com]](https://encuestas-sociales.netlify.com)
 ]
     
@@ -1126,10 +1127,10 @@ class: front
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="libs/macros.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "dracula",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "ratio": "16:9",
+  "highlightStyle": "dracula",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

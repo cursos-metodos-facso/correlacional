@@ -1,0 +1,25 @@
+---
+title: "Inicio practicos"
+date: "2025-08-19"
+categories: [info]
+image: R_logo.png
+---
+
+![](R_logo.png)
+
+
+El día Miércoles 20 de agosto vamos a comenzar con la realización de los talleres prácticos de R.
+
+Los talleres prácticos consisten en guías de trabajo con énfasis en la aplicación práctica de los contenidos mediante el uso de R. 
+
+La estructura de la sesión será la siguiente:
+
+1) 8:30 en la sala B1 comenzamos con la revisión del taller práctico correspondiente (30min aprox.)
+
+2) 9:00 tendremos una sección de trabajo autónomo donde podrán aplicar los contenidos vistos en el taller. Para esto, es necesario que cada estudiante asista con su computador personal:
+    
+    a) Si asiste con su propio computador, deben traer instalado R (versión 4.5.1), RStudio (versión 2025.05.1+513) y las librerías `pacman`, `dplyr` y `Publish`.
+
+
+    b) Si no pueden asistir con su propio computador, tenemos 30 cupos disponibles en la sala 45 del edificio antiguo de FACSO. Para asistir a esta sala deben inscribirse en el siguiente formulario: [https://forms.gle/jsFdiWNkjLmCAP5D6](https://forms.gle/jsFdiWNkjLmCAP5D6)
+

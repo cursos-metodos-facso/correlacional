@@ -51,7 +51,7 @@ xaringanExtra::use_search(show_icon = TRUE)
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -84,9 +84,11 @@ class: inverse
 5. Interpretación
 
 ---
-# Pendientes: 
+class: roja
 
-- prueba t
+# Esta clase: 
+
+- comparación de medias: prueba t
 
 - cálculo de valor crítico de prueba para contraste de hipótesis
 
@@ -106,7 +108,8 @@ class: inverse bottom right
   - los chilenos son más prejuiciosos que los migrantes
   
   - ahora se apoyan los cambios más graduales que antes (comparación en el tiempo)
-  
+
+
 ---
 class: inverse right middle
 .large["_la sociología comparada no es una rama especial de la sociología, sino que
@@ -125,6 +128,12 @@ a dar razón de los hechos_"]
 --
 
 - la clase anterior realizamos una prueba Z para diferencia de medias solo a modo de simplificación, quedando pendiente el aplicar la prueba correspondiente: .large[_**t**_] 
+
+---
+
+![](img/t-test.png)
+
+
 ---
 # Del ejemplo de la clase anterior (sub muestra CASEN)
 
@@ -145,34 +154,6 @@ casen_350%>% # se especifica la base de datos
 ```
 
 .right[Diferencia salarial = 654.585-604.420=**50.165**]
-
----
-# Generación de intervalo (con Z)
-
-\begin{align*}
-\bar{x}_1-\bar{x}_2 &\pm t_{\alpha/2}*SE_{\bar{x_1}-\bar{x_2}} \\
-50165 &\pm 1.96*50561 \\
-50165 &\pm 99099.56 \\
-CI[-49287.48&;149617.63]
-\end{align*}
-
-Asumiendo que el **valor crítico** Z para un error $\alpha$ de 0.5 (o 95% de confianza) es de **1.96**
-
-Para diferencia de medias necesitamos un valor crítico más preciso que el que nos da $Z$, que se denomina el valor .large[_**t**_] .
-
----
-# $t$ y valores críticos
-
-- la distribución $t$ es similar a $Z$
-
-- se basa en la **distribución normal**, pero con **ajuste para muestras pequeñas** y para cuando no conocemos la desviación estándar de la población
-
-- por lo tanto, la **forma de la distribución** varía según el tamaño muestral, asociado al concepto de **grados de libertad** 
-
----
-class: middle, center
-
-![:scale 60%](img/t_vs_z.png)
 
 ---
 .pull-left[
@@ -200,15 +181,40 @@ qnorm(0.975) # límite superior
 Y aproximando, $\pm$ **1.96**
 
 ---
-- En el ejemplo de la clase anterior, para una diferencia de salarios de 50165, un error estándar de 50561, y un Z de 1.96=
+class: inverse middle
 
+## El **valor crítico** es el punto (o los puntos) en la distribución de una estadística de prueba que separa la región de aceptación de la región de rechazo en una prueba de hipótesis
+
+
+---
+# Generación de intervalo (con Z)
 
 \begin{align*}
-\bar{x}_1-\bar{x}_2 &\pm [Z]_{\alpha/2}*SE_{\bar{x_1}-\bar{x_2}} \\\\
-50165 &\pm 1.96*50561 \\\\
-50165 &\pm 99099.56 \\\\
+\bar{x}_1-\bar{x}_2 &\pm t_{\alpha/2}*SE_{\bar{x_1}-\bar{x_2}} \\
+50165 &\pm 1.96*50561 \\
+50165 &\pm 99099.56 \\
 CI[-49287.48&;149617.63]
 \end{align*}
+
+Asumiendo que el **valor crítico** Z para un error $\alpha$ de 0.5 (o 95% de confianza) es de **1.96**
+
+Para diferencia de medias necesitamos un valor crítico más preciso que el que nos da $Z$, que se denomina el valor .large[_**t**_] .
+
+---
+# $t$ y valores críticos
+
+- la distribución $t$ es similar a $Z$
+
+- se basa en la **distribución normal**, pero con **ajuste para muestras pequeñas** y para cuando no conocemos la desviación estándar de la población
+
+- por lo tanto, la **forma de la distribución** varía según el tamaño muestral
+
+
+---
+class: middle, center
+
+![:scale 60%](img/t_vs_z.png)
+
 
 ---
 # Intervalo de confianza para diferencia de medias con prueba $t$
@@ -220,17 +226,15 @@ CI[-49287.48&;149617.63]
 - la pregunta a responder es: **¿cuál es el valor crítico de $t$ para una probabilidad de error $\alpha$ y grados de libertad $N-2$?**
 
 ---
-.pull-left[
-![:scale 60%](img/t_table.png)
-]
+class: inverse
 
-.pull-right[
-Para esto, tradicionalmente se recurre a la "tabla de valores $t$"
+## Los **grados de libertad** son la cantidad de información independiente disponible para estimar parámetros o calcular una estadística.
 
-A medida que aumenta la muestra (asociada a DF-grados de libertad), t se aproxima a Z
+### Cada restricción (como conocer un promedio, fijar una suma, etc.) reduce en 1 los grados de libertad.
 
-Como se ve en la tabla, en una muestra de 1000 el valor crítico para 0.025   t=1.96
-]
+--
+
+Por ejemplo, si hay tres números que tienen promedio 10, se pueden elegir libremente 2 de ellos, y el tercero ya está determinado. Por lo tanto, hay 3-1 grados de libertad
 
 ---
 # Establecimiento del valor crítico de la prueba (t)
@@ -283,7 +287,7 @@ class: roja middle
 .medium[
 - además de la construcción de **intervalos**, otra forma más tradicional de test de hipótesis para diferencia de medias es la **prueba $t$**
 
-- la prueba $t$ consiste en el contraste de un **_valor crítico_** de $t$  con un **_valor empírico_** (o estadísitico) $t$ calculado con datos de nuestra muestra: 
+- la prueba $t$ consiste en el contraste del **_valor crítico_** de $t$  con un **_valor empírico_** (o estadísitico) $t$ calculado con datos de nuestra muestra: 
 ]]
 
 --
@@ -317,9 +321,9 @@ Este valor $t$ (empírico) se contrasta con el valor $t$ crítico correspondient
 ---
 # Prueba t
 
-Contrastando ahora el valor calculado con el valor crítico:
+Contrastando ahora el valor empírico (calculado) con el valor crítico:
 
-$$t_{crtitico}= -1.96 < t_{calculado}=0.992 < t_{critico}= 1.96$$
+$$t_{crtitico}= -1.96 < t_{empírico}=0.992 < t_{critico}= 1.96$$
 - Por lo tanto, nuestro valor estimado queda fuera de la zona de rechazo de la hipótesis nula: la diferencia de medias no es estadísiticamente distinta de 0. 
 
 - En consecuencia, con un nivel de confianza de 95% no podemos afirmar que existen diferencias salariales entre hombres y mujeres
@@ -355,7 +359,7 @@ El gráfico muestra nuestro valor estimado de t fuera de la zona de rechazo (zon
 ---
 class: roja
 
-- La prueba t consiste en un contraste entre el estadístico t (calculado a partir de nuestra muestra) y el valor crítico t para un nivel de error definido (usualmente 5%) 
+- La prueba t consiste en un contraste entre el t empírico (calculado a partir de nuestra muestra) y el valor crítico t para un nivel de error definido (usualmente 5%) 
 
 --
 
@@ -363,7 +367,7 @@ class: roja
 
 --
 
-- Si el estadísitico t es superior al valor crítico, se rechaza la hipótesis nula
+- Si el estadístico t es superior al valor crítico, se rechaza la hipótesis nula
 
 --
 
@@ -463,7 +467,8 @@ _"Se realizó una prueba t para muestras independientes para comparar los salari
 
 ```{r results='hide'}
 model <- t.test(salario ~ sexo, data = casen_350, var.equal=TRUE)
-report(model)
+report::report(model)
+
 ```
 
 _La prueba t de dos muestras que evalúa la diferencia de salario según sexo (media en el grupo 1 = 654585, media en el grupo 2 = 604420) sugiere que el efecto es positivo, estadísticamente no significativo y muy pequeño (diferencia = 50165, IC del 95% [-49,287.48, 150,000], t(341) = 0.99, p = 0.322)._
@@ -678,7 +683,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 

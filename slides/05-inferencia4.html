@@ -4,7 +4,7 @@
     <title>Estadística Correlacional</title>
     <meta charset="utf-8" />
     <meta name="author" content=".small[Juan Carlos Castillo    Departamento de Sociología - UCH / COES   ]" />
-    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <script src="libs/mark.js-8.11.1/mark.min.js"></script>
     <link href="libs/xaringanExtra-search-0.0.1/search.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-search-0.0.1/search.js"></script>
@@ -37,7 +37,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -118,7 +118,7 @@ class: middle center
 ![](img/norm2.png)
 ]
 ---
-# Teorema del límite central y error estándar
+# Teorema central del límite y error estándar
 .pull-left[
 .medium[
 - si pudiera calcular un estadístico en muchas muestras distintas (ej: promedio) este se distribuiría de manera normal
@@ -262,7 +262,7 @@ class: inverse center
 
 ### Lógica de contraste de hipótesis: 
 
-## .yellow[Intentar falsear lo que es contrario a nuestra hipótesis original]
+## .yellow[Intentar falsar lo que es contrario a nuestra hipótesis original]
 
 --
 
@@ -278,22 +278,14 @@ si logramos rechazar la hipótesis nula (o sea, que lo contrario de nuestra teor
 
 Buscamos .large[no encontrar] cuervos blancos ![:scale 10%](img/white-crow.png)
 
-
 ---
-class: center
-![:scale 35%](https://jc-castillo.com/media/albums/gallery/1659416903799.jpg)
+# Hipótesis nula
 
----
-# Tipos de hipótesis
+- Hipótesis se denota con la letra `\(H\)`
 
-- Según número de variables involucradas: univariadas, bivariadas, multivariadas
+- La hipótesis nula se denota `\(H_0\)` (hache cero)
 
-- Según tipo de contraste
-
-  - hipótesis de diferencia (distinto de)
-  
-  - hipótesis de comparación (mayor/menor qué)
-
+- **Cero** porque en geneneral se refiere a que lo que señala la teoría no existe o **es cero en la población**
 
 -&gt; más detalle de tipos de hipótesis prox. clase, ahora vamos a un **ejemplo**
 
@@ -491,6 +483,29 @@ SE&amp;=\sqrt{\frac{\sigma_{diff}}{n_a}+\frac{\sigma_{diff}}{n_b}} \\ \\
 ![](img/errors.jpg)
 
 ---
+## Hipotesis nula y tipos de error
+
+&lt;br&gt;
+.pull-left[
+.content-box-red[
+### Error Tipo I
+
+Encontrar algo que no existe en la población
+
+]
+]
+
+.pull-right[
+.content-box-green[
+### Error Tipo II
+
+No Encontrar algo que si existe en la población
+
+]
+]
+
+
+---
 # Hipótesis nula y `\(\alpha\)`
 
 - Entonces, el `\(\alpha\)` es la probabilidad de error que fijamos para rechazar la hipótesis nula
@@ -613,7 +628,10 @@ class: inverse
 
 
 ---
-# Próxima clase
+# Próxima clase (miércoles): manos al código
+----
+
+# y próximo lunes
 
 - Prueba `\(t\)`
 
@@ -644,7 +662,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -661,10 +679,10 @@ class: front
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="libs/macros.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "dracula",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "ratio": "16:9",
+  "highlightStyle": "dracula",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

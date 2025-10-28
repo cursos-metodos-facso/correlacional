@@ -1,6 +1,6 @@
 ---
 title: "Práctico 3: Correlación de Pearson"
-date: "2024-10-01"
+date: "2025-10-01"
 lang: es
 execute:
   freeze: auto
@@ -41,7 +41,9 @@ Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesa
 pacman::p_load(tidyverse, # Manipulacion datos
                sjPlot, # Graficos
                rstatix, # Test estadísticos
-               broom) # Tablas
+               labelled, # Para labels
+               broom, # Tablas
+               kableExtra) # Tablas
 
 options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
@@ -65,12 +67,6 @@ dim(elsoc_2021) # Dimensiones
 
 ```
 
-```{r include = F}
-rows <- NROW(elsoc_2021)
-cols <- NCOL(elsoc_2021)
-```
-
-Contamos con `r cols` variables (columnas) y `r rows` observaciones (filas).
 
 Ahora, realizaremos un pequeño procesamiento de nuestros datos con `dplyr` y `sjlabelled`, todo de una vez mediante el uso de pipes `%>%`. Para recordar los pasos para el procesamiento de datos, revisar el [curso anterior](https://descriptiva-facso.netlify.app/assignment/03-practico).
 
@@ -83,10 +79,11 @@ proc_elsoc <- elsoc_2021 %>%
         ing_per_just = m15,
         edad = m0_edad, 
         mesfuerzo = c18_09, 
-        mtalento = c18_10
+        mtalento = c18_10,
+        ess= d01_01
     ) %>%  # seleccionamos
     dplyr::mutate(
-        across(ing_per:mtalento, ~ if_else(. %in% c(-666, -777, -888, -999), NA, .)), # Recodificar a NA
+        across(ing_per:ess, ~ if_else(. %in% c(-666, -777, -888, -999), NA, .)), # Recodificar a NA
         pmerit = (mesfuerzo + mtalento) / 2 # Crear nueva variable
     ) %>% # recodificamos y transformamos
     labelled::set_variable_labels(
@@ -95,7 +92,7 @@ proc_elsoc <- elsoc_2021 %>%
 
 ```
 
-Veamos cómo quedó nuetras base procesada `proc_elsoc`
+Veamos cómo quedó nuestra base procesada `proc_elsoc`
 
 ```{r head, echo=TRUE}
 
@@ -106,34 +103,9 @@ head(proc_elsoc)
 
 # 2. Correlación de Pearson
 
-## Recordemos...
-
-El coeficiente de correlación de Pearson es una medida estandarizada de covarianza que nos muestra la asociación **lineal** (sentido y fuerza) entre dos variables continuas. En otras palabras, nos permite conocer cómo y cuánto se relaciona la variación de una variable, con la variación de otra variable.
-
-Sus valores oscilan entre -1 y 1, donde:
-
-* $r$ = 1: Correlación positiva perfecta. Cuando una variable aumenta, la otra también aumenta.
-
-* $r$ = -1: Correlación negativa perfecta. Cuando una variable aumenta, la otra disminuye.
-
-* $r$ = 0: No hay correlación lineal entre las variables. No hay una relación lineal discernible entre los cambios en las variables.
-
-Cuanto más cercano esté el valor de $r$ a 1 o -1, más fuerte será la correlación. Cuanto más cercano esté a 0, más débil será la correlación.
-
-![](../slides/img/scatters3.png)
-
-::: callout-note
-#### Formula de la correlación
-$$
-Correlacion = r = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})} {(n-1)\sigma_x \sigma_y }
-$$
-:::
-
-# Ejemplo
-
 El coeficiente de correlación de Pearson es una herramienta poderosa en investigación social, ya que nos permite cuantificar la relación entre dos fenómenos. Consideremos la siguiente pregunta: _¿Cómo se relacionan los ingresos que las personas reciben con los ingresos que creen que deberían recibir?_
 
-A partir de esta pregunta, podemos formular una hipótesis que guíe nuestra investigación: las personas con mayores ingresos podrían sentirse más justificadas en recibirlos, en función de su experiencia o habilidades. Por tanto, podríamos esperar una relación positiva entre los ingresos reales y los ingresos percibidos como merecidos. Dicho de otra forma:
+A partir de esta pregunta, podemos formular una hipótesis que guíe nuestra investigación: las personas con mayores ingresos podrían justificar en mayor medida recibir estos ingresos, en función de su experiencia o habilidades. Por tanto, podríamos esperar una relación positiva entre los ingresos reales y los ingresos percibidos como merecidos. Dicho de otra forma:
 
 > A medida que aumentan los ingresos reales de las personas, también aumentan los ingresos que creen merecer.
 
@@ -252,9 +224,13 @@ Siempre es recomendable acompañar el valor de la correlación con una exploraci
 sjPlot::plot_scatter(data = proc_elsoc, 
                      x = ing_per,
                      y = ing_per_just)
+
+cor(x = proc_elsoc$ing_per, 
+    y = proc_elsoc$ing_per_just, 
+    use = "complete.obs")
 ```
 
-```{r, include=FALSE, echo=TRUE, warning=FALSE}
+```{r, echo=TRUE, warning=FALSE}
 
 maximo <- max(proc_elsoc$ing_per_just, na.rm = T)
 
@@ -359,7 +335,7 @@ El coeficiente de determinación $R^2$ es una medida estadística que indica la 
 
 En el contexto de la correlación entre **solo dos variables**, el $R^2$ es igual a elevar al cuadrado el coeficiente de correlación = `(r)^2`. Esto nos permite conocer qué tanto la variabilidad de una variable X estaría asociado a la variabilidad de otra variable Y. 
 
-En nuestro ejemplo anterior entre los ingresos reales y los ingresos justos, teníamos que su coeficiente de correlación era $r = 0.47$
+En nuestro ejemplo anterior entre los ingresos reales y los ingresos justos, teníamos que su coeficiente de correlación era $r = 0.47$. Por lo tanto, creamos un efecto que incluya el resultado de esta correlación.
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 
@@ -376,142 +352,24 @@ coef_r^2
 
 Con esto, podemos decir que el 21.7% de la variabilidad del ingreso real es compartido con la variabilidad de los ingresos justos.
 
-# 7. Limitaciones de la correlación de Pearson
-
-Como vimos en clases, el coeficiente de correlación de Pearson tiene una serie de limitaciones. Veamos como se reflejan algunas de estas en la práctica.
-
-Para ejemplificar, tomaremos dos de las limitaciones más conocidas: **(a) el coeficiente de correlación de Pearson es sensible a valores extremos; (b) puede reflejar distribuciones bivariadas distintas**.
-
-## (a) Valores extremos
-
-Anteriormente, observamos valores extremos en el diagrama de dispersión de nuestro ejemplo.
-
-```{r, echo=TRUE, warning=FALSE}
-sjPlot::plot_scatter(data = proc_elsoc, 
-                     x = ing_per, 
-                     y = ing_per_just) +
-    geom_text(aes(label = "← Ingresos = 750.000 e Ingresos justos = 50.000.000"),
-                 x = 5500000, 
-                 y = 50100000, 
-                 size = 3, 
-                 hjust = 1, 
-                 color = "black"
-                 )
-
-```
-
-Vemos que el punto más extremo en el _eje y_ corresponde a un caso que reporta que sus ingresos mensuales son de $750.000 y los ingresos que considera merecer son $50.000.000 ¿Cambiaría el coeficiente si eliminamos este valor de la base de datos?
-
-::: callout-important
-#### Sobre eliminar valores...
-La decisión de eliminar uno o más de valores específicos de una base de datos debe estar justificada. Generalmente, estas decisiones están basadas en posibles errores técnicos con el dato, por ejemplo, un error de digitación.
-
-:::
-
-```{r, echo=TRUE, warning=FALSE}
-# Encuentra el punto con el valor máximo de ing_per_just
-max_ing_per_just <- proc_elsoc %>% 
-    dplyr::filter(ing_per_just == max(ing_per_just, na.rm = T))
-
-# Excluye este caso de proc_elsoc
-proc_elsoc2 <- proc_elsoc %>% 
-    dplyr::filter(!idencuesta %in% max_ing_per_just$idencuesta)
-
-# Calcular coeficiente
-cor(x = proc_elsoc2$ing_per, 
-    y = proc_elsoc2$ing_per_just, 
-    use = "complete.obs")
-```
-
-```{r, include=FALSE}
-r_coef2 <- cor(x = proc_elsoc2$ing_per, 
-               y = proc_elsoc2$ing_per_just, 
-               use = "complete.obs")
-r_coef2 <- round(r_coef2, 2)
-```
-
-Vemos ahora que el coeficente de correlación entre los ingresos reales y los ingresos considerados justos es de `r r_coef2`.
-
-Visualicemos nuevamente sin este caso extremo:
-
-```{r, echo=TRUE, warning=FALSE}
-sjPlot::plot_scatter(data = proc_elsoc2, 
-                     x = ing_per, 
-                     y = ing_per_just)
-```
-
-Al eliminar este caso extremo, se facilita la identificación del patrón subyacente en la relación entre las variables, revelando una asociación positiva fuerte. Este caso, que mostraba una gran discrepancia entre los ingresos reales y los ingresos percibidos como justos, estaba afectando significativamente el análisis, reduciendo el coeficiente de correlación a casi la mitad de su valor original. 
-
-Esto **ilustra cómo un solo valor atípico puede distorsionar nuestras conclusiones sobre la fuerza y dirección de la relación entre dos variables**.
-
-## (b) Distintas distribuciones
-
-Otra de las limitaciones más conocidas del coeficiente de correlación es que un mismo valor puede representar distintas distribuciones de datos. El mejor ejemplo de esta limitación es el cuarteto de Anscombe, que muestra cuatro conjuntos de datos con las mismas propiedades estadísticas (media, mediana y varianza), pero con distribuciones muy diferentes.
-
-```{r, echo = FALSE}
-
-library(ggplot2)
-library(datasets)
-library(dplyr)
-
-# Crear un dataframe con los nombres de las series y calcular los coeficientes de correlación
-df_anscombe <- data.frame(
-    x = c(anscombe$x1, anscombe$x2, anscombe$x3, anscombe$x4),
-    y = c(anscombe$y1, anscombe$y2, anscombe$y3, anscombe$y4),
-    dataset = rep(c("I", "II", "III", "IV"), each = nrow(anscombe))
-)
-
-# Calcular el coeficiente de correlación por grupo
-correlations <- df_anscombe %>%
-    group_by(dataset) %>%
-    summarise(correlation = cor(x, y))
-
-# Unir los coeficientes de correlación con el dataframe
-df_anscombe <- df_anscombe %>%
-    left_join(correlations, by = "dataset")
-
-# Graficar usando ggplot2
-ggplot(df_anscombe, aes(x = x, y = y, color = dataset)) +
-    geom_point(size = 2) +
-    geom_smooth(method = "lm", se = FALSE, color = "black", linetype = "dashed") + # Línea de regresión
-    facet_wrap(~dataset, ncol = 2) + # Crear un gráfico por cada dataset
-    theme_minimal() +
-    labs(
-        title = "Cuarteto de Anscombe",
-        subtitle = "Mismo coeficiente de correlación, pero diferentes patrones",
-        x = "X",
-        y = "Y"
-    ) +
-    geom_text(aes(label = paste("r = ", round(correlation, 2))),
-        x = 15, y = 5, size = 4, hjust = 1, color = "black"
-    ) + # Añadir correlación en cada panel
-    scale_color_manual(values = c("I" = "red", "II" = "blue", "III" = "green", "IV" = "orange")) + # Colores diferentes
-    theme(
-        aspect.ratio = 0.5, # Ajustar la relación de aspecto para hacer los paneles más pequeños
-        panel.spacing = unit(0.5, "lines"), # Reducir el espacio entre paneles
-        plot.title = element_text(size = 14),
-        plot.subtitle = element_text(size = 12),
-        legend.position = "none"
-    )
-
-```
-
-A pesar de tener las mismas propiedades estadísticas, los cuatro conjuntos producen el mismo coeficiente de correlación ($r = 0.82$). Esto podría llevarnos a esperar que las distribuciones sean similares, pero el cuarteto de Anscombe demuestra lo contrario: **el mismo coeficiente de correlación no implica que los conjuntos de datos tengan una distribución bivariada similar.**
-
-Este ejemplo subraya la importancia de complementar los análisis estadísticos (como el coeficiente de correlación) con visualizaciones de los datos para tener una mejor comprensión de las relaciones entre las variables.
-
-
 # Ejercicio autónomo
 
-A partir de la base de datos de `proc_elsoc` responda la siguiente pregunta _¿en qué medida la edad de las personas está asociadas a sus percepciones sobre la meritocracia?_ Para responder esta pregunta siga los siguientes pasos:
+1- A partir de la base de datos de `proc_elsoc` responda la siguiente pregunta _¿en qué medida la edad de las personas está asociada a sus percepciones sobre la meritocracia?_ Para responder esta pregunta siga los siguientes pasos:
 
-1. Calcule el coeficiente de correlación de Pearson ($r$) entre las variables `edad` y `pmerit`. `pmerit` es una variable que promedia las variables de `mesfuerzo` y `mtalento`
-2. Interprete el tamaño de efecto del coeficiente siguiendo los criterios de Cohen (1988)
-3. Reporte el sentido de la dirección de la correlación
-4. Interprete la significancia estadística del coeficiente
-5. Visualice la relación entre las variables con un gráfico de dispersión y comente
+a. Calcule el coeficiente de correlación de Pearson ($r$) entre las variables `edad` y `pmerit`. `pmerit` es una variable que promedia las variables de `mesfuerzo` y `mtalento`
+b. Interprete el tamaño de efecto del coeficiente siguiendo los criterios de Cohen (1988)
+c. Reporte el sentido de la dirección de la correlación
+d. Interprete la significancia estadística del coeficiente
+e. Visualice la relación entre las variables con un gráfico de dispersión y comente
 
-# Resolución ejercicio autónomo
+2- Al igual que en el ejercicio anterior responde la siguiente pregunta _¿en qué medida el estatus social subjetivo de las personas está asociada a su nivel de ingresos?_ Para responder esta pregunta siga los siguientes pasos:
+
+a. Calcule el coeficiente de correlación de Pearson ($r$) entre las variables `ess` e `ing_per`. `ess` es una variable que pregunta, en una escala de 0 a 10, en qué lugar se ubica cada encuestad-.
+b. Interprete el tamaño de efecto del coeficiente siguiendo los criterios de Cohen (1988), reporte el sentido de la dirección de la correlación e interprete la significancia estadística del coeficiente
+c. Visualice la relación entre las variables con un gráfico de dispersión y comente.
+d. ¿Qué conclusiones se pueden obtener a partir de esta correlación entre dos variables que -de cierta forma- abordan el estatus de las personas?
+
+# Resolución ejercicios
 
 Formulemos nuestra hipótesis de manera formal:
 
@@ -547,8 +405,36 @@ sjPlot::plot_scatter(data = proc_elsoc,
 
 De acuerdo con la @fig-ej, podemos observar que no existe un claro patrón de asociación entre la `edad` y `pmerit`. En detalle, la nube de puntos muestra una distribución bivariada muy dispersa, por lo que es posible sostener que no hay una asociación lineal suficientemente fuerte. Esto, se puede respaldar en el coeficiente de correlación que obtuvimos antes $r$ = 0.11, ya que si bien es positivo es de un tamaño de efecto muy pequeño según los criteriores de Cohen (1988).
 
+2.
 
+```{r re3, echo=TRUE}
 
+results_ej <- cor.test(x = proc_elsoc$ess, y = proc_elsoc$ing_per, method = "pearson", use = "complete.obs")
+
+results_ej
+
+```
+
+Con este output podemos sostener lo siguiente:
+
+> El coeficiente de correlación de Pearson entre el estatus social subjetivo y los ingresos es positivo y estadísticamente significativo ($r$ = 0.24, $p$ < 0.001). Por tanto, con un 95% de confianza se puede rechazar la $H_{0}$ de no asociación entre variables, existiendo evidencia a favor de la $H_{A}$ sobre una asociación significativa entre el estatus social subjetivo de las personas y sus ingresos. 
+
+> Respecto al tamaño de este efecto, de acuerdo a los criterios de Cohen corresponde a un tamaño pequeño. Consistentemente, la varianza compartida ($r²$) entre ambas variables es muy baja, correspondiendo a un 0.06%.
+
+```{r re4, echo=TRUE, results='asis'}
+#| label: fig-ej2
+#| fig-cap: Scatterplot entre estatus social subjetivo e ingresos reales
+sjPlot::plot_scatter(data = proc_elsoc, 
+                     x = ess, 
+                     y = ing_per)
+```
+
+¿a qué se debe esta diferencia entre el estatus social subjetivo de una persona y su nivel de ingresos reales?
+
+::: {.callout-tip title="Recomendación"}
+[Castillo, JC., Miranda, D. & Cabib, I. (2013). Todos somos de clase media: Sobre el Estatus Social Subjetivo en Chile. Latin American Research Review](https://www.cambridge.org/core/journals/latin-american-research-review/article/todos-somos-de-clase-media-sobre-el-estatus-social-subjetivo-en-chile/0F00D872A76787C29E3F1CCDB59A5DA1){.btn .btn-primary target="_blank" rel="noopener"}
+[PDF](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/0F00D872A76787C29E3F1CCDB59A5DA1/S0023879100010785a.pdf/todos-somos-de-clase-media-sobre-el-estatus-social-subjetivo-en-chile.pdf){.btn .btn-outline-primary target="_blank" rel="noopener"}
+:::
 
 :::::: {.row .d-flex .justify-content-center}
 ::::: {.col-md-6} 
@@ -571,4 +457,3 @@ De acuerdo con la @fig-ej, podemos observar que no existe un claro patrón de as
 ::::
 :::::
 ::::::
-

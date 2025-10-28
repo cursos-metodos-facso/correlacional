@@ -4,7 +4,7 @@
     <title>Estadística Correlacional</title>
     <meta charset="utf-8" />
     <meta name="author" content=".small[Juan Carlos Castillo    Departamento de Sociología - UCH / COES   ]" />
-    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <script src="libs/mark.js-8.11.1/mark.min.js"></script>
     <link href="libs/xaringanExtra-search-0.0.1/search.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-search-0.0.1/search.js"></script>
@@ -35,7 +35,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -85,6 +85,7 @@ class: inverse bottom right
 
 
 
+--
 
 
 .medium[
@@ -368,6 +369,74 @@ sample estimates:
 0.8680791 
 ```
 ]
+]
+
+---
+## Tau de Kendall — ejemplo paso a paso (10 pares)
+
+**Datos (5 casos ⇒ 10 pares)**
+.small[
+| Caso | X | Y |
+|:----:|--:|--:|
+| P1   | 1 | 3 |
+| P2   | 2 | 1 |
+| P3   | 3 | 4 |
+| P4   | 4 | 5 |
+| P5   | 5 | 2 |
+]
+
+`\(Pares=\frac{n(n-1)}{2}=\frac{5*4}{2}=10\)`
+
+
+
+---
+
+## Enumeración de pares y clasificación
+
+.small[
+- pares concordantes: van en la misma dirección
+- pares discordantes: van en la dirección contraria 
+]
+
+.tiny[
+| # | Par     | (Xi, Yi) | (Xj, Yj) | ΔX  | ΔY  | sgn(ΔX) | sgn(ΔY) | Clasificación |
+|--:|:-------:|:--------:|:--------:|:---:|:---:|:-------:|:-------:|:-------------|
+| 1 | (P1,P2) | (1,3)    | (2,1)    | +1  | -2  | +       | -       | Discordante  |
+| 2 | (P1,P3) | (1,3)    | (3,4)    | +2  | +1  | +       | +       | Concordante  |
+| 3 | (P1,P4) | (1,3)    | (4,5)    | +3  | +2  | +       | +       | Concordante  |
+| 4 | (P1,P5) | (1,3)    | (5,2)    | +4  | -1  | +       | -       | Discordante  |
+| 5 | (P2,P3) | (2,1)    | (3,4)    | +1  | +3  | +       | +       | Concordante  |
+| 6 | (P2,P4) | (2,1)    | (4,5)    | +2  | +4  | +       | +       | Concordante  |
+| 7 | (P2,P5) | (2,1)    | (5,2)    | +3  | +1  | +       | +       | Concordante  |
+| 8 | (P3,P4) | (3,4)    | (4,5)    | +1  | +1  | +       | +       | Concordante  |
+| 9 | (P3,P5) | (3,4)    | (5,2)    | +2  | -2  | +       | -       | Discordante  |
+|10 | (P4,P5) | (4,5)    | (5,2)    | +1  | -3  | +       | -       | Discordante  |
+]
+---
+
+**Conteo:**  
+- Concordantes \(C = 6\) → 2,3,5,6,7,8  
+- Discordantes \(D = 4\) → 1,4,9,10  
+- Empates \(T_x = 0\), \(T_y = 0\)
+
+---
+## Cálculo de `\(\tau\)`
+
+.small[
+Número total de pares: `\(C + D + \text{(empates)} = 6 + 4 + 0 = 10\)`.
+
+**Tau-a (sin empates):**
+
+$$
+\tau_a = \frac{C - D}{pares} = \frac{6 - 4}{10} = 0.20
+$$
+
+**Tau-b (corrige empates):**
+$$
+\tau_b = \frac{C - D}{\sqrt{(C + D + T_x)(C + D + T_y)}} = \frac{6 - 4}{\sqrt{(10 + 0)(10 + 0)}} = 0.20
+$$
+
+**Interpretación:** `\(\tau = 0.20\)` indica una asociación positiva **débil**: hay más pares que mantienen el orden entre `\(X\)` y `\(Y\)` que pares que lo invierten.
 ]
 
 ---
@@ -1468,7 +1537,7 @@ corrplot(cormat)
 ]
 
 .pull-left-wide[
-![](10-bivariada3_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+![](10-bivariada3_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
 
 ]
 ---
@@ -1490,7 +1559,7 @@ corrplot(cormat)
 
 .pull-right-wide[
 .center[
-![](10-bivariada3_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+![](10-bivariada3_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
 ]
 ]
 
@@ -1535,7 +1604,7 @@ alpha &lt;-psych::alpha(data)
 ```
 
 ```
-Some items ( falthab malasue faltesf ) were negatively correlated with the total scale and 
+Some items ( falthab malasue faltesf ) were negatively correlated with the first principal component and 
 probably should be reversed.  
 To do this, run the function again with the 'check.keys=TRUE' option
 ```
@@ -1625,7 +1694,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.com]](https://encuestas-sociales.netlify.com)
 ]
     
@@ -1643,10 +1712,10 @@ class: front
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="libs/macros.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "dracula",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "ratio": "16:9",
+  "highlightStyle": "dracula",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

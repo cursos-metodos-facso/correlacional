@@ -51,7 +51,7 @@ xaringanExtra::use_search(show_icon = TRUE)
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -67,6 +67,12 @@ xaringanExtra::use_search(show_icon = TRUE)
 
 layout: true
 class: animated, fadeIn
+
+---
+class: roja middle
+
+# ¿Preguntas clase pasada?
+
 
 ---
 class: inverse bottom right
@@ -94,6 +100,8 @@ y <- c(12, 14, 17, 17, 11, 22, 23, 11, 19, 8, 12)
 ```
 
 Donde x sería una variable nominal dicotómica con valores 1 y 0, mientras que y es una variable contínua (intervalar)
+
+Este tipo de correlación se denomina **punto biserial**
 
 ---
 .pull-left-narrow[
@@ -142,7 +150,7 @@ cor.test(x,y)
 ---
 ## Interpretación
 
-- pensemos que x=1 es hombre,x=2 es mujer, y que y=nivel educativo, cómo se interpreta la correlación?
+- pensemos que x=0 es hombre,x=1 es mujer, y que y=nivel educativo, cómo se interpreta la correlación?
 
 --
 
@@ -163,13 +171,12 @@ class: inverse middle center
 # ¿Qué test / cálculo podría ser más apropiado para la relación entre una variable intervalar y una dicotómica?
 
 ---
-.pull-left[
 
 ```{r}
 t.test(y ~ x, var.equal=TRUE)
 ```
 
-]
+
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Distribución Normal e Intervalos de Confianza"
-date: "2024-08-27"
+date: "2025-08-20"
 lang: es
 execute:
   freeze: auto
@@ -14,28 +14,52 @@ El objetivo de esta guía práctica es introducirnos en la inferencia estadísti
 En detalle, aprenderemos y recordaremos:
 
 1.  Los conceptos de promedio y desviación estándar
-2.  Qué es la probabilidad y su aplicación para estadística
-3.  Qué es la distribución normal 
-4.  Cómo calcular e interpretar intervalos de confianza
+2.  Estimación de puntaje Z  
+3.  Cómo calcular e interpretar intervalos de confianza
 
+## Revisión básica de R y RStudio
+
+Antes de comenzar, repasemos algunos puntos clave:
+
+![Estructura de RStudio](../files/rstudio.png)
+
+- **Consola**: aquí se pueden escribir y ejecutar comandos de manera directa.  
+- **Archivo de código (.R o .qmd)**: permite guardar el código, comentarios y reproducir el análisis.  
+- **Ejecutar código**:  
+  - Selecciona la línea y presiona `Ctrl + Enter` (Windows/Linux) o `Cmd + Enter` (Mac).  
+  - También puedes ejecutar un bloque completo con el botón *Run*.  
+- **Comentarios**: se escriben con `#`. Todo lo que sigue en la línea después de `#` no se ejecuta.  
+- **Atajos útiles**:  
+  - `Ctrl + Shift + C`: comentar o descomentar líneas seleccionadas.  
+  - `Ctrl + Shift + J`: Añade pipe `%>%`
+  - `Ctrl + L`: limpiar la consola.
 
 ## Librerías 
 
 Cargaremos algunas librerías que serán necesarias en las diferentes partes de esta guía práctica:
 
+  - pacman::p_load permite instalarlas automáticamente si no las tienes.
+
 ```{r, warning=FALSE}
-library(pacman)
-pacman::p_load(tidyverse, # para sintaxis
-               ggplot2,   # para gráficos
-               car,       # para recodificar
-               psych,     # para analizar datos
-               sjmisc,    # para analizar datos
-               srvyr,     # para estimación de IC y ponderadores
+if (!require("pacman")) install.packages("pacman") # instalar pacman
+
+pacman::p_load(dplyr, # para sintaxis
                Publish)   # para IC)    
 
 options(scipen = 999) # para desactivar notacion cientifica
-rm(list = ls())       # para limpar el entonrno de trabajo
+rm(list = ls())       # para limpiar el entorno de trabajo
 ```
+
+::: callout-note
+
+## ¿Qué es un vector en R?
+
+En R, un vector es la estructura de datos más básica:
+
+- Es una colección ordenada de valores del mismo tipo (números, caracteres o lógicos).
+
+- Por ejemplo, una columna en una base de datos
+:::
 
 
 # 1. Promedio y desviación estándar
@@ -71,138 +95,29 @@ cat("Media:", media, "\n")
 cat("Desviación Estándar:", desv_estandar, "\n")
 ```
 
-La media, que es una medida de tendencia central, nos presenta un valor que resume nuestros datos aproximándonos al "centro" de la distribución. Y la desviación estándar es una medida de dispersión que nos presenta un valor que resume nuestros datos en cuanto a qué tan "dispersos" se encuentran. 
 
 En el caso de nuestro vector, creado con datos aleatorios, la media $\bar{x} = 5,18$ nos muestra que el promedio de los datos se encuentra en torno a 5,2. 
 
-Ahora, recordemos la fórmula de la desviación estándar:
-
-$$
-s = \sqrt{\frac{\sum_{i=1}^{n} (x_i-\bar{x})^2 }{N-1}}
-$$
-
-Donde: 
-
-- $N$ es el tamaño del vector,
-
-- $x_i$ son los valores individuales del vector,
-
-- $\bar{x}$ es la media del vector.
-
 La desviación estándar corresponde, entonces, a un promedio de lo que cada valor se aleja del promedio del vector. En el caso de nuestro vector, $s = 1,82$ nos muestra que en promedio los datos se alejan 1,82 puntos del promedio. 
 
-La desviación estándar es un concepto clave para Inferencia Estadística.
 
-
-::: callout-note
-
-Antes de seguir, recordemos que...
-
-Llamamos **inferencia estadística** al ejercicio de extrapolar determinadas estimaciones (estadísticos) de una muestra a una población más grande (parámetros). En concreto, es el proceso de realizar conclusiones o predicciones sobre una población a partir de una muestra o subconjunto de esa población. 
-
-![](../files/INFERENCIA.jpg)
-
-La **probabilidad de error** indica en qué medida nos estamos equivocando (o estamos dispuestos a estar equivocados) en tratar de extrapolar una estimación muestral a la población.
-:::
-
-
-# 2. Probabilidad
-
-Para pensar en la idea de probabilidad realicemos la tarea propuesta en la [Clase de Inferencia 1](/content/02-content.html). En esta tarea se buscaba generar los resultados posibles al lanzar dos dados. Primero se busca sumar los resultados entregados por ambos dados, y luego promediar los resultados:
-
-```{r}
-# Generar todas las combinaciones posibles de dos dados
-dado1 <- rep(1:6, each = 6)
-dado2 <- rep(1:6, times = 6)
-
-# Calcular la suma y el promedio para cada combinación
-suma <- dado1 + dado2
-promedio <- suma / 2
-
-# Crear un data frame con los resultados
-resultados <- data.frame(dado1, dado2, suma, promedio)
-
-# Mostrar el data frame
-print(resultados)
-```
-
-Esto se puede observar de manera gráfica de la siguiente forma:
-
-```{r}
-# Gráfico de frecuencias para la suma
-ggplot(resultados, aes(x = suma)) +
-  geom_bar(fill = "cyan4", color = "black") +
-  labs(title = "Gráfico de Frecuencias de la Suma", x = "Suma", y = "Frecuencia")
-
-# Gráfico de frecuencias para los promedios
-ggplot(resultados, aes(x = promedio)) +
-  geom_bar(fill = "cyan3", color = "black") +
-  labs(title = "Gráfico de Frecuencias de los Promedios", x = "Promedio", y = "Frecuencia")
-```
-
-¿Y cuál es la probabilidad de ocurrencia de cada resultaado?
-
-```{r}
-# Calcular las frecuencias de cada promedio
-tabla_frecuencias <- table(resultados$promedio)
-
-# Calcular la probabilidad de ocurrencia de cada promedio
-probabilidades <- tabla_frecuencias / sum(tabla_frecuencias)
-
-# Crear la tabla final con valores de promedios y sus probabilidades
-tabla_final <- data.frame(Promedio = as.numeric(names(probabilidades)), 
-                          Probabilidad = as.numeric(probabilidades))
-
-# Mostrar la tabla final
-print(tabla_final)
-```
-
-La ocurrencia de algunos eventos (como la suma o promedio de dos dados) tienen una probabilidad determinada, lo que genera una distribución teórica de probabilidad.
-
-Si repito un evento aleatorio (ej: sacar muestras repetidas de dos dados y promediarlos) obtengo la distribución empírica de probabilidad (de frecuencias de los eventos).
-
-De acuerdo con la *ley de los grandes números*, el promedio empírico convergerá al teórico a medida que aumenta el número de repeticiones. Eso podemos observarlo:
-
-
-# 3. Distribución Normal
-
-## 3.1. Curvas de distribución
-
-Por **distribución** nos referimos al conjunto de todos los valores posibles de una variable y las frecuencias (o probabilidades) con las que se producen.
-
-Existen **distribuciones empíricas** y **distribuciones teóricas**, en donde:
-
-- las primeras reflejan la distribución de los valores que asume la variable en un grupo _concreto_ a partir de una observación. 
-- las segundas son una _función matématica_ que expresan la distribución de un conjunto de números mediante su _probabilidad de ocurencia_.
-
-Estas últimas son también llamadas **curvas de distribución**.
-
-
-## 3.2. Distribución Normal 
-
-Es una distribución teórica que corresponde a una curva que representa la distribución de los casos de la población en torno al promedio y con una varianza conocida.
-
-- Simétricas y con un solo punto de elevación
-- La pendiente es más fuerte cerca del centro, y se suaviza hacia los extremos
-- Coinciden al centro el promedio, la mediana y la moda
-- La desviación estandar expresa su dispersión.
-- Establece áreas o *proporciones* bajo la curva en base a desviaciones estándar del promedio.
-
-
-## 3.3. Distribución Normal Estándar
-
-La distribución normal estándar es una distribución normal con una media de 0 y una desviación estándar de 1. 
-
-![](../slides/img/norm2.png)
-
-## 3.4. Puntaje Z y estandarización de variables
+# 2. Puntajes Z
 
 Al estandarizar las variables (como en la Curva Normal Estándar) lo que hacemos es expresar el valor de una distribución en términos de desviaciones estándar basados en la distribución normal. Esto nos permite comparar distribuciones distintas.
 
 Al valor estandarizado lo llamamos **puntaje Z**, y corresponde a la cantidad de desviaciones estándar que nos alejamos del promedio (para cada variable con la que trabajemos).
 
 
-## 3.5. Cálculo de probabilidades con puntaje z
+## 2.1. Cálculo de probabilidades con puntaje Z
+
+```{r}
+# Estandarizar el vector
+z_scores <- scale(vector)
+
+# Comparar valores originales y estandarizados
+head(data.frame(Valor=vector, Z=z_scores), 10)
+
+```
 
 Los valores estandarizados o puntajes Z además nos permiten conocer probabilidades.
 
@@ -217,60 +132,38 @@ plot(x_values,y_values,type="l",xlab="Valor Z",ylab="Probabilidad",main="Distrib
 Podemos preguntar qué parte de la curva cae por debajo de un valor particular. Por ejemplo, preguntaremos sobre el valor 0 antes de ejecutar el código. Piense ¿cuál debería ser la respuesta?
 
 ```{r}
-pnorm(q = 0)
+# Probabilidades acumuladas
+pnorm(0)       # P(Z <= 0)
 ```
 
-Por tanto, la probabilidad (en una curva normal estándar) de obtener un valor igual o menor a 0 es de 0.5, es decir, del 50%, pero ¿por qué? 
-
-> Porque como la distribución normal estándar es simétrica al rededor de cero, la probabilidad de que sea menor o igual a cero es 0.5, es decir, el 50% de la distribución está por debajo de cero y el otro 50% está por encima de cero.
-
-Eso lo podemos ver en el gráfico:
-
-```{r}
-plot(x_values,y_values,type="l",xlab="Valor Z",ylab="Probabilidad",main="Distribución Normal")
-abline(v=0)
-```
 
 Ahora probemos los valores Z de +1,96 y -1,96.
 
 Sabemos que estos valores aproximados marcan el 2,5% superior e inferior de la distribución normal estándar. Esto corresponde a un alfa típico $\alpha = 0,05$ para una prueba de hipótesis de dos colas.
 
 ```{r}
-pnorm(q = 1.96, lower.tail=TRUE)
+pnorm(1.96)    # P(Z <= 1.96)
+pnorm(-1.96)   # P(Z <= -1.96)
 ```
 
 La respuesta nos dice lo que ya sabemos: el 97,5% de la distribución normal ocurre por debajo del valor z de 1,96.
 
-Podemos agregar una línea al gráfico para mostrar dónde se usaría `abline`.
-
-El 97,5% de la distribución queda por debajo de esta línea.
+y si lo visualizamos:
 
 ```{r}
 plot(x_values, y_values, type="l", lty=1, xlab="Z value", ylab="Probability", main="Normal Distribution") +
 abline(v = 1.96)
 ```
 
-# 4. Intervalos de confianza
+# 3. Intervalos de confianza
 
 Un intervalo de confianza es un rango dentro del cual es probable que se encuentre un parámetro poblacional con un nivel de confianza específico. Además, proporciona información sobre la precisión de nuestras estimaciones.
 
-Como vimos en la [sesión 4](/content/04-content.html) el promedio de la muestra $\bar{x}$ se distruye normal, con un error estándar $SE$, lo que nos permite estimar probabilidades basándonos en la curva normal. 
+## 3.1. Cálculo de intervalos de confianza para medias
 
-Por ejemplo, si nos desviamos $\pm1.96SE$ desde la media abarcaremos aproximadamente el 95% de los valores probables.
+En el caso de nuestro vector aleatorio, un intervalo de confianza para la media se puede calcular de dos maneras:
 
-![](https://multivariada.netlify.app/slides/images/normal.png)
-
-
-::: callout-note 
-**Nivel de confianza**: Corresponde a la probabilidad de que la muestra elegida produzca un intervalo que incluya el parámetro que se está estimando ($1-\alpha$).
-
-**Nivel de significacncia**: Corresponde a la probabilidad de que el intervalo calculado a partir de la muestra no comprenda el parámetro de la población ($\alpha$).
-::: 
-
-
-## 4.1. Cálculo de intervalos de confianza
-
-En el caso de nuestro vector aleatorio, un intervalo de confianza para la media se puede calcular de la siguiente manera:
+Primero, con la función `t.test` que, por defecto, estima el intervalo de confianza del 95%
 
 ```{r}
 # Calcular un intervalo de confianza para la media
@@ -278,40 +171,101 @@ intervalo_confianza <- t.test(vector)$conf.int  # Intervalo de confianza del 95%
 intervalo_confianza
 ```
 
-También podemos calcular intervalos de confianza para casos reales. Carguemos la base de datos que utilizaremos, que corresponde a un subset de la Encuesta Suplementaria de ingresos [ESI](https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) para ocupados:
+Otra opción es con la función `ci.mean` del paquete `Publish`. Con esta función también podemos especificar si queremos estimar los CI al 95% (alpha = 0.05) o al 99% (alpha = 0.05)
 
 ```{r}
-load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/esi-2021-ocupados.rdata"))
+Publish::ci.mean(vector, alpha = 0.05)
 ```
 
-::: callout-note 
-Recordemos que podemos contar con bases de datos que tengan factor de expansión (ponderador) o no. Esta distinción se presenta cuando trabajamos con muestras simples o complejas. Al trabajar con muestras complejas debemos identificar cuál es la variable del ponderador e incorporarla en nuestro cálculo.
-
-En esta guía practicaa trabajaremos sin factores de expansión o ponderadores.
-::: 
-
-
-#### IC para Medias
-
-Calculemos un intervalo de confianza para la media de ingresos de personas ocupadas:
+Contamos con una media 5.18 como estimación puntual. Pero también podemos decir que con un 95% de confianza el parámetro poblacional se encontrará entre 4.82 y 5.54.
 
 ```{r}
-psych::describe(esi$ing_t_p)
+Publish::ci.mean(vector, alpha = 0.01)
 ```
 
-```{r}
-Publish::ci.mean(esi$ing_t_p, alpha = 0.05)
-```
-
-Contamos con una media de ingresos de \$586.360 como estimación puntual. Pero también podemos decir que con un 95% de confianza el parámetro poblacional se encontrará entre \$579.266 y \$593.454.
-
+Contamos con una media 5.18 como estimación puntual. Pero también podemos decir que con un 99% de confianza el parámetro poblacional se encontrará entre 4.70 y 5.66.
 
 # Resumen
 
 Hoy pudimos aprender y recordar:
 
 1.  Los conceptos de promedio y dispersión
-2.  Qué es la probabilidad y su aplicación para estadística
-3.  Qué es la distribución normal 
-4.  Cómo calcular e interpretar intervalos de confianza
+2.  Estimación de puntajes Z
+3.  Cálculo de intervalos de confianza
 
+# Ejercicio práctico de trabajo autónomo
+
+En este ejercicio aplicara los tres pasos vistos en el taller: cálculo de media y desviación estándar, puntajes Z e intervalos de confianza, pero con nuevos datos simulados.
+
+## Instrucciones
+
+1. Genere un vector de datos simulados
+  - Cree un vector con 500 observaciones distribuidas normalmente
+  - Debe tener $\mu = 10$ y $\sigma = 5$
+
+```{r}
+set.seed(123) # Fijar la semilla para reproducibilidad
+vector2 <- rnorm(500, mean = 10, sd = 5) # cambiamos a vector2 para no confundir con el otro
+```
+
+2. Calcule y describa la distribución
+  - Obtenga la media y desviación estándar de su vector.
+
+```{r}
+media <- mean(vector2)
+desv_estandar <- sd(vector2)
+
+cat("Media:", media, "\n")
+cat("Desviación Estándar:", desv_estandar, "\n")
+```
+
+  - Visualice la distribución en un histograma
+
+```{r}
+hist(vector2,main="Histograma del Vector",xlab="Valor",ylab="Frecuencia",col="cyan4",border="black")
+```
+
+
+3. Estandarice los datos (puntajes Z)
+  - Transforme tu vector a puntajes Z usando scale().
+```{r}
+z_scores2 <- scale(vector2)
+```
+
+  - Muestre los primeros 10 valores (`head()`).
+```{r}
+# Comparar valores originales y estandarizados
+head(data.frame(Valor=vector2, Z=z_scores2), 10)
+```
+  - Muestre también los últimos 10 valores (`tail()`).
+```{r}
+# Comparar valores originales y estandarizados
+tail(data.frame(Valor=vector2, Z=z_scores2), 10)
+```
+
+  - ¿Cuál es el máximo puntaje Z y el mínimo puntaje Z?
+
+```{r}
+max_z <- max(z_scores2)
+min_z <- min(z_scores2)
+```
+
+
+  - Verifique la media y sd
+
+```{r}
+mean(z_scores2) # Debe ser 0
+sd(z_scores2)    # Debe ser 1
+```
+
+4. Calcule el intervalo de confianza (IC 95%) para la media
+  - Estime el IC para un 95% de confianza
+
+```{r}
+# Calcular un intervalo de confianza para la media
+intervalo_confianza <- t.test(vector2)$conf.int  # Intervalo de confianza del 95% para la media
+intervalo_confianza
+```
+# Referencias
+
+[Análisis de datos en Lenguaje R](/files/textos/ximenez2022.pdf)

@@ -1,6 +1,6 @@
 ---
 title: "Asociación con categóricas 1"
-date: "2024-10-07"
+date: "2025-09-29"
 lang: es
 execute:
   freeze: auto 

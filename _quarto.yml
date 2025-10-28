@@ -46,7 +46,7 @@ website:
     right:
       - text: "Informaciones"
         file: news/index.qmd
-      - schedule.qmd
+      - schedule2.qmd
       - text: "Clases"
         file: content/index.qmd
       - text: "Prácticos"
@@ -75,26 +75,26 @@ website:
               file: content/01-content.qmd
             - text: "Inferencia 1"
               file: content/02-content.qmd
-            # - text: "Inferencia 2"
-            #   file: content/03-content.qmd
-            # - text: "Inferencia 3"
-            #   file: content/04-content.qmd
-            # - text: "Inferencia 4"
-            #   file: content/05-content.qmd
-            # - text: "Inferencia 5"
-            #   file: content/06-content.qmd
-            # - text: "Ejercicio Inferencia"
-            #   file: content/07-content.qmd
-            # - text: "Bivariada 1"
-            #   file: content/08-content.qmd
-            # - text: "Bivariada 2"
-            #   file: content/09-content.qmd
-            # - text: "Bivariada 3"
-            #   file: content/10-content.qmd
-            # - text: "Bivariada 4"
-            #   file: content/11-content.qmd
-            # - text: "Bivariada 5"
-            #   file: content/12-content.qmd
+            - text: "Inferencia 2"
+              file: content/03-content.qmd
+            - text: "Inferencia 3"
+              file: content/04-content.qmd
+            - text: "Inferencia 4"
+              file: content/05-content.qmd
+            - text: "Inferencia 5"
+              file: content/06-content.qmd
+            - text: "Ejercicio Inferencia"
+              file: content/07-content.qmd
+            - text: "Bivariada 1"
+              file: content/08-content.qmd
+            - text: "Bivariada 2"
+              file: content/09-content.qmd
+            - text: "Bivariada 3"
+              file: content/10-content.qmd
+            - text: "Bivariada 4"
+              file: content/11-content.qmd
+            - text: "Bivariada 5"
+              file: content/12-content.qmd
             # - text: "Documentos dinámicos"
             #   file: content/13-content.qmd
         - text: "Foro Clases"
@@ -105,16 +105,18 @@ website:
           file: assignment/index.qmd
         - section: "Guías"
           contents:
-            # - text: "1: Curva Normal e Intervalos de Confianza"
-            #   file: assignment/01-practico.qmd
-            # - text: "2: Test de hipótesis"
-            #   file: assignment/02-practico.qmd
-            # - text: "3: Correlación de Pearson"
-            #   file: assignment/03-practico.qmd
-            # - text: "4- Matrices de correlación, casos perdidos e índices"
-            #   file: assignment/04-practico.qmd
-            # - text: "5: Asociación entre categóricas"
-            #   file: assignment/05-practico.qmd
+             - text: "1: Curva Normal e Intervalos de Confianza"
+               file: assignment/01-practico.qmd
+             - text: "2: Test de hipótesis"
+               file: assignment/02-practico.qmd
+             - text: "3: Correlación de Pearson"
+               file: assignment/03-practico.qmd
+             - text: "4- Matrices de correlación, casos perdidos e índices"
+               file: assignment/04-practico.qmd
+             - text: "5: Asociación entre categóricas"
+               file: assignment/05-practico.qmd
+             - text: "Resumen asociación"
+               file: assignment/resumen-asociacion.qmd
             # - text: "6: Visualización 1: Tablas"
             #   file: assignment/06-practico.qmd
             # - text: "7: Gráficos bivariados en reportes dinámicos"

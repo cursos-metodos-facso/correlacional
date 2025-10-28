@@ -1,6 +1,6 @@
 ---
-title: "Práctico 2: Intentando rechazar"
-date: "2024-09-03"
+title: "Práctico 2: Test de hipótesis"
+date: "2025-08-27"
 lang: es
 execute:
   freeze: auto
@@ -20,7 +20,7 @@ La guía tiene **3 ejercicios**. El primero de ellos es un ejemplo, y los ejerci
 
 ## Recursos de la práctica
 
-En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el [Ministerio de Desarrollo Social y Familia](https://observatorio.ministeriodesarrollosocial.gob.cl/). Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `CASEN 20222`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/proc_casen.RData). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.
+En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el [Ministerio de Desarrollo Social y Familia](https://observatorio.ministeriodesarrollosocial.gob.cl/). Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `CASEN 2022`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/proc_casen.RData). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.
 
 ## Cinco pasos para la inferencia estadística
 
@@ -82,7 +82,9 @@ pacman::p_load(dplyr, # Manipulacion datos
                gginference, # Visualizacion 
                rempsyc, # Reporte
                kableExtra, # Tablas
-               broom) # Varios
+               broom, # Varios
+               flextable, # nice table
+               rempsyc)
 
 options(scipen = 999) # para desactivar notacion cientifica
 rm(list = ls()) # para limpiar el entorno de trabajo
@@ -111,7 +113,7 @@ dim(proc_casen) # Dimensiones
 
 ```
 
-Contamos con 24 variables (columnas) y 202.111 observaciones (filas).
+Contamos con 29 variables (columnas) y 202.111 observaciones (filas).
 
 # Recordemos...
 
@@ -137,9 +139,14 @@ $$  H_{A}: \mu_{0} > \mu_{1} $$
 $$  H_{A}: \mu_{0} < \mu_{1} $$
 :::
 
-Veamos ahora cómo aplicar todos estos conocimientos con ejercicios.
+Veamos ahora cómo aplicar todos estos conocimientos con ejercicios, pero utilizamos `set.seed` para reproducibilidad de los resultados
+
+```{r}
+set.seed(123) # Fijar la semilla para reproducibilidad
+```
 
 # Ejercicio 1
+
 
 Este ejercicio está basado en un ejemplo de clases y está desarrollado para que sirva de ejemplo a los siguientes ejercicios que deben ser desarrollados de manera autónoma.
 
@@ -205,8 +212,6 @@ test_ej1
 También podemos visualizarlo en una tabla más amable.
 
 ```{r}
-library(flextable)
-library(rempsyc)
 stats.table <- tidy(test_ej1, conf_int = T)
 nice_table(stats.table, broom = "t.test")
 ```
@@ -219,11 +224,11 @@ gginference::ggttest(test_ej1)
 
 **5. Interpretación**
 
-La prueba T que evalúa la diferencia de medias entre el salario y el sexo sugiere que el efecto es positivo y estadísticamente signficativo (diferencia = 32567.11, t(566.69) = 2.05, p < .05). El valor $p$ indica que la probabilidad de observar una diferencia de esta magnitud, o mayor, bajo la suposición de $H_{0}$ es menor al 5%. Por tanto, con un 95% de confianza, rechazamos la $H_{0}$ ya que existe evidencia a favor de nuestra $H_{A}$ respecto a que el salario de los hombres es mayor al salario de las mujeres.
+La prueba t que evalúa la diferencia de medias entre el salario y el sexo sugiere que el efecto es positivo y estadísticamente signficativo (diferencia = 105.364,47, t = 2.34, p < .05). El valor $p$ indica que la probabilidad de observar una diferencia de esta magnitud, o mayor, bajo la suposición de $H_{0}$ es menor al 5%. Por tanto, con un 95% de confianza, rechazamos la $H_{0}$ ya que existe evidencia a favor de nuestra $H_{A}$ respecto a que el salario de los hombres es mayor al salario de las mujeres.
 
 # Ejercicio 2
 
-Tomando como ejemplo el trabajo de la ganadora del Premio Nobel de Economía 2023 Claudia Goldin, en este ejercicio evaluaremos la siguiente pregunta: _¿Es el salario de las mujeres sin hijos menor al salario de las mujeres con hijos?_ Por ende, usaremos **prueba $t$** para diferencia de medias.
+Tomando como ejemplo el trabajo de la ganadora del Premio Nobel de Economía 2023 Claudia Goldin, en este ejercicio evaluaremos la siguiente pregunta: _¿Es el salario de las mujeres con hijos menor al salario de las mujeres sin hijos?_ Por ende, usaremos **prueba $t$** para diferencia de medias.
 
 Utilice la bbdd `proc_casen` y seleccione las variables `ocupado`, `sexo`, `ytrabajocor` e `hijo`. Luego, filtra por `ocupado == 1` y `sexo == 2` para quedarse solo con mujeres ocupadas y genera una muestra aleatoria de 1.500 casos con la función `sample_n()`. Luego, elimina los casos pérdidos con `na.omit()`. 
 
@@ -231,7 +236,9 @@ Genere una tabla de descriptivos de los ingresos (`ytrabajocor`) según si las o
 
 Una ayuda con el procesamiento (solo esta vez)...
 
+
 ```{r, collapse=FALSE}
+set.seed(123)
 
 goldin_data <- proc_casen %>% 
   dplyr::select(ocupado, sexo, ytrabajocor, hijo) %>% 
@@ -253,15 +260,38 @@ Ahora vamos con los [5 pasos de la inferencia](https://correlacional.netlify.app
 
 El primer paso es traducir nuestra pregunta a una hipótesis estadística contrastable. Para ello: a) elija el tipo de hipótesis a plantear ¿direccional o no direccional? y b) especifique la hipótesis nula ($H_0$) e hipótesis alternativa ($H_A$).
 
+a) hipótesis direccional
+
+b.1) ($H_0$): El promedio salarial de las mujeres sin hijos será igual o menor que el promedio salarial de las mujeres con hijos.
+
+b.2) ($H_A$): Promedio salarial de mujeres sin hijos será mayor que el promedio salarial de las mujeres con hijos.
+
 **Pasos 2, 3 y 4 de una vez con R**
 
 Siguiendo el ejemplo del Ejercicio 1, utilice el software para generar los estadísticos correspondientes. Contraste sus hipótesis considerando un 95% de confianza.
+
+```{r}
+test_ej2 <- t.test(goldin_data$ytrabajocor ~ goldin_data$hijo, 
+                   alternative = "greater",
+                   conf.level = 0.95)
+
+test_ej2
+```
+
+```{r}
+stats.table <- tidy(test_ej2, conf_int = T)
+nice_table(stats.table, broom = "t.test")
+```
 
 **5. Interpretación**
 
 Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis planteada?
 
-> La prueba T que evalúa la diferencia de medias...
+
+
+> La prueba t que evalúa la diferencia de medias...
+
+Respuesta: Con un 95% de confianza es posible rechazar la hipótesis nula planteada. El promedio salarial de las mujeres sin hijos es $115.265,96 mayor que el de las mujeres con hijos.
 
 # Ejercicio 3
 
@@ -269,14 +299,77 @@ En este ejercicio tomamos de ejemplo una pregunta clásica en ciencias sociales:
 
 Esta vez les dejaremos el procesamiento a ustedes. Utilice la bbdd `proc_casen` y seleccione las variables `ytrabajocor` y `universitaria`. Luego genere una muestra aleatoria 1500 casos con la función `sample_n()` y elimine los datos perdidos de la variable `ytrabajocor`. Luego, genere una tabla de descriptivos de los ingresos (`ytrabajocor`) según si las personas cuentan con educación universitaria o no (`universitaria`). Presente cantidad de observaciones por categoría, media y desviación estándar.
 
-## 1. Formulación de hipótesis
+
+```{r warning=FALSE }
+set.seed(123)
+
+casen_ej3 <- proc_casen %>% 
+  select(universitaria, ytrabajocor) %>% # seleccionamos
+  sample_n(1500) # extraemos una muestra de 1500 casos
+
+casen_ej3 <- na.omit(casen_ej3) # eliminamos casos perdidos (listwise)
+```
+
+```{r}
+casen_ej3 %>% 
+  dplyr::group_by(universitaria) %>% # se agrupan por la variable categórica 
+  dplyr::summarise(Obs. = n(),
+                   Promedio = mean(ytrabajocor, na.rm=TRUE),
+                   SD = sd(ytrabajocor, na.rm=TRUE)) %>% # se agregan las operaciones a presentar en la tabla
+  kableExtra::kable(format = "markdown") # se genera la tabla
+```
+
+**1. Formulación de hipótesis**
 
 El primer paso es traducir nuestra pregunta a una hipótesis estadística contrastable. Para ello: a) elija el tipo de hipótesis a plantear ¿direccional o no direccional? y b) especifique la hipótesis nula ($H_0$) e hipótesis alternativa ($H_A$).
 
-## Pasos 2, 3 y 4 de una vez con R
+a) Hipótesis direccional
+
+b1) ($H_0$): El promedio salarial de las personas con educación no universitaria será igual o menor que el promedio salarial de las personas con nivel educacional universitaria.
+
+b2) ($H_A$): Las personas con educación no universitaria tienen un promedio salarial menor que quienes tienen universitaria
+
+**Pasos 2, 3 y 4 de una vez con R**
 
 Siguiendo el ejemplo del Ejercicio 1, utilice el _software_ para generar los estadísticos correspondientes. Contraste sus hipótesis considerando un 95% de confianza y un 99% de confianza. Comente las diferencias en el paso 5.
 
-# 5. Interpretación
+**95%**
+
+```{r}
+test_ej3 <- t.test(casen_ej3$ytrabajocor ~ casen_ej3$universitaria, 
+                   alternative = "less",
+                   conf.level = 0.95)
+
+test_ej3
+```
+
+```{r}
+stats.table <- tidy(test_ej3, conf_int = T)
+nice_table(stats.table, broom = "t.test")
+```
+
+```{r}
+gginference::ggttest(test_ej3)
+```
+
+**99%**
+
+```{r}
+test_ej4 <- t.test(casen_ej3$ytrabajocor ~ casen_ej3$universitaria, 
+                   alternative = "less",
+                   conf.level = 0.99)
+
+test_ej4
+```
+
+```{r}
+stats.table <- tidy(test_ej4, conf_int = T)
+nice_table(stats.table, broom = "t.test")
+```
+**5. Interpretación**
 
 Interprete los resultados obtenidos: ¿es posible rechazar la hipótesis nula? ¿a raíz de qué información llega a la conclusión? ¿qué diferencia observa al aplicar la prueba con ambos niveles de confianza (95% y 99%)?
+
+Respuesta: es posible rechazar la hipótesis nula tanto para un 95% como para un 99% de confianza.
+
+El único cambio observado es un leve aumento de el intervalo de confianza estimado para un 99% de confianza.

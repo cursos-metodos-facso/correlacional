@@ -1,6 +1,6 @@
 ---
 title: "Práctico 5: Asociación entre categóricas"
-date: "2024-10-15"
+date: "2025-10-13"
 lang: es
 bibliography: "bib/correlacional.bib"
 csl: "bib/apa.csl"
@@ -33,26 +33,7 @@ En esta guía utilizaremos un ejemplo que desarrollaremos progresivamente para e
 
 # 1. Pregunta de investigación
 
-La violencia es un fenómeno con el que se debe coexistir, estableciendo límites para su uso. Las movilizaciones de 2019 en Chile representan un ejemplo de un evento que aumentó la justificación de la violencia como protesta y redujo la justificación de la violencia policial, lo que plantea preguntas sobre quiénes y por qué justifican la violencia.
-
-El estudio de las justificaciones de la violencia distingue si esta se ejerce por el cambio social o por el control social. La violencia por el cambio social refiere a acciones que tengan por objetivo generar cambios en las estructuras jerarquicas de la sociedad, en tanto, la violencia por el control social refiere a aquellas acciones que tienen por objetivo mantener estas estructuras.
-
-En la literatura, uno de los principales hallazgos es que personas que pertenecen a grupos desavantejados (ej. nivel socioeconómico) suelen justificar más la violencia por el cambio social y menos por el control social.
-
-Considerando estos antecedentes, plantearemos dos preguntas de investigación:
-
-**Pregunta 1**: _¿En qué medida se relacionan los ingresos con la justificación de la violencia por el **cambio social** en Chile al año 2019?_
-
-> H1: A mayores ingresos, menor es la justificación de la violencia por el cambio social
-
-**Pregunta 2**: _¿En qué medida se relacionan el el nivel educacional con la justificación de la violencia por el **control social** en Chile al año 2019?_
-
-> H2: A mayor nivel educacional, mayor es la justificación de la violencia por el control social
-
-
-## Recursos de la práctica
-
-En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la [Encuesta Social Longitudinal de Chile (ELSOC)](https://coes.cl/encuesta-panel/) para Chile del año 2019. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también es posible acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `ELSOC 2019`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/elsoc2019_jv.RData). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos ELSOC 2019.
+En esta práctica trabajaremos con un subconjunto de datos previamente procesados de la Encuesta de Caracterización Socioeconómica (CASEN) del año 2022, elaborada por el [Ministerio de Desarrollo Social y Familia](https://observatorio.ministeriodesarrollosocial.gob.cl/). Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienen la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `CASEN 20222`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/proc_casen.RData). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos CASEN 2022.
 
 # 2. Datos y librerías
 
@@ -60,12 +41,15 @@ Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesa
 
 ```{r librerias, echo=TRUE, collapse=TRUE}
 pacman::p_load(
-    tidyverse, # Manipulacion datos
+    dplyr, # Manipulacion datos
     sjPlot, # Graficos y tablas
     sjmisc, # Descriptivos
     kableExtra, # Tablas
     psych, # Estadísticos
-    broom
+    broom,
+    rempsyc,
+    sjstats,
+    gginference
 ) # Varios
 
 options(scipen = 999) # para desactivar notacion cientifica
@@ -74,222 +58,123 @@ rm(list = ls()) # para limpiar el entorno de trabajo
 
 Cargamos los datos directamente desde internet.
 
-```{r datos, echo=TRUE}
-
-# Cargar bbdd desde internet
-load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/elsoc2019_jv.RData"))
-
+```{r datos}
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/casen_proc.RData")) #Cargar base de datos
 ```
 
-A continuación, exploramos el subset de datos `elsoc`.
+A continuación, exploramos el subset de datos `proc_casen`.
 
 ```{r exploracion, echo=TRUE}
 
-names(elsoc) # Nombre de columnas
-dim(elsoc) # Dimensiones
+names(proc_casen) # Nombre de columnas
+dim(proc_casen) # Dimensiones
 
 ```
 
 ```{r include = F}
-rows <- NROW(elsoc)
-cols <- NCOL(elsoc)
+rows <- NROW(proc_casen)
+cols <- NCOL(proc_casen)
 ```
 
 Contamos con `r cols` variables (columnas) y `r rows` observaciones (filas).
 
-Ahora, realizaremos un pequeño procesamiento de nuestros datos con `dplyr`, todo de una vez mediante el uso de pipes `%>%`. Para recordar los pasos para el procesamiento de datos, revisar la guía práctica del [curso de estadística descriptiva](https://descriptiva-facso.netlify.app/assignment/03-practico).
-
-```{r proc, echo=TRUE, }
-
-proc_elsoc <- elsoc %>% # seleccionamos
-    dplyr::select(
-        ingreso,
-        ingreso_rec,
-        educ,
-        educ_rec,
-        starts_with("jv")
-    )
-
-```
-
-Ahora, exploremos estadísticos descriptivos de nuestra base procesada `proc_elsoc`
-
-```{r descr, echo=TRUE}
-
-proc_elsoc %>%
-    select(ingreso, ingreso_rec, educ, educ_rec, jv_cambio, jv_cambio_rec, jv_control, jv_control_rec) %>%
-    sjmisc::descr(show = c("label", "range", "mean", "sd", "NA.prc", "n")) %>%
-    kable(., "markdown")
-
-```
-
 # 3. Análisis
-
-En [ELSOC 2019](https://www.gesis.org/en/issp/data-and-documentation/social-inequality/2009) la justificación de la violencia se mide con una escala que incluye distintas situaciones de violencia. Nosotros tomaremos dos items:
-
-<style>
-  table {
-    margin-left: auto; /* Ajustamos el margen izquierdo a automático */
-    margin-right: auto; /* Ajustamos el margen derecho a automático */
-    border-collapse: collapse;
-    width: 60%;
-    border: 2px solid black;
-  }
-  
-  th, td {
-    border: 1px solid #D3D3D3;
-    padding: 8px;
-    text-align: center;
-  }
-</style>
-
-**Justificación de la violencia**: _F05 ¿En qué medida cree usted que se justifican o no se justifican las siguientes situaciones?_
-
-| Ítem | Categorías de respuesta |
-|:------------:|:------------:|
-| F05_03 Que Carabineros use la fuerza para reprimir una manifestación pacífica  | Nunca se justifica (1); Pocas veces se justifica (2); Algunas veces de justifica (3); Muchas veces se justifica (4); Siempre se justifica (5) |
-| F05_07 Que estudiantes tiren piedras a Carabineros en una marcha por la educación del país   | Nunca se justifica (1); Pocas veces se justifica (2); Algunas veces de justifica (3); Muchas veces se justifica (4); Siempre se justifica (5) |
-
-Veamos sus frecuencias:
-
-```{r}
-plot1 <- sjPlot::plot_frq(proc_elsoc$jv_cambio) + coord_flip() + theme_minimal()
-plot2 <- sjPlot::plot_frq(proc_elsoc$jv_control) + coord_flip() + theme_minimal()
-
-plot1
-plot2
-```
-
-Originalmente, esta variable es ordinal, sin embargo, para efectos del ejemplo de este práctico, trabajaremos con la variable recodificada de la siguiente manera:
-
-- **Justifica (1)** = Pocas veces se justifica (2); Algunas veces de justifica (3); Muchas veces se justifica (4); Siempre se justifica (5)
-- **No justifica (0)** = Nunca se justifica (1)
 
 ## 3.1 Correlación para variables nominales
 
+Al igual que otros coeficientes de correlación, las correlaciones entre categóricas:
+
+- Oscila entre -1 y 1.
+- Indica la dirección y fuerza de asociación entre variables.
+- Su tamaño de efecto se puede interpretar a partir de ciertos estándares.
+- Se interpreta de la misma forma que otros coeficientes de correlación.
+
 ### 3.1.1 Correlación punto biserial
 
-La correlación punto biserial es una extensión del coeficiente de correlación de Pearson y se utiliza cuando una de las variables de estudio tienen un nivel de medición intervalar y la otra un nivel de medición nominal.
+La correlación punto biserial se utiliza para calcular la correlación entre una variable categórica dicotómica y una variable continua.
 
-- El nombre de _punto biserial_ es una forma de diferenciarla de la correlación de Pearson
-- Esta diferenciación es importante ya que nos prevee de que hay que tener consideraciones con su interpretación, particularmente en lo que refiere al *sentido*
-- En lo que respecta a la *magnitud/tamaño* y la *inferencia*, sigue la misma lógica que hemos visto con la correlación de Pearson
+Veamos la frecuencia de `sexo` y la media de ingresos `y1`.
 
-Para calcular este coeficiente en R utilizamos una función ya conocida: `cor.test()`. Probemoslo con las variables `jv_cambio_rec` e `ingreso`.
+```{r}
+sjmisc::frq(proc_casen$sexo)
 
-Primero, veamos la frecuencia de `jv_cambio_rec` e `ingreso`.
-
-
-```{r, echo = TRUE, warning = FALSE, collapse = TRUE}
-sjmisc::frq(proc_elsoc$jv_cambio_rec)
-
-mean(proc_elsoc$ingreso, na.rm = TRUE)
+mean(proc_casen$y1, na.rm = T)
 ```
 
-Obtengamos la correlación punto biserial entre el ingreso y la justificación de la violencia por el cambio social.
+Obtengamos la correlación punto biserial entre sexo e ingresos.
 
-```{r, warning=FALSE}
-cor.test(proc_elsoc$jv_cambio_rec, proc_elsoc$ingreso)
+```{r}
+cor.test(proc_casen$sexo, proc_casen$y1)
 ```
-
-```{r, warning=FALSE, include=FALSE}
-rpb <- round(cor.test(proc_elsoc$jv_cambio_rec, proc_elsoc$ingreso)$estimate, 2)
-```
-
-Vemos que la correlación entre el ingreso (`ingreso`) y la justificación de la violencia por el cambio social (`jv_cambio_rec`) es negativa, muy pequeña y no es estadísticamente significativa ($r$ = `r rpb`; _p > 0.05_).
 
 ### 3.1.2 Correlación tetracorica
 
-La correlación tetracórica también es una extensión del coeficiente de correlación de Pearson, con la diferencia de que se usa cuando ambas variables de estudio son nominales dicotomicas (2 valores).
+La correlación tetracórica se utiliza para calcular la correlación entre dos variables binarias categóricas, es decir, variables nominales dicómoticas (solo dos posibles valores).
 
-- Se calcula en base a la frecuencias de cada combinación de valores (00,01,10,11).
-- Supone que ambas variables son continuas y normalmente distribuidas antes de la categorización
+Veamos las frecuencias de `sexo` y `disc_fisica`.
 
-Veamos como vería una correlación tetracórica entre nuestras variables de estudio. En este caso, vamos a usar `jv_cambio_rec` que ya es dicotomica (1 = Justifica, 0 = No justifica) y una versión recodificada del ingreso `ingreso_rec`, la cual identifica aquellos entrevistados que tienen un ingreso mayor o menor a 800.000 pesos (1 = Mayor a 800k, 0 = Menor a 800k)
+```{r}
+sjmisc::frq(proc_casen$sexo)
 
-Primero, veamos las frecuencias entre `jv_cambio_rec` e `ingreso_rec`.
-
-```{r, echo = TRUE, warning = FALSE, collapse = TRUE}
-sjmisc::frq(proc_elsoc$jv_cambio_rec)
-
-sjmisc::frq(proc_elsoc$ingreso_rec)
+sjmisc::frq(proc_casen$disc_fisica)
 ```
 
-Obtengamos la correlación tetracórica entre `jv_cambio_rec` e `ingreso_rec`.
+Obtengamos la correlación tetrácorica entre sexo y discriminación por apariencia física.
 
-```{r, warning=FALSE}
-matriz <- proc_elsoc %>%
-    dplyr::select(jv_cambio_rec, ingreso_rec) # creamos matriz con var de interes
+```{r}
+matriz <- proc_casen %>% select(sexo, disc_fisica) # creamos matriz con var de interes
 
 psych::tetrachoric(matriz, na.rm = T)
 ```
 
-```{r, warning=FALSE, include=FALSE}
-rt <- round(psych::tetrachoric(matriz, na.rm = T)$rho[2, 1], 2)
+### 3.1.3. Correlación Policórica
+
+La correlación policórica se utiliza para calcular la correlación entre dos variables ordinales categóricas, es decir, variables ordinales cuyos posibles valores siguen un orden (por ejemplo, variables tipo Likert).
+
+Veamos las frecuencias de `ayuda_moverse` y `ayuda_thogar`.
+
+```{r}
+sjmisc::frq(proc_casen$ayuda_moverse)
+
+sjmisc::frq(proc_casen$ayuda_thogar)
 ```
 
-Vemos que la correlación entre los ingresos recodificados (`ingreso_rec`) y la justificación de la violencia por el cambio social (`jv_cambio_rec`) es positiva y muy pequeña ($r$ = `r rt`).
+Obtengamos la correlación policórica entre si la persona necesitó ayuda para moverse dentro de la casa y si necesitó ayuda para realizar tareas dentro del hogar, en los últimos 30 días.
+
+```{r}
+matriz <- proc_casen %>% select(ayuda_moverse, ayuda_thogar) # creamos matriz con var de interes
+
+psych::polychoric(matriz, na.rm = T)
+```
 
 ## 3.2 Tablas de contingencia
 
-Las tablas de contingencia son herramientas estadísticas utilizadas para resumir y analizar la relación entre dos o más variables categóricas. Estas tablas muestran la frecuencia de diferentes combinaciones de categorías de las variables, facilitando la visualización de patrones o asociaciones.
+Una tabla de contingencia es una de las maneras más simples y útiles para representar el cruce entre dos variables categóricas.
 
-Dicho de otra manera, podemos saber cuántos casos de una determinada categoría de la variable $Y$ ocurren conjuntamente con una determinada categoría de la variable $X$. 
+Con ella, podemos obtener en las celdas las frecuencias **conjuntas** entre ambas variables, es decir, cuántos casos de una determinada categoría de la variable `Y` ocurren conjuntamente con una determinada categoría de la variable `X`. 
 
-Veamos una tabla con nuestro ejemplo usando el comando `sjtab`.
+Además, podemos presentar los totales de cada fila y columna al exterior de la tabla, también conocidas como frecuencias **marginales**.
 
-```{r, warning=FALSE}
-proc_elsoc %>%
-    sjPlot::sjtab(ingreso_rec,
-        jv_cambio_rec,
-        show.row.prc = TRUE, # porcentaje fila
-        show.col.prc = TRUE # porcentaje columna
-    )
+Veamos un ejemplo con `ss_salud` y `universitaria`:
+
+```{r}
+sjPlot::sjt.xtab(var.row = proc_casen$ss_salud, var.col = proc_casen$universitaria, 
+                 show.summary = F, emph.total = T)
 ```
 
-En esta tabla vemos que los porcentajes coloreados en azul corresponde a las filas y el verde el porcentaje que corresponde a las columnas. Utilizando esta información podemos decir, por ejemplo:
+Veamos cómo incorporar el porcentaje fila y columna en la tabla.
 
-- <span style="color: #3F51B5;"> El 72.1% de quienes ganan más de 800k no justifica la violencia por el cambio social </span> 
-
-- <span style="color: #4CAF50;"> El 13.5% de quienes no justifican la violencia por el cambio social ganan más de 800k </span>
-
-Ahora, ¿cómo sabemos si hay asociación? Repliquemos el ejemplo que vimos en clases, utilizando nuestras variables. Imaginemos que tenemos una base de datos con _N = 100_.
-
-```{r, warning=FALSE}
-# Ejemplo de asociación perfecta
-tab1 <- data.frame(
-    "." = c("Menor a 800k", "Mayor a 800k", "Total"),
-    `No justifica` = c(0, 50, 50),
-    "Justifica" = c(50, 0, 50),
-    Total = c(50, 50, 100)
-)
-
-# Ejemplo de no asociación
-tab2 <- data.frame(
-    "." = c("Menor a 800k", "Mayor a 800k", "Total"),
-    `No justifica` = c(25, 25, 50),
-    "Justifica" = c(25, 25, 50),
-    Total = c(50, 50, 100)
-)
+```{r}
+sjPlot::sjt.xtab(var.row = proc_casen$ss_salud, 
+                 var.col = proc_casen$universitaria, 
+                 show.summary = F, 
+                 emph.total = T, 
+                 show.row.prc = T, # porcentaje fila
+                 show.col.prc = T # porcentaje columna
+                 )
 ```
 
-Una distribución con evidencia "perfecta" para nuestra hipótesis alternativa se puede ver en la siguiente tabla:
-
-```{r, warning=FALSE}
-tab1 %>%
-    kable(format = "html", align = "r", col.names = c("Ingreso", "No justifica violencia", "Justifica violencia", "Total")) %>%
-    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T) %>%
-    kableExtra::kable_styling(latex_options = "hold_position", position = "center")
-```
-
-En contraste, una distribución que representaría un caso perfecto de no asociación, se puede ver en la siguiente tabla:
-
-```{r, warning=FALSE}
-tab2 %>%
-    kable(format = "html", align = "r", col.names = c("Ingreso", "No justifica violencia", "Justifica violencia", "Total")) %>%
-    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width = T) %>%
-    kableExtra::kable_styling(latex_options = "hold_position", position = "center")
-```
+Aquí, los porcentajes fila aparecen en azul y los porcentajes columna en verde. 
 
 ## 3.3. Prueba de hipótesis con Chi cuadrado ($X^2$)
 
@@ -305,10 +190,12 @@ En relación a una _hipótesis alternativa_ sobre que las variables están relac
 $$  H_{A}:  \pi_{fc} \neq  \pi_{f}\pi_{c} $$
 :::
 
+Veamos un ejemplo con nuestros datos. Evaluemos si el nivel educacional se relaciona con el tipo de sistema de salud al que pertenecen las personas en Chile durante el 2022.
+
 En R, utilizamos la función `chisq.test()`:
 
 ```{r, warning=FALSE}
-chi_results <- chisq.test(proc_elsoc$ingreso_rec, proc_elsoc$jv_cambio_rec)
+chi_results <- chisq.test(table(proc_casen$ss_salud, proc_casen$universitaria))
 
 chi_results
 ```
@@ -320,45 +207,23 @@ Obtuvimos nuestro resultado, pero no es muy amigable a la vista. Generemos una t
 #| echo: true
 #| warning: false
 
-stats.table <- tidy(chi_results)
-
-stats.table %>%
-    dplyr::mutate(
-        statistic = round(statistic, 2),
-        p_value = case_when(
-            p.value < 0.05 & p.value > 0.01 ~ "< 0.05*",
-            p.value < 0.01 & p.value > 0.001 ~ "< 0.01**",
-            p.value < 0.001 ~ "< 0.001***",
-            TRUE ~ ""
-        )
-    ) %>%
-    dplyr::select(statistic, p_value, parameter, method) %>%
-    kableExtra::kable(
-        format = "html",
-        col.names = c("X2", "p-value", "df", "Método"),
-        booktabs = T,
-        caption = "Prueba de Chi-cuadrado entre justificación de la violencia por cambio social e injusticia distributiva"
-    ) %>%
-    kableExtra::kable_styling(
-        bootstrap_options = c("striped", "hover", "condensed", "responsive"),
-        full_width = T,
-        latex_options = "hold_position",
-        position = "center"
-    ) %>%
-    column_spec(4, width = "8cm")
+stats.table <- tidy(chi_results, conf_int = T)
+nice_table(stats.table)
 ```
 
-```{r, warning=FALSE, include=F}
-xi <- round(chisq.test(proc_elsoc$ingreso_rec, proc_elsoc$jv_cambio_rec)$statistic[[1]], 3)
+Visualicemos la distribución de esta prueba y su zona de rechazo.
+
+```{r}
+ggchisqtest(chi_results)
 ```
 
 A partir de estos resultados, podemos reportar lo siguiente:
 
-> A raíz de la prueba de $X^2$, vemos que no existe evidencia para rechazar la hipótesis nula sobre no asociación. Por ende, la asociación entre los ingresos y la justificación de la violencia por el cambio social no es estadísticamente significativa ($X^2$ = `r xi`, _p > 0.05_)
+> A raíz de la prueba de $X^2$, vemos que existe evidencia para rechazar la hipótesis nula sobre no asociación. Por ende, la asociación entre el nivel educacional y el tipo de sistema de salud al que pertenecen las personas en Chile es estadísticamente significativa ($X^2$ = 217, _p < 0.05_)
 
 ## 3.4. Tamaño de efecto con Phi y V de Cramer
 
-## Estadístico Phi (Φ)
+### Estadístico Phi (Φ)
 
 El estadístico Phi mide la asociación entre dos variables categóricas en una tabla de contingencia de 2x2. La fórmula es:
 
@@ -373,7 +238,7 @@ donde:
 
 El valor de $\Phi$ varía entre -1 y 1. Un valor de 0 indica ausencia de asociación, mientras que valores cercanos a -1 o 1 indican una asociación más fuerte.
 
-## V de Cramer
+### V de Cramer
 
 El V de Cramer es una extensión del estadístico Phi para tablas de contingencia mayores de 2x2. Su fórmula es:
 
@@ -389,62 +254,100 @@ donde:
 
 Los valores de $V$ también varían entre 0 y 1, donde 0 indica ausencia de asociación, y valores cercanos a 1 indican una asociación más fuerte.
 
-En nuestro ejemplo, nuestra tabla de contingencia es de 2x2, por ende, debemos usar el estadístico Phi. En R lo podemos calcular directamente siguiendo la formula:
+En nuestro ejemplo, nuestra tabla de contingencia es de 4x2, por ende, debemos usar el estadístico V de Cramer. En R lo podemos calcular directamente siguiendo la formula:
 
 ```{r}
 
 # Guardar el test de chi cuadrado
-chi_result <- chisq.test(proc_elsoc$ingreso_rec, proc_elsoc$jv_cambio_rec)
-n <- na.omit(proc_elsoc %>% select(ingreso_rec, jv_cambio_rec)) %>% nrow()
+chi_result <- chisq.test(table(proc_casen$ss_salud, proc_casen$universitaria))
+n <- na.omit(proc_casen %>% select(ss_salud, universitaria)) %>% nrow()
 
-# Cálculo de Phi
-phi <- sqrt(chi_result$statistic / n)
-phi
-
+# Cálculo de V de Cramer
+cramer <- sqrt(chi_result$statistic / n*(2-1))
+cramer
 ```
 
- Con un valor de `r round(phi[[1]], 3)`, vemos que la magnitud de la asociación entre las variables es muy baja.
-
-# 3.5 Test de proporciones
-
-El test de proporciones es una prueba estadística que se utiliza para comparar las proporciones de éxito (o cualquier categoría de interés) entre dos o más grupos. Es especialmente útil cuando se trabaja con variables categóricas binarias (por ejemplo, sí/no, éxito/fallo) y queremos verificar si las proporciones de estas categorías son significativamente diferentes entre los grupos.
-
-Este test evalúa la hipótesis nula de que las proporciones en diferentes grupos son iguales frente a la hipótesis alternativa de que al menos una de las proporciones es diferente.
-
-En este caso, nos puede ser de utilidad si queremos conocer si la proporción de personas que justifican la violencia por el cambio social es estadísticamente diferente entre quienes tienen ingresos mayores a 800k y quienes tienen ingresos menores a 800k.
-
-Esto se prueba en R de la siguiente manera:
+o directamente con sjstats
 
 ```{r}
-# Veamos el conteo por categorías
-table(proc_elsoc$ingreso_rec, proc_elsoc$jv_cambio_rec)
-
-# Insertemos los datos a mano
-prop.test(
-    c(463, 77), # Conteo de exitos por grupo (Justifica x Menor a 800k y Justifica x Mayor a 800k)
-    c((1273 + 463), (199 + 77)) # Suma por grupo (Menor a 800k y Mayor a 800k)
-)
+sjstats::cramer(table(proc_casen$ss_salud, proc_casen$universitaria))
 ```
 
-A raíz de la prueba de hipótesis de proporciones, podemos reportar lo siguiente:
+ Con un valor de `r round(cramer[[1]], 3)`, vemos que la magnitud de la asociación entre las variables es moderada.
 
-> Al 95% de confianza, no existe evidencia para rechazar la hipótesis nula de no diferencia en la proporción de personas que justifican la violencia por el cambio social entre ambas categorías de ingreso (_p > 0.05_). Es decir, no existen diferencias estadísticamente significativas en la proporción de personas que justifican la violencia por el cambio social entre quienes ganan más de 800k y menos de 800k.
-
-# 4. Conclusiones
-
-```{r, warning=FALSE, include=F}
-xi <- round(chisq.test(proc_elsoc$ingreso_rec, proc_elsoc$jv_cambio_rec)$statistic[[1]], 3)
-```
-
-En el presente ejercicio indagamos en la _relación entre los ingresos de las personas y las justificaciones de la violencia por el cambio social en Chile al año 2019_. Considerando que las variables de estudio tenían un nivel de medición categórico nominal, utilizamos la técnica de Chi-cuadrado $X^2$ para el contraste de hipótesis.
-
-La hipótesis planteada inicialmente sugería que los ingresos podrían estar asociados con las actitudes hacia la justificación de la violencia como una forma de cambio social. Sin embargo, los resultados de la prueba $X^2$, como se muestra en la @tbl-chi, indican que **no** existe una asociación estadísticamente significativa entre estas variables ($X^2$ = `r xi`, _p > 0.05_).
-
-Esto significa que, según los datos analizados, los ingresos no parecen ser un factor que influya en la justificación de la violencia para el cambio social. En otras palabras, las personas con diferentes niveles de ingresos no muestran diferenciasen sus actitudes hacia la justificación de la violencia. Por lo tanto, no podemos concluir que los ingresos estén relacionados con la justificación de la violencia en el contexto del cambio social en Chile en 2019.
 
 # Ejercicio autónomo
 
-A partir de la base de datos de `proc_elsoc` responda la pregunta 2 planteada al inicio de este ejercicio. Es decir: _¿En qué medida se relacionan el nivel educacional y la justificación de la violencia por el **control social** en Chile al año 2019?_
+A partir de la base de datos de `proc_elsoc` responda las siguientes preguntas: 
+
+a) _¿En qué medida se relacionan los ingresos con la justificación de la violencia por el cambio social en Chile al año 2019?_
+
+b) _¿En qué medida se relacionan el nivel educacional y la justificación de la violencia por el **control social** en Chile al año 2019?_
+
+Para eso, descargue la siguiente base de datos `proc_elsoc`:
+
+```{r}
+# Cargar bbdd desde internet
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/elsoc2019_jv.RData"))
+```
+
+seleccione las siguientes variables:
+
+```{r}
+proc_elsoc <- elsoc %>% # seleccionamos
+    dplyr::select(
+        ingreso,
+        ingreso_rec,
+        educ,
+        educ_rec,
+        starts_with("jv")
+    )
+```
+
+y explore los estadísticos descriptivos:
+
+```{r}
+proc_elsoc %>%
+    select(ingreso, ingreso_rec, educ, educ_rec, jv_cambio, jv_cambio_rec, jv_control, jv_control_rec) %>%
+    sjmisc::descr(show = c("label", "range", "mean", "sd", "NA.prc", "n")) %>%
+    kable(., "markdown")
+```
+
+Para la pregunta a)
+
+1. Estime la correlación adecuada para `ingreso_rec` y `jv_control_rec`.
+
+```{r}
+matriz <- proc_elsoc %>%
+    dplyr::select(jv_cambio_rec, ingreso_rec) # creamos matriz con var de interes
+
+psych::tetrachoric(matriz, na.rm = T)
+```
+
+2. Presente en una tabla de contingencia entre las variables `ingreso_rec` y `jv_control_rec`.
+
+```{r}
+proc_elsoc %>%
+    sjPlot::sjtab(ingreso_rec,
+        jv_cambio_rec,
+        show.row.prc = TRUE, # porcentaje fila
+        show.col.prc = TRUE # porcentaje columna
+    )
+```
+
+3. Calcule el estadístico de Chi cuadrado ($X^2$) entre las variables `ingreso_rec` y `jv_control_rec`.
+
+```{r}
+chi_results <- chisq.test(proc_elsoc$ingreso_rec, proc_elsoc$jv_cambio_rec)
+
+stats.table <- tidy(chi_results, conf_int = T)
+nice_table(stats.table)
+```
+
+4. Interprete los resultados obtenidos. Responda la pregunta de investigación a raíz de los calculos desarrollados.
+
+
+Para la pregunta b)
 
 1. Estime la correlación adecuada para `educ` y `jv_control_rec`.
 
@@ -491,3 +394,11 @@ En el presente ejercicio indagamos en la _relación entre el nivel educacional d
 La hipótesis planteada inicialmente sugería que el nivel educacional podría estar asociado con las actitudes hacia la justificación de la violencia como una forma de control social. Sin embargo, los resultados de la prueba $X^2$, indican que **no** existe una asociación estadísticamente significativa entre estas variables ($X^2$ = `r xi2`, _p > 0.05_).
 
 Esto significa que, según los datos analizados, el nivel educacional no parecen ser un factor que influya en la justificación de la violencia para el control social, por lo tanto, no podemos concluir que el nivel educacional estén relacionados con la justificación de la violencia en el contexto del cambio social en Chile en 2019.
+
+
+## Video de la sesión
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EQlI0XQFCP4?si=1_uPc9LDZnY9LxyC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Acá [link directo a youtube.](https://youtu.be/EQlI0XQFCP4)
+

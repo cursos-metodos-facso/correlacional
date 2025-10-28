@@ -4,7 +4,7 @@
     <title>Estadística Correlacional</title>
     <meta charset="utf-8" />
     <meta name="author" content=".small[Juan Carlos Castillo    Departamento de Sociología - UCH / COES   ]" />
-    <script src="libs/header-attrs-2.28/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <script src="libs/mark.js-8.11.1/mark.min.js"></script>
     <link href="libs/xaringanExtra-search-0.0.1/search.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-search-0.0.1/search.js"></script>
@@ -37,7 +37,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https:/correlacional.netlify.app)
 ]
 
@@ -142,14 +142,14 @@ class: inverse bottom right
 ## Varianzas
 
 .pull-left[
-![](08_bivariada2_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+![](09-bivariada2_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
 .center[
 ### Educación
 ]
 
 ]
 .pull-right[
-![](08_bivariada2_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+![](09-bivariada2_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
 .center[
 ### Ingreso
 ]
@@ -162,7 +162,7 @@ class: inverse bottom right
 ]
 
 .pull-right-wide[
-![](08_bivariada2_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+![](09-bivariada2_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -398,14 +398,6 @@ cor(edad,iz_der)
 ```
 [1] 0.5070278
 ```
-
-``` r
-(cor(edad,iz_der))^2 #r2
-```
-
-```
-[1] 0.2570772
-```
 ]
 
 ---
@@ -428,7 +420,7 @@ plot1 &lt;- ggplot(,
 plot1
 ```
 
-![](08_bivariada2_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](09-bivariada2_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
 
 ]
 ---
@@ -524,7 +516,7 @@ sample estimates:
 
 ---
 
-![](08_bivariada2_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](09-bivariada2_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -569,21 +561,14 @@ La varianza no compartida se asocia al concepto de .red[residuos], es decir, la 
 Para poder obtener los residuos vamos a generar una .red[recta] que represente la asociación entre las variables. Esta es la recta de **regresión** &lt;sup&gt;1&lt;/sup&gt;
 
 Esta recta nos permite obtener un valor estimado de `\(y\)` para cada valor de `\(x\)`
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+
 &lt;br&gt;
 .small[[1] Detalles próximo semestre]
 ]
 
 .pull-right[
 
-![](08_bivariada2_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+![](09-bivariada2_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 
 ]
 
@@ -614,7 +599,7 @@ plot2 &lt;-ggplot(data,
 plot2
 ```
 
-![](08_bivariada2_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+![](09-bivariada2_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 ]
 
 ]
@@ -655,17 +640,23 @@ Por lo tanto, en nuestro ejemplo:
 .small[
 
 ``` r
-cor(data$educ,data$ing)
+cor(edad,iz_der)
 ```
 
 ```
-[1] 0.9512367
+[1] 0.5070278
+```
+
+``` r
+cor(edad,iz_der)^2
+```
+
+```
+[1] 0.2570772
 ```
 ]
 `\begin{align*}
-r&amp;= 0.95 \\
-r^2&amp;=0.95 ^2 \\
-r^2&amp;=0.902 = R^2
+R^2&amp;= 0.25
 \end{align*}`
 
 ]
@@ -675,9 +666,9 @@ r^2&amp;=0.902 = R^2
 .content-box-red[
 Intepretación:
 
-_El porcentaje de varianza compartida entre educación e ingreso es de 90%._
+_El porcentaje de varianza compartida entre edad y orientación izquierda-derecha es de 25%._
 
-_Es decir, ambas variables comparten el 90% de su varianza_
+Es decir, ambas variables comparten el 25% de su varianza_
 ]]
 ---
 # `\(R^2\)` o coeficiente de determinación
@@ -747,7 +738,7 @@ class: front
 
 ## Juan Carlos Castillo
 ## Sociología FACSO - UChile
-## 2do Sem 2024
+## 2do Sem 2025
 ## [.orange[correlacional.netlify.app]](https://correlacional.netlify.app)
 ]
     
@@ -765,10 +756,10 @@ class: front
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="libs/macros.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "dracula",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "ratio": "16:9",
+  "highlightStyle": "dracula",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

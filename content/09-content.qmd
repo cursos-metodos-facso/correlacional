@@ -1,6 +1,6 @@
 ---
 title: "Inferencia en correlación y magnitud del coeficiente"
-date: "2024-09-24"
+date: "2025-09-10"
 lang: es
 execute:
   freeze: auto 

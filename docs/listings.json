@@ -1,13 +1,22 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/news/index.html",
     "items": [
+      "/news/2025-10-14_prep_evaluacion2.html",
+      "/news/2025-09-25_reporte-notas1.html",
+      "/news/2025-08-19_practicos.html",
+      "/news/2025-08-12_padlet.html",
       "/news/2025-08-04_inicio.html"
     ]
   },
   {
-    "listing": "/news/index.html",
+    "listing": "/index.html",
     "items": [
+      "/news/2025-10-21_info_evaluacion2.html",
+      "/news/2025-10-14_prep_evaluacion2.html",
+      "/news/2025-09-25_reporte-notas1.html",
+      "/news/2025-08-19_practicos.html",
+      "/news/2025-08-12_padlet.html",
       "/news/2025-08-04_inicio.html"
     ]
   }

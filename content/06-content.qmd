@@ -1,6 +1,6 @@
 ---
 title: "Inferencia 5 - Prueba t + hipótesis direccionales"
-date: "2024-09-02"
+date: "2025-08-25"
 lang: es
 execute:
   freeze: auto 
