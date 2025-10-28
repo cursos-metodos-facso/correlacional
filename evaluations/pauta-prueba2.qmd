@@ -1,0 +1,236 @@
+---
+title: Pauta Prueba 2
+lang: es
+---
+
+# Librerías y datos
+
+```{r}
+# librerías
+pacman::p_load(dplyr, sjPlot, sjmisc)
+```
+
+```{r, include=FALSE}
+load("data/dataset1.RData")
+load("data/dataset2.RData")
+load("data/dataset3.RData")
+load("data/dataset4.RData")
+```
+
+
+# Pregunta 1 ¿En qué medida se relacionan los ingresos (en pesos) de las personas con sus niveles de apoyo a la democracia?
+
+
+1.1 Estime la correlación entre ambas variables utilizando R y genere un diagrama de dispersión (nube de puntos/scatterplot). Corte y pegue el código en el recuadro de abajo. (1p)
+
+Forma A
+```{r}
+cor.test(dataset1$ingresos, dataset1$apoyo_dem, complete.obs = TRUE, method = "pearson")
+sjPlot::plot_scatter(data = dataset1, x = ingresos, y = apoyo_dem)
+```
+
+Forma B
+```{r}
+cor.test(dataset2$ingresos, dataset2$apoyo_dem, complete.obs = TRUE, method = "pearson")
+sjPlot::plot_scatter(data = dataset2, x = ingresos, y = apoyo_dem)
+```
+
+Forma C
+```{r}
+cor.test(dataset3$ingresos, dataset3$apoyo_dem, complete.obs = TRUE, method = "pearson")
+sjPlot::plot_scatter(data = dataset3, x = ingresos, y = apoyo_dem)
+```
+
+Forma D
+```{r}
+cor.test(dataset4$ingresos, dataset4$apoyo_dem, complete.obs = TRUE, method = "pearson")
+sjPlot::plot_scatter(data = dataset4, x = ingresos, y = apoyo_dem)
+```
+
+1.2 Justifique la elección del coeficiente de correlación seleccionado e interprete el resultado considerando inferencia estadística, magnitud y sentido del efecto. (3p)
+
+- **Forma A:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `apoyo_dem` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion positiva y grande, siguiendo los criterios de Cohen (1988) ($r$ = 0.80). Es decir, a medida que aumentan los ingresos de las personas, también aumentan sus niveles de apoyo_dem. La relación es estadísticamente significativa ($p$ < 0.001), por ende es posible rechazar $H_0$ sobre no asociación entre variables, entregando evidencia a favor de una relación entre ambas variables con un 99.9% de confianza.
+
+- **Forma B:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `apoyo_dem` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion positiva y muy pequeña, siguiendo los criterios de Cohen (1988) ($r$ = 0.04). La relación **no** es estadísticamente significativa ($p$ > 0.05), por ende **no** es posible rechazar $H_0$ sobre no asociación entre variables al 95% de confianza.
+
+- **Forma C:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `apoyo_dem` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion negativa y muy pequeña, siguiendo los criterios de Cohen (1988) ($r$ = -0.03). La relación **no** es estadísticamente significativa ($p$ > 0.05), por ende **no** es posible rechazar $H_0$ sobre no asociación entre variables al 95% de confianza.
+
+- **Forma D:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `apoyo_dem` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion positiva y grande, siguiendo los criterios de Cohen (1988) ($r$ = 0.79). Es decir, a medida que aumentan los ingresos de las personas, también aumentan sus niveles de apoyo_dem. La relación es estadísticamente significativa (p < 0.001), por ende es posible rechazar $H_0$ sobre no asociación entre variables, entregando evidencia a favor de una relación entre ambas variables con un 99.9% de confianza.
+  
+> NOTA: Si se utilizaba `ingresos_rec` y se señalaba que se escogía una correlación punto biserial, también se considera correcto.
+
+# Pregunta 2: ¿Cómo se relacionan el sexo, apoyo_dem y los ingresos?
+
+
+2.1 Estime y reporte la matriz de correlaciones de las variables de sexo, apoyo_dem y los ingresos. Corte y pegue el código de R correspondiente (1p)
+
+- Forma A:
+```{r, collapse=TRUE}
+cormat <- dataset1 %>% 
+  dplyr::select(sexo, apoyo_dem, ingresos)
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+- Forma B:
+```{r, collapse=TRUE}
+cormat <- dataset2 %>% 
+  dplyr::select(sexo, apoyo_dem, ingresos)
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+- Forma C:
+```{r, collapse=TRUE}
+cormat <- dataset3 %>% 
+  dplyr::select(sexo, apoyo_dem, ingresos)
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+- Forma D:
+```{r, collapse=TRUE}
+cormat <- dataset4 %>% 
+  dplyr::select(sexo, apoyo_dem, ingresos)
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+
+2.2a ¿Qué correlaciones de la matriz son estadísticamente significativas? (1p)
+
+- Forma A: 
+      
+    * **Pairwaise**: La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva, estadísticamente significativa ($r$ = 0.809, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+    * **Listwise**: La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva, estadísticamente significativa ($r$ = 0.809, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+
+- Forma B:
+
+    * **Pairwaise**: La correlación de Pearson entre _ingresos_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.837, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+    * **Listwise**: 
+        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.078, $p$ < 0.05) y débil según los criteriores de Cohen (1988).
+       ii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva, estadísticamente significativa ($r$ = 0.837, $p$ < 0.05) y fuerte según los criteriores de Cohen (1988).
+
+
+- Forma C:
+    
+    * **Pairwaise**: No hay asociaciones estadísticamente significativas ($p$ < 0.05) entre las variables.
+    * **Listwise**: No hay asociaciones estadísticamente significativas ($p$ < 0.05) entre las variables.
+
+- Forma D:
+
+     * **Pairwaise**: 
+        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.523, $p$ < 0.001) y moderada según los criteriores de Cohen (1988).  
+        ii. La correlación de Pearson entre _ingresos_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.831, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+        iii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva, estadísticamente significativa ($r$ = 0.795, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+     
+     * **Listwise**: 
+        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.517, $p$ < 0.001) y moderada según los criteriores de Cohen (1988).  
+         ii. La correlación de Pearson entre _ingresos_ y _sexo_ es positiva, estadísticamente significativa ($r$ = 0.830, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+         iii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva, estadísticamente significativa ($r$ = 0.795, $p$ < 0.001) y fuerte según los criteriores de Cohen (1988).
+  
+
+2.2b ¿Qué decisión tomó sobre los casos perdidos en el cálculo de la matriz? (1p)
+
+- Forma A: 
+
+     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
+     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
+     
+- Forma B:
+
+     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
+     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
+     
+- Forma C:
+
+     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
+     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
+     
+- Forma D:
+
+     * **Pairwaise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular estadísticos, especificamente respecto a la variable ingresos que tiene una alto porcentaje de valores perdidos (15%).
+     * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos debido a que existe un alto porcentaje de valores perdidos en la variable ingresos (15%). El gran tamaño de la muestra (N=1.000) permite realizar este procedimiento. 
+
+2.2c ¿Cómo se denomina el tipo de correlación que se calcula entre sexo e ingreso? (1p)
+
+- Forma A: La correlación entre la variable dummy sexo (0="Hombre"; 1="Mujer") y la variable continúa ingresos se denomina correlación punto biserial.
+- Forma B: La correlación entre la variable dummy sexo (0="Hombre"; 1="Mujer") y la variable continúa ingresos se denomina correlación punto biserial.
+- Forma C: La correlación entre la variable dummy sexo (0="Hombre"; 1="Mujer") y la variable continúa ingresos se denomina correlación punto biserial.
+- Forma D: La correlación entre la variable dummy sexo (0="Hombre"; 1="Mujer") y la variable continúa ingresos se denomina correlación punto biserial.
+
+# Pregunta 3: ¿Cómo se relaciona el sexo con los ingresos?
+
+3.1 Reporte tabla de contigencia y el cálculo de Chi2. Corte y pegue el código abajo. (1p)
+
+- Forma A:
+```{r}
+pacman::p_load(sjPlot)
+dataset1 %>%
+  sjtab(sexo,
+        ingresos_rec)
+
+chisq.test(dataset1$sexo, dataset1$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab
+```
+
+- Forma B:
+```{r}
+pacman::p_load(sjPlot)
+dataset2 %>%
+  sjtab(sexo,
+        ingresos_rec)
+
+chisq.test(dataset2$sexo, dataset2$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab
+```
+
+- Forma C:
+```{r}
+pacman::p_load(sjPlot)
+dataset3 %>%
+  sjtab(sexo,
+        ingresos_rec)
+
+chisq.test(dataset3$sexo, dataset3$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab
+```
+
+- Forma D:
+```{r}
+pacman::p_load(sjPlot)
+dataset4 %>%
+  sjtab(sexo,
+        ingresos_rec)
+
+chisq.test(dataset4$sexo, dataset4$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab
+```
+
+
+3.2 Interprete el Chi2 en términos de inferencia y magnitud del efecto. (3p)
+
+- Forma A: χ2=3.292 · df=2 · Cramer's V=0.062 · p=0.193
+Chi cuadrado no es estadísticamente significativo (p > 0.05), tamaño de efecto pequeño/débil según la V de Cramer
+
+- Forma B: χ2=393.623 · df=2 · Cramer's V=0.681 · p=0.000
+Chi cuadrado estadísticamente significativo (p < 0.001), tamaño de efecto grande/fuerte según la V de Cramer
+
+- Forma C: χ2=1.405 · df=2 · Cramer's V=0.041 · p=0.495
+Chi cuadrado no es estadísticamente significativo (p > 0.05), tamaño de efecto pequeño/débil según la V de Cramer
+
+- Forma D: χ2=379.824 · df=2 · Cramer's V=0.668 · p=0.000
+Chi cuadrado estadísticamente significativo (p < 0.001), tamaño de efecto grande/fuerte según la V de Cramer
+
