@@ -1,0 +1,58 @@
+---
+title: "Informaciones Evaluación 2"
+date: 10-21-2025
+categories: [info, mail-UCursos]
+lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+![](/news/images/evaluacion.png)
+
+Mañana miércoles 22 tendremos la segunda prueba del curso, al respecto, algunas informaciones relevantes:
+
+
+## Consideraciones:
+
+- Como se puede ver en la [página del programa del curso](/syllabus.html#evaluación), la Evaluación de la Unidad 2 vale un 40% de la nota del curso.
+- La prueba combina aspectos prácticos de análisis en R y también interpretación de resultados.
+- La prueba será frente al computador vía test de u-cursos, para así poder realizar las preguntas de análisis de datos. 
+- Las preguntas conceptuales también se responderán en el computador.
+- Recomendamos que cada estudiante asista con su propio computador, ya que esto permite una mayor personalización y familiarización con sus espacios de trabajo. Sobre todo, en lo que respecta a la configuración de RStudio y la carga de paquetes en R.
+- Si no puede asistir con su propio computador, debe inscribirse en el siguiente enlace (cupos limitados): [https://forms.gle/tvwmrc4CRvMhPrV76](https://forms.gle/tvwmrc4CRvMhPrV76) **este formulario estará habilitado hasta hoy a las 17:00 ya que eventualmente necesitaremos reservar una segunda sala**
+
+## Recomendaciones
+
+- Recomendamos llegar unos minutos antes del inicio de la prueba (8:30) para prender su computador, abrir Rstudio, u-cursos, etc. y así aprovechar al máximo el tiempo disponible para la prueba.
+- Se sugiere responder las preguntas de la prueba en un archivo de código de R, y al final cortar y pegar las respuestas en este mismo formulario.
+- Se sugiere guardar sus respuestas en un documento aparte para tenerlo como respaldo.
+
+## ¿Cómo será la evaluación?
+
+- Habrá preguntas en tres temas:
+  - correlación
+  - matrices de correlación y casos perdidos
+  - asociación en tablas de contingencia
+- Serán preguntas puntuales de análisis e interpretación, y se calcula que cada pregunta requiere una dedicación de no más de 20 min, por lo que la prueba se puede contestar en aproximadamente una hora. De todas maneras, quienes requieran tiempo adicional, la prueba se podrá entregar hasta las 10:00.
+- Recuerde que la prueba se cerrará automáticamente a las 10:00 y no se podrá agregar información adicional.
+- Cada tema tiene 4 puntos, 1 punto será por análisis de datos, y 3 por temas conceptuales/interpretación.
+- Pueden utilizar apuntes de clases, los recursos de la página del curso o cualquier otro material que estimen conveniente. No se pueden utilizar plataformas de comunicación (WhatsApp, redes sociales, Telegram, etc.) ni inteligencia artificial (ChatGPT, Gemini AI, etc.).
+
+## ¿Cómo prepararse?
+
+- En los prácticos de la Unidad 2 hay una sección de ejercicio autónomo, el realizar estos ejercicios y luego corregirlos (aparecen también desarrollados en la misma página) es la mejor forma de prepararse, tanto en términos de análisis como de interpretación
+- Están también arriba los videos de los últimos dos prácticos realizados durante la reciente movilización y también la resolución del ejercicio autónomo del práctico de resumen realizado el lunes 20 de octubre.
+- Revisar el material de las presentaciones y lecturas sugeridas
+- Software: revisar que los ejercicios de los prácticos los puedan desarrollar bien en el computador que traerán a la evaluación. Quienes no pueden traer computador podrán realizar la evaluación en la sala de computación. 
+
+

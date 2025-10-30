@@ -12,7 +12,7 @@ website:
 
 El curso de Estadística Correlacional considera la elaboración de un trabajo grupal como instancia final de [evaluación](/syllabus#evaluación). El trabajo a realizar es la elaboración de un **reporte de análisis bivariado**.
 
-La nota de este trabajo equivale a un **30%** de la nota final del curso, donde 20% equivale al reporte escrito y 10% a la presentación (en formato póster).
+La nota de este trabajo equivale a un **30%** de la nota final del curso, donde 25% equivale al reporte escrito y 5% a una cápsula de presentación de los principales resultados.
 
 
 # Objetivo general
@@ -24,28 +24,29 @@ Aplicar los contenidos del curso a una temática de interés en formato de repor
 Para la elaboración de los trabajos se utilizarán bases de datos secundarias disponibles, tales como:
 
 - [CASEN 2022](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022)
-- [ Encuesta de Bienestar Social EBS 2021](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-bienestar-social), que se aplica a una submuestra de CASEN y que por lo tanto permite vincular la información de ambas encuestas. En su primera versión se aplicó a una submuestra de CASEN 2020, por lo que los análisis utilizando la EBS 2021 remiten a la CASEN 2020 en pandemia. La versión de EBS vinculada a CASEN 2022 se lanzara durante Noviembre 2024.
-- [ELSOC](https://coes.cl/encuesta-panel/)
+- [ Encuesta de Bienestar Social EBS 2023](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-bienestar-social-2023).
+- [ELSOC](https://conferencias.coes.cl/encuesta-panel/)
 - [SIMCE](https://informacionestadistica.agenciaeducacion.cl/#/bases) (evt. subset)
-- [LAPOP](http://datasets.americasbarometer.org/database/index.php)
-- [Desiguales](https://www.estudiospnud.cl/bases-de-datos/desigualdades-economicas-y-sociales-desiguales-2016/)
+- PISA (Programa internacional de evaluación escolar): [documentos en español](https://www.agenciaeducacion.cl/estudios-internacionales/pisa/) y [base de datos original](https://www.oecd.org/en/data/datasets/pisa-2022-database.html) 
+- [LAPOP](https://www.vanderbilt.edu/lapop/raw-data.php)
 - [CEP: varios temas/preguntas para encuestas desde 1990 en adelante, muy buen buscador!](https://www.cepchile.cl/opinion-publica/encuesta-cep/)
 - [ISSP (International Social Survey Programme)](https://issp.org/data-download/by-topic/)
-- [WVS (Encuesta Mundial de Valores)](https://www.worldvaluessurvey.org/wvs.jsp)
-- Encuestas Laborales
-  - [ENE](http://bancodatosene.ine.cl/)
-  - [ESI](https://www.ine.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos)
-  - [ENUT](https://www.ine.cl/estadisticas/sociales/genero/uso-del-tiempo)
+- [ENUT](https://www.ine.gob.cl/enut)
+- [ESI](https://www.ine.gob.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos) 
 
 # Temas y análisis
 
-Cada grupo seleccionará **un tema/concepto central** (_variable dependiente_), por ejemplo: prejuicio hacia migrantes, nivel educacional, orientación política, etc. Luego, debe relacionar el tema seleccionado con al menos dos variables (ej: género, nivel socioeconómico, salud, confianza en instituciones, etc.) que serán las _variables independientes_ del reporte. Para seleccionar el tema y las variables disponibles se deben revisar los cuestionarios, libros de códigos y reportes de las encuestas mencionadas.
+- Cada grupo seleccionará **un tema/concepto central** (_variable dependiente_), por ejemplo: prejuicio hacia migrantes, nivel educacional, orientación política, etc. 
 
-Los análisis deben considerar al menos un cruce entre variables categóricas, y otro entre una variable continua y una categórica. 
+- Luego, debe relacionar el tema seleccionado con al menos dos variables (ej: género, nivel socioeconómico, salud, confianza en instituciones, etc.) que serán las _variables independientes_ del reporte. 
+  
+- Para seleccionar el tema y las variables disponibles se deben revisar los cuestionarios, libros de códigos y reportes de las encuestas mencionadas.
+
+- Los análisis deben considerar al menos un cruce entre variables categóricas, y otro entre una variable continua y una categórica. 
 
 # Inscripción de grupos
 
-Inscribirse en la siguiente [planilla](https://docs.google.com/spreadsheets/d/1GbHVgzCs9uwPMIeOMZUzi841Gqt5VQi6wov-bDCQ7U4/edit?gid=0#gid=0) hasta el **08 de Noviembre**.
+Inscribirse en la siguiente [planilla](https://docs.google.com/spreadsheets/d/1kp7Y-SsYvmJyEWF-XsFYO1OVpyOmdHKW8ruKFo4bp-8/edit?gid=0#gid=0) hasta el **Jueves 30 de Octubre**.
 
 # Secciones del informe 
 
@@ -146,7 +147,7 @@ load("input/data/casen2022_subset.Rdata")
 
 # Modalidad de trabajo y asesorías
 
-Los trabajos se desarrollarán en grupos de máximo 5 integrantes. Cada grupo será asignado a un/a ayudante y también a un/a apoyo docente, quienes asesorarán periódicamente a sus grupos. El espacio principal de asesoría será durante los prácticos los días martes. El detalle de las actividades de esta unidad se encuentra en la página de [planificación](/schedule)
+Los trabajos se desarrollarán en grupos de máximo 5 integrantes. Cada grupo será asignado a un/a ayudante, quienes asesorarán periódicamente a sus grupos. El detalle de las actividades de esta unidad se encuentra en la página de [planificación](/schedule)
 
 
 # Recomendaciones generales para el trabajo {.tabset}
@@ -157,8 +158,8 @@ Hay 4 semanas para realizar el trabajo. Durante este tiempo los horarios de clas
 
 - Semana 1: definición de grupos, temas y base de datos
 - Semana 2: análisis descriptivos univariados, chequeo de nivel de medición de variables, varianza y casos perdidos
-- Semana 3: escritura de introducción y análisis bivariados. Diseño de póster.
-- Semana 4: conclusiones y redacción final, presentación de póster y entrega de reporte.
+- Semana 3: escritura de introducción y análisis bivariados. Diseño de cápsula de difusión.
+- Semana 4: conclusiones y redacción final, presentación de resultados y entrega de reporte.
 
 ## Escritura académica
 
@@ -180,28 +181,6 @@ Hay 4 semanas para realizar el trabajo. Durante este tiempo los horarios de clas
 - evitar términos técnicos estadísticos (ej: correlación) antes de la sección de metodología
 
 - mantener coherencia entre conceptos, hipótesis, descripción de variables, análisis, discusión, ojalá siempre en el mismo orden. 
-
-# Trabajos finales
-
-- [Grupo 1](/evaluations/trabajos/Grupo1/simce correlacional.html)
-- [Grupo 2]
-- [Grupo 3]
-- [Grupo 4]
-- [Grupo 5]
-- [Grupo 6]
-- [Grupo 7]
-- [Grupo 8]
-- [Grupo 9]
-- [Grupo 10]
-- [Grupo 11]
-- [Grupo 12]
-- [Grupo 13]
-- [Grupo 14]
-- [Grupo 15]
-- [Grupo 16]
-- [Grupo 17]
-- [Grupo 18]
-- [Grupo 19]
 
 # Foro
 
