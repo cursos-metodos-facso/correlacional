@@ -1,6 +1,6 @@
 ---
-title: "Tablas en reportes dinámicos"
-date: "2024-11-12"
+title: "Visualización de tablas"
+date: "2025-11-03"
 lang: es
 website:
   comments:
@@ -10,77 +10,11 @@ website:
 
 # Objetivo de la práctica
 
-El objetivo de esta guía práctica es aprender cómo generar, reportar y referenciar tablas en documentos dinámicos mediante Quarto.
+El objetivo de esta guía práctica es aprender cómo generar y reportar tablas.
 
 ## Recursos de la práctica
 
 En esta práctica trabajaremos con un subconjunto de datos previamente procesados derivados de las encuestas realizadas en diferentes países por el [Latin American Public Opinion Proyect (LAPOP)](https://www.vanderbilt.edu/lapop/) en su ola del 2018. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: [{{< fa table >}} `LAPOP 2018`](https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData). Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos LAPOP 2018.
-
-# Crear un documento Quarto
-
-Recordemos que, para generar un archivo en quarto, hacemos lo siguiente: 
-
-![](../files/crear-qmd.gif)
-
-## Chunks
-
-Para integrar código de R en un archivo `Quarto` usamos los `chunks`, que son *trozos* de código dentro de nuestra hoja. Estos permiten hacer análisis dentro del documento visualizando los resultados en el documento final. Un chunk se especifica mediante una línea de código inicial ` ```{r}`, y se cierra con ` ``` `
-
-Los chunks se ven así dentro del .qmd:
-
-````
-```{r}`r ''`
-1 + 1
-```
-````
-
-### Insertar chunks
-
-Hay tres formas de insertar chunks:
-
-1.  Pulsar `⌘⌥I` en macOS o `Control + Alt + I` en Windows
-
-2.  Pulsa el botón "Insert" en la parte superior de la ventana del editor
-
-```{r insert, echo=FALSE, out.width="40%"}
-knitr::include_graphics("../files/insertchunk.png", error = FALSE)
-```
-
-3.  Escribirlo manualmente
-
-### Nombre de chunk
-
-Para añadir un nombre, inclúyelo inmediatamente después de la `{r` en la primera línea del chunk. Los nombres no pueden contener espacios, pero sí guiones bajos y guiones.
-
-Importante: **Todos los nombres de chunk de tu documento deben ser únicos.**
-
-````
-```{r nombre-chunk}`r ''`
-1 + 1
-```
-````
-    
-### Opciones de chunk
-
-Hay distintas opciones diferentes que puedes establecer para cada chunk. Puedes ver una lista completa en la [Guía de referencia de RMarkdown](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) o en el [sitio web de **knitr**](https://yihui.org/knitr/options/). Estos recursos se crearon inicialmente para RMarkdown, pero también son aplicables a [Quarto](https://quarto.org/docs/computations/r.html#chunk-options).
-
-En Quarto, las opciones del chunk van inmediatamente después de la sección `{r}`. Para especificar una opción, se debe partir con `#|`, luego la opción y luego el valor lógico. Por ejemplo:
-
-````
-```{r}`r ''`
-#| message: false
-#| echo: true
-1 + 1
-```
-````
-
-Otra forma de hacerlo es **configurar** las opciones generales de todos los chunks que hagamos **al inicio del documento** en el YAML:
-
-```{r, echo=FALSE, out.width="40%"}
-knitr::include_graphics("../files/yaml2.png", error = FALSE)
-```
-
-De esta manera ya no es necesario indicar en _cada_ chunk las opciones, y se aplicaran las configuraciones generales que indicamos al comienzo. 
 
 ## Preparación de datos
 
@@ -126,11 +60,11 @@ Contamos con 39 variables (columnas) y 23.386 observaciones (filas).
 
 # Tablas con Kable
 
-La mejor forma de generar tablas para documentos dinámicos es con la función `kable()` del paquete `knitr` y las distintas funciones de formateo que ofrece el paquete `kableExtra`. Esto se debe a que `kable()` y las funciones de `kableExtra` aplican estilo y formato a un objeto de R (generalmente un `data.frame`). Esto quiere decir que para hacer una tabla debemos:
+La mejor forma de generar tablas es con la función `kable()` del paquete `knitr` y las distintas funciones de formateo que ofrece el paquete `kableExtra`. Esto se debe a que `kable()` y las funciones de `kableExtra` aplican estilo y formato a un objeto de R (generalmente un `data.frame`). Esto quiere decir que para hacer una tabla debemos:
 
-1. Procesar nuestros datos de manera que genermos un objeto tipo `data.frame` (u otros similares) con la información requerida. Esto lo hacemos a través de `dplyr` o algún otro paquete dedicado al manejo de datos.
+1. Procesar nuestros datos de manera que generemos un objeto tipo `data.frame` (u otros similares) con la información requerida. Esto lo hacemos a través de `dplyr` o algún otro paquete dedicado al manejo de datos.
 
-2. Aplicar el estilo y el formateo que queramos para ese objeto. Esto lo hacemos a través de `kableExtra` (hay otras opciones, por ejemplo [`flextable`](https://ardata-fr.github.io/flextable-book/), pero no es tan buena).
+2. Aplicar el estilo y el formateo que queramos para ese objeto. Esto lo hacemos a través de `kableExtra` (hay otras opciones, por ejemplo [`flextable`](https://ardata-fr.github.io/flextable-book/)).
 
 Ejemplifiquemos con nuestros datos.
 
@@ -163,7 +97,7 @@ Ahora tenemos una tabla, pero es muy simple y poco presentable. Especifiquemos o
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 tab1 %>% 
   kable(
-    format = "html",
+    format = "markdown",
     align = "c",
     col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"))
 ```
@@ -176,10 +110,10 @@ Ahora agregemos otros elementos importantes, como el título, estilo y fuente a 
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 tab1 %>% 
-  kable(format = "html",
-                    align = "c",
-                    col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"),
-                    caption = "Tabla 1. Confianza interpersonal según país") %>% 
+  kable(format = "markdown",
+        align = "c",
+        col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"),
+        caption = "Tabla 1. Confianza interpersonal según país") %>% 
   kableExtra::kable_classic() %>% 
   kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a LAPOP 2018.")
 ```
@@ -192,7 +126,7 @@ tab1 %>%
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 tabla1 <- tab1 %>% 
-  kable(format = "html",
+  kable(format = "markdown",
                     align = "c",
                     col.names = c("País", "Nada confiable", "Poco confiable", "Algo confiable", "Muy confiable"),
                     caption = "Tabla 1. Confianza interpersonal según país") %>% 
@@ -205,6 +139,7 @@ tabla1
 En este caso, nuestro ejemplo fue para hacer una tabla bivariada con dos variables categóricas. Sin embargo, podríamos hacer lo mismo para una variable continua y crear una tabla bivariada con los principales estadisticos descriptivos.
 
 Creemos el objeto `tab2`, el cual serán los estadísticos descriptivos de la variable `edad` por país en nuestra base de datos.
+
 
  ```{r, echo=TRUE, warning=FALSE, message=FALSE}
  tab2 <- lapop %>% 
@@ -224,7 +159,7 @@ Y ahora apliquemos el formato con `kable()` y las funcionalidades del paquete de
 
 ```{r, echo=TRUE, warning=FALSE, message=FALSE}
 tabla2 <- tab2 %>% 
-  kable(format = "html",
+  kable(format = "markdown",
                     align = "c",
                     col.names = c("País", "Tamaño muestral", "Mínimo", "Máximo", "Media", "Desv. estándar", "Mediana", "Coef. variación"),
                     caption = "Tabla 2. Edad según país") %>% 
@@ -268,7 +203,7 @@ summarytools::dfSummary(data_example) %>%
 
 - `summarytools::descr():` Proporciona estadísticas descriptivas para variables numéricas.
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, error=FALSE}
 summarytools::descr(data_example$edad) %>%
   summarytools::view(method = "render")
 ```
@@ -277,7 +212,11 @@ summarytools::descr(data_example$edad) %>%
 
 - `stargazer::stargazer()`: Para reportar estadísticas descriptivas.
 
-```{r message=FALSE, warning=FALSE, results='asis'}
+```{r message=FALSE, warning=FALSE, results='asis', eval=FALSE}
+stargazer(as.data.frame(data_example), type = "text", summary.stat = c("mean", "sd", "min", "max"))
+```
+
+```{r message=FALSE, warning=FALSE, results='asis', echo=FALSE}
 stargazer(as.data.frame(data_example), type = "html", summary.stat = c("mean", "sd", "min", "max"))
 ```
 
@@ -324,7 +263,12 @@ sjPlot::tab_xtab(data_example$pais, data_example$it1, show.row.prc = TRUE)
 
 - `summarytools::ctable()`: Para tablas de contingencia que incluyen porcentajes y frecuencias, con opciones de personalización.
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, eval=FALSE}
+summarytools::ctable(data_example$pais, data_example$sexo) %>% 
+  summarytools::view(method = "viewer")
+```
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
 summarytools::ctable(data_example$pais, data_example$sexo) %>% 
   summarytools::view(method = "render")
 ```
@@ -358,95 +302,27 @@ data_example %>%
   kable_styling(full_width = TRUE)
 ```
 
-# Autoreferenciar elementos dentro un documento dinámico
-
-Una de las ventajas de usar documentos dinámicos con Quarto es que podemos **autoreferenciar los elementos que creamos dentro del mismo documento**.
-
-::: {.callout-tip}
-#### ¿Autoreferenciar?
-
-Esto se refiere que, si en un documento creamos una tabla, podemos citarlo o referenciarlo en el texto que escribamos, generando un enlace que al pincharlo llevará a dicha figura (en el orden establecido en el documento).
-:::
-
-Para hacer esto **debemos darle un  _label_ al chunk** en donde producimos la tabla o gráfico en nuestro documento. Tomemos por ejemplo la misma `tabla1` que generamos anteriormente, pero ahora les daremos un nombre al chunk en donde ejecutaremos dichos elementos. 
-
-¿Qué nombre le ponemos? hay que considerar que cuando es una **tabla** debemos nombrar al chunk con el prefijo **`tbl-`** antes del nombre respectivo. 
-
-¿Cómo las referenciamos? para referenciar tablas o debemos usar el prefijo `@` antes del nombre que le dimos al elemento. 
-
-## a. Tablas 
-
-Por ejemplo, si queremos referenciar a nuestra `tabla1`, en el chunk en donde la ejecutemos debemos indicar:
-
-````
-```{r}`r ''`
-#| label: tbl-confianza
-
-tabla1
-```
-````
-
-```{r}
-#| label: tbl-confianza
-#| tbl-cap: "Confianza interpersonal según país"
-#| tbl-cap-location: top
-#| warning: false
-tabla1
-
-names(lapop)
-```
-
-En este caso, a nuestra tabla le daremos el nombre de _confianza_ más el prefijo `tbl-`. Y para referenciar dentro de un texto a la tabla usamos: `@tbl-confianza`.
-
-Texto de ejemplo:
-
-> En la @tbl-confianza se muestra la distribución porcentual del grado de confianza interpersonal por país. 
-
-## b. Resultados
-
-También podemos referenciar a resultados estadísticos que hayamos realizado con anterioridad en nuestro documento. 
-
-Como ejemplo, obtengamos la correlación entre el índice de Gini de los países y su producto interno bruto (PIB) y lo guardamos en un objeto `M`.
-
-```{r cor, echo=TRUE, message=FALSE, warning=FALSE}
-M <- cor(lapop$gini, lapop$gdp)
-
-M
-```
-
-
-Para referenciar este resultado, usamos en el texto:
-
-    `r ''
-    
-    ` `r `
-    
-Dentro de las comillas ' ' y después de la letra _r_, indicamos el nombre del objeto que contiene un resultado. En este caso, para referenciar el resultado indicamos: 
-
-![](../files/resul-m.png)
-
-**Texto de ejemplo:**
-
-> El coeficiente de correlación de Pearson entre el índice de Gini y el producto interno bruto es negativo y pequeño = `'r M'`.
-
-**Texto de resultado:**
-
-> El coeficiente de correlación de Pearson entre el índice de Gini y el producto interno bruto es negativo y pequeño = `r M`.
-
-Esta opción es especialmente útil cuando estamos escribiendo un análisis de resultados, ya que ante cualqueier contingencia con los datos, no es necesario cambiar los datos en el texto.
-
-Un uso más avanzado de esta opción es hacer condicional el texto en base al objeto guardado. Por ejemplo:
-
->  El coeficiente de correlación de Pearson entre el índice de Gíni y el producto interno bruto es `'r if(M > 0){"positivo"} else {"negativo"}'` y pequeño = `'r M'`.
-
-Y el resultado sería:
-
->  El coeficiente de correlación de Pearson entre el índice de Gíni y el producto interno bruto es `r if(M > 0){"positivo"} else {"negativo"}` y pequeño = `r M`.
-
 # Resumen
 
-Hoy aprendimos a generar y presentar tablas en documentos dinámicos con Quarto, así como también a autoreferenciar elementos dentro de un documento qmd. En detalle, aprendímos:
+Hoy aprendimos a generar y presentar tablas . En detalle, aprendímos:
 
 1.  Generación y presentación de tablas en Quarto a través de `kable()` y `kableExtra`
 2.  Otras opciones de tablas rapidas para distintos tipos de análisis
-3.  Cómo autoreferenciar elementos dentro un documento Quarto.
+
+# Ejercicio autónomo
+
+El objetivo de este ejercicio es que generes al menos dos tablas utilizando la base lapop trabajada en la práctica, aplicando lo aprendido sobre procesamiento de datos y formateo de tablas
+
+## Tabla 1 — Bivariada categórica
+
+  1. Elige un formato de tabla que permita visualizar el cruce entre las variables `prot3` (participación en protestas) y `decile` (deciles de ingreso).
+  2. Elabora la tabla con nombres de columnas y filas en español y con formato legible.
+  3. Incorporar un título (caption) y una nota de pie de tabla.
+
+
+## Tabla 2 - Bivariada con estadísticos descriptivos
+
+  1. Resume la relación (estadísticos descriptivos) de la variable `b21` (confianza en partidos políticos) y `pais`.
+  2. Elige un formato de tabla que permita visualizar el cruce entre las variables `b21` (confianza en partidos políticos) y `pais`.
+  3. La tabla debe reportar: n, media, desviación estándar, mínimo, máximo y mediana.
+  4. Debe estar formateada visualmente (con kableExtra u otro paquete de tu elección).
