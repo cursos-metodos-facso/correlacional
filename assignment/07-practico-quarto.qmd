@@ -1,6 +1,6 @@
 ---
 title: "Reportes dinámicos"
-date: "04-11-2025"
+date: "11-05-2025"
 lang: es
 website:
   comments:
@@ -8,21 +8,40 @@ website:
       repo: cursos-metodos-facso/correlacional
 ---
 
+# Documentos dinámicos
+
+Los **documentos dinámicos** surgen como respuesta a una necesidad central en la investigación y el análisis de datos contemporáneo: garantizar transparencia, reproducibilidad y eficiencia. En lugar de separar el análisis (en un script), los resultados (en tablas o gráficos) y el informe final (en un procesador de texto), un documento dinámico integra todo en un mismo archivo: texto, código y salida. De este modo, cualquier cambio en los datos o en el código se refleja automáticamente en el documento final, evitando errores manuales, reduciendo el tiempo de edición y asegurando que los resultados correspondan exactamente al análisis ejecutado. En esencia, son una forma de escritura que combina texto y código dentro de un mismo archivo, permitiendo que un documento no solo muestre resultados, sino que también los genere. Todo su contenido —análisis, tablas, gráficos, cálculos o texto— puede actualizarse automáticamente al modificar los datos o el código, lo que refuerza la transparencia y la reproducibilidad de los procesos analíticos.
+
+Este enfoque es especialmente útil en ciencia abierta, docencia, reportes periódicos, trabajo colaborativo y publicaciones académicas, ya que elimina pasos intermedios, hace trazable cada decisión analítica y permite actualizar un informe completo con solo volver a ejecutar el archivo.
+
+En la base de muchos de estos documentos se encuentra Markdown, un tipo de lenguaje que utiliza texto plano con marcas mínimas de edición. Este tipo de escritura funciona como código: no depende de un procesador de texto tradicional, sino de reglas simples que estructuran títulos, énfasis, listas, enlaces, imágenes o citas mediante símbolos. Esa lógica de texto plano con marcas permite que el documento sea legible tanto para personas como para máquinas.
+
+Gracias a esta estructura en formato de código, Markdown puede ampliarse fácilmente para integrar otros lenguajes —por ejemplo, R— y así convertir un documento en un análisis reproducible: el texto explica, el código ejecuta y el documento final muestra los resultados generados. De esta forma, un solo archivo puede transformarse en reportes, informes, artículos, presentaciones o sitios web, manteniendo siempre el mismo principio: escribir en texto plano, automatizar todo lo demás.
+
+
 # Quarto
 
-[Quarto](https://quarto.org/) es un sistema moderno de creación de documentos dinámicos, informes, presentaciones, libros, sitios web y más, a partir de archivos de texto plano y por medio del conversor universal de documentos [Pandoc](https://pandoc.org/).
+[Quarto](https://quarto.org/) es el siguiente paso en la evolución de los documentos dinámicos: un sistema moderno para crear informes, presentaciones, libros, sitios web y más, a partir de archivos de **texto plano** que combinan Markdown y código ejecutable. Su funcionamiento se basa en el conversor universal de documentos [Pandoc](https://pandoc.org/), que permite transformar un mismo archivo fuente en múltiples formatos de salida de manera automatizada.
 
 **Ventajas de usar Quarto**:
 
-- Está basado en Markdown
+- Está basado en Markdown: conserva la lógica de texto plano con marcas mínimas.
 
 - Soporte para múltiples lenguajes (R, Python Julia, etc)
 
 - Multitud de formatos de salida (HTML, PDF, Shiny, etc)
 
-- Soporte para publicación científica
+- Soporte para publicación científica: integración con bibliografías, citaciones, Zotero
 
-# Escritura en documentos Quarto
+Con Quarto, el mismo archivo puede **escribir, ejecutar, documentar y publicar** un análisis completo, sin necesidad de separar código, texto y resultados.
+
+## Escritura en documentos Quarto
+
+Para generar un documento Quarto, abrimos nuestro Rproject y clickeamos en: File --> New file --> Quarto document
+
+![](images/quarto-2.png)
+
+![](images/quarto2-2.png)
 
 Los documentos Quarto se distinguen por su extensión `.qmd`. En la siguiente tabla se muestran las reglas generales de escritura en este formato.
 
@@ -65,7 +84,87 @@ Los documentos Quarto se distinguen por su extensión `.qmd`. En la siguiente ta
 |                                                                               |  -  de lista                                                                  |
 +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
 
+Generemos un documento Quarto, donde se puede escribir texto y código simultáneamente. Una de las ventajas es que cada sección se puede separar por títulos (#). La jerarquía de los títulos se establece según la cantidad de '#'. Por ejemplo:
+
+`# Este va a ser mi trabajo de estadística correlacional`
+
+A continuación, en esta guía combinaremos el paso-a-paso de crear un documento dinámico con quarto, a la vez que vamos viendo distintas funciones de este proceso.
+
+Por ejemplo, como hacer una nota al pie[^1]. Para hacerlo, solo debemos escribir `[^2]`. Luego, en otra línea escribimos 
+
+`[^2]: Esta es la nota al pie`
+
+[^1]: Esta es la nota al pie
+
+y apretamos `render`
+
+## Renderizado
+
+Renderizar se entiende como el proceso que genera un formato de salida visual, donde se agregan distintos detalles de estilo.
+
+![](images/quarto4.png)
+
+## R en documentos dinámicos: chunks de código y sus opciones
+
+Para poder escribir código de análisis en un documento Quarto debemos generar un trozo de código llamado 'Chunk', que se puede crear con ctrl+alt+i o directamente en el menú de arriba en 'Code -> Insert Chunk'.
+
+![](images/quarto3.png)
+
+## Opciones de chunk
+
+Carguemos paquetes, elaboremos nuestra base de datos y renderizamos de nuevo
+
+```{r}
+# Cargar librerías necesarias
+pacman::p_load(ggplot2, dplyr, kable, kableExtra)
+
+# Crear datos ficticios
+set.seed(123)  # Para reproducibilidad
+datos_ejemplo <- data.frame(
+  categoria = rep(c("Grupo A", "Grupo B", "Grupo C", "Grupo D"), each = 50),
+  valor_x = rnorm(200, mean = 50, sd = 10),
+  valor_y = rnorm(200, mean = 30, sd = 8),
+  satisfaccion = sample(1:10, 200, replace = TRUE)
+)
+
+```
+
+Muchas advertencias...
+
+agreguemos una opción al inicio del chunk `#| warning: false`
+
+```{r}
+#| warning: false
+
+# Cargar librerías necesarias
+pacman::p_load(ggplot2, dplyr, kable, kableExtra)
+
+# Crear datos ficticios
+set.seed(123)  # Para reproducibilidad
+datos_ejemplo <- data.frame(
+  categoria = rep(c("Grupo A", "Grupo B", "Grupo C", "Grupo D"), each = 50),
+  valor_x = rnorm(200, mean = 50, sd = 10),
+  valor_y = rnorm(200, mean = 30, sd = 8),
+  satisfaccion = sample(1:10, 200, replace = TRUE)
+)
+
+```
+
+- Existen distintas opciones dependiendo de lo que se espera que haga cada chunk, que se deben especificar con `true` o `false`. Acá las principales:
+
+| Opción   | Descripción |
+|----------|-------------|
+| `eval`   | Evalúa el bloque de código (si es `false`, solo se muestra el código sin ejecutarlo). |
+| `echo`   | Incluye el código fuente en la salida. (si es `false`, solo muestra el resultado)|
+| `output` | Incluye los resultados de la ejecución del código en la salida (`true`, `false` o `asis`, donde `asis` indica que la salida es Markdown y no debe recibir formato adicional de Quarto). |
+| `warning`| Incluye las advertencias (`warnings`) en la salida. |
+| `error`  | Incluye los errores en la salida (esto implica que los errores no detendrán la ejecución del documento). |
+| `include`| Control global para evitar que se incluya cualquier salida (código o resultados). Por ejemplo, `include: false` suprime todo lo generado por el bloque de código. |
+
+
 ## YAML
+
+Va al inicio del documento y cumple la función de **identificar y configurar** el documento antes de su ejecución. Allí se definen metadatos esenciales —como el título, autoría, fecha, tipo de salida, idioma o bibliografía— que permiten que el documento sea comprendido tanto por el programa que lo procesa como por quien lo lee.
 
 ::: callout-note
 
@@ -86,41 +185,31 @@ format:
 ---
 ```
 
-## Cuerpo
+### Estilos
 
-Abajo del YAML se encuentra el cuerpo del documento, donde se puede escribir texto y código simultáneamente. Una de las ventajas de este software es que cada sección se puede separar por títulos (#). La jerarquía de los títulos se establece según la cantidad de '#'. 
+Los documentos en Quarto son ampliamente personalizables. Existen distintos temas para modificar el estilo del qmd (united, cosmo, minty, etc). Esto se hace añadiendo el argumento `themes` en el YAML y, al renderizar, se puede pasar del formato base de Quarto a esto:
 
-A continuación, en esta guía combinaremos el paso-a-paso de crear un documento dinámico con quarto, a la vez que vamos viendo distintas funciones de este proceso.
+```{r}
+#| label: fig-normal
+#| fig-cap-location: bottom
+#| fig-cap: "Estilo base de Quarto"
+#| fig-align: center
+#| out-width: "100%"
+#| echo: false 
 
-Por ejemplo, como hacer una nota al pie[^1]. Para hacerlo, solo debemos escribir [ ^2] pero sin el espacio entre los corchetes. Luego, en otra línea escribimos [^2]: Esta es la nota al pie
+knitr::include_graphics("images/normal-style.png")
 
-[^1]: Esta es la nota al pie
+```
 
+```{r}
+#| label: fig-solar
+#| fig-cap-location: bottom
+#| fig-cap: "Estilo Solar de Quarto"
+#| fig-align: center
+#| out-width: "100%"
+#| echo: false 
 
-# Documento de ejemplo
-
-Para generar un documento Quarto, abrimos nuestro Rproject y clickeamos en: File --> New file --> Quarto document
-
-![](images/quarto-2.png)
-
-![](images/quarto2-2.png)
-
-Para poder escribir código de análisis en un documento Quarto debemos generar trozo de código llamado 'Chunk', que se puede crear con ctrl+alt+i o directamente en el menú de arriba en 'Code -> Insert Chunk'.
-
-![](images/quarto3.png)
-
-```{r, warning=FALSE}
-# Cargar librerías necesarias
-pacman::p_load(ggplot2, dplyr, kable, kableExtra)
-
-# Crear datos ficticios
-set.seed(123)  # Para reproducibilidad
-datos_ejemplo <- data.frame(
-  categoria = rep(c("Grupo A", "Grupo B", "Grupo C", "Grupo D"), each = 50),
-  valor_x = rnorm(200, mean = 50, sd = 10),
-  valor_y = rnorm(200, mean = 30, sd = 8),
-  satisfaccion = sample(1:10, 200, replace = TRUE)
-)
+knitr::include_graphics("images/solar-style.png")
 
 ```
 
@@ -202,67 +291,10 @@ ggplot(datos_ejemplo, aes(x = valor_x, y = valor_y, color = categoria)) +
 Podemos ver la relación entre X e Y en la @fig-rel
 
 
-# Renderizado
-
-Renderizar se entiende como el proceso que genera un formato de salida visual, donde se agregan distintos detalles de estilo.
-
-![](images/quarto4.png)
-
-
-## Estilos
-
-Los documentos en Quarto son ampliamente personalizables. Existen distintos temas para modificar el estilo del qmd (united, cosmo, minty, etc). Esto se hace añadiendo el argumento `themes` en el YAML y, al renderizar, se puede pasar del formato base de Quarto a esto:
-
-```{r}
-#| label: fig-normal
-#| fig-cap-location: bottom
-#| fig-cap: "Estilo base de Quarto"
-#| fig-align: center
-#| out-width: "100%"
-#| echo: false 
-
-knitr::include_graphics("images/normal-style.png")
-
-```
-
-```{r}
-#| label: fig-solar
-#| fig-cap-location: bottom
-#| fig-cap: "Estilo Solar de Quarto"
-#| fig-align: center
-#| out-width: "100%"
-#| echo: false 
-
-knitr::include_graphics("images/solar-style.png")
-
-```
-
-# Otros
-
-## Rutas relativas en código
-
-- forma de "señalar el camino" para abrir y guardar archivos al interior de una carpeta de proyecto autocontenido (= sin referencias locales)
-
-- este camino tiene básicamente 3 direcciones:
-
-  - bajar -> hacia subcarpetas
-  
-    - ej: si estoy en el archivo introduccion.Qmd (directorio raíz), y quiero incluir una imagen (directorio input/images/imagen.jpg), entonces la ruta es `input/images/imagen.jpg`
-  
-  - subir -> hacia carpetas superiores
-
-    - Ej: si quiero guardar una tabla en el directorio raíz generada desde un archivo de código en la subcarpeta procesamiento, entonces la ruta es `../tabla.html`
-  
-  - subir y bajar -> hacia otras subcarpetas 
-    - Ej: para abrir la base de datos original en la subcarpeta input/data desde el código de procesamiento en la subcarpeta proc, entonces: `../input/data/original.RData`
-
-
-Más información en la página de [protocolo IPO](https://lisacoes.com/protocolos/a-ipo-rep/)
-
 # Plantilla para el trabajo grupal
 
 Para el trabajo final, les entregaremos una estructura anidada de documentos Quarto la cual funciona como un libro, donde cada sección es un capítulo diferente. 
 
 La plantilla se encuentra disponible en un repositorio de Github, y en el siguiente enlace podrán encontrar las instrucciones para su descarga:
 
-[Link a la plantilla](https://lisa-coes.github.io/ReportesFACSO_plantillaQuarto/)
+[Link a la plantilla](https://lisacoes.com/noticias/posts/plantilla-quarto/)

@@ -182,27 +182,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto">Quarto</a></li>
-  <li><a href="#escritura-en-documentos-quarto" id="toc-escritura-en-documentos-quarto" class="nav-link" data-scroll-target="#escritura-en-documentos-quarto">Escritura en documentos Quarto</a>
+  <li><a href="#documentos-dinámicos" id="toc-documentos-dinámicos" class="nav-link active" data-scroll-target="#documentos-dinámicos">Documentos dinámicos</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a>
   <ul class="collapse">
-  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">YAML</a></li>
-  <li><a href="#cuerpo" id="toc-cuerpo" class="nav-link" data-scroll-target="#cuerpo">Cuerpo</a></li>
+  <li><a href="#escritura-en-documentos-quarto" id="toc-escritura-en-documentos-quarto" class="nav-link" data-scroll-target="#escritura-en-documentos-quarto">Escritura en documentos Quarto</a></li>
+  <li><a href="#renderizado" id="toc-renderizado" class="nav-link" data-scroll-target="#renderizado">Renderizado</a></li>
+  <li><a href="#r-en-documentos-dinámicos-chunks-de-código-y-sus-opciones" id="toc-r-en-documentos-dinámicos-chunks-de-código-y-sus-opciones" class="nav-link" data-scroll-target="#r-en-documentos-dinámicos-chunks-de-código-y-sus-opciones">R en documentos dinámicos: chunks de código y sus opciones</a></li>
+  <li><a href="#opciones-de-chunk" id="toc-opciones-de-chunk" class="nav-link" data-scroll-target="#opciones-de-chunk">Opciones de chunk</a></li>
+  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">YAML</a>
+  <ul class="collapse">
+  <li><a href="#estilos" id="toc-estilos" class="nav-link" data-scroll-target="#estilos">Estilos</a></li>
   </ul></li>
-  <li><a href="#documento-de-ejemplo" id="toc-documento-de-ejemplo" class="nav-link" data-scroll-target="#documento-de-ejemplo">Documento de ejemplo</a>
-  <ul class="collapse">
   <li><a href="#visualizaciones" id="toc-visualizaciones" class="nav-link" data-scroll-target="#visualizaciones">Visualizaciones</a>
   <ul class="collapse">
   <li><a href="#descriptivos" id="toc-descriptivos" class="nav-link" data-scroll-target="#descriptivos">Descriptivos</a></li>
   <li><a href="#gráficos" id="toc-gráficos" class="nav-link" data-scroll-target="#gráficos">Gráficos</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#renderizado" id="toc-renderizado" class="nav-link" data-scroll-target="#renderizado">Renderizado</a>
-  <ul class="collapse">
-  <li><a href="#estilos" id="toc-estilos" class="nav-link" data-scroll-target="#estilos">Estilos</a></li>
-  </ul></li>
-  <li><a href="#otros" id="toc-otros" class="nav-link" data-scroll-target="#otros">Otros</a>
-  <ul class="collapse">
-  <li><a href="#rutas-relativas-en-código" id="toc-rutas-relativas-en-código" class="nav-link" data-scroll-target="#rutas-relativas-en-código">Rutas relativas en código</a></li>
   </ul></li>
   <li><a href="#plantilla-para-el-trabajo-grupal" id="toc-plantilla-para-el-trabajo-grupal" class="nav-link" data-scroll-target="#plantilla-para-el-trabajo-grupal">Plantilla para el trabajo grupal</a></li>
   </ul>
@@ -215,24 +210,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="date-block bg-assignment text-white p-2">
-  <p class="date">Sesión del viernes, 11 de abril de 2025</p>
+  <p class="date">Sesión del miércoles, 5 de noviembre de 2025</p>
 </div>
 </header>
 
 
+<section id="documentos-dinámicos" class="level1">
+<h1>Documentos dinámicos</h1>
+<p>Los <strong>documentos dinámicos</strong> surgen como respuesta a una necesidad central en la investigación y el análisis de datos contemporáneo: garantizar transparencia, reproducibilidad y eficiencia. En lugar de separar el análisis (en un script), los resultados (en tablas o gráficos) y el informe final (en un procesador de texto), un documento dinámico integra todo en un mismo archivo: texto, código y salida. De este modo, cualquier cambio en los datos o en el código se refleja automáticamente en el documento final, evitando errores manuales, reduciendo el tiempo de edición y asegurando que los resultados correspondan exactamente al análisis ejecutado. En esencia, son una forma de escritura que combina texto y código dentro de un mismo archivo, permitiendo que un documento no solo muestre resultados, sino que también los genere. Todo su contenido —análisis, tablas, gráficos, cálculos o texto— puede actualizarse automáticamente al modificar los datos o el código, lo que refuerza la transparencia y la reproducibilidad de los procesos analíticos.</p>
+<p>Este enfoque es especialmente útil en ciencia abierta, docencia, reportes periódicos, trabajo colaborativo y publicaciones académicas, ya que elimina pasos intermedios, hace trazable cada decisión analítica y permite actualizar un informe completo con solo volver a ejecutar el archivo.</p>
+<p>En la base de muchos de estos documentos se encuentra Markdown, un tipo de lenguaje que utiliza texto plano con marcas mínimas de edición. Este tipo de escritura funciona como código: no depende de un procesador de texto tradicional, sino de reglas simples que estructuran títulos, énfasis, listas, enlaces, imágenes o citas mediante símbolos. Esa lógica de texto plano con marcas permite que el documento sea legible tanto para personas como para máquinas.</p>
+<p>Gracias a esta estructura en formato de código, Markdown puede ampliarse fácilmente para integrar otros lenguajes —por ejemplo, R— y así convertir un documento en un análisis reproducible: el texto explica, el código ejecuta y el documento final muestra los resultados generados. De esta forma, un solo archivo puede transformarse en reportes, informes, artículos, presentaciones o sitios web, manteniendo siempre el mismo principio: escribir en texto plano, automatizar todo lo demás.</p>
+</section>
 <section id="quarto" class="level1">
 <h1>Quarto</h1>
-<p><a href="https://quarto.org/">Quarto</a> es un sistema moderno de creación de documentos dinámicos, informes, presentaciones, libros, sitios web y más, a partir de archivos de texto plano y por medio del conversor universal de documentos <a href="https://pandoc.org/">Pandoc</a>.</p>
+<p><a href="https://quarto.org/">Quarto</a> es el siguiente paso en la evolución de los documentos dinámicos: un sistema moderno para crear informes, presentaciones, libros, sitios web y más, a partir de archivos de <strong>texto plano</strong> que combinan Markdown y código ejecutable. Su funcionamiento se basa en el conversor universal de documentos <a href="https://pandoc.org/">Pandoc</a>, que permite transformar un mismo archivo fuente en múltiples formatos de salida de manera automatizada.</p>
 <p><strong>Ventajas de usar Quarto</strong>:</p>
 <ul>
-<li><p>Está basado en Markdown</p></li>
+<li><p>Está basado en Markdown: conserva la lógica de texto plano con marcas mínimas.</p></li>
 <li><p>Soporte para múltiples lenguajes (R, Python Julia, etc)</p></li>
 <li><p>Multitud de formatos de salida (HTML, PDF, Shiny, etc)</p></li>
-<li><p>Soporte para publicación científica</p></li>
+<li><p>Soporte para publicación científica: integración con bibliografías, citaciones, Zotero</p></li>
 </ul>
-</section>
-<section id="escritura-en-documentos-quarto" class="level1">
-<h1>Escritura en documentos Quarto</h1>
+<p>Con Quarto, el mismo archivo puede <strong>escribir, ejecutar, documentar y publicar</strong> un análisis completo, sin necesidad de separar código, texto y resultados.</p>
+<section id="escritura-en-documentos-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="escritura-en-documentos-quarto">Escritura en documentos Quarto</h2>
+<p>Para generar un documento Quarto, abrimos nuestro Rproject y clickeamos en: File –&gt; New file –&gt; Quarto document</p>
+<p><img src="images/quarto-2.png" class="img-fluid"></p>
+<p><img src="images/quarto2-2.png" class="img-fluid"></p>
 <p>Los documentos Quarto se distinguen por su extensión <code>.qmd</code>. En la siguiente tabla se muestran las reglas generales de escritura en este formato.</p>
 <table class="caption-top table">
 <thead>
@@ -264,7 +269,7 @@ espacio entre lineas.</code></pre></td>
 </tr>
 <tr class="odd">
 <td><code>## Título 2</code></td>
-<td><h2 id="título-2" class="anchored" data-anchor-id="escritura-en-documentos-quarto">Título 2</h2></td>
+<td><h2 id="título-2" class="anchored">Título 2</h2></td>
 </tr>
 <tr class="even">
 <td><code>### Título 3</code></td>
@@ -310,8 +315,124 @@ espacio entre lineas.</code></pre></td>
 </tr>
 </tbody>
 </table>
+<p>Generemos un documento Quarto, donde se puede escribir texto y código simultáneamente. Una de las ventajas es que cada sección se puede separar por títulos (#). La jerarquía de los títulos se establece según la cantidad de ‘#’. Por ejemplo:</p>
+<p><code># Este va a ser mi trabajo de estadística correlacional</code></p>
+<p>A continuación, en esta guía combinaremos el paso-a-paso de crear un documento dinámico con quarto, a la vez que vamos viendo distintas funciones de este proceso.</p>
+<p>Por ejemplo, como hacer una nota al pie<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Para hacerlo, solo debemos escribir <code>[^2]</code>. Luego, en otra línea escribimos</p>
+<p><code>[^2]: Esta es la nota al pie</code></p>
+<p>y apretamos <code>render</code></p>
+</section>
+<section id="renderizado" class="level2">
+<h2 class="anchored" data-anchor-id="renderizado">Renderizado</h2>
+<p>Renderizar se entiende como el proceso que genera un formato de salida visual, donde se agregan distintos detalles de estilo.</p>
+<p><img src="images/quarto4.png" class="img-fluid"></p>
+</section>
+<section id="r-en-documentos-dinámicos-chunks-de-código-y-sus-opciones" class="level2">
+<h2 class="anchored" data-anchor-id="r-en-documentos-dinámicos-chunks-de-código-y-sus-opciones">R en documentos dinámicos: chunks de código y sus opciones</h2>
+<p>Para poder escribir código de análisis en un documento Quarto debemos generar un trozo de código llamado ‘Chunk’, que se puede crear con ctrl+alt+i o directamente en el menú de arriba en ‘Code -&gt; Insert Chunk’.</p>
+<p><img src="images/quarto3.png" class="img-fluid"></p>
+</section>
+<section id="opciones-de-chunk" class="level2">
+<h2 class="anchored" data-anchor-id="opciones-de-chunk">Opciones de chunk</h2>
+<p>Carguemos paquetes, elaboremos nuestra base de datos y renderizamos de nuevo</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar librerías necesarias</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggplot2, dplyr, kable, kableExtra)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Installing package into 'C:/Users/kevin/AppData/Local/R/win-library/4.3'
+(as 'lib' is unspecified)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'kable' is not available for this version of R
+
+A version of this package for your version of R might be available elsewhere,
+see the ideas at
+https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.3:
+  cannot open URL 'http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.3/PACKAGES'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in p_install(package, character.only = TRUE, ...):</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+logical.return = TRUE, : there is no package called 'kable'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in pacman::p_load(ggplot2, dplyr, kable, kableExtra): Failed to install/load:
+kable</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear datos ficticios</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Para reproducibilidad</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>datos_ejemplo <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">categoria =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Grupo A"</span>, <span class="st">"Grupo B"</span>, <span class="st">"Grupo C"</span>, <span class="st">"Grupo D"</span>), <span class="at">each =</span> <span class="dv">50</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">valor_x =</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">valor_y =</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean =</span> <span class="dv">30</span>, <span class="at">sd =</span> <span class="dv">8</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">satisfaccion =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">200</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Muchas advertencias…</p>
+<p>agreguemos una opción al inicio del chunk <code>#| warning: false</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar librerías necesarias</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggplot2, dplyr, kable, kableExtra)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear datos ficticios</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Para reproducibilidad</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>datos_ejemplo <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">categoria =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Grupo A"</span>, <span class="st">"Grupo B"</span>, <span class="st">"Grupo C"</span>, <span class="st">"Grupo D"</span>), <span class="at">each =</span> <span class="dv">50</span>),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">valor_x =</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>),</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">valor_y =</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean =</span> <span class="dv">30</span>, <span class="at">sd =</span> <span class="dv">8</span>),</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">satisfaccion =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">200</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Existen distintas opciones dependiendo de lo que se espera que haga cada chunk, que se deben especificar con <code>true</code> o <code>false</code>. Acá las principales:</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Opción</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>eval</code></td>
+<td>Evalúa el bloque de código (si es <code>false</code>, solo se muestra el código sin ejecutarlo).</td>
+</tr>
+<tr class="even">
+<td><code>echo</code></td>
+<td>Incluye el código fuente en la salida. (si es <code>false</code>, solo muestra el resultado)</td>
+</tr>
+<tr class="odd">
+<td><code>output</code></td>
+<td>Incluye los resultados de la ejecución del código en la salida (<code>true</code>, <code>false</code> o <code>asis</code>, donde <code>asis</code> indica que la salida es Markdown y no debe recibir formato adicional de Quarto).</td>
+</tr>
+<tr class="even">
+<td><code>warning</code></td>
+<td>Incluye las advertencias (<code>warnings</code>) en la salida.</td>
+</tr>
+<tr class="odd">
+<td><code>error</code></td>
+<td>Incluye los errores en la salida (esto implica que los errores no detendrán la ejecución del documento).</td>
+</tr>
+<tr class="even">
+<td><code>include</code></td>
+<td>Control global para evitar que se incluya cualquier salida (código o resultados). Por ejemplo, <code>include: false</code> suprime todo lo generado por el bloque de código.</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="yaml" class="level2">
 <h2 class="anchored" data-anchor-id="yaml">YAML</h2>
+<p>Va al inicio del documento y cumple la función de <strong>identificar y configurar</strong> el documento antes de su ejecución. Allí se definen metadatos esenciales —como el título, autoría, fecha, tipo de salida, idioma o bibliografía— que permiten que el documento sea comprendido tanto por el programa que lo procesa como por quien lo lee.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -333,37 +454,39 @@ format:
     toc: true
     number-sections: true
 ---</code></pre>
-</section>
-<section id="cuerpo" class="level2">
-<h2 class="anchored" data-anchor-id="cuerpo">Cuerpo</h2>
-<p>Abajo del YAML se encuentra el cuerpo del documento, donde se puede escribir texto y código simultáneamente. Una de las ventajas de este software es que cada sección se puede separar por títulos (#). La jerarquía de los títulos se establece según la cantidad de ‘#’.</p>
-<p>A continuación, en esta guía combinaremos el paso-a-paso de crear un documento dinámico con quarto, a la vez que vamos viendo distintas funciones de este proceso.</p>
-<p>Por ejemplo, como hacer una nota al pie<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Para hacerlo, solo debemos escribir [ ^2] pero sin el espacio entre los corchetes. Luego, en otra línea escribimos [^2]: Esta es la nota al pie</p>
-</section>
-</section>
-<section id="documento-de-ejemplo" class="level1">
-<h1>Documento de ejemplo</h1>
-<p>Para generar un documento Quarto, abrimos nuestro Rproject y clickeamos en: File –&gt; New file –&gt; Quarto document</p>
-<p><img src="images/quarto-2.png" class="img-fluid"></p>
-<p><img src="images/quarto2-2.png" class="img-fluid"></p>
-<p>Para poder escribir código de análisis en un documento Quarto debemos generar trozo de código llamado ‘Chunk’, que se puede crear con ctrl+alt+i o directamente en el menú de arriba en ‘Code -&gt; Insert Chunk’.</p>
-<p><img src="images/quarto3.png" class="img-fluid"></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar librerías necesarias</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggplot2, dplyr, kable, kableExtra)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Installing package into 'C:/Users/kevin/AppData/Local/R/win-library/4.3'
-(as 'lib' is unspecified)</code></pre>
+<section id="estilos" class="level3">
+<h3 class="anchored" data-anchor-id="estilos">Estilos</h3>
+<p>Los documentos en Quarto son ampliamente personalizables. Existen distintos temas para modificar el estilo del qmd (united, cosmo, minty, etc). Esto se hace añadiendo el argumento <code>themes</code> en el YAML y, al renderizar, se puede pasar del formato base de Quarto a esto:</p>
+<div class="cell fig-cap-location-bottom" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-normal" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="bottom">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/normal-style.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear datos ficticios</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Para reproducibilidad</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>datos_ejemplo <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">categoria =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Grupo A"</span>, <span class="st">"Grupo B"</span>, <span class="st">"Grupo C"</span>, <span class="st">"Grupo D"</span>), <span class="at">each =</span> <span class="dv">50</span>),</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">valor_x =</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">10</span>),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">valor_y =</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="at">mean =</span> <span class="dv">30</span>, <span class="at">sd =</span> <span class="dv">8</span>),</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">satisfaccion =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">200</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Estilo base de Quarto
+</figcaption>
+</figure>
 </div>
+</div>
+</div>
+<div class="cell fig-cap-location-bottom" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-solar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="bottom">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-solar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/solar-style.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-solar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Estilo Solar de Quarto
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="visualizaciones" class="level2">
 <h2 class="anchored" data-anchor-id="visualizaciones">Visualizaciones</h2>
 <p>Podemos establecer referencias cruzadas para las tablas y gráficos dentro del texto. Para poder automatizar este proceso, debemos escribir esto dentro del chunk:</p>
@@ -372,7 +495,7 @@ format:
 <section id="descriptivos" class="level3">
 <h3 class="anchored" data-anchor-id="descriptivos">Descriptivos</h3>
 <p>El Chunk se debería ver así:</p>
-<pre id="annotated-cell-4" class="code-annotation-code"><code>---
+<pre id="annotated-cell-5" class="code-annotation-code"><code>---
 #| label: tbl-sjmisc
 #| #| tbl-cap: "Descriptivos con sjmisc
 
@@ -381,9 +504,9 @@ sjmisc::descr(data,&lt;1&gt;
 kable(.,"markdown") # Esto es para que se vea bien en quarto&lt;1&gt;
 ---</code></pre>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">descr</span>(datos_ejemplo,</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"label"</span>,<span class="st">"range"</span>, <span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"NA.prc"</span>, <span class="st">"n"</span>))<span class="sc">%&gt;%</span> <span class="co"># Selecciona estadísticos</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">kable</span>(.,<span class="st">"markdown"</span>) <span class="co"># Esto es para que se vea bien en quarto</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">descr</span>(datos_ejemplo,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"label"</span>,<span class="st">"range"</span>, <span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"NA.prc"</span>, <span class="st">"n"</span>))<span class="sc">%&gt;%</span> <span class="co"># Selecciona estadísticos</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">kable</span>(.,<span class="st">"markdown"</span>) <span class="co"># Esto es para que se vea bien en quarto</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-sjmisc" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sjmisc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -470,30 +593,30 @@ Nota
 </div>
 </div>
 <p>Para los gráficos se hace de la misma forma:</p>
-<pre id="annotated-cell-6" class="code-annotation-code"><code>---
+<pre id="annotated-cell-7" class="code-annotation-code"><code>---
 #| label: fig-rel
 #| fig-cap: "Relación entre variables X e Y por categoría" # &lt;1&gt;65
 ---</code></pre>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_ejemplo, <span class="fu">aes</span>(<span class="at">x =</span> valor_x, <span class="at">y =</span> valor_y, <span class="at">color =</span> categoria)) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> satisfaccion), <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Datos ficticios para demostración"</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Variable X"</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Variable Y"</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Categoría"</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="st">"Satisfacción (1-10)"</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"plasma"</span>) <span class="sc">+</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_ejemplo, <span class="fu">aes</span>(<span class="at">x =</span> valor_x, <span class="at">y =</span> valor_y, <span class="at">color =</span> categoria)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> satisfaccion), <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Datos ficticios para demostración"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Variable X"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Variable Y"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Categoría"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="st">"Satisfacción (1-10)"</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"plasma"</span>) <span class="sc">+</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -504,83 +627,21 @@ Nota
 <img src="07-practico-quarto_files/figure-html/fig-rel-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1: Relación entre variables X e Y por categoría
+Figura&nbsp;3: Relación entre variables X e Y por categoría
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Podemos ver la relación entre X e Y en la <a href="#fig-rel" class="quarto-xref">Figura&nbsp;1</a></p>
+<p>Podemos ver la relación entre X e Y en la <a href="#fig-rel" class="quarto-xref">Figura&nbsp;3</a></p>
 </section>
-</section>
-</section>
-<section id="renderizado" class="level1">
-<h1>Renderizado</h1>
-<p>Renderizar se entiende como el proceso que genera un formato de salida visual, donde se agregan distintos detalles de estilo.</p>
-<p><img src="images/quarto4.png" class="img-fluid"></p>
-<section id="estilos" class="level2">
-<h2 class="anchored" data-anchor-id="estilos">Estilos</h2>
-<p>Los documentos en Quarto son ampliamente personalizables. Existen distintos temas para modificar el estilo del qmd (united, cosmo, minty, etc). Esto se hace añadiendo el argumento <code>themes</code> en el YAML y, al renderizar, se puede pasar del formato base de Quarto a esto:</p>
-<div class="cell fig-cap-location-bottom" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-normal" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="bottom">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/normal-style.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;2: Estilo base de Quarto
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell fig-cap-location-bottom" data-layout-align="center">
-<div class="cell-output-display">
-<div id="fig-solar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="bottom">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-solar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/solar-style.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-solar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3: Estilo Solar de Quarto
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="otros" class="level1">
-<h1>Otros</h1>
-<section id="rutas-relativas-en-código" class="level2">
-<h2 class="anchored" data-anchor-id="rutas-relativas-en-código">Rutas relativas en código</h2>
-<ul>
-<li><p>forma de “señalar el camino” para abrir y guardar archivos al interior de una carpeta de proyecto autocontenido (= sin referencias locales)</p></li>
-<li><p>este camino tiene básicamente 3 direcciones:</p>
-<ul>
-<li><p>bajar -&gt; hacia subcarpetas</p>
-<ul>
-<li>ej: si estoy en el archivo introduccion.Qmd (directorio raíz), y quiero incluir una imagen (directorio input/images/imagen.jpg), entonces la ruta es <code>input/images/imagen.jpg</code></li>
-</ul></li>
-<li><p>subir -&gt; hacia carpetas superiores</p>
-<ul>
-<li>Ej: si quiero guardar una tabla en el directorio raíz generada desde un archivo de código en la subcarpeta procesamiento, entonces la ruta es <code>../tabla.html</code></li>
-</ul></li>
-<li><p>subir y bajar -&gt; hacia otras subcarpetas</p>
-<ul>
-<li>Ej: para abrir la base de datos original en la subcarpeta input/data desde el código de procesamiento en la subcarpeta proc, entonces: <code>../input/data/original.RData</code></li>
-</ul></li>
-</ul></li>
-</ul>
-<p>Más información en la página de <a href="https://lisacoes.com/protocolos/a-ipo-rep/">protocolo IPO</a></p>
 </section>
 </section>
 <section id="plantilla-para-el-trabajo-grupal" class="level1">
 <h1>Plantilla para el trabajo grupal</h1>
 <p>Para el trabajo final, les entregaremos una estructura anidada de documentos Quarto la cual funciona como un libro, donde cada sección es un capítulo diferente.</p>
 <p>La plantilla se encuentra disponible en un repositorio de Github, y en el siguiente enlace podrán encontrar las instrucciones para su descarga:</p>
-<p><a href="https://lisa-coes.github.io/ReportesFACSO_plantillaQuarto/">Link a la plantilla</a></p>
+<p><a href="https://lisacoes.com/noticias/posts/plantilla-quarto/">Link a la plantilla</a></p>
 
 
 </section>
