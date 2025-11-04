@@ -1630,5 +1630,82 @@
     "title": "Programa",
     "section": "Programación de sesiones",
     "text": "Programación de sesiones\nVisitar la página de Planificación."
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html",
+    "href": "assignment/07-practico-quarto.html",
+    "title": "Reportes dinámicos",
+    "section": "",
+    "text": "Sesión del viernes, 11 de abril de 2025"
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html#yaml",
+    "href": "assignment/07-practico-quarto.html#yaml",
+    "title": "Reportes dinámicos",
+    "section": "YAML",
+    "text": "YAML\n\n\n\n\n\n\nNota\n\n\n\nYAML: Lenguaje de programación. Es un formato de serialización de datos que proporcionan un mecanismo de intercambio de datos legible por humanos. Dan formato a los datos de manera estandarizada para su intercambio entre aplicaciones de software. Se reconoce por el recuadro delimitado con - - -.\n\n\n\n---\ntitle: \"Mi Documento\"\nformat:\n  html:\n    toc: true\n    number-sections: true\n---"
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html#cuerpo",
+    "href": "assignment/07-practico-quarto.html#cuerpo",
+    "title": "Reportes dinámicos",
+    "section": "Cuerpo",
+    "text": "Cuerpo\nAbajo del YAML se encuentra el cuerpo del documento, donde se puede escribir texto y código simultáneamente. Una de las ventajas de este software es que cada sección se puede separar por títulos (#). La jerarquía de los títulos se establece según la cantidad de ‘#’.\nA continuación, en esta guía combinaremos el paso-a-paso de crear un documento dinámico con quarto, a la vez que vamos viendo distintas funciones de este proceso.\nPor ejemplo, como hacer una nota al pie1. Para hacerlo, solo debemos escribir [ ^2] pero sin el espacio entre los corchetes. Luego, en otra línea escribimos [^2]: Esta es la nota al pie"
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html#cargar-paquetes",
+    "href": "assignment/07-practico-quarto.html#cargar-paquetes",
+    "title": "Reportes dinámicos",
+    "section": "Cargar paquetes",
+    "text": "Cargar paquetes\n\npacman::p_load(sjlabelled,\n               dplyr, #Manipulacion de datos\n              stargazer, #Tablas\n              sjmisc, # Tablas\n              summarytools, # Tablas\n              kableExtra, #Tablas\n              sjPlot, #Tablas y gráficos\n              corrplot, # Correlaciones\n              sessioninfo, # Información de la sesión de trabajo\n              ggplot2) # Para la mayoría de los gráficos"
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html#cargar-bases-de-datos",
+    "href": "assignment/07-practico-quarto.html#cargar-bases-de-datos",
+    "title": "Reportes dinámicos",
+    "section": "Cargar bases de datos",
+    "text": "Cargar bases de datos\nCargamos ambas bases de datos desde internet\n\nload(url(\"https://github.com/Kevin-carrasco/R-data-analisis/raw/main/files/data/latinobarometro_total.RData\")) #Cargar base de datos\nload(url(\"https://github.com/Kevin-carrasco/R-data-analisis/raw/main/files/data/data_wvs.RData\")) #Cargar base de datos\n\nPara trabajar con ambas bases, agruparemos las variables de interés por país, por lo que ya no trabajaremos directamente con individuos.\n\ncontext_data &lt;- wvs %&gt;% group_by(B_COUNTRY) %&gt;% # Agrupar por país\n  summarise(gdp = mean(GDPpercap1, na.rm = TRUE), # Promedio de GDP per capita\n         life_exp = mean(lifeexpect, na.rm = TRUE), # Promedio esperanza de vida\n         gini = mean(giniWB, na.rm = TRUE)) %&gt;%  # Promedio gini\n  rename(idenpa=B_COUNTRY) # Para poder vincular ambas bases, es necesario que la variable de identificación se llamen igual\ncontext_data$idenpa &lt;- as.numeric(context_data$idenpa) # Como era categórica, la dejamos numérica\n\nproc_data &lt;- proc_data %&gt;% group_by(idenpa) %&gt;%  # agrupamos por país\n  summarise(promedio = mean(conf_inst, na.rm = TRUE)) # promedio de confianza en instituciones por país"
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html#unir-bases-de-datos",
+    "href": "assignment/07-practico-quarto.html#unir-bases-de-datos",
+    "title": "Reportes dinámicos",
+    "section": "Unir bases de datos",
+    "text": "Unir bases de datos\nPara vincular nuestras bases de datos existen múltiples opciones, la primera es ‘merge’ de R base y las siguientes tres vienen desde dplyr: ‘right_join’, ‘full_join’ y ‘left_join’. Cada una tiene sus propias potencialidades y limitaciones y dependerá de cada caso cuál usemos\n\nProbemos merge\n\ndata &lt;- merge(proc_data, context_data, by=\"idenpa\")\n\n\ndata &lt;- data %&gt;%\n  mutate(idenpa = as.character(idenpa)) %&gt;%\n  mutate(idenpa = case_when(\n    idenpa == \"32\" ~ \"Argentina\",\n    idenpa == \"68\" ~ \"Bolivia\",\n    idenpa == \"76\" ~ \"Brasil\",\n    idenpa == \"152\" ~ \"Chile\",\n    idenpa == \"170\" ~ \"Colombia\",\n    idenpa == \"188\" ~ \"Costa Rica\",\n    idenpa == \"214\" ~ \"Cuba\",\n    idenpa == \"218\" ~ \"República Dominicana\",\n    idenpa == \"222\" ~ \"Ecuador\",\n    idenpa == \"320\" ~ \"El Salvador\",\n    idenpa == \"340\" ~ \"Guatemala\",\n    idenpa == \"484\" ~ \"Honduras\",\n    idenpa == \"558\" ~ \"México\",\n    idenpa == \"591\" ~ \"Nicaragua\",\n    idenpa == \"600\" ~ \"Panamá\",\n    idenpa == \"604\" ~ \"Paraguay\",\n    idenpa == \"858\" ~ \"Uruguay\",\n    idenpa == \"862\" ~ \"Venezuela\"))\n\ndata$gdp &lt;- as.numeric(data$gdp)\ndata$gdp[data$gdp==0] &lt;- NA\ndata &lt;- na.omit(data)\n\n\n\nGuardamos esta nueva base en nuestra carpeta input\n\nsave(data, file=\"input/data/proc/data.RData\")"
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html#visualizaciones",
+    "href": "assignment/07-practico-quarto.html#visualizaciones",
+    "title": "Reportes dinámicos",
+    "section": "Visualizaciones",
+    "text": "Visualizaciones\nPodemos establecer referencias cruzadas para las tablas y gráficos dentro del texto. Para poder automatizar este proceso, debemos escribir esto dentro del chunk:\n#| label: tbl-sjmisc\n#| tbl-cap: \"Descriptivos con sjmisc\"\n\nDescriptivos\nEl Chunk se debería ver así:\n#| label: tbl-sjmisc\n#| tbl-cap: \"Descriptivos con sjmisc\nsjmisc::descr(data,\nshow = c(\"label\",\"range\", \"mean\", \"sd\", \"NA.prc\", \"n\"))%&gt;% # Selecciona estadísticos\nkable(.,\"markdown\") # Esto es para que se vea bien en quarto\n\nsjmisc::descr(datos_ejemplo,\n      show = c(\"label\",\"range\", \"mean\", \"sd\", \"NA.prc\", \"n\"))%&gt;% # Selecciona estadísticos\n      kable(.,\"markdown\") # Esto es para que se vea bien en quarto\n\n\n\nTabla 1: Descriptivos con sjmisc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar\nlabel\nn\nNA.prc\nmean\nsd\nrange\n\n\n\n\n2\nvalor_x\nvalor_x\n200\n0\n49.91430\n9.431599\n55.5 (26.91-82.41)\n\n\n3\nvalor_y\nvalor_y\n200\n0\n30.33697\n7.967368\n40.3 (10.27-50.57)\n\n\n1\nsatisfaccion\nsatisfaccion\n200\n0\n5.68500\n2.890945\n9 (1-10)\n\n\n\n\n\n\n\n\nLuego de establecer el link y el nombre de la tabla, podemos referenciar acá con un @, así: @tbl-sjmisc, y que se vería así Tabla 1\n\n\nGráficos\n\n\n\n\n\n\nNota\n\n\n\nPara referenciar tablas se debe añadir el prefijo tbl en el nombre que le asignamos a #| label, mientras que para referenciar gráficos se usa el prefijo fig.\n\n\nPara los gráficos se hace de la misma forma:\n#| label: fig-rel\n#| fig-cap: \"Relación entre variables X e Y por categoría\"\n\n# Crear el gráfico\nggplot(datos_ejemplo, aes(x = valor_x, y = valor_y, color = categoria)) +\n  geom_point(aes(size = satisfaccion), alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = FALSE) +\n  labs(\n    subtitle = \"Datos ficticios para demostración\",\n    x = \"Variable X\",\n    y = \"Variable Y\",\n    color = \"Categoría\",\n    size = \"Satisfacción (1-10)\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.title = element_text(hjust = 0.5, size = 14, face = \"bold\"),\n    plot.subtitle = element_text(hjust = 0.5, size = 12),\n    legend.position = \"bottom\"\n  ) +\n  scale_color_viridis_d(option = \"plasma\") +\n  scale_size_continuous(range = c(1, 4))\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\nFigura 1: Relación entre variables X e Y por categoría\n\n\n\n\n\nPodemos ver la relación entre X e Y en la Figura 1"
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html#estilos",
+    "href": "assignment/07-practico-quarto.html#estilos",
+    "title": "Reportes dinámicos",
+    "section": "Estilos",
+    "text": "Estilos\nLos documentos en Quarto son ampliamente personalizables. Existen distintos temas para modificar el estilo del qmd (united, cosmo, minty, etc). Esto se hace añadiendo el argumento themes en el YAML y, al renderizar, se puede pasar del formato base de Quarto a esto:\n\n\n\n\n\n\n\n\nFigura 2: Estilo base de Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigura 3: Estilo Solar de Quarto"
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html#footnotes",
+    "href": "assignment/07-practico-quarto.html#footnotes",
+    "title": "Reportes dinámicos",
+    "section": "Notas",
+    "text": "Notas\n\n\nEsta es la nota al pie↩︎"
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html#estructura-del-documento",
+    "href": "assignment/07-practico-quarto.html#estructura-del-documento",
+    "title": "Reportes dinámicos",
+    "section": "Estructura del documento",
+    "text": "Estructura del documento\n\n# Cargar librerías necesarias\npacman::p_load(ggplot2, dplyr, kable, kableExtra)\n\nInstalling package into 'C:/Users/kevin/AppData/Local/R/win-library/4.3'\n(as 'lib' is unspecified)\n\n# Crear datos ficticios\nset.seed(123)  # Para reproducibilidad\ndatos_ejemplo &lt;- data.frame(\n  categoria = rep(c(\"Grupo A\", \"Grupo B\", \"Grupo C\", \"Grupo D\"), each = 50),\n  valor_x = rnorm(200, mean = 50, sd = 10),\n  valor_y = rnorm(200, mean = 30, sd = 8),\n  satisfaccion = sample(1:10, 200, replace = TRUE)\n)"
+  },
+  {
+    "objectID": "assignment/07-practico-quarto.html#rutas-relativas-en-código",
+    "href": "assignment/07-practico-quarto.html#rutas-relativas-en-código",
+    "title": "Reportes dinámicos",
+    "section": "Rutas relativas en código",
+    "text": "Rutas relativas en código\n\nforma de “señalar el camino” para abrir y guardar archivos al interior de una carpeta de proyecto autocontenido (= sin referencias locales)\neste camino tiene básicamente 3 direcciones:\n\nbajar -&gt; hacia subcarpetas\n\nej: si estoy en el archivo introduccion.Qmd (directorio raíz), y quiero incluir una imagen (directorio input/images/imagen.jpg), entonces la ruta es input/images/imagen.jpg\n\nsubir -&gt; hacia carpetas superiores\n\nEj: si quiero guardar una tabla en el directorio raíz generada desde un archivo de código en la subcarpeta procesamiento, entonces la ruta es ../tabla.html\n\nsubir y bajar -&gt; hacia otras subcarpetas\n\nEj: para abrir la base de datos original en la subcarpeta input/data desde el código de procesamiento en la subcarpeta proc, entonces: ../input/data/original.RData\n\n\n\nMás información en la página de protocolo IPO"
   }
 ]

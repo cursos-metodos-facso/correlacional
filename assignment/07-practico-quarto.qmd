@@ -1,0 +1,268 @@
+---
+title: "Reportes dinámicos"
+date: "04-11-2025"
+lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
+---
+
+# Quarto
+
+[Quarto](https://quarto.org/) es un sistema moderno de creación de documentos dinámicos, informes, presentaciones, libros, sitios web y más, a partir de archivos de texto plano y por medio del conversor universal de documentos [Pandoc](https://pandoc.org/).
+
+**Ventajas de usar Quarto**:
+
+- Está basado en Markdown
+
+- Soporte para múltiples lenguajes (R, Python Julia, etc)
+
+- Multitud de formatos de salida (HTML, PDF, Shiny, etc)
+
+- Soporte para publicación científica
+
+# Escritura en documentos Quarto
+
+Los documentos Quarto se distinguen por su extensión `.qmd`. En la siguiente tabla se muestran las reglas generales de escritura en este formato.
+
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+|Código                                                                         | Así se ve                                                                     |
++===============================================================================+===============================================================================+
+|     Algo de texto en el párrafo.                                              | Algo de texto.                                                                |
+|                                                                               |                                                                               |
+|     Más texto                                                                 | Algo de texto en el párrafo. Siempre utilizando espacios para dividir párrafos|
+|     espacio entre lineas.                                                     |                                                                               |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `` *Cursivas* ``                                                              | *Cursivas*                                                                    |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `` **Negrita** ``                                                             | **Negrita**                                                                   |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `# Título 1`                                                                  | # Título 1                                                                    |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `## Título 2`                                                                 | ## Título 2                                                                   |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `### Título 3`                                                                | ### Título 3                                                                  |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| (puedes llegar hasta un título N° 6 con `######`)                             |                                                                               |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `` [Texto enlace](https://quarto.org/) ``                                     | [Texto enlace](https://quarto.org/)                                           |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `` ![Texto imagen](/path/to/image.png) ``                                     | ![Texto imagen](images/img-144.png){alt="Class logo"}                       |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `> Citas`                                                                     | > Citas                                                                       |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+|     1. Una                                                                    | 1.   Una                                                                      |
+|     2. lista                                                                  |                                                                               |
+|     3 ordenada                                                                | 2.   lista                                                                    |
+|                                                                               |                                                                               |
+|                                                                               | 3. ordenada                                                                   |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+|     - Otro                                                                    | -  Otro                                                                       |
+|     - tipo                                                                    |                                                                               |
+|     - de lista                                                                | -  tipo                                                                       |
+|                                                                               |                                                                               |
+|                                                                               |  -  de lista                                                                  |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+
+## YAML
+
+::: callout-note
+
+YAML: Lenguaje de programación. Es un formato de serialización de datos que proporcionan un mecanismo de intercambio de datos legible por humanos. Dan formato a los datos de manera estandarizada para su intercambio entre aplicaciones de software. Se reconoce por el recuadro delimitado con **- - -**. 
+
+
+![](images/yaml.png)
+
+:::
+
+```
+---
+title: "Mi Documento"
+format:
+  html:
+    toc: true
+    number-sections: true
+---
+```
+
+## Cuerpo
+
+Abajo del YAML se encuentra el cuerpo del documento, donde se puede escribir texto y código simultáneamente. Una de las ventajas de este software es que cada sección se puede separar por títulos (#). La jerarquía de los títulos se establece según la cantidad de '#'. 
+
+A continuación, en esta guía combinaremos el paso-a-paso de crear un documento dinámico con quarto, a la vez que vamos viendo distintas funciones de este proceso.
+
+Por ejemplo, como hacer una nota al pie[^1]. Para hacerlo, solo debemos escribir [ ^2] pero sin el espacio entre los corchetes. Luego, en otra línea escribimos [^2]: Esta es la nota al pie
+
+[^1]: Esta es la nota al pie
+
+
+# Documento de ejemplo
+
+Para generar un documento Quarto, abrimos nuestro Rproject y clickeamos en: File --> New file --> Quarto document
+
+![](images/quarto-2.png)
+
+![](images/quarto2-2.png)
+
+Para poder escribir código de análisis en un documento Quarto debemos generar trozo de código llamado 'Chunk', que se puede crear con ctrl+alt+i o directamente en el menú de arriba en 'Code -> Insert Chunk'.
+
+![](images/quarto3.png)
+
+## Estructura del documento
+
+```{r, warning=FALSE}
+# Cargar librerías necesarias
+pacman::p_load(ggplot2, dplyr, kable, kableExtra)
+
+# Crear datos ficticios
+set.seed(123)  # Para reproducibilidad
+datos_ejemplo <- data.frame(
+  categoria = rep(c("Grupo A", "Grupo B", "Grupo C", "Grupo D"), each = 50),
+  valor_x = rnorm(200, mean = 50, sd = 10),
+  valor_y = rnorm(200, mean = 30, sd = 8),
+  satisfaccion = sample(1:10, 200, replace = TRUE)
+)
+
+```
+
+
+## Visualizaciones
+
+Podemos establecer referencias cruzadas para las tablas y gráficos dentro del texto. Para poder automatizar este proceso, debemos escribir esto dentro del chunk:
+
+`#| label: tbl-sjmisc`
+
+`#| tbl-cap: "Descriptivos con sjmisc"`
+
+### Descriptivos
+
+El Chunk se debería ver así:
+
+`#| label: tbl-sjmisc`
+
+`#| tbl-cap: "Descriptivos con sjmisc`
+
+`sjmisc::descr(data,`
+
+`      show = c("label","range", "mean", "sd", "NA.prc", "n"))%>% # Selecciona estadísticos`
+
+`      kable(.,"markdown") # Esto es para que se vea bien en quarto `
+
+```{r}
+#| label: tbl-sjmisc
+#| tbl-cap: "Descriptivos con sjmisc"
+
+sjmisc::descr(datos_ejemplo,
+      show = c("label","range", "mean", "sd", "NA.prc", "n"))%>% # Selecciona estadísticos
+      kable(.,"markdown") # Esto es para que se vea bien en quarto
+```
+
+Luego de establecer el link y el nombre de la tabla, podemos referenciar acá con un `@`, así: `@tbl-sjmisc`, y que se vería así @tbl-sjmisc
+
+### Gráficos
+
+::: callout-note
+
+Para referenciar tablas se debe añadir el prefijo **tbl** en el nombre que le asignamos a #| label, mientras que para referenciar gráficos se usa el prefijo **fig**. 
+
+:::
+
+Para los gráficos se hace de la misma forma:
+
+`#| label: fig-rel`
+
+`#| fig-cap: "Relación entre variables X e Y por categoría"`
+
+```{r}
+#| label: fig-rel
+#| fig-cap: "Relación entre variables X e Y por categoría" 
+
+# Crear el gráfico
+ggplot(datos_ejemplo, aes(x = valor_x, y = valor_y, color = categoria)) +
+  geom_point(aes(size = satisfaccion), alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    subtitle = "Datos ficticios para demostración",
+    x = "Variable X",
+    y = "Variable Y",
+    color = "Categoría",
+    size = "Satisfacción (1-10)"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+    plot.subtitle = element_text(hjust = 0.5, size = 12),
+    legend.position = "bottom"
+  ) +
+  scale_color_viridis_d(option = "plasma") +
+  scale_size_continuous(range = c(1, 4))
+```
+
+Podemos ver la relación entre X e Y en la @fig-rel
+
+
+# Renderizado
+
+Renderizar se entiende como el proceso que genera un formato de salida visual, donde se agregan distintos detalles de estilo.
+
+![](images/quarto4.png)
+
+
+## Estilos
+
+Los documentos en Quarto son ampliamente personalizables. Existen distintos temas para modificar el estilo del qmd (united, cosmo, minty, etc). Esto se hace añadiendo el argumento `themes` en el YAML y, al renderizar, se puede pasar del formato base de Quarto a esto:
+
+```{r}
+#| label: fig-normal
+#| fig-cap-location: bottom
+#| fig-cap: "Estilo base de Quarto"
+#| fig-align: center
+#| out-width: "100%"
+#| echo: false 
+
+knitr::include_graphics("images/normal-style.png")
+
+```
+
+```{r}
+#| label: fig-solar
+#| fig-cap-location: bottom
+#| fig-cap: "Estilo Solar de Quarto"
+#| fig-align: center
+#| out-width: "100%"
+#| echo: false 
+
+knitr::include_graphics("images/solar-style.png")
+
+```
+
+# Otros
+
+## Rutas relativas en código
+
+- forma de "señalar el camino" para abrir y guardar archivos al interior de una carpeta de proyecto autocontenido (= sin referencias locales)
+
+- este camino tiene básicamente 3 direcciones:
+
+  - bajar -> hacia subcarpetas
+  
+    - ej: si estoy en el archivo introduccion.Qmd (directorio raíz), y quiero incluir una imagen (directorio input/images/imagen.jpg), entonces la ruta es `input/images/imagen.jpg`
+  
+  - subir -> hacia carpetas superiores
+
+    - Ej: si quiero guardar una tabla en el directorio raíz generada desde un archivo de código en la subcarpeta procesamiento, entonces la ruta es `../tabla.html`
+  
+  - subir y bajar -> hacia otras subcarpetas 
+    - Ej: para abrir la base de datos original en la subcarpeta input/data desde el código de procesamiento en la subcarpeta proc, entonces: `../input/data/original.RData`
+
+
+Más información en la página de [protocolo IPO](https://lisacoes.com/protocolos/a-ipo-rep/)
+
+# Plantilla para el trabajo grupal
+
+Para el trabajo final, les entregaremos una estructura anidada de documentos Quarto la cual funciona como un libro, donde cada sección es un capítulo diferente. 
+
+La plantilla se encuentra disponible en un repositorio de Github, y en el siguiente enlace podrán encontrar las instrucciones para su descarga:
+
+[Link a la plantilla](https://lisa-coes.github.io/ReportesFACSO_plantillaQuarto/)
