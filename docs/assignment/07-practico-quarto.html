@@ -376,11 +376,14 @@ format:
 <section id="descriptivos" class="level3">
 <h3 class="anchored" data-anchor-id="descriptivos">Descriptivos</h3>
 <p>El Chunk se debería ver así:</p>
-<p><code>#| label: tbl-sjmisc</code></p>
-<p><code>#| tbl-cap: "Descriptivos con sjmisc</code></p>
-<p><code>sjmisc::descr(data,</code></p>
-<p><code>show = c("label","range", "mean", "sd", "NA.prc", "n"))%&gt;% # Selecciona estadísticos</code></p>
-<p><code>kable(.,"markdown") # Esto es para que se vea bien en quarto</code></p>
+<pre id="annotated-cell-4" class="code-annotation-code"><code>---
+#| label: tbl-sjmisc
+#| #| tbl-cap: "Descriptivos con sjmisc
+
+sjmisc::descr(data,&lt;1&gt;
+              show = c("label","range", "mean", "sd", "NA.prc", "n"))%&gt;% # Selecciona estadísticos&lt;1&gt;
+kable(.,"markdown") # Esto es para que se vea bien en quarto&lt;1&gt;
+---</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">descr</span>(datos_ejemplo,</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">show =</span> <span class="fu">c</span>(<span class="st">"label"</span>,<span class="st">"range"</span>, <span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"NA.prc"</span>, <span class="st">"n"</span>))<span class="sc">%&gt;%</span> <span class="co"># Selecciona estadísticos</span></span>
@@ -471,8 +474,10 @@ Nota
 </div>
 </div>
 <p>Para los gráficos se hace de la misma forma:</p>
-<p><code>#| label: fig-rel</code></p>
-<p><code>#| fig-cap: "Relación entre variables X e Y por categoría"</code></p>
+<pre id="annotated-cell-6" class="code-annotation-code"><code>---
+#| label: fig-rel
+#| fig-cap: "Relación entre variables X e Y por categoría" # &lt;1&gt;65
+---</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_ejemplo, <span class="fu">aes</span>(<span class="at">x =</span> valor_x, <span class="at">y =</span> valor_y, <span class="at">color =</span> categoria)) <span class="sc">+</span></span>
@@ -522,7 +527,7 @@ Figura&nbsp;1: Relación entre variables X e Y por categoría
 <p>Los documentos en Quarto son ampliamente personalizables. Existen distintos temas para modificar el estilo del qmd (united, cosmo, minty, etc). Esto se hace añadiendo el argumento <code>themes</code> en el YAML y, al renderizar, se puede pasar del formato base de Quarto a esto:</p>
 <div class="cell fig-cap-location-bottom" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-normal" class="quarto-float quarto-figure quarto-figure-center anchored" data-cap-location="bottom" data-fig-align="center">
+<div id="fig-normal" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="bottom">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/normal-style.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -536,7 +541,7 @@ Figura&nbsp;2: Estilo base de Quarto
 </div>
 <div class="cell fig-cap-location-bottom" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-solar" class="quarto-float quarto-figure quarto-figure-center anchored" data-cap-location="bottom" data-fig-align="center">
+<div id="fig-solar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="bottom">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-solar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/solar-style.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">

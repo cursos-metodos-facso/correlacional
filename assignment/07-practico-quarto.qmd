@@ -139,15 +139,15 @@ Podemos establecer referencias cruzadas para las tablas y gráficos dentro del t
 
 El Chunk se debería ver así:
 
-`#| label: tbl-sjmisc`
+    --- # <1>
+    #| label: tbl-sjmisc# <1>
+    #| #| tbl-cap: "Descriptivos con sjmisc # <1>
 
-`#| tbl-cap: "Descriptivos con sjmisc`
+    sjmisc::descr(data,<1>
+                  show = c("label","range", "mean", "sd", "NA.prc", "n"))%>% # Selecciona estadísticos<1>
+    kable(.,"markdown") # Esto es para que se vea bien en quarto<1>
+    --- # <1>
 
-`sjmisc::descr(data,`
-
-`      show = c("label","range", "mean", "sd", "NA.prc", "n"))%>% # Selecciona estadísticos`
-
-`      kable(.,"markdown") # Esto es para que se vea bien en quarto `
 
 ```{r}
 #| label: tbl-sjmisc
@@ -170,9 +170,11 @@ Para referenciar tablas se debe añadir el prefijo **tbl** en el nombre que le a
 
 Para los gráficos se hace de la misma forma:
 
-`#| label: fig-rel`
+    --- # <1>
+    #| label: fig-rel # <1>
+    #| fig-cap: "Relación entre variables X e Y por categoría" # <1>65
+    --- # <1>
 
-`#| fig-cap: "Relación entre variables X e Y por categoría"`
 
 ```{r}
 #| label: fig-rel
