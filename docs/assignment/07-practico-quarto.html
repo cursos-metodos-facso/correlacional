@@ -190,7 +190,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#documento-de-ejemplo" id="toc-documento-de-ejemplo" class="nav-link" data-scroll-target="#documento-de-ejemplo">Documento de ejemplo</a>
   <ul class="collapse">
-  <li><a href="#estructura-del-documento" id="toc-estructura-del-documento" class="nav-link" data-scroll-target="#estructura-del-documento">Estructura del documento</a></li>
   <li><a href="#visualizaciones" id="toc-visualizaciones" class="nav-link" data-scroll-target="#visualizaciones">Visualizaciones</a>
   <ul class="collapse">
   <li><a href="#descriptivos" id="toc-descriptivos" class="nav-link" data-scroll-target="#descriptivos">Descriptivos</a></li>
@@ -349,8 +348,6 @@ format:
 <p><img src="images/quarto2-2.png" class="img-fluid"></p>
 <p>Para poder escribir código de análisis en un documento Quarto debemos generar trozo de código llamado ‘Chunk’, que se puede crear con ctrl+alt+i o directamente en el menú de arriba en ‘Code -&gt; Insert Chunk’.</p>
 <p><img src="images/quarto3.png" class="img-fluid"></p>
-<section id="estructura-del-documento" class="level2">
-<h2 class="anchored" data-anchor-id="estructura-del-documento">Estructura del documento</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar librerías necesarias</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggplot2, dplyr, kable, kableExtra)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -367,7 +364,6 @@ format:
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">satisfaccion =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">200</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 <section id="visualizaciones" class="level2">
 <h2 class="anchored" data-anchor-id="visualizaciones">Visualizaciones</h2>
 <p>Podemos establecer referencias cruzadas para las tablas y gráficos dentro del texto. Para poder automatizar este proceso, debemos escribir esto dentro del chunk:</p>

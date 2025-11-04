@@ -109,8 +109,6 @@ Para poder escribir código de análisis en un documento Quarto debemos generar 
 
 ![](images/quarto3.png)
 
-## Estructura del documento
-
 ```{r, warning=FALSE}
 # Cargar librerías necesarias
 pacman::p_load(ggplot2, dplyr, kable, kableExtra)
