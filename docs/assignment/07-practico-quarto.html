@@ -200,6 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   </ul></li>
   <li><a href="#plantilla-para-el-trabajo-grupal" id="toc-plantilla-para-el-trabajo-grupal" class="nav-link" data-scroll-target="#plantilla-para-el-trabajo-grupal">Plantilla para el trabajo grupal</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos">Recursos</a></li>
   </ul>
 </nav>
     </div>
@@ -217,10 +218,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="documentos-dinámicos" class="level1">
 <h1>Documentos dinámicos</h1>
-<p>Los <strong>documentos dinámicos</strong> surgen como respuesta a una necesidad central en la investigación y el análisis de datos contemporáneo: garantizar transparencia, reproducibilidad y eficiencia. En lugar de separar el análisis (en un script), los resultados (en tablas o gráficos) y el informe final (en un procesador de texto), un documento dinámico integra todo en un mismo archivo: texto, código y salida. De este modo, cualquier cambio en los datos o en el código se refleja automáticamente en el documento final, evitando errores manuales, reduciendo el tiempo de edición y asegurando que los resultados correspondan exactamente al análisis ejecutado. En esencia, son una forma de escritura que combina texto y código dentro de un mismo archivo, permitiendo que un documento no solo muestre resultados, sino que también los genere. Todo su contenido —análisis, tablas, gráficos, cálculos o texto— puede actualizarse automáticamente al modificar los datos o el código, lo que refuerza la transparencia y la reproducibilidad de los procesos analíticos.</p>
-<p>Este enfoque es especialmente útil en ciencia abierta, docencia, reportes periódicos, trabajo colaborativo y publicaciones académicas, ya que elimina pasos intermedios, hace trazable cada decisión analítica y permite actualizar un informe completo con solo volver a ejecutar el archivo.</p>
-<p>En la base de muchos de estos documentos se encuentra Markdown, un tipo de lenguaje que utiliza texto plano con marcas mínimas de edición. Este tipo de escritura funciona como código: no depende de un procesador de texto tradicional, sino de reglas simples que estructuran títulos, énfasis, listas, enlaces, imágenes o citas mediante símbolos. Esa lógica de texto plano con marcas permite que el documento sea legible tanto para personas como para máquinas.</p>
-<p>Gracias a esta estructura en formato de código, Markdown puede ampliarse fácilmente para integrar otros lenguajes —por ejemplo, R— y así convertir un documento en un análisis reproducible: el texto explica, el código ejecuta y el documento final muestra los resultados generados. De esta forma, un solo archivo puede transformarse en reportes, informes, artículos, presentaciones o sitios web, manteniendo siempre el mismo principio: escribir en texto plano, automatizar todo lo demás.</p>
+<p>Los documentos dinámicos integran en un solo archivo el texto, el código y los resultados de un análisis, lo que permite que cualquier cambio en los datos se actualice automáticamente en el documento final. Este formato evita errores manuales, reduce el tiempo de edición y asegura la reproducibilidad, ya que el documento no solo muestra resultados, sino que los genera directamente. Por eso se ha vuelto fundamental en contextos como la ciencia abierta, la docencia, los reportes periódicos y el trabajo colaborativo.</p>
+<p>La base de este tipo de documentos es Markdown, un lenguaje de texto plano con marcas mínimas de edición que puede ampliarse para incluir código ejecutable, como R. Esto permite crear documentos que son legibles para humanos, procesables por máquinas y exportables a múltiples formatos (informes, artículos, presentaciones o sitios web). El principio es simple: escribir en texto plano y dejar que el documento se encargue de automatizar el resto.</p>
+<iframe src="https://kevin-carrasco.github.io/presentacion-quarto/presentacion-quarto.html#/por-qu%C3%A9-utilizar-documentos-din%C3%A1micos" height="550" width="100%" allowfullscreen="true">
+</iframe>
 </section>
 <section id="quarto" class="level1">
 <h1>Quarto</h1>
@@ -459,7 +460,7 @@ format:
 <p>Los documentos en Quarto son ampliamente personalizables. Existen distintos temas para modificar el estilo del qmd (united, cosmo, minty, etc). Esto se hace añadiendo el argumento <code>themes</code> en el YAML y, al renderizar, se puede pasar del formato base de Quarto a esto:</p>
 <div class="cell fig-cap-location-bottom" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-normal" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="bottom">
+<div id="fig-normal" class="quarto-float quarto-figure quarto-figure-center anchored" data-cap-location="bottom" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/normal-style.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -473,7 +474,7 @@ Figura&nbsp;1: Estilo base de Quarto
 </div>
 <div class="cell fig-cap-location-bottom" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-solar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="bottom">
+<div id="fig-solar" class="quarto-float quarto-figure quarto-figure-center anchored" data-cap-location="bottom" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-solar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/solar-style.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -642,6 +643,15 @@ Figura&nbsp;3: Relación entre variables X e Y por categoría
 <p>Para el trabajo final, les entregaremos una estructura anidada de documentos Quarto la cual funciona como un libro, donde cada sección es un capítulo diferente.</p>
 <p>La plantilla se encuentra disponible en un repositorio de Github, y en el siguiente enlace podrán encontrar las instrucciones para su descarga:</p>
 <p><a href="https://lisacoes.com/noticias/posts/plantilla-quarto/">Link a la plantilla</a></p>
+</section>
+<section id="recursos" class="level1">
+<h1>Recursos</h1>
+<ul>
+<li>Recursos para seguir aprendiendo:</li>
+<li><a href="https://quarto.org">https://quarto.org</a></li>
+<li><a href="https://aprendeconalf.es/quarto-textos-cientificos/">Creación de documentos científicos con Quarto</a></li>
+<li><a href="https://youtu.be/EbAAmrB0luA">Tutorial Quarto for academics</a></li>
+</ul>
 
 
 </section>
