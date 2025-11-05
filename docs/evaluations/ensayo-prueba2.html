@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-6c1d4747946d1be0d0588e27238c39f9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-39aa1c037a30761ab9151af6b8579c08.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f58af8c7f73aa68b9a77e654cb5d1cf7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -391,7 +391,7 @@ sample estimates:
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">516</span></td>
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">850</span></td> 
 </tr>
-<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4">χ<sup>2</sup>=0.493 · df=1 · &amp;phi=0.027 · p=0.483</td> 
+<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="4">χ<sup>2</sup>=0.493 · df=1 · φ=0.027 · p=0.483</td> 
 </tr>
  
 </tbody></table>
@@ -414,49 +414,50 @@ X-squared = 0.49253, df = 1, p-value = 0.4828</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.5.0 (2025-04-11)
-Platform: x86_64-pc-linux-gnu
-Running under: Ubuntu 24.04.2 LTS
+<pre><code>R version 4.3.2 (2023-10-31 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 11 x64 (build 26100)
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
-LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0  LAPACK version 3.12.0
+
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[1] LC_COLLATE=Spanish_Chile.utf8  LC_CTYPE=Spanish_Chile.utf8   
+[3] LC_MONETARY=Spanish_Chile.utf8 LC_NUMERIC=C                  
+[5] LC_TIME=Spanish_Chile.utf8    
 
 time zone: America/Santiago
-tzcode source: system (glibc)
+tzcode source: internal
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] kableExtra_1.4.0 psych_2.4.6.26   corrplot_0.94    sjmisc_2.8.10   
+ [1] kableExtra_1.4.0 psych_2.3.9      corrplot_0.92    sjmisc_2.8.9    
  [5] sjPlot_2.8.16    lubridate_1.9.3  forcats_1.0.0    stringr_1.5.1   
- [9] dplyr_1.1.4      purrr_1.0.2      readr_2.1.5      tidyr_1.3.1     
-[13] tibble_3.2.1     ggplot2_3.5.1    tidyverse_2.0.0 
+ [9] dplyr_1.1.4      purrr_1.0.2      readr_2.1.4      tidyr_1.3.0     
+[13] tibble_3.2.1     ggplot2_3.5.2    tidyverse_2.0.0 
 
 loaded via a namespace (and not attached):
- [1] generics_0.1.3     xml2_1.3.6         lattice_0.22-6     stringi_1.8.4     
- [5] hms_1.1.3          digest_0.6.37      magrittr_2.0.3     evaluate_1.0.3    
- [9] grid_4.5.0         timechange_0.3.0   fastmap_1.2.0      jsonlite_2.0.0    
-[13] ggeffects_1.7.2    viridisLite_0.4.2  scales_1.3.0       mnormt_2.1.1      
-[17] cli_3.6.5          rlang_1.1.6        performance_0.12.3 munsell_0.5.1     
-[21] withr_3.0.2        yaml_2.3.10        tools_4.5.0        datawizard_0.13.0 
-[25] sjstats_0.19.0     parallel_4.5.0     tzdb_0.4.0         colorspace_2.1-1  
-[29] sjlabelled_1.2.0   pacman_0.5.1       vctrs_0.6.5        R6_2.6.1          
-[33] lifecycle_1.0.4    snakecase_0.11.1   htmlwidgets_1.6.4  MASS_7.3-58.1     
-[37] insight_0.20.5     pkgconfig_2.0.3    pillar_1.10.1      gtable_0.3.6      
-[41] glue_1.8.0         systemfonts_1.1.0  haven_2.5.4        xfun_0.52         
-[45] tidyselect_1.2.1   rstudioapi_0.16.0  knitr_1.50         farver_2.1.2      
-[49] nlme_3.1-166       htmltools_0.5.8.1  labeling_0.4.3     svglite_2.1.3     
-[53] rmarkdown_2.29     compiler_4.5.0    </code></pre>
+ [1] sjlabelled_1.2.0   tidyselect_1.2.0   viridisLite_0.4.2  farver_2.1.2      
+ [5] fastmap_1.2.0      TH.data_1.1-2      pacman_0.5.1       bayestestR_0.16.0 
+ [9] sjstats_0.18.2     digest_0.6.33      estimability_1.4.1 timechange_0.2.0  
+[13] lifecycle_1.0.4    survival_3.5-7     magrittr_2.0.3     compiler_4.3.2    
+[17] rlang_1.1.2        tools_4.3.2        yaml_2.3.7         knitr_1.45        
+[21] labeling_0.4.3     htmlwidgets_1.6.4  mnormt_2.1.1       xml2_1.3.5        
+[25] RColorBrewer_1.1-3 multcomp_1.4-25    withr_3.0.2        grid_4.3.2        
+[29] xtable_1.8-4       emmeans_1.10.6     scales_1.4.0       MASS_7.3-60       
+[33] dichromat_2.0-0.1  insight_1.3.0      cli_3.6.1          mvtnorm_1.2-3     
+[37] rmarkdown_2.28     generics_0.1.3     rstudioapi_0.17.1  performance_0.14.0
+[41] modelr_0.1.11      tzdb_0.4.0         minqa_1.2.6        splines_4.3.2     
+[45] parallel_4.3.2     vctrs_0.6.4        boot_1.3-28.1      Matrix_1.6-3      
+[49] sandwich_3.1-0     jsonlite_1.8.7     hms_1.1.3          systemfonts_1.0.5 
+[53] glue_1.6.2         nloptr_2.0.3       codetools_0.2-19   stringi_1.8.2     
+[57] gtable_0.3.6       ggeffects_1.3.2    lme4_1.1-35.1      pillar_1.11.0     
+[61] htmltools_0.5.8.1  R6_2.6.1           evaluate_1.0.4     lattice_0.21-9    
+[65] haven_2.5.3        backports_1.4.1    broom_1.0.5        snakecase_0.11.1  
+[69] Rcpp_1.0.11        svglite_2.1.2      coda_0.19-4        nlme_3.1-163      
+[73] xfun_0.43          zoo_1.8-12         pkgconfig_2.0.3   </code></pre>
 </div>
 </div>
 

@@ -119,6 +119,8 @@ website:
                file: assignment/resumen-asociacion.qmd
              - text: "6: Visualización 1: Tablas"
                file: assignment/06-practico.qmd
+             - text: "7: Reportes dinámicos"
+               file: assignment/07-practico-quarto.qmd
             # - text: "7: Gráficos bivariados en reportes dinámicos"
             #   file: assignment/07-practico.qmd
             # - text: "8: Inferencia 4"
