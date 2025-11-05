@@ -1,5 +1,5 @@
 ---
-title: "Reportes dinámicos"
+title: "Documentos dinámicos"
 date: "11-05-2025"
 lang: es
 website:
@@ -10,9 +10,9 @@ website:
 
 # Documentos dinámicos
 
-Los documentos dinámicos integran en un solo archivo el texto, el código y los resultados de un análisis, lo que permite que cualquier cambio en los datos se actualice automáticamente en el documento final. Este formato evita errores manuales, reduce el tiempo de edición y asegura la reproducibilidad, ya que el documento no solo muestra resultados, sino que los genera directamente. Por eso se ha vuelto fundamental en contextos como la ciencia abierta, la docencia, los reportes periódicos y el trabajo colaborativo.
+Los documentos dinámicos integran en un solo archivo el texto, el código y los resultados de un análisis, lo que permite que cualquier cambio en los datos se actualice automáticamente en el documento final. Este formato permite disminuir errores manuales, reduce el tiempo de edición y asegura la reproducibilidad, ya que el documento no solo muestra resultados, sino que los genera directamente. Por eso se ha vuelto fundamental en contextos como la ciencia abierta, la docencia, los reportes periódicos y el trabajo colaborativo.
 
-La base de este tipo de documentos es Markdown, un lenguaje de texto plano con marcas mínimas de edición que puede ampliarse para incluir código ejecutable, como R. Esto permite crear documentos que son legibles para humanos, procesables por máquinas y exportables a múltiples formatos (informes, artículos, presentaciones o sitios web). El principio es simple: escribir en texto plano y dejar que el documento se encargue de automatizar el resto.
+La base de este tipo de documentos es [**Markdown**](https://www.markdownguide.org/), un lenguaje de texto plano con marcas mínimas de edición que, al estar en código simple/plano, puede ampliarse para incluir código ejecutable, como R. Esto permite crear documentos que son legibles para humanos, procesables por máquinas y exportables a múltiples formatos (informes, artículos, presentaciones o sitios web). El principio es simple: escribir en texto plano (markdown) y dejar que el documento se encargue de automatizar el resto.
 
 
 <iframe src=https://kevin-carrasco.github.io/presentacion-quarto/presentacion-quarto.html#/por-qu%C3%A9-utilizar-documentos-din%C3%A1micos height="550" width=100% allowfullscreen="true">
@@ -21,6 +21,7 @@ La base de este tipo de documentos es Markdown, un lenguaje de texto plano con m
 # Quarto
 
 [Quarto](https://quarto.org/) es el siguiente paso en la evolución de los documentos dinámicos: un sistema moderno para crear informes, presentaciones, libros, sitios web y más, a partir de archivos de **texto plano** que combinan Markdown y código ejecutable. Su funcionamiento se basa en el conversor universal de documentos [Pandoc](https://pandoc.org/), que permite transformar un mismo archivo fuente en múltiples formatos de salida de manera automatizada.
+
 
 **Ventajas de usar Quarto**:
 
@@ -34,7 +35,9 @@ La base de este tipo de documentos es Markdown, un lenguaje de texto plano con m
 
 Con Quarto, el mismo archivo puede **escribir, ejecutar, documentar y publicar** un análisis completo, sin necesidad de separar código, texto y resultados.
 
-## Escritura en documentos Quarto
+## Generación de documentos Quarto
+
+Quarto ya se encuentra integrado como sistema de edición de documentos en RStudio (y en otros programas también). Es decir, Quarto es un formato de edición de documentos que no se restringe a R y RStudio, pero que puede ser usado también en ese contexto. 
 
 Para generar un documento Quarto, abrimos nuestro Rproject y clickeamos en: File --> New file --> Quarto document
 
@@ -42,7 +45,28 @@ Para generar un documento Quarto, abrimos nuestro Rproject y clickeamos en: File
 
 ![](images/quarto2-2.png)
 
-Los documentos Quarto se distinguen por su extensión `.qmd`. En la siguiente tabla se muestran las reglas generales de escritura en este formato.
+Los documentos Quarto se distinguen por su extensión `.qmd`. 
+
+### Funcionamiento
+
+![](https://quarto.org/docs/get-started/hello/images/rstudio-qmd-how-it-works.png)
+
+El documento qmd contiene texto y código. Para poder ser transformado a un documento final (html, pdf, word, etc), debe ser 'renderizado' (proceso que veremos más adelante). Esta renderización incluye primero pasar el documento a un único lenguaje, que es **Markdown** (.md). Es decir, tanto el texto como el código pasan a Markdown mediante la librería de R `knitr`. Este archivo .md luego se transforma a html, word, pdf, etc mediante Pandoc. De todas maneras, todo este proceso ocurre automáticamente, nosotros veremos solo el qmd y el documento final.
+
+El documento qmd tiene tres partes principales:
+
+1. **YAML header**: contiene metadatos sobre el documento, como el título, autor, fecha, etc.
+2. **Cuerpo**: donde se escribe el contenido en Markdown y se incluye el código.
+3. **Chunks de código**: bloques de código que se pueden ejecutar y cuyos resultados se pueden incluir en el documento final.
+
+![](images/quarto-doc.png){width="70%" style="display:block;margin-left:auto;margin-right:auto;"}
+
+Comenzaremos por el cuerpo del documento, que es donde se escribe el texto en Markdown, luego veremos los chunks de código, y finalmente el YAML header.
+
+
+## Escritura en Markdown
+
+En la siguiente tabla se muestran las reglas generales de escritura en este formato.
 
 +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
 |Código                                                                         | Así se ve                                                                     |
