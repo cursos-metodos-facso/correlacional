@@ -592,11 +592,11 @@ Figura&nbsp;2: Estilo Solar de Quarto
 <p>El Chunk se debería ver así:</p>
 <pre id="annotated-cell-5" class="code-annotation-code"><code>---
 #| label: tbl-sjmisc
-#| #| tbl-cap: "Descriptivos con sjmisc
+#| tbl-cap: "Descriptivos con sjmisc
 
-sjmisc::descr(data,&lt;1&gt;
-              show = c("label","range", "mean", "sd", "NA.prc", "n"))%&gt;% # Selecciona estadísticos&lt;1&gt;
-kable(.,"markdown") # Esto es para que se vea bien en quarto&lt;1&gt;
+sjmisc::descr(data,
+              show = c("label","range", "mean", "sd", "NA.prc", "n"))%&gt;% # Selecciona estadísticos
+kable(.,"markdown") # Esto es para que se vea bien en quarto
 ---</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">descr</span>(datos_ejemplo,</span>

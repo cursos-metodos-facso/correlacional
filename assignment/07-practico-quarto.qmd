@@ -227,11 +227,11 @@ El Chunk se debería ver así:
 
     --- # <1>
     #| label: tbl-sjmisc# <1>
-    #| #| tbl-cap: "Descriptivos con sjmisc # <1>
+    #| tbl-cap: "Descriptivos con sjmisc # <1>
 
-    sjmisc::descr(data,<1>
-                  show = c("label","range", "mean", "sd", "NA.prc", "n"))%>% # Selecciona estadísticos<1>
-    kable(.,"markdown") # Esto es para que se vea bien en quarto<1>
+    sjmisc::descr(data,
+                  show = c("label","range", "mean", "sd", "NA.prc", "n"))%>% # Selecciona estadísticos
+    kable(.,"markdown") # Esto es para que se vea bien en quarto
     --- # <1>
 
 
