@@ -319,6 +319,28 @@ El objetivo de este ejercicio es que generes al menos dos tablas utilizando la b
   2. Elabora la tabla con nombres de columnas y filas en español y con formato legible.
   3. Incorporar un título (caption) y una nota de pie de tabla.
 
+```{r}
+tab <- lapop %>%
+  group_by(decile, prot3) %>% # agrupamos por decile y variable
+  summarise(n = n()) %>% # contamos por categ de respuesta
+  mutate(prop = round((n / sum(n)) * 100, 2)) %>% # porcentaje
+  na.omit() %>% # borramos NA
+  pivot_wider(id_cols = decile, names_from = prot3, values_from = prop) # convertimos a formato ancho
+
+tab
+```
+
+```{r}
+tabla1 <- tab %>% 
+  kable(format = "markdown",
+                    align = "c",
+                    col.names = c("Decil de ingreso", "Sí ha protestado", "No ha protestado"),
+                    caption = "Tabla 1. Frecuencia de protesta según decil de ingreso") %>% 
+  kableExtra::kable_classic(full_width = FALSE, position = "center", font_size = 14) %>% 
+  kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a LAPOP 2018.")
+
+tabla1
+```
 
 ## Tabla 2 - Bivariada con estadísticos descriptivos
 
@@ -326,3 +348,33 @@ El objetivo de este ejercicio es que generes al menos dos tablas utilizando la b
   2. Elige un formato de tabla que permita visualizar el cruce entre las variables `b21` (confianza en partidos políticos) y `pais`.
   3. La tabla debe reportar: n, media, desviación estándar, mínimo, máximo y mediana.
   4. Debe estar formateada visualmente (con kableExtra u otro paquete de tu elección).
+
+  
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+tab2 <- lapop %>% 
+   group_by(pais) %>% 
+   summarise(
+       n = n(), # Tamaño muestral
+       min = min(b21, na.rm = T), # Mínimo
+       max = max(b21, na.rm = T), # Máximo
+       media = round(mean(b21, na.rm = T), 2), # Media redondeada a 2 digitos
+       sd = round(sd(b21, na.rm = T), 2), # Desviación estándar redondeada a 2 digitos
+       mediana = median(b21, na.rm = T), # Mediana
+       cv = round((media/sd)*100, 2) # Coeficiente de variación redondeado a 2 digi
+       )
+
+tab2
+```
+
+  
+  ```{r}
+  tabla2 <- tab2 %>% 
+  kable(format = "markdown",
+                    align = "c",
+                    col.names = c("País", "Tamaño muestral", "Mínimo", "Máximo", "Media", "Desv. estándar", "Mediana", "Coef. variación"),
+                    caption = "Tabla 2. Confianza en partidos políticos según país") %>% 
+  kableExtra::kable_classic(full_width = FALSE, position = "center", font_size = 14) %>% 
+  kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a LAPOP 2018.")
+
+tabla2
+  ```
