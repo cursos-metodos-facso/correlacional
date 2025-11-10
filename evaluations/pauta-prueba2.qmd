@@ -3,6 +3,13 @@ title: Pauta Prueba 2
 lang: es
 ---
 
+# Solicitudes de recorrección
+
+Estimad-s estudiantes, al igual que en la prueba 1, pueden hacer solicitudes de recorrección de la prueba 2 en este [formulario](https://forms.gle/vog3htSLwCKt8SUB9).
+
+  - Se aceptan solicitudes hasta el miércoles 12 de noviembre a las 23:59
+  - Deben realizar una solicitud por cada pregunta que deseen recorregir
+
 # Librerías y datos
 
 ```{r}
@@ -159,7 +166,7 @@ sjPlot::tab_corr(cormat,
    * **Pairwise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular los coeficientes de correlación.
    * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos con el fin de mantener el mismo número de casos para todas las correlaciones.
      
-  * **bonus**: Si mencionan que la variable ingresos es la que tiene gran porcentaje de NA, se le asignarán dos décimas extra en la nota final.
+
      
 
 
