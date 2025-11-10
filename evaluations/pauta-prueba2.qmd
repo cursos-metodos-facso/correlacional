@@ -1,0 +1,264 @@
+---
+title: Pauta Prueba 2
+lang: es
+---
+
+# Solicitudes de recorrección
+
+Estimad-s estudiantes, al igual que en la prueba 1, pueden hacer solicitudes de recorrección de la prueba 2 en este [formulario](https://forms.gle/vog3htSLwCKt8SUB9).
+
+  - Se aceptan solicitudes hasta el miércoles 12 de noviembre a las 23:59
+  - Deben realizar una solicitud por cada pregunta que deseen recorregir
+
+# Librerías y datos
+
+```{r}
+# librerías
+pacman::p_load(dplyr, sjPlot, sjmisc)
+```
+
+```{r, include=FALSE}
+load("data/dataset1.RData")
+load("data/dataset2.RData")
+load("data/dataset3.RData")
+load("data/dataset4.RData")
+```
+
+
+# Pregunta 1 ¿En qué medida se relacionan los ingresos (en pesos) de las personas con sus niveles de apoyo a la democracia?
+
+
+1.1 Estime la correlación entre ambas variables utilizando R y genere un diagrama de dispersión (nube de puntos/scatterplot). Corte y pegue el código en el recuadro de abajo. (1p)
+
+  - 0.5 por código de correlación
+  - 0.5 por gráfico de dispersión
+
+Forma A
+```{r}
+cor.test(dataset1$ingresos, dataset1$apoyo_dem, complete.obs = TRUE, method = "pearson")
+sjPlot::plot_scatter(data = dataset1, x = ingresos, y = apoyo_dem)
+```
+
+Forma B
+```{r}
+cor.test(dataset2$ingresos, dataset2$apoyo_dem, complete.obs = TRUE, method = "pearson")
+sjPlot::plot_scatter(data = dataset2, x = ingresos, y = apoyo_dem)
+```
+
+Forma C
+```{r}
+cor.test(dataset3$ingresos, dataset3$apoyo_dem, complete.obs = TRUE, method = "pearson")
+sjPlot::plot_scatter(data = dataset3, x = ingresos, y = apoyo_dem)
+```
+
+Forma D
+```{r}
+cor.test(dataset4$ingresos, dataset4$apoyo_dem, complete.obs = TRUE, method = "pearson")
+sjPlot::plot_scatter(data = dataset4, x = ingresos, y = apoyo_dem)
+```
+
+1.2 Justifique la elección del coeficiente de correlación seleccionado e interprete el resultado considerando inferencia estadística, magnitud y sentido del efecto. (3p)
+
+  * 1pt por coeficiente de correlación seleccionado
+  * 1pt por inferencia
+  * 1pt por magnitud y sentido del efecto
+
+- **Forma A:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `apoyo_dem` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion positiva y grande, siguiendo los criterios de Cohen (1988) ($r$ = 0.80). Es decir, a medida que aumentan los ingresos de las personas, también aumentan sus niveles de apoyo_dem. La relación es estadísticamente significativa ($p$ < 0.001), por ende es posible rechazar $H_0$ sobre no asociación entre variables, entregando evidencia a favor de una relación entre ambas variables con un 99.9% de confianza.
+
+- **Forma B:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `apoyo_dem` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion positiva y muy pequeña, siguiendo los criterios de Cohen (1988) ($r$ = 0.04). La relación **no** es estadísticamente significativa ($p$ > 0.05), por ende **no** es posible rechazar $H_0$ sobre no asociación entre variables al 95% de confianza.
+
+- **Forma C:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `apoyo_dem` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion negativa y muy pequeña, siguiendo los criterios de Cohen (1988) ($r$ = -0.03). La relación **no** es estadísticamente significativa ($p$ > 0.05), por ende **no** es posible rechazar $H_0$ sobre no asociación entre variables al 95% de confianza.
+
+- **Forma D:** Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `apoyo_dem` corresponden a variables númericas de razón. El coeficiente da cuenta de una relacion positiva y grande, siguiendo los criterios de Cohen (1988) ($r$ = 0.79). Es decir, a medida que aumentan los ingresos de las personas, también aumentan sus niveles de apoyo_dem. La relación es estadísticamente significativa (p < 0.001), por ende es posible rechazar $H_0$ sobre no asociación entre variables, entregando evidencia a favor de una relación entre ambas variables con un 99.9% de confianza.
+  
+> NOTA: Si se utilizaba `ingresos_rec` y se señalaba que se escogía una correlación punto biserial, también se considera correcto.
+
+# Pregunta 2: ¿Cómo se relacionan el sexo, apoyo_dem y los ingresos?
+
+
+2.1 Estime y reporte la matriz de correlaciones de las variables de sexo, apoyo_dem y los ingresos. Corte y pegue el código de R correspondiente (1p)
+
+- Forma A:
+```{r, collapse=TRUE}
+cormat <- dataset1 %>% 
+  dplyr::select(sexo, apoyo_dem, ingresos)
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+- Forma B:
+```{r, collapse=TRUE}
+cormat <- dataset2 %>% 
+  dplyr::select(sexo, apoyo_dem, ingresos)
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+- Forma C:
+```{r, collapse=TRUE}
+cormat <- dataset3 %>% 
+  dplyr::select(sexo, apoyo_dem, ingresos)
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+- Forma D:
+```{r, collapse=TRUE}
+cormat <- dataset4 %>% 
+  dplyr::select(sexo, apoyo_dem, ingresos)
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "listwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+
+2.2a ¿Qué correlaciones de la matriz son estadísticamente significativas?¿Con qué nivel de confianza se puede rechazar la hipótesis nula en estos casos? (1p)
+
+- Forma A: (0,5 por cada correlación significativa)
+      
+    * **Pairwise**: La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva y estadísticamente significativa ($r$ = 0.809, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+    * **Listwise**: La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva y estadísticamente significativa ($r$ = 0.809, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+
+- Forma B: (1pt por correlación significativa en pairwise, 0.5 por c/u en listwise)
+
+    * **Pairwise**: La correlación de Pearson entre _ingresos_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.837, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+    * **Listwise**: 
+        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.078, $p$ < 0.05). La hipótesis nula se puede rechazar con un 95% de confianza.
+       ii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva y estadísticamente significativa ($r$ = 0.837, $p$ < 0.05). La hipótesis nula se puede rechazar con un 95% de confianza.
+
+
+- Forma C: (1pt por no haber asociaciones significativas)
+    
+    * **Pairwise**: No hay asociaciones estadísticamente significativas ($p$ < 0.05) entre las variables. No se puede rechazar la hipótesis nula.
+    * **Listwise**: No hay asociaciones estadísticamente significativas ($p$ < 0.05) entre las variables. No se puede rechazar la hipótesis nula.
+
+- Forma D: (1pt por las tres asociaciones significativas)
+
+     * **Pairwise**: 
+        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.523, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+        ii. La correlación de Pearson entre _ingresos_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.831, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+        iii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva y estadísticamente significativa ($r$ = 0.795, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+     
+     * **Listwise**: 
+        i. La correlación de Pearson entre _apoyo_dem_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.517, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza. 
+        ii. La correlación de Pearson entre _ingresos_ y _sexo_ es positiva y estadísticamente significativa ($r$ = 0.830, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+        iii. La correlación de Pearson entre _ingresos_ y _apoyo_dem_ es positiva y estadísticamente significativa ($r$ = 0.795, $p$ < 0.001). La hipótesis nula se puede rechazar con un 99.9% de confianza.
+  
+
+2.2b ¿Qué decisión tomó sobre los casos perdidos en el cálculo de la matriz?¿Por qué? (1p)
+
+
+   * **Pairwise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular los coeficientes de correlación.
+   * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos con el fin de mantener el mismo número de casos para todas las correlaciones.
+     
+
+     
+
+
+2.2c ¿Cómo se denomina el tipo de correlación que se calcula entre sexo e ingreso? (1p)
+
+- La correlación entre la variable dummy sexo (0="Hombre"; 1="Mujer") y la variable continúa ingresos se denomina correlación punto biserial.
+
+- Si utilizan la variable de ingresos recodificada, entonces la correlación es policórica
+
+# Pregunta 3: ¿Cómo se relaciona el sexo con los ingresos?
+
+3.1 Reporte tabla de contigencia y el cálculo de Chi2. Corte y pegue el código abajo. (1p)
+
+- 1pt por el código de sjPlot::sjtab
+
+- Forma A:
+```{r}
+pacman::p_load(sjPlot)
+dataset1 %>%
+  sjtab(sexo,
+        ingresos_rec)
+
+chisq.test(dataset1$sexo, dataset1$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab
+```
+
+- Forma B:
+```{r}
+pacman::p_load(sjPlot)
+dataset2 %>%
+  sjtab(sexo,
+        ingresos_rec)
+
+chisq.test(dataset2$sexo, dataset2$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab
+```
+
+- Forma C:
+```{r}
+pacman::p_load(sjPlot)
+dataset3 %>%
+  sjtab(sexo,
+        ingresos_rec)
+
+chisq.test(dataset3$sexo, dataset3$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab
+```
+
+- Forma D:
+```{r}
+pacman::p_load(sjPlot)
+dataset4 %>%
+  sjtab(sexo,
+        ingresos_rec)
+
+chisq.test(dataset4$sexo, dataset4$ingresos_rec) # adicional, ya que el Chi2 aparece en sjtab
+```
+
+
+3.2 Interprete el Chi2 en términos de inferencia y magnitud del efecto. (3p)
+
+- Forma A: χ2=3.292 · df=2 · Cramer's V=0.062 · p=0.193
+
+**Chi cuadrado no es estadísticamente significativo** (1pt)
+
+(p > 0.05) (1pt) 
+
+tamaño de efecto pequeño/débil según la V de Cramer (1pt)
+
+- Forma B: χ2=393.623 · df=2 · Cramer's V=0.681 · p=0.000
+
+**Chi cuadrado estadísticamente significativo** (1pt)
+
+(p < 0.001), 99,9% de confianza (1pt)
+
+tamaño de efecto grande/fuerte según la V de Cramer (1pt)
+
+- Forma C: χ2=1.405 · df=2 · Cramer's V=0.041 · p=0.495
+
+**Chi cuadrado no es estadísticamente significativo** (1pt)
+
+(p > 0.05) (1pt)
+
+tamaño de efecto pequeño/débil según la V de Cramer  (1pt)
+
+- Forma D: χ2=379.824 · df=2 · Cramer's V=0.668 · p=0.000
+
+**Chi cuadrado estadísticamente significativo** (1pt)
+
+(p < 0.001), 99,9% de confianza (1pt)
+
+tamaño de efecto grande/fuerte según la V de Cramer  (1pt)
+
+3.3 A Chi2 también se le denomina "test de diferencia", ¿Qué es lo que se compara para hacer esta diferencia? (1p)
+
+En el test Chi-cuadrado se comparan las frecuencias observadas en cada categoría de una tabla de contingencia con las frecuencias esperadas bajo la hipótesis nula de independencia o no asociación.
+
+En otras palabras, se mide la diferencia entre lo que efectivamente se observa en los datos y lo que se esperaría si no existiera relación entre las variables. Cuanto mayores sean esas diferencias (ajustadas al tamaño de la muestra), mayor será el valor de χ2.
