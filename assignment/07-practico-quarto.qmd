@@ -1,0 +1,330 @@
+---
+title: "Documentos dinámicos"
+date: "11-05-2025"
+lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
+---
+
+# Documentos dinámicos
+
+Los documentos dinámicos integran en un solo archivo el texto, el código y los resultados de un análisis, lo que permite que cualquier cambio en los datos se actualice automáticamente en el documento final. Este formato permite disminuir errores manuales, reduce el tiempo de edición y asegura la reproducibilidad, ya que el documento no solo muestra resultados, sino que los genera directamente. Por eso se ha vuelto fundamental en contextos como la ciencia abierta, la docencia, los reportes periódicos y el trabajo colaborativo.
+
+La base de este tipo de documentos es [**Markdown**](https://www.markdownguide.org/), un lenguaje de texto plano con marcas mínimas de edición que, al estar en código simple/plano, puede ampliarse para incluir código ejecutable, como R. Esto permite crear documentos que son legibles para humanos, procesables por máquinas y exportables a múltiples formatos (informes, artículos, presentaciones o sitios web). El principio es simple: escribir en texto plano (markdown) y dejar que el documento se encargue de automatizar el resto.
+
+
+<iframe src=https://kevin-carrasco.github.io/presentacion-quarto/presentacion-quarto.html#/por-qu%C3%A9-utilizar-documentos-din%C3%A1micos height="550" width=100% allowfullscreen="true">
+</iframe> 
+
+# Quarto
+
+[Quarto](https://quarto.org/) es el siguiente paso en la evolución de los documentos dinámicos: un sistema moderno para crear informes, presentaciones, libros, sitios web y más, a partir de archivos de **texto plano** que combinan Markdown y código ejecutable. Su funcionamiento se basa en el conversor universal de documentos [Pandoc](https://pandoc.org/), que permite transformar un mismo archivo fuente en múltiples formatos de salida de manera automatizada.
+
+
+**Ventajas de usar Quarto**:
+
+- Está basado en Markdown: conserva la lógica de texto plano con marcas mínimas.
+
+- Soporte para múltiples lenguajes (R, Python Julia, etc)
+
+- Multitud de formatos de salida (HTML, PDF, Shiny, etc)
+
+- Soporte para publicación científica: integración con bibliografías, citaciones, Zotero
+
+Con Quarto, el mismo archivo puede **escribir, ejecutar, documentar y publicar** un análisis completo, sin necesidad de separar código, texto y resultados.
+
+## Generación de documentos Quarto
+
+Quarto ya se encuentra integrado como sistema de edición de documentos en RStudio (y en otros programas también). Es decir, Quarto es un formato de edición de documentos que no se restringe a R y RStudio, pero que puede ser usado también en ese contexto. 
+
+Para generar un documento Quarto, abrimos nuestro Rproject y clickeamos en: File --> New file --> Quarto document
+
+![](images/quarto-2.png)
+
+![](images/quarto2-2.png)
+
+Los documentos Quarto se distinguen por su extensión `.qmd`. 
+
+### Funcionamiento
+
+![](https://quarto.org/docs/get-started/hello/images/rstudio-qmd-how-it-works.png)
+
+El documento qmd contiene texto y código. Para poder ser transformado a un documento final (html, pdf, word, etc), debe ser 'renderizado' (proceso que veremos más adelante). Esta renderización incluye primero pasar el documento a un único lenguaje, que es **Markdown** (.md). Es decir, tanto el texto como el código pasan a Markdown mediante la librería de R `knitr`. Este archivo .md luego se transforma a html, word, pdf, etc mediante Pandoc. De todas maneras, todo este proceso ocurre automáticamente, nosotros veremos solo el qmd y el documento final.
+
+El documento qmd tiene tres partes principales:
+
+1. **YAML header**: contiene metadatos sobre el documento, como el título, autor, fecha, etc.
+2. **Cuerpo**: donde se escribe el contenido en Markdown y se incluye el código.
+3. **Chunks de código**: bloques de código que se pueden ejecutar y cuyos resultados se pueden incluir en el documento final.
+
+![](images/quarto-doc.png){width="70%" style="display:block;margin-left:auto;margin-right:auto;"}
+
+Comenzaremos por el cuerpo del documento, que es donde se escribe el texto en Markdown, luego veremos los chunks de código, y finalmente el YAML header.
+
+
+## Escritura en Markdown
+
+En la siguiente tabla se muestran las reglas generales de escritura en este formato.
+
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+|Código                                                                         | Así se ve                                                                     |
++===============================================================================+===============================================================================+
+|     Algo de texto en el párrafo.                                              | Algo de texto.                                                                |
+|                                                                               |                                                                               |
+|     Más texto                                                                 | Algo de texto en el párrafo. Siempre utilizando espacios para dividir párrafos|
+|     espacio entre lineas.                                                     |                                                                               |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `` *Cursivas* ``                                                              | *Cursivas*                                                                    |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `` **Negrita** ``                                                             | **Negrita**                                                                   |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `# Título 1`                                                                  | # Título 1                                                                    |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `## Título 2`                                                                 | ## Título 2                                                                   |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `### Título 3`                                                                | ### Título 3                                                                  |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| (puedes llegar hasta un título N° 6 con `######`)                             |                                                                               |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `` [Texto enlace](https://quarto.org/) ``                                     | [Texto enlace](https://quarto.org/)                                           |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `` ![Texto imagen](/path/to/image.png) ``                                     | ![Texto imagen](images/img-144.png){alt="Class logo"}                       |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+| `> Citas`                                                                     | > Citas                                                                       |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+|     1. Una                                                                    | 1.   Una                                                                      |
+|     2. lista                                                                  |                                                                               |
+|     3 ordenada                                                                | 2.   lista                                                                    |
+|                                                                               |                                                                               |
+|                                                                               | 3. ordenada                                                                   |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+|     - Otro                                                                    | -  Otro                                                                       |
+|     - tipo                                                                    |                                                                               |
+|     - de lista                                                                | -  tipo                                                                       |
+|                                                                               |                                                                               |
+|                                                                               |  -  de lista                                                                  |
++-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
+
+Generemos un documento Quarto, donde se puede escribir texto y código simultáneamente. Una de las ventajas es que cada sección se puede separar por títulos (#). La jerarquía de los títulos se establece según la cantidad de '#'. Por ejemplo:
+
+`# Este va a ser mi trabajo de estadística correlacional`
+
+A continuación, en esta guía combinaremos el paso-a-paso de crear un documento dinámico con quarto, a la vez que vamos viendo distintas funciones de este proceso.
+
+Por ejemplo, como hacer una nota al pie[^1]. Para hacerlo, solo debemos escribir `[^2]`. Luego, en otra línea escribimos 
+
+`[^2]: Esta es la nota al pie`
+
+[^1]: Esta es la nota al pie
+
+y apretamos `render`
+
+## Renderizado
+
+Renderizar se entiende como el proceso que genera un formato de salida visual, donde se agregan distintos detalles de estilo.
+
+![](images/quarto4.png)
+
+## R en documentos dinámicos: chunks de código y sus opciones
+
+Para poder escribir código de análisis en un documento Quarto debemos generar un trozo de código llamado 'Chunk', que se puede crear con ctrl+alt+i o directamente en el menú de arriba en 'Code -> Insert Chunk'.
+
+![](images/quarto3.png)
+
+## Opciones de chunk
+
+Carguemos paquetes, elaboremos nuestra base de datos y renderizamos de nuevo
+
+```{r}
+# Cargar librerías necesarias
+pacman::p_load(ggplot2, dplyr, kable, kableExtra)
+
+# Crear datos ficticios
+set.seed(123)  # Para reproducibilidad
+datos_ejemplo <- data.frame(
+  categoria = rep(c("Grupo A", "Grupo B", "Grupo C", "Grupo D"), each = 50),
+  valor_x = rnorm(200, mean = 50, sd = 10),
+  valor_y = rnorm(200, mean = 30, sd = 8),
+  satisfaccion = sample(1:10, 200, replace = TRUE)
+)
+
+```
+
+Muchas advertencias...
+
+agreguemos una opción al inicio del chunk `#| warning: false`
+
+```{r}
+#| warning: false
+
+# Cargar librerías necesarias
+pacman::p_load(ggplot2, dplyr, kable, kableExtra)
+
+# Crear datos ficticios
+set.seed(123)  # Para reproducibilidad
+datos_ejemplo <- data.frame(
+  categoria = rep(c("Grupo A", "Grupo B", "Grupo C", "Grupo D"), each = 50),
+  valor_x = rnorm(200, mean = 50, sd = 10),
+  valor_y = rnorm(200, mean = 30, sd = 8),
+  satisfaccion = sample(1:10, 200, replace = TRUE)
+)
+
+```
+
+- Existen distintas opciones dependiendo de lo que se espera que haga cada chunk, que se deben especificar con `true` o `false`. Acá las principales:
+
+| Opción   | Descripción |
+|----------|-------------|
+| `eval`   | Evalúa el bloque de código (si es `false`, solo se muestra el código sin ejecutarlo). |
+| `echo`   | Incluye el código fuente en la salida. (si es `false`, solo muestra el resultado)|
+| `output` | Incluye los resultados de la ejecución del código en la salida (`true`, `false` o `asis`, donde `asis` indica que la salida es Markdown y no debe recibir formato adicional de Quarto). |
+| `warning`| Incluye las advertencias (`warnings`) en la salida. |
+| `error`  | Incluye los errores en la salida (esto implica que los errores no detendrán la ejecución del documento). |
+| `include`| Control global para evitar que se incluya cualquier salida (código o resultados). Por ejemplo, `include: false` suprime todo lo generado por el bloque de código. |
+
+
+## YAML
+
+Va al inicio del documento y cumple la función de **identificar y configurar** el documento antes de su ejecución. Allí se definen metadatos esenciales —como el título, autoría, fecha, tipo de salida, idioma o bibliografía— que permiten que el documento sea comprendido tanto por el programa que lo procesa como por quien lo lee.
+
+::: callout-note
+
+YAML: Lenguaje de programación. Es un formato de serialización de datos que proporcionan un mecanismo de intercambio de datos legible por humanos. Dan formato a los datos de manera estandarizada para su intercambio entre aplicaciones de software. Se reconoce por el recuadro delimitado con **- - -**. 
+
+
+![](images/yaml.png)
+
+:::
+
+```
+---
+title: "Mi Documento"
+format:
+  html:
+    toc: true
+    number-sections: true
+---
+```
+
+### Estilos
+
+Los documentos en Quarto son ampliamente personalizables. Existen distintos temas para modificar el estilo del qmd (united, cosmo, minty, etc). Esto se hace añadiendo el argumento `themes` en el YAML y, al renderizar, se puede pasar del formato base de Quarto a esto:
+
+```{r}
+#| label: fig-normal
+#| fig-cap-location: bottom
+#| fig-cap: "Estilo base de Quarto"
+#| fig-align: center
+#| out-width: "100%"
+#| echo: false 
+
+knitr::include_graphics("images/normal-style.png")
+
+```
+
+```{r}
+#| label: fig-solar
+#| fig-cap-location: bottom
+#| fig-cap: "Estilo Solar de Quarto"
+#| fig-align: center
+#| out-width: "100%"
+#| echo: false 
+
+knitr::include_graphics("images/solar-style.png")
+
+```
+
+
+## Visualizaciones
+
+Podemos establecer referencias cruzadas para las tablas y gráficos dentro del texto. Para poder automatizar este proceso, debemos escribir esto dentro del chunk:
+
+`#| label: tbl-sjmisc`
+
+`#| tbl-cap: "Descriptivos con sjmisc"`
+
+### Descriptivos
+
+El Chunk se debería ver así:
+
+    --- # <1>
+    #| label: tbl-sjmisc# <1>
+    #| tbl-cap: "Descriptivos con sjmisc # <1>
+
+    sjmisc::descr(data,
+                  show = c("label","range", "mean", "sd", "NA.prc", "n"))%>% # Selecciona estadísticos
+    kable(.,"markdown") # Esto es para que se vea bien en quarto
+    --- # <1>
+
+
+```{r}
+#| label: tbl-sjmisc
+#| tbl-cap: "Descriptivos con sjmisc"
+
+sjmisc::descr(datos_ejemplo,
+      show = c("label","range", "mean", "sd", "NA.prc", "n"))%>% # Selecciona estadísticos
+      kable(.,"markdown") # Esto es para que se vea bien en quarto
+```
+
+Luego de establecer el link y el nombre de la tabla, podemos referenciar acá con un `@`, así: `@tbl-sjmisc`, y que se vería así @tbl-sjmisc
+
+### Gráficos
+
+::: callout-note
+
+Para referenciar tablas se debe añadir el prefijo **tbl** en el nombre que le asignamos a #| label, mientras que para referenciar gráficos se usa el prefijo **fig**. 
+
+:::
+
+Para los gráficos se hace de la misma forma:
+
+    --- # <1>
+    #| label: fig-rel # <1>
+    #| fig-cap: "Relación entre variables X e Y por categoría" # <1>65
+    --- # <1>
+
+
+```{r}
+#| label: fig-rel
+#| fig-cap: "Relación entre variables X e Y por categoría" 
+
+# Crear el gráfico
+ggplot(datos_ejemplo, aes(x = valor_x, y = valor_y, color = categoria)) +
+  geom_point(aes(size = satisfaccion), alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    subtitle = "Datos ficticios para demostración",
+    x = "Variable X",
+    y = "Variable Y",
+    color = "Categoría",
+    size = "Satisfacción (1-10)"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+    plot.subtitle = element_text(hjust = 0.5, size = 12),
+    legend.position = "bottom"
+  ) +
+  scale_color_viridis_d(option = "plasma") +
+  scale_size_continuous(range = c(1, 4))
+```
+
+Podemos ver la relación entre X e Y en la @fig-rel
+
+
+# Plantilla para el trabajo grupal
+
+Para el trabajo final, les entregaremos una estructura anidada de documentos Quarto la cual funciona como un libro, donde cada sección es un capítulo diferente. 
+
+La plantilla se encuentra disponible en un repositorio de Github, y en el siguiente enlace podrán encontrar las instrucciones para su descarga:
+
+[Link a la plantilla](https://lisacoes.com/noticias/posts/plantilla-quarto/)
+
+# Recursos
+
+- Recursos para seguir aprendiendo:
+- [https://quarto.org](https://quarto.org)
+- [Creación de documentos científicos con Quarto](https://aprendeconalf.es/quarto-textos-cientificos/)
+- [Tutorial Quarto for academics](https://youtu.be/EbAAmrB0luA)

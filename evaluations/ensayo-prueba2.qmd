@@ -1,0 +1,107 @@
+---
+title: "Resolución ensayo prueba 2"
+date: "2025-10-15"
+lang: es
+execute:
+  freeze: auto
+  cache: false 
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    warning = F,
+    error = F,
+    message = F
+)
+```
+
+```{r librerias, echo=TRUE, collapse=TRUE}
+pacman::p_load(tidyverse, # Manipulacion datos
+               sjPlot, # Graficos y tablas
+               sjmisc, # Descriptivos
+               corrplot, # Correlaciones
+               psych, # Test estadísticos
+               kableExtra) # Tablas
+
+options(scipen = 999) # para desactivar notacion cientifica
+rm(list = ls()) # para limpiar el entorno de trabajo
+```
+
+```{r bbdd}
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/dataset5.RData"))
+```
+
+## Pregunta 1. ¿En qué medida se relacionan la preocupación por la desigualdad de las personas con su preferencia por la meritocracia?
+
+1.1 Estime la correlación entre ambas variables utilizando R y genere un diagrama de dispersión (nube de puntos/scatterplot). Corte y pegue el código en el recuadro de abajo. (1p)
+
+
+```{r}
+cor.test(dataset5$desigualdad, dataset5$meritocracia, method = "spearman") #especificamos metodo spearman
+```
+
+
+```{r}
+sjPlot::plot_scatter(data = dataset5, 
+                     x = meritocracia,
+                     y = desigualdad)
+```
+
+1.2 Justifique la elección del coeficiente de correlación seleccionado e interprete el resultado considerando inferencia estadística, magnitud y sentido del efecto. (3p)
+
+Se empleó el coeficiente de correlación de Spearman debido a la naturaleza de las variables, en tanto `desigualdad` y `autoritarismo` corresponden a variables ordinales. El coeficiente da cuenta de una relacion positiva y grande, siguiendo los criterios de Cohen (1988) ($r$ = 0.67). Es decir, a medida que aumenta la preferencia de meritocracia, también aumenta la preocupación por la desigualdad. La relación es estadísticamente significativa ($p$ < 0.001), por ende es posible rechazar $H_0$ sobre no asociación entre variables, entregando evidencia a favor de una relación entre ambas variables con un 99.9% de confianza.
+
+## Pregunta 2. A partir de la información presentada en la Tabla 1, responda las siguientes preguntas:
+
+2.1 ¿Qué limitaciones presenta el método de tratamiento de los casos perdidos en el cálculo de la matriz? (1p)
+
+- Se eliminan del análisis todos los casos (filas) que tengan al menos un valor perdido en cualquiera de las variables consideradas. Esto puede reducir drásticamente el tamaño de la muestra efectiva, especialmente si el número de variables es grande o la proporción de datos faltantes es alta.
+
+- Si los datos perdidos no son completamente al azar (MCAR), la muestra resultante puede no ser representativa del conjunto original, introduciendo sesgos en las correlaciones o en las estimaciones posteriores.
+
+- Al disminuir el número de casos analizados, aumenta el error estándar de las estimaciones, reduciendo la potencia estadística de las pruebas y la confiabilidad de los resultados.
+
+2.2a Estime y reporte una matriz de correlaciones para las variables de desigualdad, meritocracia y nivel educacional con otro método de tratamiento de casos perdidos. Corte y pegue el código de R correspondiente (1p)
+
+
+```{r}
+cormat <- dataset5 %>% 
+  dplyr::select(desigualdad, meritocracia, educ_rec)
+sjPlot::tab_corr(cormat, 
+                 na.deletion = "pairwise", # espeficicamos tratamiento NA
+                 triangle = "lower")
+```
+
+2.2b ¿Qué correlaciones de la matriz estimada en el punto anterior son estadísticamente significativas? ¿A qué nivel de confianza? (2p)
+
+Preferencia por la meritocracia y preocupación por la desigualdad, estadísticamente significativa con un 99,9% de confianza
+
+## Pregunta 3. ¿Cómo se relaciona el nivel educacional con la preferencia por la meritocracia?
+
+3.1 Reporte la tabla de contigencia y el cálculo de Chi2. Corte y pegue el código abajo. (1p)
+
+
+```{r}
+dataset5 %>%
+  sjtab(educ_rec,
+        meritocracia_rec)
+```
+
+```{r}
+chisq.test(dataset5$educ_rec, dataset5$meritocracia_rec) # adicional, ya que el Chi2 aparece en sjtab
+```
+
+3.2 Interprete el Chi2 en términos de inferencia y magnitud del efecto. (3p)
+
+$X^2$=0.493 · $df$=1 · $Cramer’s V$=0.027 · $p$=0.483 
+
+Chi cuadrado no es estadísticamente significativo (p > 0.05), tamaño de efecto pequeño/débil según la V de Cramer.
+
+Para finalizar, corra el comando sessionInfo() en R y pegue acá el resultado, para verificar la versión de R y de las librerías utilizadas.
+
+
+```{r}
+sessionInfo()
+```
