@@ -783,7 +783,72 @@ Los siguientes ejercicios deben ser elaborados en Quarto (archivo `.qmd`). Ambos
 
   1.b- Describe la relación entre las variables visualizada, referenciando el gráfico realizado (`@fig-`)
 
+```{r}
+  db_g1 <- lapop %>%
+  group_by(sexo) %>%
+  summarise(
+    media_decile = mean(decile, na.rm = TRUE),
+    error_std = sd(decile, na.rm = TRUE) / sqrt(n()),
+    ci_inf = media_decile - qt(0.975, df = n() - 1) * error_std,
+    ci_sup = media_decile + qt(0.975, df = n() - 1) * error_std
+  ) %>%
+  na.omit()
+  
+
+db_g1
+```
+
+
+```{r}
+#| label: fig-decile
+#| fig-cap: Relación entre media de decil de ingresos por sexo 
+
+ggplot(data = db_g1,
+       mapping = aes(x = sexo, y = media_decile, group = sexo)) + # especificamos datos y mapping 
+  geom_bar(stat = "identity", color = "black", fill = "steelblue") + # agregamos geometria
+  geom_errorbar(aes(ymin = ci_inf, ymax = ci_sup), width = 0.2, color = "red") + # agregamos intervalo de confianza calculado previamente
+   scale_y_continuous(limits = c(0,7), n.breaks = 7) + # agregamos escala en eje Y y ponemos limites minimos y maximos
+  geom_text(aes(label = round(media_decile,2)), vjust = 1.5, colour = "white") + # agregamos los valores de la media para cada barra/grupo 
+  labs(title ="Media de decil de ingresos por sexo", 
+       x = "Sexo", 
+       y = "Media",
+       caption = "Fuente: Elaboración propia en base a LAPOP 2018.") + # agregamos titulo, nombres a los ejes y fuente 
+  theme_bw() # especificamos tema
+```
+
+La @fig-decile muestra la relación entre los deciles de ingreso y el sexo de las personas. Los hombres tienen una media de decil de ingreso mayor que las mujeres.
 
   2.a- Elabora el gráfico correspondiente que permita visualizar de la mejor forma la relación entre pib (`gdp`) y indice gini (`gini`).
 
   2.b- Describe la relación entre las variables visualizadas, referenciando el gráfico realizado (`@fig-`)
+
+
+```{r}
+db_g2 <- lapop %>%
+  group_by(pais) %>% 
+  summarise(cm_gdp = mean(gdp, na.rm = T),
+            cm_gini = mean(gini, na.rm = T)) %>% 
+  ungroup()
+```
+
+```{r echo=TRUE, message=FALSE}
+#| label: fig-gdp
+#| fig-cap: Asociación entre PIB y el índice de desigualdad por país
+
+ggplot(data = db_g2,
+       mapping = aes(x = cm_gini, y = cm_gdp)) + # especificamos datos y mapping  
+  geom_point(size = 2, color = "darkred") + # agregamos geometria y color 
+  geom_smooth(stat = "smooth", position = "identity", method = "lm", 
+              colour = "blue", size = 0.7) + # agregamos recta que representa la correlacion
+   scale_y_continuous(limits = c(1,18), breaks = seq(1,20, by = 2)) + # agregamos escala en eje Y y ponemos limites minimos y maximos
+  scale_x_continuous(n.breaks = 7) +  # agregamos escala eje X para mostrar más valores
+  geom_text(aes(label = pais), size = 2, color = "black", 
+            nudge_y = 0.15) + # agregamos los valores de la media para cada barra/grupo
+  labs(title ="Asociación entre PIB y desigualdad de los países", 
+       y = "PIB", 
+       x = "Índice de Gini",
+       caption = "Fuente: Elaboración propia en base a LAPOP 2018.") + # agregamos titulo, nombres a los ejes y fuente 
+  theme_bw() # especificamos tema
+```
+
+La @fig-gdp muestra una relación negativa entre el PIB y el índice Gini en los países.
