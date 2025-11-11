@@ -8,7 +8,7 @@
 
 <meta name="description" content="Estadística Correlacional - Inferencia, asociación y reporte">
 
-<title>Plantilla reporte final – Estadística Correlacional</title>
+<title>Práctico 8: Gráficos bivariados en reportes dinámicos – Estadística Correlacional</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -105,13 +125,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Buscar"
   }
 }</script>
-<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
-
-<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
-
-<meta property="og:title" content="Plantilla reporte final – Estadística Correlacional">
+<meta property="og:title" content="Práctico 8: Gráficos bivariados en reportes dinámicos – Estadística Correlacional">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://correlacional.netlify.app/files/logo-correlacional.png">
 <meta property="og:site_name" content="Estadística Correlacional">
@@ -120,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:image:width" content="466">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -150,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Clases</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../assignment/index.html"> 
+    <a class="nav-link active" href="../assignment/index.html" aria-current="page"> 
 <span class="menu-text">Prácticos</span></a>
   </li>  
   <li class="nav-item">
@@ -176,77 +192,162 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment/01-practico.html">Guías</a></li><li class="breadcrumb-item"><a href="../assignment/08-practico.html">8: Visualización 2: Gráficos</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descripción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Guías</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/01-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: Curva Normal e Intervalos de Confianza</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/02-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: Test de hipótesis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/03-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: Correlación de Pearson</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/04-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4- Matrices de correlación, casos perdidos e índices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/05-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: Asociación entre categóricas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/resumen-asociacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen asociación</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/06-practico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: Visualización 1: Tablas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/07-practico-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7: Reportes dinámicos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/08-practico.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">8: Visualización 2: Gráficos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/foro-practicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Foro Prácticos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../assignment/consola.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Consola R Online</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto">Quarto</a></li>
-  <li><a href="#organización-de-un-informe-en-quarto" id="toc-organización-de-un-informe-en-quarto" class="nav-link" data-scroll-target="#organización-de-un-informe-en-quarto">Organización de un informe en Quarto</a>
+  <li><a href="#objetivo-de-la-práctica" id="toc-objetivo-de-la-práctica" class="nav-link active" data-scroll-target="#objetivo-de-la-práctica">Objetivo de la práctica</a>
   <ul class="collapse">
+  <li><a href="#recursos-de-la-práctica" id="toc-recursos-de-la-práctica" class="nav-link" data-scroll-target="#recursos-de-la-práctica">Recursos de la práctica</a></li>
   <li><a href="#crear-un-documento-quarto" id="toc-crear-un-documento-quarto" class="nav-link" data-scroll-target="#crear-un-documento-quarto">Crear un documento Quarto</a></li>
-  <li><a href="#encabezado-o-yaml" id="toc-encabezado-o-yaml" class="nav-link" data-scroll-target="#encabezado-o-yaml">Encabezado o YAML</a></li>
-  <li><a href="#apartados-y-subapartados" id="toc-apartados-y-subapartados" class="nav-link" data-scroll-target="#apartados-y-subapartados">Apartados y subapartados</a></li>
-  <li><a href="#insertar-imágenes" id="toc-insertar-imágenes" class="nav-link" data-scroll-target="#insertar-imágenes">Insertar imágenes</a></li>
   </ul></li>
-  <li><a href="#procesamiento-de-datos" id="toc-procesamiento-de-datos" class="nav-link" data-scroll-target="#procesamiento-de-datos">Procesamiento de datos</a>
+  <li><a href="#qué-es-visualizar-datos" id="toc-qué-es-visualizar-datos" class="nav-link" data-scroll-target="#qué-es-visualizar-datos">1. ¿Qué es visualizar datos?</a>
   <ul class="collapse">
-  <li><a href="#carga-de-librerías" id="toc-carga-de-librerías" class="nav-link" data-scroll-target="#carga-de-librerías">Carga de librerías</a></li>
-  <li><a href="#carga-de-datos" id="toc-carga-de-datos" class="nav-link" data-scroll-target="#carga-de-datos">Carga de datos</a></li>
-  <li><a href="#limpieza-de-datos" id="toc-limpieza-de-datos" class="nav-link" data-scroll-target="#limpieza-de-datos">Limpieza de datos</a></li>
-  <li><a href="#guardar-base-de-datos-resultante" id="toc-guardar-base-de-datos-resultante" class="nav-link" data-scroll-target="#guardar-base-de-datos-resultante">Guardar base de datos resultante</a></li>
+  <li><a href="#cómo-no-visualizar-datos" id="toc-cómo-no-visualizar-datos" class="nav-link" data-scroll-target="#cómo-no-visualizar-datos">Cómo NO visualizar datos</a></li>
+  <li><a href="#algunos-principios-para-visualizar-datos" id="toc-algunos-principios-para-visualizar-datos" class="nav-link" data-scroll-target="#algunos-principios-para-visualizar-datos">Algunos principios para visualizar datos</a></li>
   </ul></li>
-  <li><a href="#informe" id="toc-informe" class="nav-link" data-scroll-target="#informe">Informe</a>
+  <li><a href="#preparación-de-datos" id="toc-preparación-de-datos" class="nav-link" data-scroll-target="#preparación-de-datos">2. Preparación de datos</a></li>
+  <li><a href="#analizar-la-forma-de-distribución" id="toc-analizar-la-forma-de-distribución" class="nav-link" data-scroll-target="#analizar-la-forma-de-distribución">3. Analizar la forma de distribución</a></li>
+  <li><a href="#visualización-de-datos-con-ggplot2" id="toc-visualización-de-datos-con-ggplot2" class="nav-link" data-scroll-target="#visualización-de-datos-con-ggplot2">4. Visualización de datos con <code>ggplot2</code></a></li>
+  <li><a href="#visualización-bivariada-de-datos" id="toc-visualización-bivariada-de-datos" class="nav-link" data-scroll-target="#visualización-bivariada-de-datos">5. Visualización bivariada de datos</a>
   <ul class="collapse">
-  <li><a href="#introducción" id="toc-introducción" class="nav-link" data-scroll-target="#introducción">Introducción</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
-  <li><a href="#descripción-de-variables" id="toc-descripción-de-variables" class="nav-link" data-scroll-target="#descripción-de-variables">Descripción de variables</a></li>
-  <li><a href="#análisis" id="toc-análisis" class="nav-link" data-scroll-target="#análisis">Análisis</a></li>
-  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">Conclusiones</a></li>
-  <li><a href="#bibliografía" id="toc-bibliografía" class="nav-link" data-scroll-target="#bibliografía">Bibliografía</a></li>
+  <li><a href="#a-diferencias-de-medias-o-proporciones-entre-grupos" id="toc-a-diferencias-de-medias-o-proporciones-entre-grupos" class="nav-link" data-scroll-target="#a-diferencias-de-medias-o-proporciones-entre-grupos">a) Diferencias de medias (o proporciones) entre grupos</a></li>
+  <li><a href="#b-asociación-entre-continuas" id="toc-b-asociación-entre-continuas" class="nav-link" data-scroll-target="#b-asociación-entre-continuas">b) Asociación entre continuas</a></li>
+  <li><a href="#c-asociación-entre-categóricas" id="toc-c-asociación-entre-categóricas" class="nav-link" data-scroll-target="#c-asociación-entre-categóricas">c) Asociación entre categóricas</a></li>
   </ul></li>
-  <li><a href="#visualizacion-informe" id="toc-visualizacion-informe" class="nav-link" data-scroll-target="#visualizacion-informe">Visualizacion informe</a></li>
-  <li><a href="#reporte-de-progreso" id="toc-reporte-de-progreso" class="nav-link" data-scroll-target="#reporte-de-progreso">Reporte de progreso</a></li>
-  <li><a href="#video-de-práctica" id="toc-video-de-práctica" class="nav-link" data-scroll-target="#video-de-práctica">Video de práctica</a></li>
-  <li><a href="#foro" id="toc-foro" class="nav-link" data-scroll-target="#foro">Foro</a></li>
+  <li><a href="#gráficos-dentro-de-quarto" id="toc-gráficos-dentro-de-quarto" class="nav-link" data-scroll-target="#gráficos-dentro-de-quarto">6. Gráficos dentro de Quarto</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#más-ejemplos-de-visualización-de-datos" id="toc-más-ejemplos-de-visualización-de-datos" class="nav-link" data-scroll-target="#más-ejemplos-de-visualización-de-datos">Más ejemplos de visualización de datos</a></li>
+  <li><a href="#ejercicio-autónomo" id="toc-ejercicio-autónomo" class="nav-link" data-scroll-target="#ejercicio-autónomo">Ejercicio autónomo</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Plantilla reporte final</h1></header>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../assignment/01-practico.html">Guías</a></li><li class="breadcrumb-item"><a href="../assignment/08-practico.html">8: Visualización 2: Gráficos</a></li></ol></nav><h1 class="title display-7">Práctico 8: Gráficos bivariados en reportes dinámicos</h1></header>
 
 <header id="title-block-header">
 
 
 <div class="date-block bg-assignment text-white p-2">
-  <p class="date">Sesión del martes, 19 de noviembre de 2024</p>
+  <p class="date">Sesión del miércoles, 12 de noviembre de 2025</p>
 </div>
 </header>
 
 
-<p>El objetivo de esta guía es explicar el formato del informe de los trabajos del curso. Ya que la elaboración de los informes incluye análisis en R, la idea es poder aprovechar los recursos existentes para poder realizar escritura y análisis en un mismo documento. La base de esto eslla <a href="..\content/13-content">clase sobre documentos dinámicos</a> y también los prácticos sobre generación de <a href="..\assignment/06-practico">tablas</a> y <a href="..\assignment/07-practico">gráficos</a> en documentos dinámicos.</p>
-<p>Para facilitar el desarrollo de los trabajos en este entorno ponemos a disposición una carpeta que se puede bajar <a href="https://github.com/cursos-metodos-facso/plantilla_informe/archive/refs/heads/main.zip">aquí</a>. Esta carpeta está basada en el protocolo <strong>IPO</strong>, mencionado en la <a href="..\content/13-content">clase sobre documentos dinámicos</a>, con la siguente estructura de archivos y carpetas:</p>
-<ul>
-<li><em>input</em>: insumos, libro de códigos</li>
-<li><em>input/img</em>: imágenes</li>
-<li><em>input/data</em>: base de datos original</li>
-<li><em>procesamiento</em>: archivos de sintaxis .R</li>
-<li><em>output</em>: bases de datos procesada, informes, tablas, gráficos</li>
-</ul>
-<p>En detalle, aprenderemos los siguientes contenidos:</p>
+<section id="objetivo-de-la-práctica" class="level1">
+<h1>Objetivo de la práctica</h1>
+<p>El objetivo de esta guía práctica es introducir a la visualización de datos con R en documentos dinámicos mediante Quarto, considerando las mejores prácticas para comunicar datos y análisis en ciencias sociales.</p>
+<p>En detalle, aprenderemos:</p>
 <ol type="1">
-<li>Creación y organización de un informe en Quarto</li>
-<li>Generación y presentación de tablas y gráficos en Quarto</li>
-<li>Cómo autoreferenciar elementos dentro un documento Quarto</li>
+<li><p>Qué es la visualización de datos y cómo comunicarlos a una audiencia de manera eficiente, completa e insesgada.</p></li>
+<li><p>Visualizar datos bivariados con diferentes librerías, pero principalmente con <code>ggplot2</code>.</p></li>
 </ol>
-<section id="quarto" class="level1">
-<h1>Quarto</h1>
-<p><a href="https://quarto.org/">Quarto</a> es un sistema de publicación técnico y científico de código abierto. Es un lenguaje para crear y formatear documentos, similar a <strong>RMarkdown</strong>, aunque más general, con nuevas características y capacidades.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -257,331 +358,979 @@ Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>¿Quarto vs RMarkdown?</strong></p>
-<p>En clases vimos que RMarkdown es una forma de escritura de documentos dinámicos en R, que combina código y texto. Antes de la existencia de Quarto, los documentos en RMarkdown se podían renderizar a pdf, html o word con una librería llamada Knitr, pero finalmente la escritura y el renderizado pasaron a llamarse en forma genérica RMarkdown.</p>
-<p>Quarto es programa que permite producir documentos dinámicos – que combinan código y texto – más allá de R. Nosotros lo vamos a usar para renderizar documentos escritos en la lógica de RMarkdown (texto y “chunks” de R), ya que es más genérico y agrega algunas funcionalidades que superan a RMarkdown</p>
+<p>Si quieres profundizar cómo generar gráficos univariados, visita <a href="https://descriptiva-facso.netlify.app/assignment/06-practico">este práctico</a> de estadística descriptiva 2023.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<section id="recursos-de-la-práctica" class="level2">
+<h2 class="anchored" data-anchor-id="recursos-de-la-práctica">Recursos de la práctica</h2>
+<p>En esta práctica trabajaremos con un subconjunto de datos previamente procesados derivados de las encuestas realizadas en diferentes países por el <a href="https://www.vanderbilt.edu/lapop/">Latin American Public Opinion Proyect (LAPOP)</a> en su ola del 2018. Para este ejercicio, obtendremos directamente esta base desde internet. No obstante, también tienes la opción de acceder a la misma información a través del siguiente enlace: <a href="https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData"><i class="fa-solid fa-table" aria-label="table"></i> <code>LAPOP 2018</code></a>. Desde allí, podrás descargar el archivo que contiene el subconjunto procesado de la base de datos LAPOP 2018.</p>
+</section>
+<section id="crear-un-documento-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="crear-un-documento-quarto">Crear un documento Quarto</h2>
+<p>Para recordar cómo generar un archivo en Quarto, visitar el <a href="https://correlacional.netlify.app/assignment/07-practico-quarto">práctico 7</a> del curso.</p>
+</section>
+</section>
+<section id="qué-es-visualizar-datos" class="level1">
+<h1>1. ¿Qué es visualizar datos?</h1>
+<p>La visualización de datos consiste en dar sentido a filas y columnas de datos, presentándolos en un formato fácilmente comprensible a una audiencia.</p>
+<p><img src="https://descriptiva-facso.netlify.app/images/visual1.png" class="img-fluid"></p>
+<p>Visualizar datos es una de las tareas más recurrentes en estadística, al mismo tiempo que es una de las formas más delicadas de comunicar información. ¿A qué nos referimos? básicamente a que, como investigadores/as, comunicamos nuestros resultados buscando resaltar un aspecto de la realidad e intentando crear un mensaje con los datos. Por ello, <strong>es sumamente importante</strong> hacerlo de forma fidedigna, sencilla y pensando siempre en cómo la audiencia podría interpretarlo.</p>
+<p><img src="https://descriptiva-facso.netlify.app/images/visual2.png" class="img-fluid"></p>
+<section id="cómo-no-visualizar-datos" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-no-visualizar-datos">Cómo NO visualizar datos</h3>
+<p>Es bastante común ver malas formas de comunicar datos; en los medios de comunicación, redes sociales e inclusive en la misma investigación acádemica. Esto ocurre por diversos motivos, ya sea por elementos gráficos, de escalas o de orden que engañan al ojo y percepción humana. Algunos ejemplos de cómo <strong>no</strong> se deben comunicar datos son:</p>
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="https://descriptiva-facso.netlify.app/images/pinera.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En esta primera imagen vemos un muy mal (intencionado) uso de elementos visuales y escalas para intentar dar un mensaje que no se condice con los mismos datos que expone el gráfico.</p>
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure class="figure">
+<p><img src="https://descriptiva-facso.netlify.app/images/tercera.jpeg" class="img-fluid quarto-figure quarto-figure-right figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En esta segunda imagen el principal error (entre varios) es que los valores del eje x (la abscisa) del gráfico se presentan de mayor a menor… y no de menor a mayor como es usual y comunmente leen las personas.</p>
+</section>
+<section id="algunos-principios-para-visualizar-datos" class="level3">
+<h3 class="anchored" data-anchor-id="algunos-principios-para-visualizar-datos">Algunos principios para visualizar datos</h3>
+<p>¿Y entonces <strong>cómo realizar una buena/correcta visualización de datos</strong>? Tengamos como premisa la siguiente cita:</p>
+<p><em>“La excelencia gráfica es la presentación bien diseñada de datos interesantes: una cuestión de sustancia, de estadística y de diseño… [Consiste] en ideas complejas comunicadas con claridad, precisión y eficacia. … [Es] lo que da al espectador el mayor número de ideas en el menor tiempo con la menor tinta en el menor espacio … [Es] casi siempre multivariante … Y la excelencia gráfica requiere decir la verdad sobre los datos”.</em></p>
+<p><em>Tufte <span class="citation" data-cites="tufte_visual_2001">(<a href="#ref-tufte_visual_2001" role="doc-biblioref">2001</a>)</span>, The Visual Display of Quantitative Information, p.&nbsp;51</em></p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El nombre de Quarto viene del formato de un libro o panfleto producido a partir de hojas completas impresas con ocho páginas de texto, cuatro en cada lado, que luego se pliegan dos veces para producir cuatro hojas. Las hojas se recortan a lo largo de los pliegues para producir ocho páginas de libro. Cada página impresa se presenta como un cuarto del tamaño de la hoja completa.</p>
-<p>El libro impreso más antiguo de Europa conocido es un quarto, el Sibyllenbuch, que se cree que fue impreso por Johannes Gutenberg en 1452-53, antes de la Biblia de Gutenberg, y que sobrevive solo como un fragmento. Esto nos remite a las ideas de ciencia abierta y a la posibilidad de universalizar el conocimiento.</p>
+<p><strong>10 Principios para la visualización de datos</strong></p>
+<ol type="1">
+<li><p>Conoce a tu audiencia ¿Qué preguntas necesitan respuesta?</p></li>
+<li><p>Utiliza el tipo de gráfico adecuado para representar el tipo de información que se dispone.</p></li>
+<li><p>La forma sigue a la función. Concéntrate en cómo va a utilizar los datos tu público y deja que eso determine el estilo de presentación.</p></li>
+<li><p>Proporcione el contexto necesario para que los datos se interpreten y se actúe en consecuencia.</p></li>
+<li><p>Mantenga la sencillez. Elimine la información no esencial.</p></li>
+<li><p>Resalte la información más importante</p></li>
+<li><p>Utilice los colores con prudencia</p></li>
+<li><p>Utilice cuidadosamente las proporciones para que las diferencias de tamaño en el diseño representen fielmente las diferencias de valor.</p></li>
+<li><p>Sé escéptico. Pregúntese qué datos no están representados y qué información podría, por tanto, malinterpretarse o perderse.</p></li>
+<li><p>Muestra la verdad de tus datos, no lo que quisieras creer.</p></li>
+</ol>
 </div>
 </div>
 </section>
-<section id="organización-de-un-informe-en-quarto" class="level1">
-<h1>Organización de un informe en Quarto</h1>
-<section id="crear-un-documento-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="crear-un-documento-quarto">Crear un documento Quarto</h2>
-<p>Para generar un documento Quarto hacemos lo siguiente: en RStudio File &gt; New File &gt; Quarto Document</p>
-<p><img src="../files/crear-qmd.gif" class="img-fluid" style="width:100.0%"></p>
 </section>
-<section id="encabezado-o-yaml" class="level2">
-<h2 class="anchored" data-anchor-id="encabezado-o-yaml">Encabezado o YAML</h2>
-<p>Para comenzar, definiremos los elementos que van en el encabezado (front matter o YAML), al menos debemos especificar:</p>
+<section id="preparación-de-datos" class="level1">
+<h1>2. Preparación de datos</h1>
+<p>Comencemos por preparar nuestros datos. Iniciamos cargando las librerías necesarias.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, <span class="co"># Manipulacion datos</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               ggplot2, <span class="co"># Gráficos</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               sjPlot, <span class="co"># Tablas y gráficos</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               ggpubr, <span class="co"># Gráficos</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               ggmosaic) <span class="co"># Gráficos</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Cargamos los datos desde internet.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/main/lapop_proc_2018.RData"</span>)) <span class="co">#Cargar base de datos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A continuación, exploramos la base de datos <strong>lapop</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(lapop) <span class="co"># Nombre de columnas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "year"        "pais"        "pais_name"   "idnum"       "upm"        
+ [6] "strata"      "wt"          "weight1500"  "sexo"        "edad"       
+[11] "educ"        "l1"          "ideologia_f" "empleo"      "decile"     
+[16] "it1"         "prot3"       "aoj12"       "b2"          "b3"         
+[21] "b4"          "b10a"        "b12"         "b20"         "b20a"       
+[26] "b21"         "b21a"        "n9"          "n11"         "n15"        
+[31] "ros4"        "ing4"        "eff1"        "pn4"         "exc7"       
+[36] "pol1"        "vb2"         "gini"        "gdp"        </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(lapop) <span class="co"># Dimensiones</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 23386    39</code></pre>
+</div>
+</div>
+<p>Contamos con 39 variables (columnas) y 23.386 observaciones (filas).</p>
+<p>Realizamos un pequeño procesamiento de datos que nos servirá después.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformamos las variables gini y gpd en variables numéricas</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>lapop <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(<span class="st">"gini"</span>, <span class="st">"gdp"</span>), <span class="sc">~</span> <span class="fu">as.numeric</span>(.))) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="analizar-la-forma-de-distribución" class="level1">
+<h1>3. Analizar la forma de distribución</h1>
+<p>Antes de visualizar los datos, <strong>es crucial conocer el nivel de medición de nuestras variables y analizar la forma de su distribución</strong>. En esta guía utilizaremos las siguientes variables del subset de LAPOP 2018:</p>
 <ul>
-<li>Título</li>
-<li>Subtítulo</li>
-<li>Autores</li>
-<li>Fecha</li>
-<li>Idioma</li>
+<li>país [<code>pais</code>]: nominal (politómica)</li>
+<li>sexo [<code>sexo</code>]: nominal <em>(dummy)</em></li>
+<li>edad [<code>edad</code>]: continua</li>
+<li>ingreso [<code>decile</code>]: continua</li>
+<li>ideología política [<code>ideologia_f</code>]: nominal (politómica)</li>
+<li>preferencia por la redistribución [<code>ros4</code>]: ordinal (1 a 7)</li>
+<li>participación en protesta [<code>prot3</code>]: nominal <em>(dummy)</em></li>
+<li>índice de Gini [<code>gini</code>]: continua</li>
 </ul>
-<p><img src="../files/yaml_informe.png" class="img-fluid" style="width:100.0%"></p>
-<p>Con ese YAML el encabezado se ve de la siguiente forma:</p>
-<p><img src="../files/encabezado.png" class="img-fluid"></p>
+<p>Por el momento, nos concentraremos en analizar y visualizar la variable sobre preferencia por la redistribución [<code>ros4</code>]. Veamos su distribución univariada:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(lapop<span class="sc">$</span>ros4)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Gobierno debe Implementar Políticas para Reducir Desigualdadad de Ingresos (x) &lt;numeric&gt; 
+# total N=23386 valid N=23111 mean=5.31 sd=1.77
+
+Value |             Label |    N | Raw % | Valid % | Cum. %
+-----------------------------------------------------------
+    1 | Muy en desacuerdo | 1198 |  5.12 |    5.18 |   5.18
+    2 |                 2 |  899 |  3.84 |    3.89 |   9.07
+    3 |                 3 | 1650 |  7.06 |    7.14 |  16.21
+    4 |                 4 | 3033 | 12.97 |   13.12 |  29.34
+    5 |                 5 | 3880 | 16.59 |   16.79 |  46.13
+    6 |                 6 | 3882 | 16.60 |   16.80 |  62.92
+    7 |    Muy de acuerdo | 8569 | 36.64 |   37.08 | 100.00
+ &lt;NA&gt; |              &lt;NA&gt; |  275 |  1.18 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
 </section>
-<section id="apartados-y-subapartados" class="level2">
-<h2 class="anchored" data-anchor-id="apartados-y-subapartados">Apartados y subapartados</h2>
-<p>Para los títulos de los <em>apartados</em> deben poner un # antes del nombre, y para los <em>subapartados</em> cada vez más pequeños dos o más #.</p>
-<p>Por ejemplo, si ponemos:</p>
-<p># Variables</p>
-<p>## Descripción de variables</p>
-<p>Los apartados y subapartados diferirán en su tamaño y se verán de esta forma.</p>
-<p><img src="../files/apartados.png" class="img-fluid"></p>
-</section>
-<section id="insertar-imágenes" class="level2">
-<h2 class="anchored" data-anchor-id="insertar-imágenes">Insertar imágenes</h2>
-<p>Para llamar una imagen se puede utilizar el código markdown:</p>
-<p><code>![](acá_ruta_a_imagen)</code></p>
-<p>Por ejemplo, para llamar una imagen que está en la web:</p>
-<p><code>![](https://www.desarrollosocialyfamilia.gob.cl/storage/image/banner-saludmental.png)</code></p>
-<p>Se vé luego así al renderizar:</p>
-<p><img src="https://www.desarrollosocialyfamilia.gob.cl/storage/image/banner-saludmental.png" class="img-fluid"></p>
-<p>O si la imagen está en una carpeta local, ejemplo:</p>
-<p><img src="input/imagen/banner-saludmental.png" class="img-fluid"></p>
-<p>Para cambiar el tamaño de la imagen usar <code>width</code>, y para cambiar la alineación <code>fig-align</code>:</p>
-<p><code>![](input/imagen/banner-saludmental.png){width=50% fig-align="center"}</code></p>
-<p>Resulta en:</p>
-<div class="quarto-figure quarto-figure-center">
+<section id="visualización-de-datos-con-ggplot2" class="level1">
+<h1>4. Visualización de datos con <code>ggplot2</code></h1>
+<p>Una vez que conocemos cómo es la distribución de nuestras variables, procedemos a graficarlas considerando los principios para una buena visualizacion de datos.</p>
+<p><code>Ggplot</code> es un potente paquete para visualizar datos en R. <strong>Funciona por capas</strong>, comenzando desde lo más central o nuclear hasta llegar a los detalles más estéticos necesarios.</p>
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
 <figure class="figure">
-<p><img src="https://www.desarrollosocialyfamilia.gob.cl/storage/image/banner-saludmental.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+<p><img src="https://descriptiva-facso.netlify.app/images/gg.png" class="img-fluid quarto-figure quarto-figure-right figure-img" style="width:80.0%"></p>
 </figure>
 </div>
-</section>
-</section>
-<section id="procesamiento-de-datos" class="level1">
-<h1>Procesamiento de datos</h1>
-<p>El trabajo con datos se puede dividir en dos momentos: procesamiento y análisis.</p>
-<ul>
-<li><p>El <strong>procesamiento</strong> – muchas veces asociado al concepto de <em>limpieza</em> – se relaciona con la selección y recodificación de variables, generación de índices, etiquetado, etc. Básicamente, dejar los datos listos para analizar.</p></li>
-<li><p>El <strong>análisis</strong> se puede dividir en dos etapas: descriptivo y test de hipótesis. En el descriptivo se generan tablas y gráficos univariados y bivariados para mostrar características generales de las variables, como distribución, tendencia central, casos perdidos. Y el test de hipótesis refiere a pruebas estadísticas, contraste con valores críticos, significación estadística y decisión de rechazar hipótesis nula.</p></li>
-</ul>
-<p>En relación a la organización de los archivos, una opción es incluir el procesamiento y el análisis en un único documento reproducible de reporte. Sin embargo, una opción más eficiente es realizar el procesamiento en un documento aparte, ya que puede tomar mucho espacio en el documento de reporte, y además requiere correr muchos análisis cada vez que se renderiza, aumentando el tiempo de procesamiento.</p>
-<p>Por lo tanto, la recomendación es generar un documento de procesamiento (puede ser un archivo de código simple tipo procesamiento.R) que se almacena en la carpeta de procesamiento. Este documento comienza llamando la base de datos original, y al final guarda una base de datos procesada. Esta base de datos procesada es luego la que se llama desde el documento de reporte en la carpeta raíz.</p>
-<section id="carga-de-librerías" class="level2">
-<h2 class="anchored" data-anchor-id="carga-de-librerías">Carga de librerías</h2>
-<p>Las librerías que utilizaremos en esta guía práctica son:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse,   <span class="co"># manipulacion datos</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               sjPlot,      <span class="co"># tablas</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               confintr,    <span class="co"># IC</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               gginference, <span class="co"># visualizacion </span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               rempsyc,     <span class="co"># reporte</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               broom,       <span class="co"># varios</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>               sjmisc,      <span class="co"># para descriptivos</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               knitr)       <span class="co"># para       </span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># para desactivar notacion cientifica</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># para limpiar el entorno de trabajo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="carga-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="carga-de-datos">Carga de datos</h2>
-<p>Como señalamos antes, cargaremos los datos del Estudio Longitudinal Social de Chile (ELSOC) para ejemplificar. En esta guía práctica llamaremos los datos desde la web, pero en la carpeta del proyecto se encuentran alojados en la carpeta <code>input/data</code>, y se llama de la siguiente forma:</p>
-<p><code>load("input/data/ELSOC_Long.RData")</code></p>
-<p>Pero, para llamar la base de datos desde la web:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://dataverse.harvard.edu/api/access/datafile/7245118"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ol type="1">
+<li>La <strong>primera capa corresponde a los datos</strong>, es decir, las variables que queremos graficar ya listas y procesadas.</li>
+<li>La <strong>segunda corresponde</strong> al “mapping”, que es básicamente determinar <strong>cuáles variables serán el eje X e Y</strong>, si existen grupos u otros.</li>
+<li>La <strong>tercera es la geometría</strong>, la cual se refiere a la <strong>forma</strong> que tendrá el gráfico (líneas, barras, puntos, boxplot, violinplot, etc.).</li>
+</ol>
 </section>
-<section id="limpieza-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="limpieza-de-datos">Limpieza de datos</h2>
-<p>Realizaremos un tratamiento simple de los casos:</p>
+<section id="visualización-bivariada-de-datos" class="level1">
+<h1>5. Visualización bivariada de datos</h1>
+<p>El primer paso (recomendado) para generar gráficos en R es crear un objeto o base de datos ya procesada que contenga las variables que nos interesan listas para graficar. Luego, ir aplicando capa por capa los diferentes elementos de mapping, geometría, escalas, estadísticas y elementos estéticos útiles.</p>
+<section id="a-diferencias-de-medias-o-proporciones-entre-grupos" class="level3">
+<h3 class="anchored" data-anchor-id="a-diferencias-de-medias-o-proporciones-entre-grupos">a) Diferencias de medias (o proporciones) entre grupos</h3>
+<p>Evaluemos si, visualmente, se observan diferencias en la media de preferencia por la redistribución entre las personas que se definen como de izquierda, centro, derecha y no identificada.</p>
+<section id="con-ggplot2" class="level4">
+<h4 class="anchored" data-anchor-id="con-ggplot2">Con <code>ggplot2</code></h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Mapping</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Geometría</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Estadísticas (opcional)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Escala</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">Etiquetas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false">Plot final</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar casos y seleccionar variables</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> elsoc_long_2016_2022<span class="fl">.2</span> <span class="sc">%&gt;%</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ola<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">sexo=</span>m0_sexo,<span class="at">edad=</span>m0_edad,<span class="at">nedu=</span>m01,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         s11_01,s11_02,s11_03,s11_04,s11_05,s11_06,s11_07,s11_08,s11_09)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># remover NA's</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_na</span>(., <span class="at">na =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">888</span>, <span class="sc">-</span><span class="dv">999</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># crear variable nueva </span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sint_depresivos =</span> <span class="fu">mean</span>(<span class="fu">c</span>(s11_01,s11_02,s11_03,s11_04,s11_05,s11_06,s11_07,s11_08,s11_09))) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>db_g1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ideologia_f) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_ros4 =</span> <span class="fu">mean</span>(ros4, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">error_std =</span> <span class="fu">sd</span>(ros4, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_inf =</span> media_ros4 <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> error_std,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_sup =</span> media_ros4 <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> error_std</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>db_g1</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 4 × 5</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="do">##   ideologia_f  media_ros4 error_std ci_inf ci_sup</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;fct&gt;             &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Derecha            5.34    0.0222   5.29   5.38</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Centro             5.40    0.0199   5.36   5.44</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 Izquierda          5.33    0.0220   5.29   5.37</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 No declarado       5.05    0.0327   4.98   5.11</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="guardar-base-de-datos-resultante" class="level2">
-<h2 class="anchored" data-anchor-id="guardar-base-de-datos-resultante">Guardar base de datos resultante</h2>
-<p>Guardamos la base de datos procesada en la carpeta de <em>output</em>, con</p>
-<p><code>saveRDS(data, "output/data.Rdata")</code></p>
-</section>
-</section>
-<section id="informe" class="level1">
-<h1>Informe</h1>
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<blockquote class="blockquote">
-<p>En este apartado pueden poner su introducción, de acuerdo con la pauta del trabajo que se encuentra disponible en el <a href="https://correlacional.netlify.app/trabajos">enlace</a>.</p>
-</blockquote>
-<p>En este ejemplo daremos una mirada a la salud mental, y exploraremos posibles asociaciones con la edad, sexo y nivel educacional.</p>
-</section>
-<section id="variables" class="level2">
-<h2 class="anchored" data-anchor-id="variables">Variables</h2>
-<blockquote class="blockquote">
-<p>En este apartado pueden poner sus variables, de acuerdo con la pauta del trabajo que se encuentra disponible en el <a href="https://correlacional.netlify.app/trabajos">enlace</a>.</p>
-</blockquote>
-<p>A continuación, en nuestro ejemplo describiremos las variables necesarias para responder a nuestro objetivo.</p>
-</section>
-<section id="descripción-de-variables" class="level2">
-<h2 class="anchored" data-anchor-id="descripción-de-variables">Descripción de variables</h2>
-<p>En este ejemplo, se seleccionaron las variables:</p>
-<ul>
-<li>sexo: sexo del encuestado, con nivel de medición nominal</li>
-<li>edad: edad del encuestado, con nivel de medición intervalar</li>
-<li>nedu: nivel educativo del encuestado, con nivel de medición ordinal</li>
-</ul>
-<p>Y las variables del módulo de Salud y Bienestar, referentes a <em>Estado de ánimo: sintomatología depresiva</em>, con nivel de medición ordinal, los ítems son los siguientes:</p>
-<ul>
-<li>Frecuencia: Poco interés o alegría</li>
-<li>Frecuencia: Decaimiento, pesadez o desesperanza</li>
-<li>Frecuencia: Dificultad para dormir o exceso de sueño</li>
-<li>Frecuencia: Cansancio o sensación de falta de energía</li>
-<li>Frecuencia: Apetito disminuido o aumentado</li>
-<li>Frecuencia: Dificultad para concentrarse</li>
-<li>Frecuencia: Mala opinión de sí mismo</li>
-<li>Frecuencia: Enlentecimiento físico</li>
-<li>Frecuencia: Pensamiento de muerte o dañarse</li>
-</ul>
-<blockquote class="blockquote">
-<p>Podemos caargar los datos en nuestro informe sin que se vea poniendo la option <code>echo=FALSE</code>: <code>data &lt;-readRDS("output/data.RData")</code>.</p>
-</blockquote>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sexo) <span class="sc">%&gt;%</span> <span class="co"># agrupamos por sexo</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co"># contamos por categ de respuesta</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> <span class="fu">round</span>((n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)) <span class="co"># porcentaje</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>pm <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(tab1[<span class="dv">2</span>,<span class="dv">3</span>])</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>ph <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(tab1[<span class="dv">1</span>,<span class="dv">3</span>])</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>tabla1 <span class="ot">&lt;-</span> tab1 <span class="sc">%&gt;%</span> </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">"html"</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">align =</span> <span class="st">"c"</span>,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Sexo"</span>, <span class="st">"n"</span>, <span class="st">"Proporción"</span>),</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">caption =</span> <span class="st">"Tabla 1. Distribución de sexo"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_classic</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>, <span class="at">font_size =</span> <span class="dv">14</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">add_footnote</span>(<span class="at">label =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2016."</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>En la <a href="#tbl-sexo" class="quarto-xref">Tabla&nbsp;1</a> podemos ver que la proporción de mujeres que responde la encuesta corresponde a 60.12%, mientras que la propoción de hombres corresponde a 39.88%.</p>
-<div class="cell" data-tbl-cap-location="top">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tabla1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-sexo" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-cap-location="top">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sexo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;1: Distribución de sexo
-</figcaption>
-<div aria-describedby="tbl-sexo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g1,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ideologia_f, <span class="at">y =</span> media_ros4)) <span class="co"># especificamos datos y mapping </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="lightable-classic do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Tabla 1. Distribución de sexo</caption>
-<thead>
-<tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Sexo</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">n</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Proporción</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1151</td>
-<td style="text-align: center;">39.88</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">1735</td>
-<td style="text-align: center;">60.12</td>
-</tr>
-</tbody><tfoot>
-<tr class="odd">
-<td style="text-align: center; padding: 0; border: 0;"><sup>a</sup> Fuente: Elaboración propia en base a ELSOC 2016.</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-</tfoot>
-
-</table>
-</div>
-</div>
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<blockquote class="blockquote">
-<p>En las options del chunk desde el que llamamos a la tabla le ponemos <code>tbl-nombre tabla</code> para etiquetarla, y luego en el texto ponemos <code>@tbl-nombre-tabla</code> para referenciarla. También, cuando queremos llamar un valor, es necesario asignarlo a un objeto, y en el texto lo llamamos con:</p>
-</blockquote>
-<p><img src="../files/resul-m.png" class="img-fluid"></p>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g1,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ideologia_f, <span class="at">y =</span> media_ros4)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping </span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="co"># agregamos geometria </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g1,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ideologia_f, <span class="at">y =</span> media_ros4, <span class="at">group =</span> ideologia_f)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span> <span class="co"># agregamos geometria</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ci_inf, <span class="at">ymax =</span> ci_sup), <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="co"># agregamos intervalo de confianza calculado previamente</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g1,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ideologia_f, <span class="at">y =</span> media_ros4, <span class="at">group =</span> ideologia_f)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping </span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span> <span class="co"># agregamos geometria</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ci_inf, <span class="at">ymax =</span> ci_sup), <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> <span class="co"># agregamos intervalo de confianza calculado previamente</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), <span class="at">n.breaks =</span> <span class="dv">7</span>)  <span class="co"># agregamos escala en eje Y y ponemos limites minimos y maximos</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g1,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ideologia_f, <span class="at">y =</span> media_ros4, <span class="at">group =</span> ideologia_f)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping </span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span> <span class="co"># agregamos geometria</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ci_inf, <span class="at">ymax =</span> ci_sup), <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> <span class="co"># agregamos intervalo de confianza calculado previamente</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), <span class="at">n.breaks =</span> <span class="dv">7</span>) <span class="sc">+</span> <span class="co"># agregamos escala en eje Y y ponemos limites minimos y maximos</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(media_ros4,<span class="dv">2</span>)), <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">colour =</span> <span class="st">"white"</span>) <span class="co"># agregamos los valores de la media para cada barra/grupo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g1,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> ideologia_f, <span class="at">y =</span> media_ros4, <span class="at">group =</span> ideologia_f)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping </span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> <span class="co"># agregamos geometria</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ci_inf, <span class="at">ymax =</span> ci_sup), <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> <span class="co"># agregamos intervalo de confianza calculado previamente</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), <span class="at">n.breaks =</span> <span class="dv">7</span>) <span class="sc">+</span> <span class="co"># agregamos escala en eje Y y ponemos limites minimos y maximos</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(media_ros4,<span class="dv">2</span>)), <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">colour =</span> <span class="st">"white"</span>) <span class="sc">+</span> <span class="co"># agregamos los valores de la media para cada barra/grupo </span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span><span class="st">"Media de preferencia por la redistribución según ideología política"</span>, </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Ideología política"</span>, </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Media"</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>) <span class="sc">+</span> <span class="co"># agregamos titulo, nombres a los ejes y fuente </span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># especificamos tema</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="análisis" class="level2">
-<h2 class="anchored" data-anchor-id="análisis">Análisis</h2>
-<blockquote class="blockquote">
-<p>En este apartado pueden poner sus análisis, de acuerdo con la pauta del trabajo que se encuentra disponible en el <a href="https://correlacional.netlify.app/trabajos">enlace</a>.</p>
-</blockquote>
-<p>En nuestro ejemplo, analizaremos la correlación entre algunas variables.</p>
+</section>
+<section id="b-asociación-entre-continuas" class="level3">
+<h3 class="anchored" data-anchor-id="b-asociación-entre-continuas">b) Asociación entre continuas</h3>
+<p>Evaluemos cómo se asocian la preferencias por la redistribución de los países con su nivel de desigualdad económica.</p>
+<section id="con-ggplot2-1" class="level4">
+<h4 class="anchored" data-anchor-id="con-ggplot2-1">Con <code>ggplot2</code></h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Mapping</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Geometría</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">Estadísticas (opcional)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Escala</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false">Etiquetas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-7" role="tab" aria-controls="tabset-2-7" aria-selected="false">Plot final</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cor_edad_dep <span class="ot">&lt;-</span> <span class="fu">cor</span>(data<span class="sc">$</span>edad, data<span class="sc">$</span>sint_depresivos)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cor_nedu_dep <span class="ot">&lt;-</span> <span class="fu">cor</span>(data<span class="sc">$</span>nedu, data<span class="sc">$</span>sint_depresivos)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>cor_nedu_edad <span class="ot">&lt;-</span> <span class="fu">cor</span>(data<span class="sc">$</span>nedu, data<span class="sc">$</span>edad)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>db_g2 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cm_ros4 =</span> <span class="fu">mean</span>(ros4, <span class="at">na.rm =</span> T),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">cm_gini =</span> <span class="fu">mean</span>(gini, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(db_g2)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 3</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="do">##   pais  cm_ros4 cm_gini</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 ARG      5.43    41.1</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 BOL      4.72    44.6</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 BRA      5.43    53.3</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 CHL      5.69    44.4</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 COL      5.37    49.7</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 CRI      6.05    48.3</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(nedu) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sint_dep =</span> <span class="fu">mean</span>(sint_depresivos, <span class="at">na.rm =</span> T),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">edad=</span><span class="fu">mean</span>(edad, <span class="at">na.rm =</span> T))</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>grafico1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> g1,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sint_dep, <span class="at">y =</span> edad, <span class="at">label =</span> nedu)) <span class="sc">+</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,<span class="at">colour =</span> <span class="st">"black"</span>,<span class="at">fill=</span><span class="st">"lightblue"</span>,<span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sintomatología depresiva"</span>,</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Edad"</span>,</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a ELSOC 2026"</span>) <span class="sc">+</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cm_gini, <span class="at">y =</span> cm_ros4)) <span class="co"># especificamos datos y mapping </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<p>En la <a href="#fig-cor_edad_dep" class="quarto-xref">Figura&nbsp;1</a> es posible apreciar… La correlación entre la edad y el promedio de la sintomatología depresiva corresponde a 0.0176236.</p>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cm_gini, <span class="at">y =</span> cm_ros4)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping  </span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"darkred"</span>)  <span class="co"># agregamos geometria y color </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cm_gini, <span class="at">y =</span> cm_ros4)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping  </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"darkred"</span>) <span class="sc">+</span> <span class="co"># agregamos geometria y color </span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">stat =</span> <span class="st">"smooth"</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">0.7</span>) <span class="co"># agregamos recta que representa la correlacion</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cm_gini, <span class="at">y =</span> cm_ros4)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping  </span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"darkred"</span>) <span class="sc">+</span> <span class="co"># agregamos geometria y color </span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">stat =</span> <span class="st">"smooth"</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="co"># agregamos recta que representa la correlacion</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="fl">6.5</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">4</span>,<span class="fl">6.5</span>, <span class="at">by =</span> <span class="fl">0.5</span>))  <span class="sc">+</span> <span class="co"># agregamos escala en eje Y y ponemos limites minimos y maximos</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">7</span>) <span class="co"># agregamos escala eje X para mostrar más valores</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-6-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cm_gini, <span class="at">y =</span> cm_ros4)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping  </span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"darkred"</span>) <span class="sc">+</span> <span class="co"># agregamos geometria y color </span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">stat =</span> <span class="st">"smooth"</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="co"># agregamos recta que representa la correlacion</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="fl">6.5</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">4</span>,<span class="fl">6.5</span>, <span class="at">by =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> <span class="co"># agregamos escala en eje Y y ponemos limites minimos y maximos</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">7</span>) <span class="sc">+</span><span class="co"># agregamos escala eje X para mostrar más valores </span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> pais), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">nudge_y =</span> <span class="fl">0.15</span>) <span class="co"># agregamos los valores de la media para cada barra/grupo</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-7-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cm_gini, <span class="at">y =</span> cm_ros4)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping  </span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"darkred"</span>) <span class="sc">+</span> <span class="co"># agregamos geometria y color </span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">stat =</span> <span class="st">"smooth"</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="co"># agregamos recta que representa la correlacion</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="fl">6.5</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">4</span>,<span class="fl">6.5</span>, <span class="at">by =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> <span class="co"># agregamos escala en eje Y y ponemos limites minimos y maximos</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">7</span>) <span class="sc">+</span>  <span class="co"># agregamos escala eje X para mostrar más valores</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> pais), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">nudge_y =</span> <span class="fl">0.15</span>) <span class="sc">+</span> <span class="co"># agregamos los valores de la media para cada barra/grupo</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span><span class="st">"Asociación entre preferencia por la redistribución y desigualdad de los países"</span>, </span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Media preferencias redistributivas"</span>, </span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Índice de Gini"</span>,</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>) <span class="sc">+</span> <span class="co"># agregamos titulo, nombres a los ejes y fuente </span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># especificamos tema</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="con-ggpubr" class="level4">
+<h4 class="anchored" data-anchor-id="con-ggpubr">Con <code>ggpubr</code></h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Mapping y geometría</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Estadísticas (opcional)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Etiquetas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false">Plot final</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>db_g2 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cm_ros4 =</span> <span class="fu">mean</span>(ros4, <span class="at">na.rm =</span> T),</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">cm_gini =</span> <span class="fu">mean</span>(gini, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(db_g2)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 3</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="do">##   pais  cm_ros4 cm_gini</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 ARG      5.43    41.1</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 BOL      4.72    44.6</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 BRA      5.43    53.3</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 CHL      5.69    44.4</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 COL      5.37    49.7</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 CRI      6.05    48.3</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"cm_gini"</span>, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"cm_ros4"</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"darkred"</span>) <span class="co"># agregamos mapping y geometría a la vez</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"cm_gini"</span>, </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"cm_ros4"</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"darkred"</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">cor.coef =</span> T, <span class="co"># mostrar coef corr</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">cor.coef.size =</span> <span class="dv">4</span>, <span class="co"># tamaño texto coef corr</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">add =</span> <span class="st">"reg.line"</span>,  <span class="co"># mostrar linea de reg</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.int =</span> T,  <span class="co"># mostrar SE</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.params =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">fill =</span> <span class="st">"lightgray"</span>)) <span class="co"># colores</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"cm_gini"</span>, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"cm_ros4"</span>,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"darkred"</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">cor.coef =</span> T, <span class="co"># mostrar coef corr</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">cor.coef.size =</span> <span class="dv">4</span>, <span class="co"># tamaño texto coef corr</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">add =</span> <span class="st">"reg.line"</span>,  <span class="co"># mostrar linea de reg</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.int =</span> T,  <span class="co"># mostrar SE</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.params =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">fill =</span> <span class="st">"lightgray"</span>), <span class="co"># colores</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"pais"</span>,</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">font.label =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="st">"plain"</span>)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="st">"cm_gini"</span>, </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">"cm_ros4"</span>,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">"darkred"</span>,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">cor.coef =</span> T, <span class="co"># mostrar coef corr</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">cor.coef.size =</span> <span class="dv">4</span>, <span class="co"># tamaño texto coef corr</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">add =</span> <span class="st">"reg.line"</span>,  <span class="co"># mostrar linea de reg</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.int =</span> T,  <span class="co"># mostrar SE</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">add.params =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">fill =</span> <span class="st">"lightgray"</span>), <span class="co"># colores</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"pais"</span>,</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">font.label =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="st">"plain"</span>)</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span><span class="st">"Asociación entre preferencia por la redistribución y desigualdad de los países"</span>, </span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Media preferencias redistributivas"</span>, </span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Índice de Gini"</span>,</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>) <span class="sc">+</span> <span class="co"># agregamos titulo, nombres a los ejes y fuente </span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># especificamos tema</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="con-sjplot" class="level4">
+<h4 class="anchored" data-anchor-id="con-sjplot">Con <code>sjPlot</code></h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Mapping y geometría</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Estadísticas (opcional)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">Etiquetas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-5" role="tab" aria-controls="tabset-4-5" aria-selected="false">Plot final</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>db_g2 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cm_ros4 =</span> <span class="fu">mean</span>(ros4, <span class="at">na.rm =</span> T),</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">cm_gini =</span> <span class="fu">mean</span>(gini, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(db_g2)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 3</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="do">##   pais  cm_ros4 cm_gini</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 ARG      5.43    41.1</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 BOL      4.72    44.6</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 BRA      5.43    53.3</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 CHL      5.69    44.4</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 COL      5.37    49.7</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 CRI      6.05    48.3</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(<span class="at">data =</span> db_g2, </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> cm_gini,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> cm_ros4) <span class="co"># agregamos mapping y geometría a la vez</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(<span class="at">data =</span> db_g2, </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> cm_gini,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> cm_ros4, </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fit.line =</span> <span class="st">"lm"</span>, <span class="co"># mostrar linea de reg</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">show.ci =</span> T,<span class="co"># mostrar SE</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dot.size =</span> <span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> db_g2, </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> cm_gini,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> cm_ros4, </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fit.line =</span> <span class="st">"lm"</span>,      <span class="co"># Mostrar línea de regresión</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.ci =</span> <span class="cn">TRUE</span>,       <span class="co"># Mostrar intervalo de confianza</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">dot.size =</span> <span class="dv">3</span>,</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">dot.labels =</span> db_g2<span class="sc">$</span>pais <span class="co"># Etiquetas de los puntos</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-5-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> db_g2, </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> cm_gini,</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> cm_ros4, </span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fit.line =</span> <span class="st">"lm"</span>,      <span class="co"># Mostrar línea de regresión</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.ci =</span> <span class="cn">TRUE</span>,       <span class="co"># Mostrar intervalo de confianza</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">dot.size =</span> <span class="dv">3</span>,</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">dot.labels =</span> db_g2<span class="sc">$</span>pais <span class="co"># Etiquetas de los puntos</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span><span class="st">"Asociación entre preferencia por la redistribución y desigualdad de los países"</span>, </span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Media preferencias redistributivas"</span>, </span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Índice de Gini"</span>,</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>) <span class="sc">+</span> <span class="co"># agregamos titulo, nombres a los ejes y fuente </span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># especificamos tema</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="c-asociación-entre-categóricas" class="level3">
+<h3 class="anchored" data-anchor-id="c-asociación-entre-categóricas">c) Asociación entre categóricas</h3>
+<p>Evaluemos la asociación entre la participación en protestas y la ideología política de los individuos.</p>
+<section id="con-ggmosaic-y-ggplot2" class="level4">
+<h4 class="anchored" data-anchor-id="con-ggmosaic-y-ggplot2">Con <code>ggmosaic</code> y <code>ggplot2</code></h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Datos</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Mapping y geometría</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">Estadísticas (opcional) y etiquetas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-4" role="tab" aria-controls="tabset-5-4" aria-selected="false">Escala</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-5" role="tab" aria-controls="tabset-5-5" aria-selected="false">Plot final</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>db_g3 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(prot3, ideologia_f) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(db_g3)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 2</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   prot3 ideologia_f </span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;fct&gt; &lt;fct&gt;       </span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 No    Centro      </span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 No    No declarado</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 No    Derecha     </span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 No    Centro      </span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 No    Centro      </span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 No    Centro</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g3) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="fu">product</span>(prot3, ideologia_f), <span class="at">fill =</span> ideologia_f)) <span class="co"># agregamos mapping y geometría a la vez</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g3) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="fu">product</span>(prot3, ideologia_f), <span class="at">fill =</span> ideologia_f)) <span class="sc">+</span> <span class="co"># agregamos mapping y geometría a la vez</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">layer_data</span>(<span class="fu">last_plot</span>(), <span class="dv">1</span>),</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> (xmin <span class="sc">+</span> xmax)<span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> (ymin <span class="sc">+</span> ymax)<span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>((.wt<span class="sc">/</span><span class="fu">sum</span>(.wt))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">1</span>),<span class="st">"%"</span>))) <span class="co"># agregamos porcentajes de cada combinación de categórias</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-4-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g3) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="fu">product</span>(prot3, ideologia_f), <span class="at">fill =</span> ideologia_f)) <span class="sc">+</span> <span class="co"># agregamos mapping y geometría a la vez</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">layer_data</span>(<span class="fu">last_plot</span>(), <span class="dv">1</span>),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> (xmin <span class="sc">+</span> xmax)<span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> (ymin <span class="sc">+</span> ymax)<span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>((.wt<span class="sc">/</span><span class="fu">sum</span>(.wt))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">1</span>),<span class="st">"%"</span>))) <span class="sc">+</span><span class="co"># agregamos porcentajes de cada combinación de categórias</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name =</span> <span class="st">""</span>,</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Derecha"</span>,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"Centro"</span>,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"Izquierda"</span>, </span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"No declarado"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-5-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g3) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="fu">product</span>(prot3, ideologia_f), <span class="at">fill =</span> ideologia_f)) <span class="sc">+</span> <span class="co"># agregamos mapping y geometría a la vez</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> <span class="fu">layer_data</span>(<span class="fu">last_plot</span>(), <span class="dv">1</span>),</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> (xmin <span class="sc">+</span> xmax)<span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> (ymin <span class="sc">+</span> ymax)<span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>((.wt<span class="sc">/</span><span class="fu">sum</span>(.wt))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">1</span>),<span class="st">"%"</span>))) <span class="sc">+</span><span class="co"># agregamos porcentajes de cada combinación de categórias</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name =</span> <span class="st">""</span>,</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Derecha"</span>,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"Centro"</span>,</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"Izquierda"</span>, </span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"No declarado"</span>)) <span class="sc">+</span> </span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span><span class="st">"Asociación entre participación en protestas e ideología política"</span>, </span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Participación protesta"</span>, </span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Ideología política"</span>,</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>) <span class="sc">+</span> <span class="co"># agregamos titulo, nombres a los ejes y fuente </span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># especificamos tema</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="gráficos-dentro-de-quarto" class="level1">
+<h1>6. Gráficos dentro de Quarto</h1>
+<p>Una de las ventajas de usar documentos dinámicos con Quarto es que podemos autoreferenciar los gráficos que creamos dentro del mismo documento, además de especificar una serie de propiedades para ajustar la presentación de nuestro gráfico.</p>
+<p>Para especificar elementos de presentación de gráficos en un documento Quarto usaremos las opciones de <strong>chunks</strong>. Algunas de las más comunes son:</p>
+<ul>
+<li><code>label</code>: para especificar el nombre y tipo de elemento, cuando es una figura debemos nombrar al chunk con el prefijo <code>fig-</code> antes del nombre respectivo</li>
+<li><code>fig-align</code>: para espeficiar alineación del gráfico en el documento (left, right, center)</li>
+<li><code>out-width</code>: para especificar el tamaño del gráfico en el documento</li>
+<li><code>fig-cap</code>: para espeficiar el título del gráfico que se muestra en el documento</li>
+</ul>
+<p>¿Cómo las referenciamos? para referenciar tablas o figuras debemos usar el prefijo @ antes del nombre que le dimos al elemento.</p>
+<p>Tomemos por ejemplo el siguiente gráfico que muestra el promedio de preferencias redistribuivas (<code>ros4</code>) y del índice de Gini de los países (<code>gini</code>). Esto lo haremos paso por paso.</p>
+<ul>
+<li>Primero, creamos un objeto llamado <code>g1</code> en donde almacenaremos la información que queremos graficar.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cm_ros4 =</span> <span class="fu">mean</span>(ros4, <span class="at">na.rm =</span> T),</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">cm_gini =</span> <span class="fu">mean</span>(gini, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Ahora, graficamos esta asociación en un objeto llamado <code>grafico1</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>grafico1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> g1,</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cm_gini, <span class="at">y =</span> cm_ros4, <span class="at">label =</span> pais)) <span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,<span class="at">colour =</span> <span class="st">"black"</span>,<span class="at">fill=</span><span class="st">"lightblue"</span>,<span class="at">size=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> pais), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">nudge_y =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Índice de Gini"</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Preferencias redistributivas"</span>,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018"</span>) <span class="sc">+</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-practico_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Llamemos a nuestro <code>grafico1</code>, pero ahora especificando en el chunk:</p>
+<pre><code>```{r}
+#| label: fig-asociacion
+#| fig-align: center 
+#| out-width: '80%'
+#| fig-cap: 'Asociación entre Índice de Gini y Preferencias Redistributivas'
+#| echo: true
+
+grafico1
+
+```</code></pre>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>grafico1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-cor_edad_dep" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-asociacion" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cor_edad_dep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="08-practico_files/figure-html/fig-cor_edad_dep-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+<div aria-describedby="fig-asociacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-practico_files/figure-html/fig-asociacion-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cor_edad_dep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1: Correlación entre edad y sintomatología depresiva
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-asociacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Asociación entre Índice de Gini y Preferencias Redistributivas
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
+<p>Ahora tenemos un gráfico centrado, más grande y con un título en nuestro documento. Además, podemos llamar a este gráfico usando <code>@fig-asociacion</code>.</p>
+<p>Texto de ejemplo:</p>
 <blockquote class="blockquote">
-<p>En las options del chunk desde el que llamamos a la figura le ponemos <code>fig-nombre figura</code> para etiquetarla, y luego en el texto ponemos <code>@fig-nombre-figura</code> para referenciarla.</p>
+<p>En la <a href="#fig-asociacion" class="quarto-xref">Figura&nbsp;1</a> se muestra la asociación entre el promedio de preferencia por la redistribución y el nivel de desigualdad ecónomica de los países.</p>
 </blockquote>
 </section>
-<section id="conclusiones" class="level2">
-<h2 class="anchored" data-anchor-id="conclusiones">Conclusiones</h2>
-<blockquote class="blockquote">
-<p>En este apartado pueden poner sus conclusiones, de acuerdo con la pauta del trabajo que se encuentra disponible en el <a href="https://correlacional.netlify.app/trabajos">enlace</a>.</p>
-</blockquote>
-<p>Aquí redactamos algunas conclusiones.</p>
+<section id="resumen" class="level1">
+<h1>Resumen</h1>
+<p>Hoy aprendimos a visualizar y reportar gráficos bivariados en documentos dinámicos con Quarto, así como también a autoreferenciar elementos dentro de un documento qmd. En detalle, aprendímos:</p>
+<ol type="1">
+<li>Generación y presentación de gráficos en Quarto a través de <code>ggplot2</code></li>
+<li>Otras opciones de gráficos rapidas para distintos tipos de análisis</li>
+<li>Cómo autoreferenciar elementos dentro un documento Quarto</li>
+</ol>
 </section>
-<section id="bibliografía" class="level2">
-<h2 class="anchored" data-anchor-id="bibliografía">Bibliografía</h2>
-<blockquote class="blockquote">
-<p>En este apartado pueden poner su bibliografía, de acuerdo con la pauta del trabajo que se encuentra disponible en el <a href="https://correlacional.netlify.app/trabajos">enlace</a>.</p>
-</blockquote>
-<p>Ponemos un <code>-</code> para generar un listado.</p>
+<section id="más-ejemplos-de-visualización-de-datos" class="level1">
+<h1>Más ejemplos de visualización de datos</h1>
 <ul>
-<li><p>COES (2023). <em>Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2022. Presentación de Resultados COES</em>. Marzo, Santiago de Chile.</p></li>
-<li><p>R Core Team (2023). <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing, Vienna, Austria. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p></li>
+<li><a href="https://socviz.co/">Data Visualization A practical introduction, Kieran Healy</a></li>
+<li><a href="https://datavizf24.classes.andrewheiss.com/">Data Visualization with R, Andrew Heiss</a></li>
+<li><a href="https://rkabacoff.github.io/datavis/">Modern Data Visualization with R, Robert Kabacoff</a></li>
+<li><a href="https://r4ds.had.co.nz/data-visualisation.html">R for Data Sciencie, Hadley Wickham</a></li>
+<li><a href="https://r-graph-gallery.com/">R Graph Gallery</a></li>
 </ul>
 </section>
-</section>
-<section id="visualizacion-informe" class="level1">
-<h1>Visualizacion informe</h1>
-<p>Finalmente, podemos ver el informe que hemos creado en este <a href="https://rpubs.com/DaniOlivaresCollio/1118647">enlace</a>.</p>
-</section>
-<section id="reporte-de-progreso" class="level1">
-<h1>Reporte de progreso</h1>
-<p>Completar el reporte de progreso correspondiente a esta práctica <a href="https://docs.google.com/forms/d/1cJbjoBBweNANbBaEb4PGIg9wGJdA_bDRap-gMc3Ma3c/edit">aquí</a>. El plazo para contestarlo es hasta el día martes de la semana siguiente a la que se publica la práctica correspondiente.</p>
-</section>
-<section id="video-de-práctica" class="level1">
-<h1>Video de práctica</h1>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/FvcfVg-ONiM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section>
-<section id="foro" class="level1">
-<h1>Foro</h1>
-<script src="https://giscus.app/client.js" data-repo="cursos-metodos-facso/correlacional" data-repo-id="R_kgDOKCMXJQ" data-category="Q&amp;A" data-category-id="DIC_kwDOKCMXJc4CYd9S" data-mapping="title" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="es" crossorigin="anonymous" async="">
-</script>
+<section id="ejercicio-autónomo" class="level1">
+<h1>Ejercicio autónomo</h1>
+<p>Los siguientes ejercicios deben ser elaborados en Quarto (archivo <code>.qmd</code>). Ambos gráficos deben estar correctamente titulados (<code>fig-cap</code>) y referenciados (<code>label</code>)</p>
+<p>1.a- Elabora el gráfico correspondiente que permita visualizar de la mejor forma la relación entre deciles de ingreso (<code>decile</code>) y el sexo de las personas (<code>sexo</code>).</p>
+<p>1.b- Describe la relación entre las variables visualizada, referenciando el gráfico realizado (<code>@fig-</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>  db_g1 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sexo) <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_decile =</span> <span class="fu">mean</span>(decile, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">error_std =</span> <span class="fu">sd</span>(decile, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()),</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_inf =</span> media_decile <span class="sc">-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> error_std,</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ci_sup =</span> media_decile <span class="sc">+</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">n</span>() <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> error_std</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>db_g1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  sexo   media_decile error_std ci_inf ci_sup
+  &lt;fct&gt;         &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 Hombre         5.92    0.0265   5.87   5.97
+2 Mujer          5.06    0.0261   5.00   5.11</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g1,</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sexo, <span class="at">y =</span> media_decile, <span class="at">group =</span> sexo)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping </span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span> <span class="co"># agregamos geometria</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ci_inf, <span class="at">ymax =</span> ci_sup), <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span> <span class="co"># agregamos intervalo de confianza calculado previamente</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), <span class="at">n.breaks =</span> <span class="dv">7</span>) <span class="sc">+</span> <span class="co"># agregamos escala en eje Y y ponemos limites minimos y maximos</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(media_decile,<span class="dv">2</span>)), <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">colour =</span> <span class="st">"white"</span>) <span class="sc">+</span> <span class="co"># agregamos los valores de la media para cada barra/grupo </span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span><span class="st">"Media de decil de ingresos por sexo"</span>, </span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Sexo"</span>, </span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Media"</span>,</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>) <span class="sc">+</span> <span class="co"># agregamos titulo, nombres a los ejes y fuente </span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># especificamos tema</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-decile" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-decile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-practico_files/figure-html/fig-decile-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-decile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2: Relación entre media de decil de ingresos por sexo
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La <a href="#fig-decile" class="quarto-xref">Figura&nbsp;2</a> muestra la relación entre los deciles de ingreso y el sexo de las personas. Los hombres tienen una media de decil de ingreso mayor que las mujeres.</p>
+<p>2.a- Elabora el gráfico correspondiente que permita visualizar de la mejor forma la relación entre pib (<code>gdp</code>) y indice gini (<code>gini</code>).</p>
+<p>2.b- Describe la relación entre las variables visualizadas, referenciando el gráfico realizado (<code>@fig-</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>db_g2 <span class="ot">&lt;-</span> lapop <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(pais) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cm_gdp =</span> <span class="fu">mean</span>(gdp, <span class="at">na.rm =</span> T),</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">cm_gini =</span> <span class="fu">mean</span>(gini, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> db_g2,</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cm_gini, <span class="at">y =</span> cm_gdp)) <span class="sc">+</span> <span class="co"># especificamos datos y mapping  </span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkred"</span>) <span class="sc">+</span> <span class="co"># agregamos geometria y color </span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">stat =</span> <span class="st">"smooth"</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="co"># agregamos recta que representa la correlacion</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">18</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">20</span>, <span class="at">by =</span> <span class="dv">2</span>)) <span class="sc">+</span> <span class="co"># agregamos escala en eje Y y ponemos limites minimos y maximos</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">7</span>) <span class="sc">+</span>  <span class="co"># agregamos escala eje X para mostrar más valores</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> pais), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">nudge_y =</span> <span class="fl">0.15</span>) <span class="sc">+</span> <span class="co"># agregamos los valores de la media para cada barra/grupo</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span><span class="st">"Asociación entre PIB y desigualdad de los países"</span>, </span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"PIB"</span>, </span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Índice de Gini"</span>,</span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Fuente: Elaboración propia en base a LAPOP 2018."</span>) <span class="sc">+</span> <span class="co"># agregamos titulo, nombres a los ejes y fuente </span></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># especificamos tema</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-gdp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-gdp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="08-practico_files/figure-html/fig-gdp-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gdp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3: Asociación entre PIB y el índice de desigualdad por país
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La <a href="#fig-gdp" class="quarto-xref">Figura&nbsp;3</a> muestra una relación negativa entre el PIB y el índice Gini en los países.</p>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-tufte_visual_2001" class="csl-entry" role="listitem">
+Tufte, E. R. (2001). <em>The <span>Visual Display</span> of <span>Quantitative Information</span></em>. Graphics Press.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
