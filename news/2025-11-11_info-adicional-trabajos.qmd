@@ -1,0 +1,45 @@
+---
+title: "Seminario de encuestas"
+date: 10-28-2025
+categories: [info, mail-UCursos]
+lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+![](/news/images/encuestas.png)
+
+Mañana miércoles 29 tendremos el seminario de encuestas planificado en el curso, al respecto, dos egresados de sociología de FACSO nos presentarán sobre las encuestas que han estado trabajando en el Instituto Nacional de Estadísticas [INE](https://www.ine.gob.cl/). Ambos fueron ayudantes de cursos cuantitativos, y Martín Venegas fue además apoyo docente de correlacional 2024. Las encuestas que van a presentar en detalle son una muy buena fuente de datos para los trabajos. Además, podrán tener la oportunidad de conversar con ellos sobre experiencia en el mercado laboral luego de terminar la carrera.
+
+
+## Martín Venegas
+
+::: {layout-ncol=2}
+![](/news/images/martin.jpg)
+
+- Analista Socioeconómico de la Encuesta Nacional de Uso del Tiempo (ENUT) en el Instituto Nacional de Estadísticas (INE).
+:::
+
+- Sociólogo de la Universidad de Chile con foco en estadística aplicada, diseño de encuestas, procesamiento y análisis de datos. A lo largo de su trayectoria ha desarrollado competencias en el uso de R, Quarto, Git y métodos cuantitativos robustos para abordar problemas complejos. Le interesa especialmente el uso de datos para comprender y transformar realidades sociales, con un fuerte compromiso con la accesibilidad del conocimiento y la investigación reproducible. Busco participar en proyectos que combinen rigurosidad técnica con impacto social positivo.
+
+
+## Víctor Jiménez
+
+::: {layout-ncol=2}
+![](/news/images/victor.jpg)
+
+- Analista Socioeconómico en Encuesta Suplementaria de Ingresos (ESI) en el Instituto Nacional de Estadísticas (INE). 
+:::
+
+- Titulado en Sociología de la Universidad de Chile, egresado del Magister y Políticas Publicas del departamento de Ingeniería Industrial de la Universidad de Chile. Integrante e investigador de NUDESOC (Núcleo de Sociología Contingente). Ex-investigador en CEFECH (Centro de Estudios, Federación Universidad de Chile). Ha trabajado como asistente de investigación en CIAE y consultor asociado en Consultora Inclusión y Equidad. Áreas de Interés: Educación, Políticas Publicas, Economía, Movimientos Sociales, Salud, Trabajo, vivienda digna, entre otras.
+

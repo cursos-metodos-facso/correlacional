@@ -187,11 +187,22 @@ Requisitos de eximición a examen:
 - contar con un promedio ponderado igual o superior a 5.5
 - no tener nota bajo 4.0 en ninguna de las evaluaciones
 
+::: {.callout-important appearance="simple" title="Actualización de eximición"}
+
+- Asistencia: 60% (considerando atrasos como media asistencia)
+- Promedio de presentación a examen: 5.0
+- No tener nota bajo 3.5 en ninguna de las evaluaciones
+
+:::
+
+
 Requisitos para presentación a examen:
 
 - Podrán presentarse al examen de primera oportunidad los estudiantes que hayan obtenido una calificación final igual o superior a 3.5.
 
 - El examen de segunda oportunidad será para aquellos estudiantes que presenten una nota igual o inferior a 3.5 o aquellos que en el examen de primera oportunidad no hubiesen logrado una nota igual o superior a 4.0.
+
+
 
 ## Sobre asistencia, participación y comunicación
 
