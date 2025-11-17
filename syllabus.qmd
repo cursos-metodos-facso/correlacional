@@ -237,7 +237,7 @@ Field, A., Milles, J., & Field, Z. (2012). Discovering statistics using R. Londo
 
 Salkind, N. J. (Ed.). (2010). Encyclopedia of research design (Vol. 1). Sage.
 
-Levin, J. & Levin, W. (1997). Fundamentos de Estadística en la Investigación Social (Vol.2). Oxford University Press. 
+Levin, J. & Levin, W. (1997). Fundamentos de Estadística en la Investigación Social (Vol.2). Oxford University Press.  
 
 ## Programación de sesiones
 
