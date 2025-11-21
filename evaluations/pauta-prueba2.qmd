@@ -262,3 +262,113 @@ tamaño de efecto grande/fuerte según la V de Cramer  (1pt)
 En el test Chi-cuadrado se comparan las frecuencias observadas en cada categoría de una tabla de contingencia con las frecuencias esperadas bajo la hipótesis nula de independencia o no asociación.
 
 En otras palabras, se mide la diferencia entre lo que efectivamente se observa en los datos y lo que se esperaría si no existiera relación entre las variables. Cuanto mayores sean esas diferencias (ajustadas al tamaño de la muestra), mayor será el valor de χ2.
+
+
+# Prueba recuperativa
+
+## Forma E (data_recuperativa: `pref_redis` y `universitaria`)
+
+1.1 Código de correlación y gráfico de dispersión (1p)
+
+```{r}
+load(url("https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/data_recuperativa.RData"))
+```
+
+```{r}
+cor.test(data_recuperativa$ingresos,
+         data_recuperativa$pref_redis,
+         complete.obs = TRUE,
+         method = "pearson")
+
+sjPlot::plot_scatter(data = data_recuperativa,
+                     x = ingresos,
+                     y = pref_redis)
+
+```
+
+* 0.5 pts por el código de cor.test(...)
+
+* 0.5 pts por el código de plot_scatter(...)
+
+1.2 Justificación del coeficiente e interpretación (3p)
+
+  * 1pt por coeficiente de correlación seleccionado
+  * 1pt por inferencia
+  * 1pt por magnitud y sentido del efecto
+
+Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto `ingresos` y `pref_redis` corresponden a variables numéricas de razón/intervalo, adecuadas para este tipo de correlación.
+
+El coeficiente da cuenta de una relación negativa y de magnitud moderada siguiendo los criterios de Cohen (1988) (por ejemplo, un valor de r alrededor de -0.46). Es decir, a medida que aumentan los ingresos, también tienden a disminuir las preferencias redistributivas (pref_redis).
+
+La relación es estadísticamente significativa (p < 0.001), por lo que es posible rechazar H₀ de no asociación entre ambas variables, entregando evidencia a favor de una relación entre ingresos y pref_redis.
+
+2.1 Matriz de correlaciones (1p)
+
+```{r}
+cormat <- data_recuperativa %>% 
+  dplyr::select(universitaria, pref_redis, ingresos)
+
+sjPlot::tab_corr(cormat,
+                 na.deletion = "pairwise",
+                 triangle = "lower")
+
+sjPlot::tab_corr(cormat,
+                 na.deletion = "listwise",
+                 triangle = "lower")
+
+```
+
+
+2.2a Qué correlaciones de la matriz son estadísticamente significativas? ¿Con qué nivel de confianza se puede rechazar la hipótesis nula en estos casos? (1p)
+
+(0,5 por cada correlación significativa)
+
+* Ingresos – pref_redis: correlación negativa y estadísticamente significativa (p < 0.01). Se rechaza H₀ con 99.9% de confianza correspondiente
+
+* Universitaria – pref_redis: correlación positiva, y estadísticamente significativa (p < 0.01). Se rechaza H₀ con 99.9% de confianza correspondiente
+
+2.2b ¿Qué decisión tomó sobre los casos perdidos en el cálculo de la matriz?¿Por qué? (1p)
+
+
+   * **Pairwise**: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular los coeficientes de correlación.
+   * **Listwise**: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos con el fin de mantener el mismo número de casos para todas las correlaciones.
+     
+
+2.2c ¿Cómo se denomina el tipo de correlación que se calcula entre educación e ingreso? (1p)
+
+- La correlación entre la variable dummy educacion (0="no universitaria"; 1="universitaria o más") y la variable continúa ingresos se denomina correlación punto biserial.
+
+- Si utilizan la variable de ingresos recodificada, entonces la correlación es policórica
+
+# Pregunta 3: ¿Cómo se relaciona el sexo con los ingresos?
+
+3.1 Reporte tabla de contigencia y el cálculo de Chi2. Corte y pegue el código abajo. (1p)
+
+- 1pt por el código de sjPlot::sjtab
+
+
+```{r}
+pacman::p_load(sjPlot)
+
+data_recuperativa %>% 
+  sjtab(universitaria,
+        ingresos_rec)
+
+chisq.test(data_recuperativa$universitaria,
+           data_recuperativa$ingresos_rec)  # adicional, ya que el Chi2 aparece en sjtab
+
+```
+
+3.2 Interprete el Chi2 en términos de inferencia y magnitud del efecto. (3p)
+
+El test Chi-cuadrado entre universitaria e ingresos_rec **no es estadísticamente significativo** (p > 0.05), por lo que no se puede rechazar la hipótesis nula de independencia entre ambas variables con el nivel de confianza correspondiente.
+
+El tamaño del efecto, medido con la V de Cramer, es de magnitud pequeña (0.059).
+
+Interpretación sustantiva: a medida que se pasa de los tramos de bajos a altos ingresos, no se modifica la proporción de personas con educación universitaria, lo que no refleja una asociación consistente entre nivel socioeconómico y logro educacional.
+
+3.3 En el contexto de una tabla de contingencia, el test Chi-cuadrado de independencia se utiliza para evaluar si existe asociación entre dos variables categóricas. ¿Cuál es la hipótesis nula de este test y qué significa, en términos sustantivos, que el resultado sea estadísticamente significativo? (1p)
+
+La hipótesis nula del test Chi-cuadrado de independencia plantea que no existe asociación entre las dos variables categóricas; es decir, que son independientes y la distribución de una variable no cambia según las categorías de la otra.
+
+Un resultado estadísticamente significativo (p < 0.05) implica que las diferencias entre las frecuencias observadas y las esperadas bajo independencia son demasiado grandes como para atribuirlas al azar, por lo que se rechaza la hipótesis nula y se concluye que hay evidencia de asociación entre las variables.

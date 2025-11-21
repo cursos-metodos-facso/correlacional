@@ -216,6 +216,11 @@ window.Quarto = {
   <li><a href="#pregunta-1-en-qué-medida-se-relacionan-los-ingresos-en-pesos-de-las-personas-con-sus-niveles-de-apoyo-a-la-democracia" id="toc-pregunta-1-en-qué-medida-se-relacionan-los-ingresos-en-pesos-de-las-personas-con-sus-niveles-de-apoyo-a-la-democracia" class="nav-link" data-scroll-target="#pregunta-1-en-qué-medida-se-relacionan-los-ingresos-en-pesos-de-las-personas-con-sus-niveles-de-apoyo-a-la-democracia">Pregunta 1 ¿En qué medida se relacionan los ingresos (en pesos) de las personas con sus niveles de apoyo a la democracia?</a></li>
   <li><a href="#pregunta-2-cómo-se-relacionan-el-sexo-apoyo_dem-y-los-ingresos" id="toc-pregunta-2-cómo-se-relacionan-el-sexo-apoyo_dem-y-los-ingresos" class="nav-link" data-scroll-target="#pregunta-2-cómo-se-relacionan-el-sexo-apoyo_dem-y-los-ingresos">Pregunta 2: ¿Cómo se relacionan el sexo, apoyo_dem y los ingresos?</a></li>
   <li><a href="#pregunta-3-cómo-se-relaciona-el-sexo-con-los-ingresos" id="toc-pregunta-3-cómo-se-relaciona-el-sexo-con-los-ingresos" class="nav-link" data-scroll-target="#pregunta-3-cómo-se-relaciona-el-sexo-con-los-ingresos">Pregunta 3: ¿Cómo se relaciona el sexo con los ingresos?</a></li>
+  <li><a href="#prueba-recuperativa" id="toc-prueba-recuperativa" class="nav-link" data-scroll-target="#prueba-recuperativa">Prueba recuperativa</a>
+  <ul class="collapse">
+  <li><a href="#forma-e-data_recuperativa-pref_redis-y-universitaria" id="toc-forma-e-data_recuperativa-pref_redis-y-universitaria" class="nav-link" data-scroll-target="#forma-e-data_recuperativa-pref_redis-y-universitaria">Forma E (data_recuperativa: <code>pref_redis</code> y <code>universitaria</code>)</a></li>
+  </ul></li>
+  <li><a href="#pregunta-3-cómo-se-relaciona-el-sexo-con-los-ingresos-1" id="toc-pregunta-3-cómo-se-relaciona-el-sexo-con-los-ingresos-1" class="nav-link" data-scroll-target="#pregunta-3-cómo-se-relaciona-el-sexo-con-los-ingresos-1">Pregunta 3: ¿Cómo se relaciona el sexo con los ingresos?</a></li>
   </ul>
 </nav>
     </div>
@@ -1012,6 +1017,244 @@ X-squared = 379.82, df = 2, p-value &lt; 2.2e-16</code></pre>
 <p>3.3 A Chi2 también se le denomina “test de diferencia”, ¿Qué es lo que se compara para hacer esta diferencia? (1p)</p>
 <p>En el test Chi-cuadrado se comparan las frecuencias observadas en cada categoría de una tabla de contingencia con las frecuencias esperadas bajo la hipótesis nula de independencia o no asociación.</p>
 <p>En otras palabras, se mide la diferencia entre lo que efectivamente se observa en los datos y lo que se esperaría si no existiera relación entre las variables. Cuanto mayores sean esas diferencias (ajustadas al tamaño de la muestra), mayor será el valor de χ2.</p>
+</section>
+<section id="prueba-recuperativa" class="level1">
+<h1>Prueba recuperativa</h1>
+<section id="forma-e-data_recuperativa-pref_redis-y-universitaria" class="level2">
+<h2 class="anchored" data-anchor-id="forma-e-data_recuperativa-pref_redis-y-universitaria">Forma E (data_recuperativa: <code>pref_redis</code> y <code>universitaria</code>)</h2>
+<p>1.1 Código de correlación y gráfico de dispersión (1p)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cursos-metodos-facso/datos-ejemplos/raw/refs/heads/main/data_recuperativa.RData"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(data_recuperativa<span class="sc">$</span>ingresos,</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>         data_recuperativa<span class="sc">$</span>pref_redis,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">complete.obs =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  data_recuperativa$ingresos and data_recuperativa$pref_redis
+t = -15.461, df = 848, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.5197896 -0.4147720
+sample estimates:
+       cor 
+-0.4689365 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">plot_scatter</span>(<span class="at">data =</span> data_recuperativa,</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">x =</span> ingresos,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> pref_redis)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pauta-prueba2_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>0.5 pts por el código de cor.test(…)</p></li>
+<li><p>0.5 pts por el código de plot_scatter(…)</p></li>
+</ul>
+<p>1.2 Justificación del coeficiente e interpretación (3p)</p>
+<ul>
+<li>1pt por coeficiente de correlación seleccionado</li>
+<li>1pt por inferencia</li>
+<li>1pt por magnitud y sentido del efecto</li>
+</ul>
+<p>Se empleó el coeficiente de correlación de Pearson debido a la naturaleza de las variables, en tanto <code>ingresos</code> y <code>pref_redis</code> corresponden a variables numéricas de razón/intervalo, adecuadas para este tipo de correlación.</p>
+<p>El coeficiente da cuenta de una relación negativa y de magnitud moderada siguiendo los criterios de Cohen (1988) (por ejemplo, un valor de r alrededor de -0.46). Es decir, a medida que aumentan los ingresos, también tienden a disminuir las preferencias redistributivas (pref_redis).</p>
+<p>La relación es estadísticamente significativa (p &lt; 0.001), por lo que es posible rechazar H₀ de no asociación entre ambas variables, entregando evidencia a favor de una relación entre ingresos y pref_redis.</p>
+<p>2.1 Matriz de correlaciones (1p)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>cormat <span class="ot">&lt;-</span> data_recuperativa <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(universitaria, pref_redis, ingresos)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_corr</span>(cormat,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.deletion =</span> <span class="st">"pairwise"</span>,</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">triangle =</span> <span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">&nbsp;</td>
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Educación universitaria (1 =<br>
+universitaria o más, 0 = no<br>
+universitaria)</td>
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Preferencias redistributivas</td>
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Ingresos</td>
+</tr>
+<tr class="even">
+<td style="font-style: italic">Educación universitaria (1 =<br>
+universitaria o más, 0 = no<br>
+universitaria)</td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td style="font-style: italic">Preferencias redistributivas</td>
+<td style="text-align: center; padding: 0.2cm;">0.185<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="font-style: italic">Ingresos</td>
+<td style="text-align: center; padding: 0.2cm; color: #999999;">0.039<span style="vertical-align:super;font-size:0.8em;"></span></td>
+<td style="text-align: center; padding: 0.2cm;">-0.469<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td colspan="4" style="text-align: right; border-bottom: double black; border-top: 1px solid black; font-style: italic; font-size: 0.9em;">Computed correlation used pearson-method with pairwise-deletion.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>sjPlot<span class="sc">::</span><span class="fu">tab_corr</span>(cormat,</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.deletion =</span> <span class="st">"listwise"</span>,</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">triangle =</span> <span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">&nbsp;</td>
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Educación universitaria (1 =<br>
+universitaria o más, 0 = no<br>
+universitaria)</td>
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Preferencias redistributivas</td>
+<td data-quarto-table-cell-role="th" style="font-style: italic; font-weight: normal; border-top: double black; border-bottom: 1px solid black; padding: 0.2cm">Ingresos</td>
+</tr>
+<tr class="even">
+<td style="font-style: italic">Educación universitaria (1 =<br>
+universitaria o más, 0 = no<br>
+universitaria)</td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td style="font-style: italic">Preferencias redistributivas</td>
+<td style="text-align: center; padding: 0.2cm;">0.279<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="font-style: italic">Ingresos</td>
+<td style="text-align: center; padding: 0.2cm; color: #999999;">0.039<span style="vertical-align:super;font-size:0.8em;"></span></td>
+<td style="text-align: center; padding: 0.2cm;">-0.469<span style="vertical-align:super;font-size:0.8em;">***</span></td>
+<td style="text-align: center; padding: 0.2cm;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td colspan="4" style="text-align: right; border-bottom: double black; border-top: 1px solid black; font-style: italic; font-size: 0.9em;">Computed correlation used pearson-method with listwise-deletion.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>2.2a Qué correlaciones de la matriz son estadísticamente significativas? ¿Con qué nivel de confianza se puede rechazar la hipótesis nula en estos casos? (1p)</p>
+<p>(0,5 por cada correlación significativa)</p>
+<ul>
+<li><p>Ingresos – pref_redis: correlación negativa y estadísticamente significativa (p &lt; 0.01). Se rechaza H₀ con 99.9% de confianza correspondiente</p></li>
+<li><p>Universitaria – pref_redis: correlación positiva, y estadísticamente significativa (p &lt; 0.01). Se rechaza H₀ con 99.9% de confianza correspondiente</p></li>
+</ul>
+<p>2.2b ¿Qué decisión tomó sobre los casos perdidos en el cálculo de la matriz?¿Por qué? (1p)</p>
+<ul>
+<li><strong>Pairwise</strong>: Se optó por el método de eliminación de pares (pairwise) para el tratamiento de casos perdidos con el fin de mantener la mayor cantidad de casos a la hora de calcular los coeficientes de correlación.</li>
+<li><strong>Listwise</strong>: Se optó por el método de eliminación por lista (listwise) para el tratamiento de casos perdidos con el fin de mantener el mismo número de casos para todas las correlaciones.</li>
+</ul>
+<p>2.2c ¿Cómo se denomina el tipo de correlación que se calcula entre educación e ingreso? (1p)</p>
+<ul>
+<li><p>La correlación entre la variable dummy educacion (0=“no universitaria”; 1=“universitaria o más”) y la variable continúa ingresos se denomina correlación punto biserial.</p></li>
+<li><p>Si utilizan la variable de ingresos recodificada, entonces la correlación es policórica</p></li>
+</ul>
+</section>
+</section>
+<section id="pregunta-3-cómo-se-relaciona-el-sexo-con-los-ingresos-1" class="level1">
+<h1>Pregunta 3: ¿Cómo se relaciona el sexo con los ingresos?</h1>
+<p>3.1 Reporte tabla de contigencia y el cálculo de Chi2. Corte y pegue el código abajo. (1p)</p>
+<ul>
+<li>1pt por el código de sjPlot::sjtab</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sjPlot)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>data_recuperativa <span class="sc">%&gt;%</span> </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sjtab</span>(universitaria,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>        ingresos_rec)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table style="border-collapse:collapse; border:none;">
+ <tbody><tr>
+ <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; border-bottom:1px solid;" rowspan="2">Educación<br>universitaria (1 =<br>universitaria o más,<br>0 = no<br>universitaria)</th>
+ <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal;" colspan="3">Ingresos<br>recodificado</th>
+ <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; font-weight:bolder; font-style:italic; border-bottom:1px solid; " rowspan="2">Total</th>
+ </tr>
+ 
+<tr>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">Bajos ingresos</td>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">Medios ingresos</td>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">Altos ingresos</td>
+ </tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">No universitaria</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">132</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">219</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">73</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">424</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">Universitaria o más</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">115</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">221</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">90</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">426</span></td> 
+</tr>
+ 
+<tr> 
+<td style="padding:0.2cm;  border-bottom:double; font-weight:bolder; font-style:italic; text-align:left; vertical-align:middle;">Total</td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">247</span></td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">440</span></td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">163</span></td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">850</span></td> 
+</tr>
+<tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="5">χ<sup>2</sup>=2.947 · df=2 · Cramer's V=0.059 · p=0.229</td> 
+</tr>
+ 
+</tbody></table>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(data_recuperativa<span class="sc">$</span>universitaria,</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>           data_recuperativa<span class="sc">$</span>ingresos_rec)  <span class="co"># adicional, ya que el Chi2 aparece en sjtab</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  data_recuperativa$universitaria and data_recuperativa$ingresos_rec
+X-squared = 2.9474, df = 2, p-value = 0.2291</code></pre>
+</div>
+</div>
+<p>3.2 Interprete el Chi2 en términos de inferencia y magnitud del efecto. (3p)</p>
+<p>El test Chi-cuadrado entre universitaria e ingresos_rec <strong>no es estadísticamente significativo</strong> (p &gt; 0.05), por lo que no se puede rechazar la hipótesis nula de independencia entre ambas variables con el nivel de confianza correspondiente.</p>
+<p>El tamaño del efecto, medido con la V de Cramer, es de magnitud pequeña (0.059).</p>
+<p>Interpretación sustantiva: a medida que se pasa de los tramos de bajos a altos ingresos, no se modifica la proporción de personas con educación universitaria, lo que no refleja una asociación consistente entre nivel socioeconómico y logro educacional.</p>
+<p>3.3 En el contexto de una tabla de contingencia, el test Chi-cuadrado de independencia se utiliza para evaluar si existe asociación entre dos variables categóricas. ¿Cuál es la hipótesis nula de este test y qué significa, en términos sustantivos, que el resultado sea estadísticamente significativo? (1p)</p>
+<p>La hipótesis nula del test Chi-cuadrado de independencia plantea que no existe asociación entre las dos variables categóricas; es decir, que son independientes y la distribución de una variable no cambia según las categorías de la otra.</p>
+<p>Un resultado estadísticamente significativo (p &lt; 0.05) implica que las diferencias entre las frecuencias observadas y las esperadas bajo independencia son demasiado grandes como para atribuirlas al azar, por lo que se rechaza la hipótesis nula y se concluye que hay evidencia de asociación entre las variables.</p>
 
 
 </section>
