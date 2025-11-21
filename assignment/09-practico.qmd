@@ -1,0 +1,361 @@
+---
+title: "Plantilla reporte final"
+date: "11-19-2024"
+lang: es
+website:
+  comments:
+    giscus:
+      repo: cursos-metodos-facso/correlacional
+---
+
+```{r librerias1, echo=FALSE, warning=FALSE, message=FALSE, collapse=TRUE}
+library(pacman)
+pacman::p_load(tidyverse,   # manipulacion datos
+               sjPlot,      # tablas
+               confintr,    # IC
+               gginference, # visualizacion 
+               rempsyc,     # reporte
+               broom,       # varios
+               sjmisc,      # para descriptivos
+               knitr)       # para       
+
+options(scipen = 999) # para desactivar notacion cientifica
+rm(list = ls()) # para limpiar el entorno de trabajo
+```
+
+El objetivo de esta guía es explicar el formato del informe de los trabajos del curso. Ya que la elaboración de los informes incluye análisis en R, la idea es poder aprovechar los recursos existentes para poder realizar escritura y análisis en un mismo documento. La base de esto eslla [clase sobre documentos dinámicos](/content/13-content) y también los prácticos sobre generación de [tablas](/assignment/06-practico) y [gráficos](/assignment/07-practico) en documentos dinámicos. 
+
+Para facilitar el desarrollo de los trabajos en este entorno ponemos a disposición una carpeta que se puede bajar [aquí](https://github.com/cursos-metodos-facso/plantilla_informe/archive/refs/heads/main.zip). Esta carpeta está basada en el protocolo **IPO**, mencionado en la [clase sobre documentos dinámicos](/content/13-content), con la siguente estructura de archivos y carpetas:
+
+-   *input*: insumos, libro de códigos
+-   *input/img*: imágenes
+-   *input/data*: base de datos original
+-   *procesamiento*: archivos de sintaxis .R
+-   *output*: bases de datos procesada, informes, tablas, gráficos
+
+En detalle, aprenderemos los siguientes contenidos:
+
+1.  Creación y organización de un informe en Quarto
+2.  Generación y presentación de tablas y gráficos en Quarto
+3.  Cómo autoreferenciar elementos dentro un documento Quarto
+
+# Quarto
+
+[Quarto](https://quarto.org/) es un sistema de publicación técnico y científico de código abierto. Es un lenguaje para crear y formatear documentos, similar a **RMarkdown**, aunque más general, con nuevas características y capacidades.
+
+::: {.callout-note}
+**¿Quarto vs RMarkdown?**
+
+En clases vimos que RMarkdown es una forma de escritura de documentos dinámicos en R, que combina código y texto. Antes de la existencia de Quarto, los documentos en RMarkdown se podían renderizar a pdf, html o word con una librería llamada Knitr, pero finalmente la escritura y el renderizado pasaron a llamarse en forma genérica RMarkdown.
+
+Quarto es programa que permite producir documentos dinámicos -- que combinan código y texto -- más allá de R. Nosotros lo vamos a usar para renderizar documentos escritos en la lógica de RMarkdown (texto y "chunks" de R), ya que es más genérico y agrega algunas funcionalidades que superan a RMarkdown
+:::
+
+::: {.callout-tip}
+El nombre de Quarto viene del formato de un libro o panfleto producido a partir de hojas completas impresas con ocho páginas de texto, cuatro en cada lado, que luego se pliegan dos veces para producir cuatro hojas. Las hojas se recortan a lo largo de los pliegues para producir ocho páginas de libro. Cada página impresa se presenta como un cuarto del tamaño de la hoja completa.
+
+El libro impreso más antiguo de Europa conocido es un quarto, el Sibyllenbuch, que se cree que fue impreso por Johannes Gutenberg en 1452-53, antes de la Biblia de Gutenberg, y que sobrevive solo como un fragmento. Esto nos remite a las ideas de ciencia abierta y a la posibilidad de universalizar el conocimiento.
+:::
+
+# Organización de un informe en Quarto
+
+## Crear un documento Quarto
+
+Para generar un documento Quarto hacemos lo siguiente: en RStudio File > New File > Quarto Document
+
+![](../files/crear-qmd.gif){width=100%}
+
+## Encabezado o YAML
+
+Para comenzar, definiremos los elementos que van en el encabezado (front matter o YAML), al menos debemos especificar:
+
+-   Título
+-   Subtítulo
+-   Autores
+-   Fecha
+-   Idioma
+
+![](../files/yaml_informe.png){width=100%}
+
+Con ese YAML el encabezado se ve de la siguiente forma:
+
+![](../files/encabezado.png)
+
+## Apartados y subapartados
+
+Para los títulos de los *apartados* deben poner un \# antes del nombre, y para los *subapartados* cada vez más pequeños dos o más #.
+
+Por ejemplo, si ponemos:
+
+\# Variables
+
+\## Descripción de variables
+
+Los apartados y subapartados diferirán en su tamaño y se verán de esta forma.
+
+![](../files/apartados.png)
+
+## Insertar imágenes
+
+Para llamar una imagen se puede utilizar el código markdown:
+
+`![](acá_ruta_a_imagen)`
+
+
+Por ejemplo, para llamar una imagen que está en la web:
+
+`![](https://www.desarrollosocialyfamilia.gob.cl/storage/image/banner-saludmental.png)`
+
+Se vé luego así al renderizar:
+
+![](https://www.desarrollosocialyfamilia.gob.cl/storage/image/banner-saludmental.png)
+
+O si la imagen está en una carpeta local, ejemplo:
+
+![](input/imagen/banner-saludmental.png)
+
+Para cambiar el tamaño de la imagen usar `width`, y para cambiar la alineación `fig-align`:
+
+`![](input/imagen/banner-saludmental.png){width=50% fig-align="center"}`
+
+Resulta en:
+
+![](https://www.desarrollosocialyfamilia.gob.cl/storage/image/banner-saludmental.png){width=50% fig-align="center"}
+
+
+# Procesamiento de datos
+
+El trabajo con datos se puede dividir en dos momentos: procesamiento y análisis. 
+
+- El **procesamiento** -- muchas veces asociado al concepto de *limpieza* -- se relaciona con la selección y recodificación de variables, generación de índices, etiquetado, etc. Básicamente, dejar los datos listos para analizar.
+
+- El **análisis** se puede dividir en dos etapas: descriptivo y test de hipótesis. En el descriptivo se generan tablas y gráficos univariados y bivariados para mostrar características generales de las variables, como distribución, tendencia central, casos perdidos. Y el test de hipótesis refiere a pruebas estadísticas, contraste con valores críticos, significación estadística y decisión de rechazar hipótesis nula.
+
+En relación a la organización de los archivos, una opción es incluir el procesamiento y el análisis en un único documento reproducible de reporte. Sin embargo, una opción más eficiente es realizar el procesamiento en un documento aparte, ya que puede tomar mucho espacio en el documento de reporte, y además requiere correr muchos análisis cada vez que se renderiza, aumentando el tiempo de procesamiento. 
+
+Por lo tanto, la recomendación es generar un documento de procesamiento (puede ser un archivo de código simple tipo procesamiento.R) que se almacena en la carpeta de procesamiento. Este documento comienza llamando la base de datos original, y al final guarda una base de datos procesada. Esta base de datos procesada es luego la que se llama desde el documento de reporte en la carpeta raíz.
+
+
+## Carga de librerías
+
+Las librerías que utilizaremos en esta guía práctica son:
+
+```{r librerias, warning=FALSE, message=FALSE, collapse=TRUE}
+library(pacman)
+pacman::p_load(tidyverse,   # manipulacion datos
+               sjPlot,      # tablas
+               confintr,    # IC
+               gginference, # visualizacion 
+               rempsyc,     # reporte
+               broom,       # varios
+               sjmisc,      # para descriptivos
+               knitr)       # para       
+
+options(scipen = 999) # para desactivar notacion cientifica
+rm(list = ls()) # para limpiar el entorno de trabajo
+```
+
+## Carga de datos
+
+Como señalamos antes, cargaremos los datos del Estudio Longitudinal Social de Chile (ELSOC) para ejemplificar. En esta guía práctica llamaremos los datos desde la web, pero en la carpeta del proyecto se encuentran alojados en la carpeta `input/data`, y se llama de la siguiente forma:
+
+`load("input/data/ELSOC_Long.RData")`
+
+Pero, para llamar la base de datos desde la web:
+
+```{r datos, warning=FALSE, message=FALSE}
+load(url("https://dataverse.harvard.edu/api/access/datafile/7245118"))
+```
+
+## Limpieza de datos
+
+Realizaremos un tratamiento simple de los casos:
+
+```{r procesamiento, warning=FALSE, message=FALSE}
+# Filtrar casos y seleccionar variables
+data <- elsoc_long_2016_2022.2 %>% 
+  filter(ola==1) %>%
+  select(sexo=m0_sexo,edad=m0_edad,nedu=m01,
+         s11_01,s11_02,s11_03,s11_04,s11_05,s11_06,s11_07,s11_08,s11_09)
+
+# remover NA's
+data <- data %>% 
+  set_na(., na = c(-888, -999)) %>% 
+  na.omit()
+
+# crear variable nueva 
+data <- data %>% 
+  rowwise() %>%
+  mutate(sint_depresivos = mean(c(s11_01,s11_02,s11_03,s11_04,s11_05,s11_06,s11_07,s11_08,s11_09))) %>% 
+  ungroup()
+```
+
+## Guardar base de datos resultante
+
+Guardamos la base de datos procesada en la carpeta de *output*, con
+
+`saveRDS(data, "output/data.Rdata")`
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+saveRDS(data, "../assignment/data/data.RData")
+```
+
+# Informe
+
+## Introducción
+
+> En este apartado pueden poner su introducción, de acuerdo con la pauta del trabajo que se encuentra disponible en el [enlace](https://correlacional.netlify.app/trabajos).
+
+En este ejemplo daremos una mirada a la salud mental, y exploraremos posibles asociaciones con la edad, sexo y nivel educacional.
+
+## Variables
+
+> En este apartado pueden poner sus variables, de acuerdo con la pauta del trabajo que se encuentra disponible en el [enlace](https://correlacional.netlify.app/trabajos).
+
+A continuación, en nuestro ejemplo describiremos las variables necesarias para responder a nuestro objetivo.
+
+## Descripción de variables
+
+En este ejemplo, se seleccionaron las variables:
+
+-   sexo: sexo del encuestado, con nivel de medición nominal
+-   edad: edad del encuestado, con nivel de medición intervalar
+-   nedu: nivel educativo del encuestado, con nivel de medición ordinal
+
+Y las variables del módulo de Salud y Bienestar, referentes a *Estado de ánimo: sintomatología depresiva*, con nivel de medición ordinal, los ítems son los siguientes:
+
+-   Frecuencia: Poco interés o alegría
+-   Frecuencia: Decaimiento, pesadez o desesperanza
+-   Frecuencia: Dificultad para dormir o exceso de sueño
+-   Frecuencia: Cansancio o sensación de falta de energía
+-   Frecuencia: Apetito disminuido o aumentado
+-   Frecuencia: Dificultad para concentrarse
+-   Frecuencia: Mala opinión de sí mismo
+-   Frecuencia: Enlentecimiento físico
+-   Frecuencia: Pensamiento de muerte o dañarse
+
+> Podemos caargar los datos en nuestro informe sin que se vea poniendo la option `echo=FALSE`: `data <-readRDS("output/data.RData")`.
+
+```{r, warning=FALSE, message=FALSE}
+tab1 <- data %>%
+  group_by(sexo) %>% # agrupamos por sexo
+  summarise(n = n()) %>% # contamos por categ de respuesta
+  mutate(prop = round((n / sum(n)) * 100, 2)) # porcentaje
+ 
+pm <- as.numeric(tab1[2,3])
+ph <- as.numeric(tab1[1,3])
+
+tabla1 <- tab1 %>% 
+  kableExtra::kable(format = "html",
+                    align = "c",
+                    col.names = c("Sexo", "n", "Proporción"),
+                    caption = "Tabla 1. Distribución de sexo") %>% 
+  kableExtra::kable_classic(full_width = FALSE, position = "center", font_size = 14) %>% 
+  kableExtra::add_footnote(label = "Fuente: Elaboración propia en base a ELSOC 2016.")
+
+```
+
+En la @tbl-sexo podemos ver que la proporción de mujeres que responde la encuesta corresponde a `r pm`%, mientras que la propoción de hombres corresponde a `r ph`%.
+
+```{r tbl-sexo, warning=FALSE, message=FALSE}
+#| label: tbl-sexo
+#| tbl-cap: "Distribución de sexo"
+#| tbl-cap-location: top
+#| warning: false
+tabla1
+```
+
+> En las options del chunk desde el que llamamos a la tabla le ponemos `tbl-nombre tabla` para etiquetarla, y luego en el texto ponemos `@tbl-nombre-tabla` para referenciarla. También, cuando queremos llamar un valor, es necesario asignarlo a un objeto, y en el texto lo llamamos con:
+
+![](../files/resul-m.png)
+
+## Análisis
+
+> En este apartado pueden poner sus análisis, de acuerdo con la pauta del trabajo que se encuentra disponible en el [enlace](https://correlacional.netlify.app/trabajos).
+
+En nuestro ejemplo, analizaremos la correlación entre algunas variables.
+
+```{r, warning=FALSE, message=FALSE}
+cor_edad_dep <- cor(data$edad, data$sint_depresivos)
+cor_nedu_dep <- cor(data$nedu, data$sint_depresivos)
+cor_nedu_edad <- cor(data$nedu, data$edad)
+```
+
+```{r, warning=FALSE, message=FALSE}
+g1 <- data %>% 
+  group_by(nedu) %>% 
+  summarise(sint_dep = mean(sint_depresivos, na.rm = T),
+            edad=mean(edad, na.rm = T))
+
+grafico1 <- ggplot(data = g1,
+       mapping = aes(x = sint_dep, y = edad, label = nedu)) +
+  geom_point() +
+  geom_smooth(method = "lm",colour = "black",fill="lightblue",size=0.5) + 
+  labs(x = "Sintomatología depresiva",
+       y = "Edad",
+       caption = "Fuente: Elaboración propia en base a ELSOC 2026") +
+  theme_bw()
+
+```
+
+En la @fig-cor_edad_dep es posible apreciar... La correlación entre la edad y el promedio de la sintomatología depresiva corresponde a `r cor_edad_dep`.
+
+```{r fig-cor_edad_dep}
+#| label: fig-cor_edad_dep
+#| fig-cap: "Correlación entre edad y sintomatología depresiva"
+#| warning: false
+#| message: false
+#| fig-align: center
+#| out-width: 80%
+grafico1
+```
+
+> En las options del chunk desde el que llamamos a la figura le ponemos `fig-nombre figura` para etiquetarla, y luego en el texto ponemos `@fig-nombre-figura` para referenciarla.
+
+## Conclusiones
+
+> En este apartado pueden poner sus conclusiones, de acuerdo con la pauta del trabajo que se encuentra disponible en el [enlace](https://correlacional.netlify.app/trabajos).
+
+Aquí redactamos algunas conclusiones.
+
+## Bibliografía
+
+> En este apartado pueden poner su bibliografía, de acuerdo con la pauta del trabajo que se encuentra disponible en el [enlace](https://correlacional.netlify.app/trabajos).
+
+Ponemos un `-` para generar un listado.
+
+-   COES (2023). *Radiografía del Cambio Social: Análisis de Resultados Longitudinales ELSOC 2016-2022. Presentación de Resultados COES*. Marzo, Santiago de Chile.
+
+-   R Core Team (2023). *R: A Language and Environment for Statistical Computing*. R Foundation for Statistical Computing, Vienna, Austria. <https://www.R-project.org/>.
+
+# Visualizacion informe
+
+Finalmente, podemos ver el informe que hemos creado en este [enlace](https://rpubs.com/DaniOlivaresCollio/1118647).
+
+# Reporte de progreso
+
+Completar el reporte de progreso correspondiente a esta práctica [aquí](https://docs.google.com/forms/d/1cJbjoBBweNANbBaEb4PGIg9wGJdA_bDRap-gMc3Ma3c/edit). El plazo para contestarlo es hasta el día martes de la semana siguiente a la que se publica la práctica correspondiente.
+
+# Video de práctica
+
+{{< video https://youtu.be/FvcfVg-ONiM >}}
+
+# Foro
+
+```{=html}
+<script src="https://giscus.app/client.js"
+        data-repo="cursos-metodos-facso/correlacional"
+        data-repo-id="R_kgDOKCMXJQ"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOKCMXJc4CYd9S"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+</script>
+```

@@ -121,8 +121,8 @@ website:
                file: assignment/06-practico.qmd
              - text: "7: Reportes dinámicos"
                file: assignment/07-practico-quarto.qmd
-            # - text: "7: Gráficos bivariados en reportes dinámicos"
-            #   file: assignment/07-practico.qmd
+             - text: "8: Visualización 2: Gráficos"
+               file: assignment/08-practico.qmd
             # - text: "8: Inferencia 4"
             #   file: assignment/08-practico.qmd
             # - text: "9: Reporte - plantilla trabajos"
